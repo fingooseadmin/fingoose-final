@@ -1,0 +1,362 @@
+body .join-page .join-benefits-section,
+body .join-page .join-faq-section {
+  padding-block: clamp(64px, 6.5vw, 96px);
+}
+
+body .join-page .join-benefits-section .join-section-heading,
+body .join-page .join-faq-section .join-section-heading {
+  margin-bottom: clamp(30px, 3.5vw, 46px);
+}
+
+body .join-page .join-benefit-grid {
+  gap: clamp(18px, 2vw, 30px);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+body .join-page .join-benefit-card {
+  overflow: hidden;
+}
+
+body .join-page .join-benefit-card::after {
+  animation: join-module-shine 7.5s ease-in-out infinite;
+  background: linear-gradient(105deg, transparent 15%, rgba(255, 255, 255, 0.38) 48%, transparent 78%);
+  content: "";
+  inset: -60% auto -60% -45%;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(12deg);
+  width: 34%;
+  z-index: 0;
+}
+
+body .join-page .join-benefit-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+body .join-page .join-leadership-card {
+  align-items: center;
+  border-radius: 4px 38px 4px 24px;
+  display: grid;
+  gap: 8px clamp(28px, 4vw, 62px);
+  grid-column: 1 / -1;
+  grid-row: auto;
+  grid-template-columns: minmax(240px, 0.68fr) minmax(0, 1.32fr);
+  padding: clamp(28px, 3.2vw, 44px);
+}
+
+body .join-page .join-leadership-card > .join-benefit-icon,
+body .join-page .join-leadership-card > h3,
+body .join-page .join-leadership-card > p {
+  grid-column: 1;
+}
+
+body .join-page .join-leadership-card > .join-benefit-icon {
+  margin-bottom: 8px;
+}
+
+body .join-page .join-leadership-card > h3 {
+  margin-bottom: 8px;
+}
+
+body .join-page .join-leadership-card > p {
+  align-self: start;
+  font-size: clamp(0.76rem, 0.8vw, 0.86rem);
+  max-width: 440px;
+}
+
+body .join-page .join-leadership-ladder {
+  align-self: stretch;
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  margin-top: 0;
+}
+
+body .join-page .join-leadership-ladder article,
+body .join-page .join-leadership-ladder article:nth-child(2),
+body .join-page .join-leadership-ladder article:nth-child(3) {
+  align-self: end;
+  min-height: 0;
+  padding: clamp(18px, 1.8vw, 26px) clamp(16px, 1.6vw, 24px);
+}
+
+body .join-page .join-leadership-ladder article:nth-child(1) { height: 68%; }
+body .join-page .join-leadership-ladder article:nth-child(2) { height: 84%; }
+body .join-page .join-leadership-ladder article:nth-child(3) { height: 100%; }
+
+body .join-page .join-leadership-ladder h4 {
+  font-size: clamp(1rem, 1.25vw, 1.3rem);
+  margin-bottom: 8px;
+}
+
+body .join-page .join-leadership-ladder p {
+  font-size: clamp(0.64rem, 0.68vw, 0.72rem);
+  line-height: 1.48;
+}
+
+body .join-page .join-benefit-grid > .join-benefit-card:nth-child(2),
+body .join-page .join-benefit-grid > .join-benefit-card:nth-child(3),
+body .join-page .join-benefit-grid > .join-benefit-card:nth-child(4) {
+  align-self: stretch;
+  grid-row: auto;
+  margin-top: 0;
+  min-height: 238px;
+}
+
+body .join-page .join-benefit-grid > .join-benefit-card:nth-child(2) {
+  border-radius: 46% 54% 18% 28% / 30% 42% 24% 36%;
+  grid-column: 1 / span 5;
+  padding: clamp(32px, 3.6vw, 50px) clamp(28px, 3vw, 44px);
+}
+
+body .join-page .join-benefit-grid > .join-benefit-card:nth-child(3) {
+  grid-column: 6 / span 3;
+  padding: clamp(30px, 3.2vw, 44px) clamp(24px, 2.4vw, 34px);
+}
+
+body .join-page .join-benefit-grid > .join-benefit-card:nth-child(4) {
+  align-content: center;
+  border-radius: 56px 18px 56px 18px;
+  display: grid;
+  gap: 8px;
+  grid-column: 9 / -1;
+  grid-template-columns: minmax(0, 1fr);
+  padding: clamp(30px, 3.2vw, 46px);
+}
+
+body .join-page .join-benefit-grid > .join-benefit-card:nth-child(4) .join-benefit-icon {
+  grid-row: auto;
+  margin-bottom: 12px;
+}
+
+body .join-page .join-benefit-card h3 {
+  font-size: clamp(1.45rem, 1.9vw, 2rem);
+  margin-bottom: 12px;
+}
+
+body .join-page .join-benefit-card > p {
+  font-size: clamp(0.72rem, 0.77vw, 0.82rem);
+  line-height: 1.56;
+}
+
+body .join-page .join-benefit-icon {
+  height: 42px;
+  margin-bottom: 18px;
+  width: 42px;
+}
+
+body .join-page .join-benefit-grid > .join-benefit-card:nth-child(2) {
+  animation: join-module-hover-a 6.5s ease-in-out infinite;
+}
+
+body .join-page .join-benefit-grid > .join-benefit-card:nth-child(3) {
+  animation: join-module-hover-b 7.2s ease-in-out infinite;
+}
+
+body .join-page .join-benefit-grid > .join-benefit-card:nth-child(4) {
+  animation: join-module-hover-c 7.8s ease-in-out infinite;
+}
+
+body .join-page .join-faq-layout {
+  display: grid;
+  gap: clamp(22px, 3vw, 38px);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+body .join-page .join-faq-layout > .join-section-heading {
+  margin-bottom: 0;
+  position: static;
+}
+
+body .join-page .join-faq-layout > .join-section-heading h2 {
+  max-width: none;
+}
+
+body .join-page .join-faq-list {
+  display: grid;
+  gap: clamp(14px, 1.6vw, 22px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body .join-page .join-faq-list > .reveal {
+  min-width: 0;
+}
+
+body .join-page .join-faq-list details,
+body .join-page .join-faq-list details:first-child {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1.5px solid rgba(16, 24, 63, 0.24);
+  border-left: 6px solid var(--blue);
+  border-radius: 4px 22px 4px 16px;
+  box-shadow: 5px 6px 0 rgba(16, 24, 63, 0.1);
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  transition: border-color 260ms ease, box-shadow 260ms ease, transform 260ms ease;
+}
+
+body .join-page .join-faq-list > .reveal:nth-child(2n) details {
+  border-left-color: var(--orange);
+  border-radius: 22px 4px 16px 4px;
+}
+
+body .join-page .join-faq-list > .reveal:nth-child(3n) details {
+  background: rgba(223, 229, 255, 0.42);
+}
+
+body .join-page .join-faq-list details:hover {
+  box-shadow: 8px 9px 0 rgba(16, 24, 63, 0.14);
+  transform: translateY(-4px);
+}
+
+body .join-page .join-faq-list details[open] {
+  animation: join-faq-open 360ms var(--fg-ease) both;
+  background: #fff7cb;
+  border-color: var(--blue-dark);
+  padding-inline: 0;
+}
+
+body .join-page .join-faq-list summary {
+  font-size: clamp(0.9rem, 1.05vw, 1.06rem);
+  gap: 16px;
+  min-height: 84px;
+  padding: 18px 18px 18px 20px;
+}
+
+body .join-page .join-faq-list summary i {
+  animation: join-faq-idle 3.6s ease-in-out infinite;
+  box-shadow: 2px 3px 0 var(--blue-dark);
+  height: 32px;
+  width: 32px;
+}
+
+body .join-page .join-faq-list > .reveal:nth-child(2n) summary i {
+  animation-delay: 480ms;
+  background: #ffe0c6;
+}
+
+body .join-page .join-faq-list details[open] summary i {
+  animation: none;
+  transform: rotate(45deg) scale(1.06);
+}
+
+body .join-page .join-faq-list details > p {
+  font-size: clamp(0.74rem, 0.78vw, 0.82rem);
+  line-height: 1.58;
+  margin: 0 20px;
+  padding: 0 0 22px;
+}
+
+body .join-page .join-benefits-section .join-section-heading h2::after,
+body .join-page .join-faq-section .join-section-heading h2::after {
+  animation: join-underline-pulse 3.8s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+@keyframes join-module-shine {
+  0%, 58% { left: -45%; opacity: 0; }
+  68% { opacity: 1; }
+  86%, 100% { left: 125%; opacity: 0; }
+}
+
+@keyframes join-module-hover-a {
+  0%, 100% { transform: translateY(0) rotate(-0.25deg); }
+  50% { transform: translateY(-7px) rotate(0.25deg); }
+}
+
+@keyframes join-module-hover-b {
+  0%, 100% { transform: translateY(0) rotate(0.35deg); }
+  50% { transform: translateY(-6px) rotate(-0.35deg); }
+}
+
+@keyframes join-module-hover-c {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes join-faq-open {
+  from { opacity: 0.84; transform: scale(0.985); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes join-faq-idle {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-3px) rotate(8deg); }
+}
+
+@keyframes join-underline-pulse {
+  0%, 100% { transform: rotate(-1deg) scaleX(0.72); }
+  50% { transform: rotate(-1deg) scaleX(1); }
+}
+
+@media (max-width: 1000px) {
+  body .join-page .join-leadership-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body .join-page .join-leadership-card > .join-benefit-icon,
+  body .join-page .join-leadership-card > h3,
+  body .join-page .join-leadership-card > p,
+  body .join-page .join-leadership-ladder {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  body .join-page .join-leadership-ladder {
+    margin-top: 20px;
+  }
+
+  body .join-page .join-benefit-grid > .join-benefit-card:nth-child(2) { grid-column: 1 / span 6; }
+  body .join-page .join-benefit-grid > .join-benefit-card:nth-child(3) { grid-column: 7 / -1; }
+  body .join-page .join-benefit-grid > .join-benefit-card:nth-child(4) { grid-column: 1 / -1; min-height: 190px; }
+}
+
+@media (max-width: 760px) {
+  body .join-page .join-benefits-section,
+  body .join-page .join-faq-section {
+    padding-block: 54px;
+  }
+
+  body .join-page .join-benefit-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body .join-page .join-leadership-card,
+  body .join-page .join-benefit-grid > .join-benefit-card:nth-child(2),
+  body .join-page .join-benefit-grid > .join-benefit-card:nth-child(3),
+  body .join-page .join-benefit-grid > .join-benefit-card:nth-child(4) {
+    grid-column: 1;
+  }
+
+  body .join-page .join-leadership-ladder article:nth-child(1),
+  body .join-page .join-leadership-ladder article:nth-child(2),
+  body .join-page .join-leadership-ladder article:nth-child(3) {
+    height: auto;
+  }
+
+  body .join-page .join-benefit-grid > .join-benefit-card:nth-child(2),
+  body .join-page .join-benefit-grid > .join-benefit-card:nth-child(3),
+  body .join-page .join-benefit-grid > .join-benefit-card:nth-child(4) {
+    min-height: 0;
+  }
+
+  body .join-page .join-faq-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body .join-page .join-faq-list summary {
+    min-height: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body .join-page .join-benefit-card::after,
+  body .join-page .join-benefit-grid > .join-benefit-card:nth-child(2),
+  body .join-page .join-benefit-grid > .join-benefit-card:nth-child(3),
+  body .join-page .join-benefit-grid > .join-benefit-card:nth-child(4),
+  body .join-page .join-faq-list summary i,
+  body .join-page .join-benefits-section .join-section-heading h2::after,
+  body .join-page .join-faq-section .join-section-heading h2::after {
+    animation: none !important;
+  }
+}

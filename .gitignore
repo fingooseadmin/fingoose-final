@@ -1,0 +1,11 @@
+.next/
+dist/
+out/
+node_modules/
+.pnpm-store/
+.vercel/
+work/
+outputs/
+*.log
+*.tsbuildinfo
+.DS_Store
