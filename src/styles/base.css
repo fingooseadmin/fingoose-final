@@ -15778,7 +15778,7 @@ body.book-preview-open { overflow: hidden; }
 }
 
 
-/* MISSION VIEWPORT REFINEMENT */
+/* MISSION VIEWPORT LAYOUT */
 .scrapbook-mission-section.section {
   padding-block: clamp(46px, 6vh, 72px);
 }
