@@ -22,7 +22,7 @@ const team = [
   },
   {
     name: "Gevan Ha",
-    role: "CMO",
+    role: "Chief Marketing Officer",
     detail: "Community · Growth",
     image: "/assets/team-portrait-two.webp",
     photo: true,
