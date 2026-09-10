@@ -1,7 +1,7 @@
 /* Shared layout constraints: content may grow, decorative frames may not crop text. */
 :root {
-  --layout-content: 1120px;
-  --layout-gutter: clamp(20px, 6vw, 120px);
+  --layout-content: 1040px;
+  --layout-gutter: clamp(24px, 7.5vw, 144px);
 }
 .site-layout .scrapbook-site .container,
 .site-layout .scrapbook-site .container-wide {
@@ -51,17 +51,23 @@
   justify-self: center;
 }
 .site-layout .home-scrapbook-site .scrapbook-home-hero .scrapbook-hero-grid.container {
-  width: min(calc(100% - 2 * clamp(24px,5vw,100px)),1380px);
-  max-width: 1380px;
+  width: min(calc(100% - 2 * clamp(28px,7vw,150px)),1200px);
+  max-width: 1200px;
 }
-.site-layout .home-scrapbook-site .scrapbook-hero-copy h1 { font-size: clamp(2.6rem,5.1vw,5.4rem) !important; line-height: 1.02; }
+.site-layout .home-scrapbook-site .scrapbook-home-hero { min-height: 0 !important; }
+.site-layout .home-scrapbook-site .scrapbook-hero-grid {
+  grid-template-columns: minmax(0,1.08fr) minmax(300px,.92fr);
+  gap: clamp(24px,3.4vw,46px);
+}
+.site-layout .home-scrapbook-site .scrapbook-hero-copy { max-width: 620px; }
+.site-layout .home-scrapbook-site .scrapbook-hero-copy h1 { font-size: clamp(2.55rem,4.4vw,4.7rem) !important; line-height: 1.02; }
 .site-layout .scrapbook-site main h1 { font-size: clamp(2.2rem,4.5vw,4.6rem); }
 .site-layout .scrapbook-site main h2 { font-size: clamp(1.75rem,3.2vw,3.2rem); }
-.site-layout .home-scrapbook-site .scrapbook-orbit { max-width: 520px; width: 100%; justify-self: center; }
+.site-layout .home-scrapbook-site .scrapbook-orbit { max-width: min(430px,52vh); width: 100%; justify-self: center; }
 .site-layout .scrapbook-site .section { padding-block: clamp(40px,5vw,72px); }
 .site-layout .home-scrapbook-site .scrapbook-orbit { margin-block: 30px; }
 .site-layout .home-scrapbook-site .orbit-paper {
-  width: 46%;
+  width: min(42%,170px);
   padding: 12px;
   min-height: 88px;
 }
@@ -249,8 +255,17 @@
   .site-layout .scrapbook-site :where(.contact-grid,.donate-hero-grid,.book-library-row) { grid-template-columns: minmax(0,1fr); }
   .site-layout .scrapbook-site :where(.contact-form,.donation-widget) { max-width: 680px; margin-inline: auto; }
 }
-@media (max-width: 820px) {
-  :root { --layout-gutter: clamp(20px,5vw,40px); }
+@media (max-width: 1280px) and (min-width: 1021px) {
+  .site-layout .scrapbook-header .nav-shell { gap: 8px; padding-inline: 14px; }
+  .site-layout .scrapbook-header .brand { gap: 7px; }
+  .site-layout .scrapbook-header .brand-word { font-size: .9rem; }
+  .site-layout .page-selector { justify-content: flex-end; gap: clamp(2px,.55vw,7px); }
+  .site-layout .page-selector > a,
+  .site-layout .nav-resource-trigger { font-size: .72rem; padding-inline: clamp(7px,.7vw,10px); }
+  .site-layout .home-scrapbook-site .scrapbook-orbit { max-width: min(385px,50vh); }
+}
+@media (max-width: 1020px) {
+  :root { --layout-gutter: clamp(24px,7vw,64px); }
   .site-layout .scrapbook-header .nav-shell { flex-wrap: wrap; display: flex; justify-content: space-between; gap: 8px; padding: 12px 20px; }
   .site-layout .scrapbook-header .brand { flex: 0 1 auto; }
   .site-layout .header-brand-divider { display: none; }
@@ -260,12 +275,20 @@
   .site-layout .page-selector > a,.site-layout .nav-resource-trigger { display: flex; justify-content: center; width: 100%; margin: 0; min-height: 44px; }
   .site-layout .resource-dropdown { display: none; }
   .site-layout .scrapbook-site :where(.page-hero-grid,.course-hero-grid,.join-hero-grid,.resource-index-deck,.teacher-resource-collection,.book-pair-card) { grid-template-columns: minmax(0,1fr) !important; }
+  .site-layout .home-scrapbook-site .scrapbook-home-hero .scrapbook-hero-grid.container {
+    width: min(calc(100% - 2 * clamp(24px,7vw,58px)),680px);
+  }
+  .site-layout .home-scrapbook-site .scrapbook-hero-grid { grid-template-columns: minmax(0,1fr); gap: 34px; }
+  .site-layout .home-scrapbook-site .scrapbook-hero-copy { max-width: 620px; margin-inline: auto; }
+  .site-layout .home-scrapbook-site .scrapbook-hero-copy h1 { max-width: 11ch; }
+  .site-layout .home-scrapbook-site .scrapbook-orbit { max-width: min(390px,82vw); margin-inline: auto; }
   .site-layout .scrapbook-site .page-hero-art { margin: 12px auto 0; }
   .site-layout .scrapbook-site .resource-index-deck { padding-inline: 12px; }
   .site-layout .modal-root :where(.team-profile-dialog,.workshop-story-dialog,.resource-preview-layout,.book-preview-stage,.curriculum-preview-pages,.team-profile-notes) { grid-template-columns: minmax(0,1fr) !important; }
   .site-layout .modal-root :where(.team-profile-portrait,.workshop-story-photo) { height: 240px; min-height: 240px; padding: 0; }
 }
 @media (max-width: 560px) {
+  :root { --layout-gutter: 20px; }
   .site-layout .scrapbook-site :where(.team-scrap-grid,.value-scrap-grid,.expectation-grid,.outcome-grid,.method-scrap-grid,.autism-sequence-grid) { grid-template-columns: minmax(0,1fr); }
   .site-layout .scrapbook-site .section { padding-block: 48px; }
   .site-layout .home-scrapbook-site .orbit-paper { padding: 10px; }
