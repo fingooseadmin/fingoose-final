@@ -12,7 +12,7 @@ const resourceCards = [
     eyebrow: "For educators",
     title: "Curriculum & PDFs",
     copy: "Standards-minded lesson plans, worksheets, guidebooks, and workbooks organized for practical classroom use.",
-    image: "/assets/finn-teacher.png",
+    image: "/assets/finn-teacher.webp",
     status: "Publishing pipeline",
     action: "Get PDF updates",
     href: "/resources/curriculum",
@@ -23,7 +23,7 @@ const resourceCards = [
     eyebrow: "For elementary learners",
     title: "Children’s books",
     copy: "Illustrated stories make opportunity, fairness, saving, and money choices easier to see and discuss.",
-    image: "/assets/money-toast-stack.png",
+    image: "/assets/money-toast-stack.webp",
     status: "Free eBook available",
     action: "View book options",
     href: "/resources/books",
@@ -34,7 +34,7 @@ const resourceCards = [
     eyebrow: "For middle & high school",
     title: "Online course",
     copy: "A 16-step path through budgeting, credit, investing, career decisions, practice prompts, and a final quiz.",
-    image: "/assets/finn-thinking.png",
+    image: "/assets/finn-thinking.webp",
     status: "Live now",
     action: "Open course page",
     href: "/course",
@@ -45,7 +45,7 @@ const resourceCards = [
     eyebrow: "For schools & groups",
     title: "In-person workshops",
     copy: "Hands-on crisis labs turn real-world scenarios into teamwork, discussion, explanation, and confident decisions.",
-    image: "/assets/finn-crisis.png",
+    image: "/assets/finn-crisis.webp",
     status: "Booking inquiries open",
     action: "Request a workshop",
     href: "/resources/workshops",
@@ -56,7 +56,7 @@ const resourceCards = [
     eyebrow: "Coming soon",
     title: "Autism learning kit",
     copy: "A sensory-aware resource concept using visual sequences, predictable routines, and flexible practical activities.",
-    image: "/assets/goose-curious.png",
+    image: "/assets/goose-curious.webp",
     status: "In development",
     action: "Join the interest list",
     href: "/resources/autism-kit",
@@ -80,7 +80,7 @@ export const metadata = createPageMetadata({
 
 export default function ResourcesPage() {
   return (
-    <main className="scrapbook-site">
+    <main id="main-content" tabIndex={-1} className="scrapbook-site">
       <PageSeo
         title="K–12 Financial Literacy Resources"
         description="Explore K–12 financial literacy curriculum, worksheets, children’s books, workshops, a free online course, and an upcoming Autism learning kit."
@@ -91,7 +91,7 @@ export default function ResourcesPage() {
         eyebrow="Resources"
         title="A whole learning library, not one worksheet."
         description="Choose the format that fits: educator curricula, children’s books, a self-paced online course, live workshops, or the upcoming Autism learning kit."
-        image="/assets/finn-teacher.png"
+        image="/assets/finn-teacher.webp"
         primary="Browse the library"
         primaryHref="#library"
         secondary="Request a workshop"
@@ -177,7 +177,7 @@ export default function ResourcesPage() {
             </p>
             <Image
               alt=""
-              src="/assets/apron-goose-cutout.png"
+              src="/assets/apron-goose-cutout.webp"
               width={1024}
               height={1024}
               sizes="(max-width: 760px) 46vw, 280px"
@@ -193,7 +193,7 @@ export default function ResourcesPage() {
             </p>
             <Image
               alt=""
-              src="/assets/finn-thinking.png"
+              src="/assets/finn-thinking.webp"
               width={2048}
               height={2048}
               sizes="(max-width: 760px) 46vw, 280px"

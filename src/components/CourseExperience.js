@@ -1,4 +1,5 @@
 "use client";
+import DialogLayer from "./DialogLayer";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Icon from "./Icon";
@@ -308,6 +309,7 @@ export default function CourseExperience() {
       </div>
 
       {selectedLesson && (
+        <DialogLayer>
         <div
           className="lesson-modal-backdrop"
           onMouseDown={(event) => {
@@ -376,6 +378,7 @@ export default function CourseExperience() {
             </div>
           </section>
         </div>
+        </DialogLayer>
       )}
     </>
   );

@@ -1,4 +1,5 @@
 "use client";
+import DialogLayer from "./DialogLayer";
 
 import Image from "next/image";
 import Link from "@/components/StaticLink";
@@ -108,6 +109,7 @@ export default function WorkshopPolaroids({ events, compact = false }) {
       </div>
 
       {selected ? (
+        <DialogLayer>
         <div
           className="workshop-story-backdrop"
           onMouseDown={(event) => {
@@ -162,6 +164,7 @@ export default function WorkshopPolaroids({ events, compact = false }) {
             </div>
           </section>
         </div>
+        </DialogLayer>
       ) : null}
     </>
   );

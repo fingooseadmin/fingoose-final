@@ -59,7 +59,7 @@ export default function ScrapbookOrbit() {
           <div className="orbit-glow" aria-hidden="true" />
           <Image
             alt=""
-            src="/assets/finn-walking.png"
+            src="/assets/finn-walking.webp"
             width={2048}
             height={2048}
             sizes="(max-width: 980px) 72vw, 520px"

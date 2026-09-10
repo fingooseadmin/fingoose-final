@@ -47,7 +47,7 @@ export const metadata = createPageMetadata({
 
 export default function AboutPage() {
   return (
-    <main className="scrapbook-site about-page">
+    <main id="main-content" tabIndex={-1} className="scrapbook-site about-page">
       <PageSeo
         title="About FinGoose’s Financial Literacy Mission"
         description="Meet the student-led FinGoose team and learn how its mission, story, and values make practical financial literacy more accessible to K–12 students."
@@ -58,7 +58,7 @@ export default function AboutPage() {
         eyebrow="About FinGoose"
         title="A serious mission with a silly goose."
         description="Every idea starts somewhere. Here’s the story behind FinGoose—and the people turning financial knowledge into a fairer starting point."
-        image="/assets/finn-presenting.png"
+        image="/assets/finn-presenting.webp"
         primary="Read our story"
         primaryHref="#story"
         secondary="Meet the team"
@@ -77,7 +77,7 @@ export default function AboutPage() {
             </h2>
             <Image
               alt=""
-              src="/assets/finn-thinking.png"
+              src="/assets/finn-thinking.webp"
               width={2048}
               height={2048}
               sizes="(max-width: 760px) 50vw, 340px"

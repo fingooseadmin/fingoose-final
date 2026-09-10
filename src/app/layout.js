@@ -7,6 +7,7 @@ import "@fontsource/poppins/900.css";
 import "@/styles/base.css";
 import "@/styles/responsive.css";
 import "@/styles/easter-eggs.css";
+import "@/styles/layout.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import MotionController from "@/components/MotionController";
@@ -85,7 +86,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="site-layout">
+        <a className="skip-link" href="#main-content">Skip to content</a>
+        <noscript><style>{`html .site-header { position: relative !important; } html .site-layout .scrapbook-site > section:first-of-type { padding-top: 30px !important; }`}</style></noscript>
         <SiteIntro />
         <CursorAura />
         <KeyboardEasterEggs />

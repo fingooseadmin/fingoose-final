@@ -1,4 +1,5 @@
 "use client";
+import DialogLayer from "./DialogLayer";
 
 import { useEffect, useId, useRef, useState } from "react";
 import Icon from "./Icon";
@@ -256,6 +257,7 @@ export default function ImpactReels() {
       </div>
 
       {selected ? (
+        <DialogLayer>
         <div
           className="impact-player-backdrop"
           onMouseDown={(event) => {
@@ -333,6 +335,7 @@ export default function ImpactReels() {
             </div>
           </section>
         </div>
+        </DialogLayer>
       ) : null}
     </div>
   );

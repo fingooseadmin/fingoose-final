@@ -4,42 +4,42 @@ import FlowWords from "./FlowWords";
 
 const scrapbookFrames = [
   {
-    image: "/assets/finn-presenting.png",
+    image: "/assets/finn-presenting.webp",
     eyebrow: "Workshop day",
     title: "Ideas become decisions",
     color: "blue",
     href: "/impact"
   },
   {
-    image: "/assets/crisis-lab-one.png",
+    image: "/assets/crisis-lab-one.webp",
     eyebrow: "Crisis lab",
     title: "The plan just changed",
     color: "orange",
     href: "/resources/workshops"
   },
   {
-    image: "/assets/finn-thinking.png",
+    image: "/assets/finn-thinking.webp",
     eyebrow: "Pause + think",
     title: "Trade-offs get real",
     color: "gold",
     href: "/course"
   },
   {
-    image: "/assets/apron-goose-one.png",
+    image: "/assets/apron-goose-one.webp",
     eyebrow: "Story mode",
     title: "Money lessons stick",
     color: "violet",
     href: "/resources/books"
   },
   {
-    image: "/assets/finn-teacher.png",
+    image: "/assets/finn-teacher.webp",
     eyebrow: "Classroom ready",
     title: "Built to discuss",
     color: "blue",
     href: "/resources/curriculum"
   },
   {
-    image: "/assets/money-toast-stack.png",
+    image: "/assets/money-toast-stack.webp",
     eyebrow: "Skill unlocked",
     title: "Confidence compounds",
     color: "orange",

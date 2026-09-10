@@ -7,7 +7,7 @@ export default function PageHero({
   eyebrow,
   title,
   description,
-  image = "/assets/finn-presenting.png",
+  image = "/assets/finn-presenting.webp",
   primary,
   primaryHref,
   secondary,

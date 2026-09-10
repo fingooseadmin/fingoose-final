@@ -1,4 +1,5 @@
 "use client";
+import DialogLayer from "./DialogLayer";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -13,7 +14,7 @@ const books = [
     number: "01",
     title: "FinGoose and the Two Mornings",
     description: "An illustrated story about opportunity, fairness, and empathy, designed to help young readers begin a practical conversation about money.",
-    image: "/assets/money-toast-stack.png",
+    image: "/assets/money-toast-stack.webp",
     alt: "Money toast illustration representing FinGoose and the Two Mornings",
     tone: "gold",
     actions: [
@@ -30,7 +31,7 @@ const books = [
     number: "02",
     title: "FinGoose and the Dino Dream",
     description: "The second FinGoose picture book is available through Amazon. The finished cover and reading-preview pages will be added when those source files are supplied.",
-    image: "/assets/goose-curious.png",
+    image: "/assets/goose-curious.webp",
     alt: "FinGoose and the Dino Dream preview artwork",
     tone: "blue",
     actions: [{ label: "View on Amazon", href: dinoAmazonUrl }],
@@ -116,6 +117,7 @@ export default function BookCollectionExperience() {
       </Reveal>
 
       {activeBook ? (
+        <DialogLayer>
         <div className="book-preview-backdrop" onMouseDown={(event) => event.target === event.currentTarget && setOpenIndex(null)}>
           <section className="book-preview-dialog" role="dialog" aria-modal="true" aria-label={`${activeBook.title} preview`} ref={dialogRef} tabIndex={-1}>
             <button className="book-preview-close" type="button" onClick={() => setOpenIndex(null)} aria-label="Close book preview">×</button>
@@ -147,6 +149,7 @@ export default function BookCollectionExperience() {
             </footer>
           </section>
         </div>
+        </DialogLayer>
       ) : null}
     </>
   );

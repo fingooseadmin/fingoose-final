@@ -8,7 +8,7 @@ const FULL_DURATION = 850;
 const REDUCED_DURATION = 300;
 
 export default function SiteIntro() {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const [phase, setPhase] = useState("loading");
   const [progress, setProgress] = useState(0);
 
@@ -32,6 +32,8 @@ export default function SiteIntro() {
       return undefined;
     }
 
+    if (reducedMotion.matches) return undefined;
+    setVisible(true);
     body.classList.add("intro-active");
     const duration = reducedMotion.matches ? REDUCED_DURATION : FULL_DURATION;
     const startedAt = window.performance.now();
@@ -107,7 +109,7 @@ export default function SiteIntro() {
           <div className="intro-runner">
             <Image
               alt=""
-              src="/assets/finn-striding.png"
+              src="/assets/finn-striding.webp"
               width={2048}
               height={2048}
               sizes="(max-width: 620px) 150px, 230px"

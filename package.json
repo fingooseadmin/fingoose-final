@@ -8,6 +8,7 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "node scripts/prepare-static-export.mjs",
+    "verify": "node scripts/check-export.mjs",
     "start": "next start"
   },
   "dependencies": {

@@ -2,16 +2,20 @@ import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
+import { createPageMetadata } from "@/lib/seo";
+import PageSeo from "@/components/PageSeo";
 
-export const metadata = {
-  title: "Contact",
+export const metadata = createPageMetadata({
+  title: "Contact FinGoose for Workshops & Partnerships",
   description:
-    "Contact FinGoose about school workshops, partnerships, resources, or media."
-};
+    "Contact FinGoose to plan a school workshop, library read-aloud, curriculum inquiry, or financial literacy partnership for your community.",
+  path: "/contact"
+});
 
 export default function ContactPage() {
   return (
-    <main className="scrapbook-site">
+    <main id="main-content" tabIndex={-1} className="scrapbook-site">
+      <PageSeo title="Contact FinGoose for Workshops & Partnerships" description={metadata.description} path="/contact" type="ContactPage" />
       <section className="contact-hero">
         <div className="hero-grid-lines" aria-hidden="true" />
         <div className="container contact-grid">
@@ -45,7 +49,7 @@ export default function ContactPage() {
             <div className="contact-art" aria-hidden="true">
               <Image
                 alt=""
-                src="/assets/finn-talking.png"
+                src="/assets/finn-talking.webp"
                 width={2048}
                 height={2048}
                 sizes="(max-width: 760px) 62vw, 420px"

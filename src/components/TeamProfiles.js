@@ -1,4 +1,5 @@
 "use client";
+import DialogLayer from "./DialogLayer";
 
 import Image from "next/image";
 import Link from "@/components/StaticLink";
@@ -35,7 +36,7 @@ const team = [
     name: "Victor Pan",
     role: "Chief Technology Officer",
     detail: "Digital learning · Product systems",
-    image: "/assets/finn-talking.png",
+    image: "/assets/finn-talking.webp",
     summary:
       "Victor leads the digital learning and product systems that carry FinGoose lessons beyond the physical classroom.",
     contribution:
@@ -155,6 +156,7 @@ export default function TeamProfiles() {
       </div>
 
       {selected ? (
+        <DialogLayer>
         <div
           className="team-profile-backdrop"
           onMouseDown={(event) => {
@@ -223,6 +225,7 @@ export default function TeamProfiles() {
             </div>
           </section>
         </div>
+        </DialogLayer>
       ) : null}
     </>
   );

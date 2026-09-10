@@ -41,7 +41,7 @@ export const metadata = createPageMetadata({
 
 export default function CoursePage() {
   return (
-    <main className="scrapbook-site">
+    <main id="main-content" tabIndex={-1} className="scrapbook-site">
       <PageSeo
         title="Free Financial Literacy Course"
         description="Explore a free 16-step financial literacy course for middle and high school students covering budgeting, credit, investing, and financial decisions."
@@ -93,7 +93,7 @@ export default function CoursePage() {
                 </span>
                 <Image
                   alt="FinGoose mascot thinking through a financial lesson"
-                  src="/assets/finn-thinking.png"
+                  src="/assets/finn-thinking.webp"
                   width={2048}
                   height={2048}
                   sizes="(max-width: 760px) 70vw, 480px"
@@ -145,7 +145,7 @@ export default function CoursePage() {
           <div className="handoff-art" aria-hidden="true">
             <Image
               alt=""
-              src="/assets/finn-waving.png"
+              src="/assets/finn-waving.webp"
               width={2048}
               height={2048}
               sizes="(max-width: 760px) 46vw, 300px"

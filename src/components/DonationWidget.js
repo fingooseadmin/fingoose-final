@@ -30,6 +30,7 @@ export default function DonationWidget() {
             <button
               className={frequency === option ? "is-active" : ""}
               key={option}
+              aria-pressed={frequency === option}
               onClick={() => setFrequency(option)}
               type="button"
             >
@@ -46,6 +47,7 @@ export default function DonationWidget() {
             <button
               className={amount === value ? "is-active" : ""}
               key={value}
+              aria-pressed={amount === value}
               onClick={() => setAmount(value)}
               type="button"
             >

@@ -33,17 +33,16 @@ async function optimizeDirectory(directory) {
         }
       }
 
-      const isRoutePayload = entry.name.endsWith(".txt") && entry.name !== "robots.txt";
       const isFont = /\.woff2?$/.test(entry.name);
       const isRequiredFont = /^poppins-latin-\d+-normal\..+\.woff2$/.test(
         entry.name
       );
 
-      if (isRoutePayload || (isFont && !isRequiredFont)) {
+      if (isFont && !isRequiredFont) {
         await rm(absolutePath);
       }
     })
   );
 }
 
-await optimizeDirectory(outputDirectory);
+await optimizeDirectory(outputDirectory);

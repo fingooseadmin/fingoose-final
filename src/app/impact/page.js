@@ -52,7 +52,7 @@ export const metadata = createPageMetadata({
 
 export default function ImpactPage() {
   return (
-    <main className="scrapbook-site impact-page">
+    <main id="main-content" tabIndex={-1} className="scrapbook-site impact-page">
       <PageSeo
         title="Financial Literacy Impact & Workshops"
         description="See how FinGoose financial literacy workshops, classroom visits, books, and interactive crisis labs help K–12 students build money confidence."
@@ -63,7 +63,7 @@ export default function ImpactPage() {
         eyebrow="Our impact"
         title="Field notes from the money lab."
         description="Every workshop gives students a real choice to test, a trade-off to explain, and a stronger financial instinct to take with them."
-        image="/assets/finn-striding.png"
+        image="/assets/finn-striding.webp"
         primary="Bring us to your school"
         primaryHref="/contact"
         secondary="Explore resources"
@@ -120,7 +120,7 @@ export default function ImpactPage() {
           <Reveal className="impact-after-four" delay={120}>
             <Image
               alt=""
-              src="/assets/finn-waving.png"
+              src="/assets/finn-waving.webp"
               width={2048}
               height={2048}
               sizes="(max-width: 620px) 170px, 230px"
@@ -170,7 +170,7 @@ export default function ImpactPage() {
             <div className="book-donation-photo">
               <Image
                 alt="FinGoose financial-literacy book artwork"
-                src="/assets/money-toast-stack.png"
+                src="/assets/money-toast-stack.webp"
                 width={2048}
                 height={2048}
                 sizes="(max-width: 760px) 70vw, 440px"

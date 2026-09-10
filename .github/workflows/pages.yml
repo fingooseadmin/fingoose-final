@@ -42,6 +42,9 @@ jobs:
       - name: Build static website
         run: pnpm build
 
+      - name: Verify pages and search metadata
+        run: pnpm verify
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 

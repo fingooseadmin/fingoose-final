@@ -5,10 +5,11 @@ export default function FlowWords({ children, className = "" }) {
   return (
     <span className={`flow-words ${className}`} aria-label={text}>
       {words.map((word, index) => (
+        <Fragment key={`${word}-${index}`}>
+        {index > 0 ? " " : null}
         <span
           aria-hidden="true"
           className="flow-word"
-          key={`${word}-${index}`}
           style={{
             "--word-index": index,
             "--word-delay": `${index * 58}ms`
@@ -16,7 +17,9 @@ export default function FlowWords({ children, className = "" }) {
         >
           {word}
         </span>
+        </Fragment>
       ))}
     </span>
   );
 }
+import { Fragment } from "react";

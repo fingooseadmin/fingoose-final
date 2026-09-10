@@ -59,17 +59,17 @@ const faqs = [
 ];
 
 export const metadata = createPageMetadata({
-  title: "Join Us",
-  description: "Interested in taking the next waddle? Check out our Chapter Guide!",
+  title: "Start a Financial Literacy Chapter",
+  description: "Start a free FinGoose chapter at your high school. Lead local financial literacy workshops and library read-alouds with guidance from the FinGoose team.",
   path: "/join-us"
 });
 
 export default function JoinUsPage() {
   return (
-    <main className="scrapbook-site join-page">
+    <main id="main-content" tabIndex={-1} className="scrapbook-site join-page">
       <PageSeo
-        title="Join Us"
-        description="Interested in taking the next waddle? Check out our Chapter Guide!"
+        title="Start a Financial Literacy Chapter"
+        description={metadata.description}
         path="/join-us"
         type="WebPage"
       />
@@ -90,7 +90,7 @@ export default function JoinUsPage() {
             <div className="join-hero-ring" aria-hidden="true" />
             <Image
               alt=""
-              src="/assets/finn-waving.png"
+              src="/assets/finn-waving.webp"
               width={2048}
               height={2048}
               sizes="(max-width: 820px) 78vw, 520px"

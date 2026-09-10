@@ -143,7 +143,7 @@ export default function KeyboardEasterEggs() {
           </div>
           <Image
             alt="A curious FinGoose duck"
-            src="/assets/goose-curious.png"
+            src="/assets/goose-curious.webp"
             width={2048}
             height={2048}
             sizes="280px"

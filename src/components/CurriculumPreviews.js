@@ -1,4 +1,5 @@
 "use client";
+import DialogLayer from "./DialogLayer";
 
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
@@ -185,6 +186,7 @@ export default function CurriculumPreviews() {
       </div>
 
       {selected ? (
+        <DialogLayer>
         <div
           className="curriculum-preview-backdrop"
           onMouseDown={(event) => {
@@ -237,6 +239,7 @@ export default function CurriculumPreviews() {
             </footer>
           </section>
         </div>
+        </DialogLayer>
       ) : null}
     </>
   );

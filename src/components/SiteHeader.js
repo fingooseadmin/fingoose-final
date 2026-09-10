@@ -25,8 +25,28 @@ const resourceLinks = [
 
 export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const headerRef = useRef(null);
   const pathname = usePathname();
   const navigationRef = useRef(null);
+
+  useEffect(() => {
+    const header = headerRef.current;
+    document.documentElement.classList.add("navigation-ready");
+    const main = document.querySelector("main");
+    if (main) { main.id = "main-content"; main.tabIndex = -1; }
+    const updateHeight = () => {
+      document.documentElement.style.setProperty("--fg-fixed-header-height", `${Math.ceil(header.getBoundingClientRect().height)}px`);
+    };
+    updateHeight();
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, [pathname]);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     let frame = 0;
@@ -79,6 +99,8 @@ export default function SiteHeader() {
 
   return (
     <header
+      ref={headerRef}
+      onKeyDown={(event) => { if (event.key === "Escape") setMenuOpen(false); }}
       className={
         "site-header scrapbook-header" +
         (pathname === "/" ? " is-home-header" : "") +
@@ -104,7 +126,10 @@ export default function SiteHeader() {
 
         <span className="header-brand-divider" aria-hidden="true" />
 
-        <nav className="page-selector" aria-label="Primary navigation" ref={navigationRef}>
+        <button className="mobile-nav-toggle" type="button" aria-controls="primary-navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? "Close menu" : "Menu"} <span aria-hidden="true">{menuOpen ? "×" : "☰"}</span>
+        </button>
+        <nav id="primary-navigation" className={`page-selector ${menuOpen ? "is-open" : ""}`} aria-label="Primary navigation" ref={navigationRef} onClick={(event) => { if (event.target.closest("a")) setMenuOpen(false); }}>
           {links.slice(0, 4).map((link) => {
             const active =
               link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);

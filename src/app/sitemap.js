@@ -1,7 +1,7 @@
 export const dynamic = "force-static";
 
 const siteUrl = "https://fingoose.org";
-const lastModified = new Date("2026-08-22T00:00:00.000Z");
+const lastModified = new Date("2026-09-09T00:00:00.000Z");
 
 const routes = [
   { path: "/", changeFrequency: "weekly", priority: 1 },

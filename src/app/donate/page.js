@@ -32,7 +32,7 @@ export const metadata = createPageMetadata({
 
 export default function DonatePage() {
   return (
-    <main className="scrapbook-site">
+    <main id="main-content" tabIndex={-1} className="scrapbook-site">
       <PageSeo
         title="Support Financial Literacy Education"
         description="Support FinGoose as it creates accessible K–12 financial literacy resources, classroom workshops, children’s books, and free-book donations."
@@ -56,7 +56,7 @@ export default function DonatePage() {
             </div>
             <Image
               alt="FinGoose mascot walking forward"
-              src="/assets/finn-striding.png"
+              src="/assets/finn-striding.webp"
               width={2048}
               height={2048}
               sizes="(max-width: 760px) 68vw, 480px"

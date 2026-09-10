@@ -20,7 +20,7 @@ export const metadata = createPageMetadata({
 
 export default function AutismKitPage() {
   return (
-    <main className="scrapbook-site">
+    <main id="main-content" tabIndex={-1} className="scrapbook-site">
       <PageSeo
         title="Autism Financial Literacy Learning Kit"
         description="Join updates for FinGoose’s sensory-aware Autism financial literacy kit, designed around visual sequencing, predictable routines, and practical money skills."
@@ -32,7 +32,7 @@ export default function AutismKitPage() {
         eyebrow="Autism learning kit · in development"
         title="A more predictable path into money confidence."
         description="FinGoose is shaping a sensory-aware resource concept around visual sequencing, repeatable routines, and flexible practical activities."
-        image="/assets/goose-curious.png"
+        image="/assets/goose-curious.webp"
         primary="Join the interest list"
         primaryHref="/contact?interest=autism-kit#contact-form"
         secondary="All resources"

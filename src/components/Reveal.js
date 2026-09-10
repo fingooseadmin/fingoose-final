@@ -8,14 +8,20 @@ export default function Reveal({ children, className = "", delay = 0 }) {
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+      node.classList.add("is-visible");
+      return;
+    }
+    node.classList.add("reveal-pending");
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           node.classList.add("is-visible");
+          node.classList.remove("reveal-pending");
           observer.unobserve(node);
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0, rootMargin: "0px 0px 40px 0px" }
     );
     observer.observe(node);
     return () => observer.disconnect();

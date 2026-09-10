@@ -9,6 +9,13 @@ import Reveal from "@/components/Reveal";
 import RotatingScrapbook from "@/components/RotatingScrapbook";
 import ScrapbookOrbit from "@/components/ScrapbookOrbit";
 import TestimonialSlider from "@/components/TestimonialSlider";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Financial Literacy for Kids & Teens",
+  description: "FinGoose makes money skills practical for K–12 students through free financial literacy lessons, school workshops, children's books, and student-led chapters.",
+  path: "/"
+});
 
 const homeStructuredData = {
   "@context": "https://schema.org",
@@ -137,7 +144,7 @@ const impactCards = [
 
 export default function HomePage() {
   return (
-    <main className="scrapbook-site home-scrapbook-site">
+    <main id="main-content" tabIndex={-1} className="scrapbook-site home-scrapbook-site">
       <JsonLd data={homeStructuredData} />
       <section className="scrapbook-home-hero">
         <div className="paper-noise" aria-hidden="true" />
@@ -390,7 +397,7 @@ export default function HomePage() {
             </div>
             <Image
               alt=""
-              src="/assets/finn-full.png"
+              src="/assets/finn-full.webp"
               width={2048}
               height={2048}
               sizes="(max-width: 760px) 52vw, 320px"
