@@ -1,0 +1,183 @@
+body .events-page {
+  --events-ink: #10183f;
+}
+
+body .events-page .events-hero {
+  background:
+    radial-gradient(circle at 84% 18%, rgba(255, 191, 40, 0.34), transparent 28%),
+    linear-gradient(rgba(60, 76, 186, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(60, 76, 186, 0.07) 1px, transparent 1px),
+    #fffdf6;
+  background-size: auto, 28px 28px, 28px 28px, auto;
+  padding-top: calc(var(--fg-fixed-header-height, 82px) + 28px);
+}
+
+body .events-page .events-hero-grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(34px, 6vw, 88px);
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.7fr);
+  min-height: min(700px, calc(100svh - var(--fg-fixed-header-height, 82px)));
+  padding-block: clamp(54px, 7vw, 94px);
+}
+
+body .events-page .events-hero-copy h1 {
+  color: var(--events-ink);
+  font-size: clamp(3.2rem, 6.4vw, 6.3rem);
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+  margin: 22px 0 18px;
+}
+
+body .events-page .events-hero-copy p {
+  color: #60657b;
+  max-width: 46ch;
+}
+
+body .events-page .events-hero-copy .button {
+  margin-top: 28px;
+}
+
+body .events-page .events-hero-art {
+  aspect-ratio: 1;
+  background: var(--blue);
+  border: 2px solid var(--events-ink);
+  border-radius: 50%;
+  box-shadow: 14px 16px 0 var(--gold);
+  display: grid;
+  max-width: 430px;
+  overflow: hidden;
+  place-items: center;
+  position: relative;
+}
+
+body .events-page .events-hero-art img {
+  height: 88%;
+  margin-top: 12%;
+  object-fit: contain;
+  width: 88%;
+}
+
+body .events-page .events-list {
+  background: #f6f2e9;
+}
+
+body .events-page .events-section-heading {
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+body .events-page .events-section-heading h2 {
+  color: var(--events-ink);
+  font-size: clamp(2.25rem, 4.4vw, 4.6rem);
+  letter-spacing: -0.055em;
+  line-height: 0.96;
+  margin-top: 24px;
+  max-width: 15ch;
+}
+
+body .events-page .event-detail-card {
+  align-items: center;
+  background: #fff9d8;
+  border: 2px solid var(--events-ink);
+  box-shadow: 12px 14px 0 var(--events-ink);
+  display: grid;
+  gap: clamp(28px, 5vw, 72px);
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+  padding: clamp(22px, 3.5vw, 48px);
+}
+
+body .events-page .event-flyer-placeholder {
+  aspect-ratio: 4 / 3;
+  background: var(--blue);
+  border: 2px solid var(--events-ink);
+  overflow: hidden;
+  padding: 16px;
+  position: relative;
+}
+
+body .events-page .event-flyer-placeholder img {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+body .events-page .event-flyer-placeholder span,
+.event-preview-flyer > span {
+  background: var(--orange);
+  bottom: 12px;
+  color: #fff;
+  font-size: 0.66rem;
+  font-weight: 850;
+  left: 12px;
+  letter-spacing: 0.04em;
+  padding: 8px 10px;
+  position: absolute;
+  text-transform: uppercase;
+}
+
+body .events-page .event-detail-copy h2 {
+  color: var(--events-ink);
+  font-size: clamp(2rem, 3.5vw, 3.8rem);
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+  margin: 22px 0 18px;
+}
+
+body .events-page .event-detail-copy p {
+  color: #62677d;
+  max-width: 52ch;
+}
+
+body .events-page .event-detail-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0;
+}
+
+body .events-page .event-detail-notes span {
+  align-items: center;
+  background: #fff;
+  border: 1px solid rgba(18, 27, 85, 0.24);
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.76rem;
+  font-weight: 750;
+  gap: 7px;
+  padding: 9px 12px;
+}
+
+@media (max-width: 820px) {
+  body .events-page .events-hero-grid,
+  body .events-page .event-detail-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body .events-page .events-hero-copy {
+    text-align: center;
+  }
+
+  body .events-page .events-hero-copy p,
+  body .events-page .events-hero-art {
+    margin-inline: auto;
+  }
+
+  body .events-page .events-hero-grid {
+    min-height: 0;
+  }
+
+  body .events-page .event-detail-copy {
+    text-align: left;
+  }
+}
+
+@media (max-width: 560px) {
+  body .events-page .event-detail-card {
+    padding: 16px;
+  }
+
+  body .events-page .event-flyer-placeholder {
+    aspect-ratio: 1;
+    padding: 10px;
+  }
+}

@@ -217,37 +217,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section kit-preview-section library-visit-preview">
+      <section className="section kit-preview-section library-visit-preview" id="upcoming-events">
         <div className="container">
-          <Reveal className="kit-preview-card kit-preview-compact">
+          <Reveal className="event-preview-card">
             <div className="kit-sticker" aria-hidden="true">NEW</div>
-            <div className="kit-preview-copy">
-              <span className="eyebrow">New book · library visits</span>
-              <h2><FlowWords>Bring a FinGoose read-aloud to your library.</FlowWords></h2>
+            <div className="event-preview-copy">
+              <span className="eyebrow">Upcoming events</span>
+              <h2><FlowWords>FinGoose Read-Aloud + Volcano Activity</FlowWords></h2>
               <p>
-                Invite FinGoose for a lively reading of the new book, a guided
-                money conversation, and an age-friendly activity that turns the
-                story into something young learners can use.
+                Join FinGoose for a read-aloud and hands-on volcano activity.
+                Event details will be shared through the signup form.
               </p>
-              <Link className="button button-dark" href="/contact?interest=library-visit#contact-form">
-                Plan a library visit <Icon name="arrow" />
-              </Link>
+              <div className="button-row">
+                <Link className="button button-dark" href="/contact?interest=library-visit#contact-form">
+                  Sign up for the event <Icon name="arrow" />
+                </Link>
+                <Link className="text-link" href="/events">View events <Icon name="arrow" /></Link>
+              </div>
             </div>
-            <div className="kit-preview-art" aria-label="The three parts of a FinGoose library read-aloud">
-              <span className="kit-art-label">A story that keeps moving</span>
-              <div className="kit-sequence-card kit-sequence-one">
-                <Icon name="book" />
-                <span>Read</span>
-              </div>
-              <div className="kit-sequence-line" aria-hidden="true" />
-              <div className="kit-sequence-card kit-sequence-two">
-                <Icon name="spark" />
-                <span>Talk</span>
-              </div>
-              <div className="kit-sequence-card kit-sequence-three">
-                <Icon name="check" />
-                <span>Try</span>
-              </div>
+            <div className="event-preview-flyer" aria-label="Event flyer placeholder">
+              <Image alt="FinGoose and the Dino Dream book cover" src="/assets/book-dino-dream-cover.webp" width={1774} height={1800} sizes="(max-width: 820px) 78vw, 420px" />
+              <span>Event flyer · final artwork pending</span>
             </div>
           </Reveal>
         </div>

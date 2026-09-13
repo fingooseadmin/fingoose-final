@@ -153,9 +153,14 @@ export default function WorkshopPolaroids({ events, compact = false }) {
                 {selected.tags.map((tag) => <span key={tag}>{tag}</span>)}
               </div>
               <div className="workshop-story-actions">
-                <Link className="button button-dark" href="/resources/workshops" onClick={closeStory}>
-                  Explore workshops <Icon name="arrow" />
-                </Link>
+                <div className="workshop-story-links">
+                  <a className="button button-gold" href={selected.instagramPost} target="_blank" rel="noreferrer">
+                    View Instagram post <Icon name="instagram" />
+                  </a>
+                  <Link className="button button-dark" href="/resources/workshops" onClick={closeStory}>
+                    Explore workshops <Icon name="arrow" />
+                  </Link>
+                </div>
                 <div>
                   <button type="button" onClick={() => moveStory(-1)} aria-label="Previous workshop">←</button>
                   <button type="button" onClick={() => moveStory(1)} aria-label="Next workshop">→</button>

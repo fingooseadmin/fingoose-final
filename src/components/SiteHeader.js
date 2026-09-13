@@ -8,11 +8,15 @@ import Icon from "./Icon";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/join-us", label: "Join Us" },
+  { href: "/events", label: "Events" },
   { href: "/impact", label: "Our Impact" },
   { href: "/contact", label: "Contact" },
   { href: "/donate", label: "Donate", icon: true }
+];
+
+const aboutLinks = [
+  { href: "/about", label: "About FinGoose", icon: "spark" },
+  { href: "/join-us", label: "Start a chapter", icon: "school" }
 ];
 
 const resourceLinks = [
@@ -29,6 +33,7 @@ export default function SiteHeader() {
   const headerRef = useRef(null);
   const pathname = usePathname();
   const navigationRef = useRef(null);
+  const isCurrent = (href) => href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   useEffect(() => {
     const header = headerRef.current;
@@ -130,9 +135,8 @@ export default function SiteHeader() {
           {menuOpen ? "Close menu" : "Menu"} <span aria-hidden="true">{menuOpen ? "×" : "☰"}</span>
         </button>
         <nav id="primary-navigation" className={`page-selector ${menuOpen ? "is-open" : ""}`} aria-label="Primary navigation" ref={navigationRef} onClick={(event) => { if (event.target.closest("a")) setMenuOpen(false); }}>
-          {links.slice(0, 4).map((link) => {
-            const active =
-              link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+          {links.slice(0, 1).map((link) => {
+            const active = isCurrent(link.href);
             return (
               <Link
                 key={link.href}
@@ -142,6 +146,39 @@ export default function SiteHeader() {
               >
                 {link.label}
                 {link.icon ? <Icon name="heart" size={14} /> : null}
+              </Link>
+            );
+          })}
+
+          <div className={`nav-resource-menu nav-about-menu ${pathname.startsWith("/about") || pathname.startsWith("/join-us") ? "is-active" : ""}`}>
+            <Link
+              className="nav-resource-trigger nav-about-trigger"
+              href="/about"
+              aria-current={pathname.startsWith("/about") ? "page" : undefined}
+            >
+              About <span className="nav-menu-chevron" aria-hidden="true">⌄</span>
+            </Link>
+            <div className="resource-dropdown about-dropdown">
+              <span className="resource-dropdown-label">About FinGoose</span>
+              {aboutLinks.map((item) => (
+                <Link href={item.href} key={item.href}>
+                  <span><Icon name={item.icon} size={16} /></span>
+                  {item.label}
+                  <Icon name="arrow" size={14} />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <Link className="nav-mobile-only" href="/join-us" aria-current={pathname.startsWith("/join-us") ? "page" : undefined}>
+            Start a Chapter
+          </Link>
+
+          {links.slice(1, 3).map((link) => {
+            const active = isCurrent(link.href);
+            return (
+              <Link key={link.href} className={active ? "is-active" : ""} href={link.href} aria-current={active ? "page" : undefined}>
+                {link.label}
               </Link>
             );
           })}
@@ -172,8 +209,8 @@ export default function SiteHeader() {
             </div>
           </div>
 
-          {links.slice(4).map((link) => {
-            const active = pathname.startsWith(link.href);
+          {links.slice(3).map((link) => {
+            const active = isCurrent(link.href);
             return (
               <Link
                 key={link.href}

@@ -8,7 +8,8 @@ export const workshopEvents = [
     copy: "Teams rebuilt a budget after an income shock, then defended the trade-offs behind their plan.",
     tags: ["saving", "budgeting", "borrowing"],
     image: "/assets/workshop-financial-resilience.webp",
-    color: "blue"
+    color: "blue",
+    instagramPost: "https://www.instagram.com/p/DSlRkWiEl_m/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
   },
   {
     date: "December 15, 2025",
@@ -19,7 +20,8 @@ export const workshopEvents = [
     copy: "FinGoose waddled back into a familiar classroom on December 15, 2025, and this time the focus was on money decisions in the real world.",
     tags: ["advertising", "scams", "critical thinking"],
     image: "/assets/workshop-money-decisions.webp",
-    color: "orange"
+    color: "orange",
+    instagramPost: "https://www.instagram.com/p/DSn53sOkkil/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
   },
   {
     date: "December 17, 2025",
@@ -30,6 +32,7 @@ export const workshopEvents = [
     copy: "FinGoose reached its largest group yet with realistic scenarios, team decisions, and a discussion-led room.",
     tags: ["50+ learners", "collaboration", "confidence"],
     image: "/assets/workshop-money-management.webp",
-    color: "gold"
+    color: "gold",
+    instagramPost: "https://www.instagram.com/p/DSqfPA4koVy/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
   }
 ];

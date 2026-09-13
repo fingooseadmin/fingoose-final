@@ -5,6 +5,8 @@ import Icon from "./Icon";
 const pages = [
   ["Home", "/"],
   ["About", "/about"],
+  ["Join Us", "/join-us"],
+  ["Events", "/events"],
   ["Our Impact", "/impact"],
   ["Resources", "/resources"],
   ["Online Course", "/course"],

@@ -1,7 +1,7 @@
 export const dynamic = "force-static";
 
 const siteUrl = "https://fingoose.org";
-const lastModified = new Date("2026-09-09T00:00:00.000Z");
+const lastModified = new Date("2026-09-12T00:00:00.000Z");
 
 const routes = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
@@ -13,6 +13,7 @@ const routes = [
   { path: "/impact/", changeFrequency: "monthly", priority: 0.8 },
   { path: "/about/", changeFrequency: "monthly", priority: 0.75 },
   { path: "/join-us/", changeFrequency: "monthly", priority: 0.75 },
+  { path: "/events/", changeFrequency: "weekly", priority: 0.8 },
   { path: "/donate/", changeFrequency: "monthly", priority: 0.7 },
   { path: "/contact/", changeFrequency: "yearly", priority: 0.6 },
   { path: "/resources/autism-kit/", changeFrequency: "monthly", priority: 0.6 }

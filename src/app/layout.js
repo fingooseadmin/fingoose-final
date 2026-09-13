@@ -8,6 +8,7 @@ import "@/styles/base.css";
 import "@/styles/responsive.css";
 import "@/styles/easter-eggs.css";
 import "@/styles/layout.css";
+import "@/styles/editorial.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import MotionController from "@/components/MotionController";

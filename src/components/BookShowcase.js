@@ -10,8 +10,8 @@ const books = [
     number: "01",
     title: "FinGoose and the Two Mornings",
     description: "The illustrated story introduces opportunity, fairness, and empathy in a way young readers can understand. Digital access is available free through Kobo.",
-    image: "/assets/money-toast-stack.webp",
-    imageAlt: "Money toast illustration from FinGoose and the Two Mornings",
+    image: "/assets/book-two-mornings-cover.webp",
+    imageAlt: "Cover of FinGoose and the Two Mornings",
     coverLabel: "Children’s book · free eBook",
     tone: "gold",
     placeholder: false,
@@ -28,17 +28,17 @@ const books = [
     number: "02",
     title: "FinGoose and the Dino Dream",
     description: "The second FinGoose children's book is available through Amazon, with additional reading materials planned as the collection grows.",
-    image: "/assets/goose-curious.webp",
-    imageAlt: "FinGoose and the Dino Dream cover artwork in production",
-    coverLabel: "Children's book · cover art in production",
+    image: "/assets/book-dino-dream-cover.webp",
+    imageAlt: "Cover of FinGoose and the Dino Dream",
+    coverLabel: "Children's book · available now",
     tone: "blue",
-    placeholder: true,
+    placeholder: false,
     actions: [
       { label: "View on Amazon", href: dinoAmazonUrl, style: "button-dark" }
     ],
     details: [
       { label: "Available now", value: "Amazon edition", copy: "Open the verified product listing." },
-      { label: "Book preview", value: "Forthcoming", copy: "A verified preview will appear when the source file is available." }
+      { label: "Book cover", value: "Available", copy: "View the complete cover artwork from the FinGoose collection." }
     ]
   }
 ];

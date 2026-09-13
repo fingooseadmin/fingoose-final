@@ -70,11 +70,11 @@ export default function AboutPage() {
           <Reveal className="mission-note">
             <div className="mission-note-tape" aria-hidden="true" />
             <span className="sticker-label sticker-orange">Our mission</span>
-            <h2>
+            <p className="mission-statement">
               FinGoose’s mission is to combat wealth inequality by providing
               students with a rigorous, creative, and accessible financial
               literacy curriculum grounded in real-world learning.
-            </h2>
+            </p>
             <Image
               alt=""
               src="/assets/finn-thinking.webp"
@@ -113,16 +113,19 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={60}>
               <p>
-                FinGoose grew from Grace Zhou’s interests in economic justice,
-                creative education, and the way financial systems shape a
-                student’s opportunities.
+                Hi! I’m Grace Zhou, a junior at the Bergen County Academies in
+                the Academy of Business &amp; Finance. I’m passionate about
+                financial literacy, animation, and creative education and hope
+                to apply these skills in FinGoose!
               </p>
             </Reveal>
             <Reveal delay={110}>
               <p>
-                She paired research and teaching with animation, video, and
-                graphic design. The result is a learning system that turns
-                difficult money ideas into visual, practical experiences.
+                FinGoose grew from my interests in economic justice, creative
+                education, and the way financial systems shape a student’s
+                opportunities. I pair research and teaching with animation,
+                video, and graphic design to turn difficult money ideas into
+                visual, practical experiences.
               </p>
             </Reveal>
             <Reveal className="scrapbook-quote-note" delay={160}>
