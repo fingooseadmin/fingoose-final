@@ -46,27 +46,26 @@ export default function EventsPage() {
           </Reveal>
 
           <Reveal className="event-detail-card" delay={70}>
-            <div className="event-flyer-placeholder">
+            <div className="event-flyer-placeholder event-flyer-official">
               <Image
-                alt="FinGoose and the Dino Dream book cover"
-                src="/assets/book-dino-dream-cover.webp"
-                width={1774}
-                height={1800}
+                alt="FinGoose Dino Read-Aloud and Volcano Activity flyer"
+                src="/assets/events/library-flyer.webp"
+                width={1237}
+                height={1600}
                 sizes="(max-width: 820px) 82vw, 430px"
               />
-              <span>Event flyer · final artwork pending</span>
             </div>
             <div className="event-detail-copy">
               <span className="eyebrow">Read-aloud + activity</span>
               <h2>FinGoose Read-Aloud + Volcano Activity</h2>
-              <p>Event date, location, and final flyer will be shared through the signup form.</p>
+              <p>Event details are available through the signup form.</p>
               <div className="event-detail-notes">
                 <span><Icon name="book" /> Read-aloud</span>
                 <span><Icon name="spark" /> Volcano activity</span>
               </div>
-              <Link className="button button-gold" href="/contact?interest=library-visit#contact-form">
+              <a className="button button-gold" href="https://forms.gle/FiEEo85u9H4Qn9zh6" target="_blank" rel="noreferrer">
                 Sign up for the event <Icon name="arrow" />
-              </Link>
+              </a>
             </div>
           </Reveal>
         </div>

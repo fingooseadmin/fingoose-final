@@ -1,0 +1,692 @@
+/* Document review pass — September 2026 */
+
+/* Event photography supplied through the shared FinGoose Drive folder. */
+.event-gallery {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(255, 191, 40, 0.18), transparent 24rem),
+    #f8f3e9;
+  overflow: hidden;
+  position: relative;
+}
+
+.event-gallery-heading {
+  align-items: end;
+  display: flex;
+  gap: clamp(18px, 3vw, 40px);
+  justify-content: space-between;
+  margin-bottom: clamp(28px, 4vw, 52px);
+}
+
+.event-gallery-heading h2 {
+  color: var(--blue-dark);
+  font-size: clamp(2.25rem, 3.8vw, 4.25rem);
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+  margin: 0;
+}
+
+.event-gallery-home {
+  padding-block: clamp(58px, 7vw, 92px);
+}
+
+.event-gallery-marquee {
+  overflow: hidden;
+  padding-block: 16px 26px;
+}
+
+.event-gallery-track {
+  animation: eventPhotoDrift 34s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.event-gallery-marquee:hover .event-gallery-track,
+.event-gallery-marquee:focus-within .event-gallery-track {
+  animation-play-state: paused;
+}
+
+.event-gallery-set {
+  display: flex;
+  gap: clamp(20px, 2.2vw, 34px);
+  padding-right: clamp(20px, 2.2vw, 34px);
+}
+
+.event-photo-card {
+  --photo-tilt: -1.5deg;
+  background: #fffdf7;
+  border: 2px solid var(--blue-dark);
+  box-shadow: 8px 10px 0 rgba(18, 27, 85, 0.18);
+  flex: 0 0 clamp(240px, 23vw, 340px);
+  margin: 0;
+  padding: 12px 12px 18px;
+  position: relative;
+  transform: rotate(var(--photo-tilt));
+  transition: box-shadow 260ms ease, transform 260ms ease;
+}
+
+.event-photo-card-2 { --photo-tilt: 1.25deg; }
+.event-photo-card-3 { --photo-tilt: -0.6deg; }
+.event-photo-card-4 { --photo-tilt: 1.7deg; }
+
+.event-photo-card:hover {
+  box-shadow: 12px 16px 0 rgba(18, 27, 85, 0.16);
+  transform: rotate(0) translateY(-8px);
+}
+
+.event-photo-frame {
+  aspect-ratio: 4 / 3;
+  background: #dfe4ff;
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.event-photo-frame img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.event-photo-tape {
+  background: rgba(255, 232, 145, 0.78);
+  height: 30px;
+  left: 50%;
+  position: absolute;
+  top: -18px;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 118px;
+  z-index: 2;
+}
+
+.event-photo-card figcaption {
+  color: var(--blue-dark);
+  font-size: clamp(0.86rem, 1vw, 1.02rem);
+  font-weight: 800;
+  line-height: 1.25;
+  padding: 14px 4px 0;
+}
+
+.event-gallery-impact {
+  padding-block: clamp(64px, 7vw, 96px);
+}
+
+.event-gallery-grid {
+  display: grid;
+  gap: clamp(22px, 2.6vw, 38px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.event-gallery-grid .event-photo-card {
+  width: 100%;
+}
+
+@keyframes eventPhotoDrift {
+  to { transform: translateX(-50%); }
+}
+
+/* Home: keep the flyer and crisis lab within one normal desktop frame. */
+body .home-scrapbook-site .event-preview-card {
+  gap: clamp(24px, 3.2vw, 48px);
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 340px);
+  padding: clamp(22px, 2.6vw, 36px);
+}
+
+body .home-scrapbook-site .event-preview-copy h2 {
+  font-size: clamp(2rem, 3.25vw, 3.65rem);
+}
+
+body .home-scrapbook-site .event-preview-flyer {
+  aspect-ratio: 1237 / 1600;
+  justify-self: center;
+  max-width: 330px;
+  padding: 10px;
+  width: 100%;
+}
+
+body .home-scrapbook-site .event-preview-flyer img {
+  object-fit: contain;
+}
+
+body .home-scrapbook-site .scrapbook-lab-section {
+  padding-block: clamp(62px, 7vh, 86px);
+}
+
+body .home-scrapbook-site .scrapbook-lab-grid {
+  gap: clamp(34px, 4.5vw, 62px);
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+}
+
+body .home-scrapbook-site .scrapbook-lab-copy h2 {
+  font-size: clamp(2.4rem, 4.1vw, 4.5rem);
+  margin-block: 20px 16px;
+}
+
+body .home-scrapbook-site .scrapbook-lab-copy > p {
+  line-height: 1.62;
+}
+
+body .home-scrapbook-site .scrapbook-lab-demo .budget-lab {
+  padding: clamp(19px, 2vw, 26px);
+}
+
+body .home-scrapbook-site .scrapbook-lab-demo .lab-scenario,
+body .home-scrapbook-site .scrapbook-lab-demo .lab-result {
+  margin-block: 16px;
+}
+
+/* Join Us: the complete hero is centered as one balanced unit. */
+body .join-page .join-hero-grid {
+  grid-template-columns: minmax(320px, 0.9fr) minmax(340px, 1fr);
+  margin-inline: auto;
+  max-width: 1180px;
+}
+
+body .join-page .join-hero-copy {
+  align-self: center;
+}
+
+body .join-page .join-hero-art {
+  align-self: center;
+  margin-inline: auto;
+}
+
+/* Impact: square-ish book covers, balanced images, and popups that never exceed the viewport. */
+body .impact-page .book-pair-cover,
+body .resource-book-library .book-pair-cover {
+  min-height: 0;
+}
+
+body .impact-page .book-pair-cover img,
+body .resource-book-library .book-pair-cover img {
+  aspect-ratio: 828 / 840;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+body .workshop-story-backdrop {
+  align-items: center;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+body .workshop-story-dialog {
+  grid-template-columns: minmax(290px, 0.82fr) minmax(0, 1.18fr);
+  height: min(720px, calc(100dvh - 32px));
+  max-height: calc(100dvh - 32px);
+  min-height: 0;
+  width: min(1080px, 100%);
+}
+
+body .workshop-story-copy {
+  padding: clamp(58px, 5vh, 72px) clamp(26px, 3.4vw, 46px) 26px;
+}
+
+body .workshop-story-copy h2 {
+  font-size: clamp(2rem, 3.3vw, 3.5rem);
+  margin-bottom: 16px;
+}
+
+body .workshop-story-place {
+  margin-block: 18px 9px !important;
+}
+
+body .workshop-story-actions {
+  border-top: 1px solid rgba(18, 27, 85, 0.14);
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+  padding-top: 18px;
+}
+
+body .workshop-story-links {
+  flex: 1 1 420px;
+}
+
+body .workshop-story-links .button {
+  min-width: 0;
+}
+
+/* Contact: remove vertical excess while keeping the mascot fully visible. */
+body .contact-hero {
+  min-height: 0;
+  padding-bottom: clamp(28px, 4vh, 48px);
+}
+
+body .contact-grid {
+  gap: clamp(34px, 5vw, 72px);
+  min-height: 0;
+  padding-block: 18px 34px !important;
+}
+
+body .contact-intro {
+  padding-bottom: 148px;
+  position: relative;
+}
+
+body .contact-intro h1 {
+  font-size: clamp(3rem, 5vw, 5.35rem);
+  margin-block: 18px;
+}
+
+body .contact-intro > p {
+  line-height: 1.58;
+}
+
+body .contact-methods {
+  margin-top: 20px;
+}
+
+body .contact-art {
+  bottom: -38px;
+  display: block;
+  height: 250px;
+  right: 0;
+  width: 250px;
+  z-index: 1;
+}
+
+body .contact-form {
+  border-radius: 24px;
+  max-width: 610px;
+  padding: clamp(20px, 2.3vw, 30px);
+}
+
+body .contact-form .form-heading h2 {
+  font-size: clamp(1.75rem, 2.5vw, 2.4rem);
+  line-height: 1.05;
+  margin-block: 7px 17px;
+}
+
+body .contact-form > label {
+  margin-bottom: 12px;
+}
+
+body .contact-form > label > span {
+  margin-bottom: 6px;
+}
+
+body .contact-form input[type="text"],
+body .contact-form select,
+body .contact-form textarea {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  font: inherit;
+  min-height: 42px;
+  outline: 0;
+  padding: 10px 12px;
+  width: 100%;
+}
+
+body .contact-form textarea {
+  min-height: 78px;
+  resize: vertical;
+}
+
+body .contact-form select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(60, 76, 186, 0.1);
+}
+
+body .contact-form .form-note {
+  margin-top: 8px;
+}
+
+/* Donate: compact the chooser and anchor Finn toward the bottom of the composition. */
+body .donate-hero {
+  min-height: 0;
+  padding-bottom: clamp(28px, 4vh, 48px);
+}
+
+body .donate-hero-grid {
+  gap: clamp(34px, 5vw, 72px);
+  min-height: 0;
+  padding-block: 18px 34px !important;
+}
+
+body .donate-intro {
+  padding-bottom: 158px;
+}
+
+body .donate-intro h1 {
+  font-size: clamp(3rem, 5vw, 5.35rem);
+  margin-block: 18px;
+}
+
+body .donate-intro > p {
+  line-height: 1.58;
+}
+
+body .donate-trust {
+  margin-top: 20px;
+  padding-top: 16px;
+}
+
+body .donate-intro > img {
+  bottom: -58px;
+  display: block;
+  height: 275px;
+  right: -8px;
+  width: 275px;
+}
+
+body .donation-widget {
+  border-radius: 24px;
+  max-width: 610px;
+  padding: clamp(20px, 2.3vw, 30px);
+}
+
+body .donation-heading h2 {
+  font-size: clamp(1.75rem, 2.5vw, 2.35rem);
+  margin-block: 7px 17px;
+}
+
+body .donation-field {
+  margin-top: 14px;
+}
+
+body .donation-field > span {
+  margin-bottom: 7px;
+}
+
+body .segmented-control button {
+  min-height: 38px;
+}
+
+body .amount-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+body .amount-grid > button,
+body .amount-grid > label {
+  min-height: 42px;
+}
+
+body .amount-grid > label {
+  grid-column: auto;
+}
+
+body .donation-impact {
+  margin-block: 15px;
+  padding: 11px 13px;
+}
+
+body .donation-note {
+  margin-top: 8px;
+}
+
+/* Team portraits share one crop and one visual height. */
+body .about-page .team-scrap-card {
+  min-height: 0;
+}
+
+body .about-page .team-scrap-image,
+body .about-page .team-scrap-image.has-photo {
+  aspect-ratio: 1 / 1;
+  height: auto;
+}
+
+body .about-page .team-scrap-image.has-photo img {
+  object-fit: cover;
+  object-position: center 24%;
+}
+
+body .about-page .team-scrap-image:not(.has-photo) img {
+  object-fit: contain;
+  padding: 12%;
+}
+
+/* The official flyer keeps its own proportions on the events page. */
+body .events-page .event-flyer-official {
+  aspect-ratio: 1237 / 1600;
+  max-height: 680px;
+}
+
+body .events-page .event-flyer-official img {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+@media (min-width: 1101px) {
+  body .contact-grid,
+  body .donate-hero-grid {
+    grid-template-columns: minmax(0, 0.86fr) minmax(480px, 1.14fr);
+  }
+}
+
+@media (max-width: 1020px) {
+  .event-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body .home-scrapbook-site .event-preview-card,
+  body .home-scrapbook-site .scrapbook-lab-grid,
+  body .join-page .join-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body .home-scrapbook-site .event-preview-flyer {
+    max-width: 390px;
+  }
+
+  body .join-page .join-hero-copy {
+    margin-inline: auto;
+    max-width: 680px;
+    text-align: center;
+  }
+
+  body .join-page .join-hero-copy > p {
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 820px) {
+  .event-gallery-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  body .contact-intro,
+  body .donate-intro {
+    padding-bottom: 92px;
+  }
+
+  body .contact-art,
+  body .donate-intro > img {
+    bottom: -28px;
+    display: block;
+    height: 180px;
+    right: 0;
+    width: 180px;
+  }
+
+  body .amount-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body .amount-grid > label {
+    grid-column: 1 / -1;
+  }
+
+  body .workshop-story-dialog {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(180px, 34dvh) minmax(0, 1fr);
+    height: calc(100dvh - 24px);
+    max-height: calc(100dvh - 24px);
+  }
+
+  body .workshop-story-photo {
+    border-bottom: 2px solid var(--blue-dark);
+    border-right: 0;
+  }
+
+  body .workshop-story-copy {
+    padding: 52px 20px 22px;
+  }
+
+  body .workshop-story-close {
+    height: 42px;
+    right: 12px;
+    top: 12px;
+    width: 42px;
+  }
+}
+
+@media (max-width: 620px) {
+  .event-gallery-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .event-gallery-grid .event-photo-card {
+    margin-inline: auto;
+    max-width: 440px;
+  }
+
+  body .workshop-story-links {
+    flex-basis: 100%;
+  }
+
+  body .workshop-story-links .button {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-height: 760px) and (min-width: 1021px) {
+  body .home-scrapbook-site .library-visit-preview,
+  body .home-scrapbook-site .scrapbook-lab-section {
+    padding-block: 46px;
+  }
+
+  body .home-scrapbook-site .event-preview-flyer {
+    max-width: 270px;
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-copy h2 {
+    font-size: clamp(2.25rem, 3.5vw, 3.8rem);
+  }
+
+  body .contact-grid,
+  body .donate-hero-grid {
+    padding-block: 10px 24px !important;
+  }
+
+  body .contact-intro,
+  body .donate-intro {
+    padding-bottom: 108px;
+  }
+
+  body .contact-art,
+  body .donate-intro > img {
+    bottom: -38px;
+    height: 210px;
+    width: 210px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-gallery-track {
+    animation: none;
+    width: auto;
+  }
+
+  .event-gallery-set {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-inline: 18px;
+  }
+
+  .event-gallery-set[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+/* Laptop-height refinement: the complete crisis lab fits without hiding controls. */
+@media (min-width: 1021px) {
+  body .home-scrapbook-site .scrapbook-lab-section {
+    padding-block: 46px;
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-copy h2 {
+    font-size: clamp(2.25rem, 3.55vw, 3.85rem);
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-copy > p {
+    font-size: 0.88rem;
+  }
+
+  body .home-scrapbook-site .marker-list {
+    gap: 5px;
+    margin-top: 18px;
+  }
+
+  body .home-scrapbook-site .marker-list li {
+    padding-block: 6px;
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-demo .lab-topline {
+    margin-bottom: 12px;
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-demo .lab-scenario {
+    margin-bottom: 13px;
+    padding-block: 10px;
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-demo .lab-controls {
+    gap: 9px;
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-demo .lab-controls label > span {
+    margin-bottom: 3px;
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-demo .lab-controls input[type="range"] {
+    height: 22px;
+    min-height: 22px;
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-demo .lab-result {
+    margin-top: 13px;
+    padding-top: 13px;
+  }
+}
+@media (min-width: 1021px) {
+  body .home-scrapbook-site .scrapbook-lab-section {
+    padding-block: 30px;
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-copy h2 {
+    font-size: clamp(2.15rem, 3.15vw, 3.35rem);
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-demo .budget-lab {
+    padding: 18px 20px;
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-demo .lab-topline h3 {
+    font-size: 1.62rem;
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-demo .lab-income {
+    padding-block: 8px;
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-demo .lab-scenario {
+    min-height: 0;
+    padding-block: 8px;
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-demo .lab-link-row {
+    margin-top: 16px;
+  }
+
+  body .home-scrapbook-site .scrapbook-lab-demo .lab-link-row .button {
+    min-height: 46px;
+  }
+}

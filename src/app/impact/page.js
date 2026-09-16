@@ -9,6 +9,7 @@ import Reveal from "@/components/Reveal";
 import WorkshopPolaroids from "@/components/WorkshopPolaroids";
 import { workshopEvents } from "@/components/workshopData";
 import BookShowcase from "@/components/BookShowcase";
+import EventPhotoGallery from "@/components/EventPhotoGallery";
 import ShipmentCountdown from "@/components/ShipmentCountdown";
 
 const metrics = [
@@ -70,6 +71,8 @@ export default function ImpactPage() {
         secondaryHref="/resources"
         tone="impact"
       />
+
+      <EventPhotoGallery variant="impact" />
 
       <section className="section impact-scrap-stats">
         <div className="container impact-stat-board">

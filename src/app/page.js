@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BudgetLab from "@/components/BudgetLab";
 import FlowWords from "@/components/FlowWords";
+import EventPhotoGallery from "@/components/EventPhotoGallery";
 import Icon from "@/components/Icon";
 import MotionReels from "@/components/MotionReels";
 import Reveal from "@/components/Reveal";
@@ -229,15 +230,14 @@ export default function HomePage() {
                 Event details will be shared through the signup form.
               </p>
               <div className="button-row">
-                <Link className="button button-dark" href="/contact?interest=library-visit#contact-form">
+                <a className="button button-dark" href="https://forms.gle/FiEEo85u9H4Qn9zh6" target="_blank" rel="noreferrer">
                   Sign up for the event <Icon name="arrow" />
-                </Link>
+                </a>
                 <Link className="text-link" href="/events">View events <Icon name="arrow" /></Link>
               </div>
             </div>
-            <div className="event-preview-flyer" aria-label="Event flyer placeholder">
-              <Image alt="FinGoose and the Dino Dream book cover" src="/assets/book-dino-dream-cover.webp" width={1774} height={1800} sizes="(max-width: 820px) 78vw, 420px" />
-              <span>Event flyer · final artwork pending</span>
+            <div className="event-preview-flyer">
+              <Image alt="FinGoose Dino Read-Aloud and Volcano Activity flyer" src="/assets/events/library-flyer.webp" width={1237} height={1600} sizes="(max-width: 820px) 78vw, 420px" />
             </div>
           </Reveal>
         </div>
@@ -273,6 +273,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <EventPhotoGallery />
 
       <section className="section scrapbook-lab-section">
         <div className="container scrapbook-lab-grid">

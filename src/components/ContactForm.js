@@ -69,23 +69,14 @@ export default function ContactForm() {
         />
       </label>
 
-      <fieldset>
-        <legend>I’m interested in</legend>
-        <div className="inquiry-options">
+      <label>
+        <span>I’m interested in</span>
+        <select name="inquiry" onChange={(event) => setType(event.target.value)} value={type}>
           {inquiryTypes.map((option) => (
-            <label className={type === option ? "is-active" : ""} key={option}>
-              <input
-                checked={type === option}
-                name="inquiry"
-                onChange={() => setType(option)}
-                type="radio"
-                value={option}
-              />
-              {option}
-            </label>
+            <option key={option} value={option}>{option}</option>
           ))}
-        </div>
-      </fieldset>
+        </select>
+      </label>
 
       <label>
         <span>Tell us more</span>
@@ -93,7 +84,7 @@ export default function ContactForm() {
           onChange={(event) => setMessage(event.target.value)}
           placeholder="A few details about your students, goals, or idea..."
           required
-          rows="5"
+          rows="3"
           value={message}
         />
       </label>
