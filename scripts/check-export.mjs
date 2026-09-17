@@ -2,7 +2,7 @@ import { readFile, readdir, access } from "node:fs/promises";
 import path from "node:path";
 const root = path.resolve("out");
 const origin = "https://fingoose.org";
-const routes = ["/","/about/","/join-us/","/impact/","/resources/","/resources/books/","/resources/curriculum/","/resources/workshops/","/resources/autism-kit/","/course/","/contact/","/donate/"];
+const routes = ["/","/about/","/team/victor-pan/","/join-us/","/impact/","/resources/","/resources/books/","/resources/curriculum/","/resources/workshops/","/resources/autism-kit/","/course/","/contact/","/donate/"];
 const failures = [], titles = new Set();
 const sitemap = await readFile(path.join(root,"sitemap.xml"),"utf8");
 const checked = new Set();
@@ -33,4 +33,3 @@ await access(path.join(root,"index.txt")).catch(()=>failures.push("Missing Next.
 await access(path.join(root,"google07be475b4517ebd9.html")).catch(()=>failures.push("Missing Google verification file"));
 if(failures.length) { console.error(failures.join("\n")); process.exitCode=1; }
 else console.log("Verified "+routes.length+" pages: unique titles, canonicals, descriptions, structured data, sitemap, internal targets, and navigation payloads.");
-

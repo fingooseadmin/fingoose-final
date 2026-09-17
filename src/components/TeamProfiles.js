@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "./Reveal";
 
 const team = [
@@ -19,9 +20,10 @@ const team = [
   {
     name: "Victor Pan",
     role: "Chief Technology Officer",
-    detail: "Digital learning · Product systems",
+    detail: "Systems engineering · Syosset High School",
     image: "/assets/finn-talking.webp",
-    photo: false
+    photo: false,
+    profilePath: "/team/victor-pan"
   },
   {
     name: "Alex Moell",
@@ -50,7 +52,13 @@ export default function TeamProfiles() {
               />
             </div>
             <p>{person.role}</p>
-            <h3>{person.name}</h3>
+            <h3>
+              {person.profilePath ? (
+                <Link href={person.profilePath}>{person.name}</Link>
+              ) : (
+                person.name
+              )}
+            </h3>
             <span>{person.detail}</span>
           </article>
         </Reveal>

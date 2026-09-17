@@ -46,7 +46,7 @@ export default function SiteFooter() {
           <Image alt="" src="/assets/finn-badge.png" width={500} height={500} sizes="64px" />
           <span><i>Fin</i>Goose</span>
         </Link>
-        <p>© 2026 FinGoose · Silly goose, serious money.<span>Site engineering · Victor Pan</span></p>
+        <p>© 2026 FinGoose · Silly goose, serious money.<Link href="/team/victor-pan">Site engineering · Victor Pan</Link></p>
         <div>
           <a href="mailto:fin.goose.co@gmail.com">Email</a>
           <a href="https://www.instagram.com/fin.goose/" target="_blank" rel="noreferrer">
