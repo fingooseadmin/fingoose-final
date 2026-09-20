@@ -77,7 +77,7 @@ const stats = [
 const offerings = [
   {
     label: "Educators",
-    title: "Curricula & classroom tools",
+    title: "Curriculum",
     icon: "school",
     href: "/resources/curriculum",
     color: "blue",
@@ -224,10 +224,9 @@ export default function HomePage() {
             <div className="kit-sticker" aria-hidden="true">NEW</div>
             <div className="event-preview-copy">
               <span className="eyebrow">Upcoming events</span>
-              <h2><FlowWords>FinGoose Read-Aloud + Volcano Activity</FlowWords></h2>
+              <h2><FlowWords>Dinosaur read-aloud + elephant toothpaste</FlowWords></h2>
               <p>
-                Join FinGoose for a read-aloud and hands-on volcano activity.
-                Event details will be shared through the signup form.
+                On Saturday, October 3rd, at 10:30 AM, join FinGoose for a dinosaur read-aloud followed by a hands-on &quot;elephant toothpaste&quot; activity where financial story-telling meets science.
               </p>
               <div className="button-row">
                 <a className="button button-dark" href="https://forms.gle/FiEEo85u9H4Qn9zh6" target="_blank" rel="noreferrer">
@@ -307,22 +306,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section rotating-scrapbook-section">
-        <div className="container">
-          <Reveal>
-            <RotatingScrapbook />
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section motion-reels-section">
-        <div className="container">
-          <Reveal>
-            <MotionReels />
-          </Reveal>
-        </div>
-      </section>
-
       <section className="section scrapbook-impact-preview">
         <div className="container">
           <Reveal className="scrapbook-section-heading impact-heading">
@@ -367,6 +350,18 @@ export default function HomePage() {
       <section className="scrapbook-testimonial">
         <div className="container">
           <TestimonialSlider />
+        </div>
+      </section>
+
+      <section className="section rotating-scrapbook-section">
+        <div className="container">
+          <Reveal><RotatingScrapbook /></Reveal>
+        </div>
+      </section>
+
+      <section className="section motion-reels-section">
+        <div className="container">
+          <Reveal><MotionReels /></Reveal>
         </div>
       </section>
 

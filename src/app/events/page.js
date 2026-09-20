@@ -42,7 +42,7 @@ export default function EventsPage() {
         <div className="container">
           <Reveal className="events-section-heading">
             <span className="sticker-label">Next on the calendar</span>
-            <h2>FinGoose Read-Aloud + Volcano Activity</h2>
+            <h2>New Event!</h2>
           </Reveal>
 
           <Reveal className="event-detail-card" delay={70}>
@@ -57,11 +57,11 @@ export default function EventsPage() {
             </div>
             <div className="event-detail-copy">
               <span className="eyebrow">Read-aloud + activity</span>
-              <h2>FinGoose Read-Aloud + Volcano Activity</h2>
-              <p>Event details are available through the signup form.</p>
+              <h2>Dinosaur read-aloud + elephant toothpaste</h2>
+              <p>On Saturday, October 3rd, at 10:30 AM, join FinGoose for a dinosaur read-aloud followed by a hands-on &quot;elephant toothpaste&quot; activity where financial story-telling meets science.</p>
               <div className="event-detail-notes">
                 <span><Icon name="book" /> Read-aloud</span>
-                <span><Icon name="spark" /> Volcano activity</span>
+                <span><Icon name="spark" /> Elephant toothpaste activity</span>
               </div>
               <a className="button button-gold" href="https://forms.gle/FiEEo85u9H4Qn9zh6" target="_blank" rel="noreferrer">
                 Sign up for the event <Icon name="arrow" />

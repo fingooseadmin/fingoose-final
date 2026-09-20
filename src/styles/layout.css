@@ -64,8 +64,8 @@
 }
 .site-layout .home-scrapbook-site .scrapbook-hero-copy { max-width: 620px; }
 .site-layout .home-scrapbook-site .scrapbook-hero-copy h1 { font-size: clamp(2.65rem,4.65vw,5.05rem) !important; line-height: 1.01; }
-.site-layout .scrapbook-site main h1 { font-size: clamp(2.2rem,4.5vw,4.6rem); }
-.site-layout .scrapbook-site main h2 { font-size: clamp(1.75rem,3.2vw,3.2rem); }
+.site-layout .scrapbook-site h1 { font-size: clamp(2.2rem,4.5vw,4.6rem); }
+.site-layout .scrapbook-site h2 { font-size: clamp(1.75rem,3.2vw,3.2rem); }
 .site-layout .home-scrapbook-site .scrapbook-orbit { max-width: min(460px,54vh); width: 100%; justify-self: center; }
 .site-layout .scrapbook-site .section { padding-block: clamp(40px,5vw,72px); }
 .site-layout .home-scrapbook-site .scrapbook-orbit { margin-block: 30px; }

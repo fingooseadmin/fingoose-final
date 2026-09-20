@@ -30,6 +30,7 @@ function ResourceCollection({ title, eyebrow, description, modules, tone, develo
           <strong>{developing ? "Autism learning kit" : "FinGoose"}</strong>
           <span>{developing ? "Visual learning sequence" : "Middle school financial literacy"}</span>
         </div>
+        <button className="button button-dark" type="button" onClick={() => onPreview(0)}>Preview the guide <Icon name="book" /></button>
         <dl>
           <div><dt>Resource type</dt><dd>{developing ? "Learning kit concept" : "Curriculum & classroom tools"}</dd></div>
           {!developing && <div><dt>Grade level</dt><dd>Middle school · Grades 6–8</dd></div>}
@@ -37,7 +38,6 @@ function ResourceCollection({ title, eyebrow, description, modules, tone, develo
           <div><dt>Modules</dt><dd>{modules.length} learning units</dd></div>
           <div><dt>Availability</dt><dd>{developing ? "In development" : "Preview available · downloads forthcoming"}</dd></div>
         </dl>
-        <button className="button button-dark" type="button" onClick={() => onPreview(0)}>Preview the guide <Icon name="book" /></button>
         <Link className="text-link" href="/contact?interest=curriculum#contact-form">Request classroom materials <Icon name="arrow" /></Link>
         <p className="curriculum-availability">Downloadable files will be added when the final publications are available.</p>
       </aside>

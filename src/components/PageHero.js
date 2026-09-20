@@ -12,7 +12,8 @@ export default function PageHero({
   primaryHref,
   secondary,
   secondaryHref,
-  tone = "blue"
+  tone = "blue",
+  status = "Mission active"
 }) {
   return (
     <section className={`page-hero page-hero-${tone}`}>
@@ -50,7 +51,7 @@ export default function PageHero({
           />
           <span className="status-chip">
             <span />
-            Mission active
+            {status}
           </span>
         </div>
       </div>

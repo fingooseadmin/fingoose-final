@@ -14,8 +14,8 @@ const books = [
     number: "01",
     title: "FinGoose and the Two Mornings",
     description: "An illustrated story about opportunity, fairness, and empathy, designed to help young readers begin a practical conversation about money.",
-    image: "/assets/money-toast-stack.webp",
-    alt: "Money toast illustration representing FinGoose and the Two Mornings",
+    image: "/assets/book-two-mornings-cover.webp",
+    alt: "Cover of FinGoose and the Two Mornings",
     tone: "gold",
     actions: [
       { label: "Amazon Kindle", href: "https://www.amazon.com/dp/B0GDFQ682L" },
@@ -30,9 +30,9 @@ const books = [
   {
     number: "02",
     title: "FinGoose and the Dino Dream",
-    description: "The second FinGoose picture book is available through Amazon. The finished cover and reading-preview pages will be added when those source files are supplied.",
-    image: "/assets/goose-curious.webp",
-    alt: "FinGoose and the Dino Dream preview artwork",
+    description: "The second FinGoose picture book is available through Amazon. Reading-preview pages will be added when the original publication is available.",
+    image: "/assets/book-dino-dream-cover.webp",
+    alt: "Cover of FinGoose and the Dino Dream",
     tone: "blue",
     actions: [{ label: "View on Amazon", href: dinoAmazonUrl }],
     pages: [
@@ -69,16 +69,12 @@ export default function BookCollectionExperience() {
     <>
       <div className="book-library-stack">
         {books.map((book, index) => (
-          <Reveal delay={index * 80} key={book.title}>
+          <div className="book-library-item" key={book.title}>
             <article className={`book-library-row book-library-${book.tone}`} id={`book-${book.number}`}>
               <div className="book-landscape-cover">
                 <span className="book-cover-tape" aria-hidden="true" />
                 <div className="book-cover-art">
                   <Image alt={book.alt} src={book.image} fill sizes="(max-width: 760px) 90vw, 510px" />
-                  <div className="book-cover-title">
-                    <small>FinGoose picture book</small>
-                    <strong>{book.title}</strong>
-                  </div>
                 </div>
               </div>
               <div className="book-library-copy">
@@ -101,7 +97,7 @@ export default function BookCollectionExperience() {
                 </div>
               </div>
             </article>
-          </Reveal>
+          </div>
         ))}
       </div>
 

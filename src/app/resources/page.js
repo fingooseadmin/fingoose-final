@@ -80,7 +80,7 @@ export const metadata = createPageMetadata({
 
 export default function ResourcesPage() {
   return (
-    <main id="main-content" tabIndex={-1} className="scrapbook-site">
+    <main id="main-content" tabIndex={-1} className="scrapbook-site resources-page">
       <PageSeo
         title="K–12 Financial Literacy Resources"
         description="Explore K–12 financial literacy curriculum, worksheets, children’s books, workshops, a free online course, and an upcoming Autism learning kit."

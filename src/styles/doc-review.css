@@ -1,5 +1,383 @@
 /* Document review pass — September 2026 */
 
+/* Shared compact type, natural wrapping, and stable full-content rendering. */
+.site-layout .scrapbook-site :is(h1, h2, h3) {
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+.site-layout .scrapbook-site .scrapbook-section-heading h2 {
+  font-size: clamp(1.85rem, 3.2vw, 3.15rem);
+  line-height: 1.1;
+  max-width: 24ch;
+}
+.site-layout .scrapbook-site .scrapbook-section-heading {
+  margin-bottom: 30px;
+}
+.site-layout .scrapbook-site .flow-word {
+  overflow-wrap: normal;
+  max-width: none;
+}
+.site-layout .scrapbook-site .button-row,
+.site-layout .scrapbook-site .lab-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+.site-layout .scrapbook-site .lab-link-row {
+  position: static;
+  margin-top: 24px;
+  padding: 0 4px 8px;
+}
+.site-layout .scrapbook-site .lab-link-row .button {
+  flex: 1 1 210px;
+  margin: 0;
+}
+.site-layout .scrapbook-site :is(.event-gallery-heading h2, .events-hero h1, .events-section-heading h2) {
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+}
+.site-layout .scrapbook-site .rotating-scrapbook {
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 36px;
+}
+.site-layout .scrapbook-site .rotating-scrapbook-copy h2 {
+  font-size: clamp(2rem, 3.2vw, 3.25rem);
+  line-height: 1.12;
+  max-width: 15ch;
+  margin-block: 22px 18px;
+}
+.site-layout .scrapbook-site .scrapbook-wheel {
+  height: 430px;
+}
+.site-layout .scrapbook-site .scrapbook-wheel-track {
+  width: 190px;
+  height: 280px;
+}
+.site-layout .scrapbook-site .wheel-polaroid {
+  width: 190px;
+  height: 280px;
+  transform: rotateY(calc(var(--slot) * 72deg)) translateZ(190px);
+}
+.site-layout .scrapbook-site .wheel-polaroid-art {
+  aspect-ratio: 1;
+  height: 155px;
+}
+.site-layout .scrapbook-site .wheel-polaroid strong {
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.site-layout .scrapbook-site .scrapbook-wheel-halo {
+  width: 380px;
+  height: 380px;
+}
+
+/* Display the actual covers without title overlays or a scroll reveal gate. */
+.site-layout .books-page .resource-books-section {
+  content-visibility: visible;
+  contain: none;
+}
+.site-layout .scrapbook-site .book-library-row {
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  align-items: center;
+}
+.site-layout .scrapbook-site .book-landscape-cover {
+  padding: 24px;
+}
+.site-layout .scrapbook-site .book-cover-art,
+.site-layout .scrapbook-site .book-preview-mini-cover {
+  aspect-ratio: 828 / 840;
+  min-height: 0;
+}
+.site-layout .scrapbook-site .book-cover-art img,
+.site-layout .scrapbook-site .book-pair-cover img,
+.site-layout .modal-root .book-preview-mini-cover img {
+  object-fit: contain;
+  padding: 0;
+}
+.site-layout .scrapbook-site .book-library-copy {
+  padding: 26px;
+}
+.site-layout .scrapbook-site .book-library-copy h2,
+.site-layout .impact-page .impact-book-library .book-pair-copy h2 {
+  font-size: clamp(1.6rem, 2.6vw, 2.5rem);
+  line-height: 1.12;
+  margin-block: 18px 14px;
+}
+
+/* Resource cards retain their binder treatment without oversized empty panels. */
+.site-layout .resources-page .resource-index-card {
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  gap: 12px;
+}
+.site-layout .resources-page .resource-index-card .resource-scrap-art {
+  height: 150px;
+  min-height: 0;
+  margin: 0;
+}
+.site-layout .resources-page .resource-index-card .resource-scrap-art img {
+  max-height: 150px;
+  object-fit: contain;
+}
+.site-layout .resources-page .resource-index-card .resource-scrap-copy {
+  padding: 0;
+  margin: 0;
+}
+.site-layout .resources-page .resource-index-card h2 {
+  font-size: clamp(1.4rem, 2.3vw, 2rem);
+  line-height: 1.15;
+  margin-block: 12px;
+}
+.site-layout .resources-page .learner-path-note {
+  min-height: 0;
+  padding: 28px 28px 160px;
+}
+.site-layout .resources-page .learner-path-note h2 {
+  max-width: 100%;
+  font-size: clamp(1.8rem, 2.8vw, 2.65rem);
+  line-height: 1.13;
+}
+.site-layout .resources-page .learner-path-note > p {
+  max-width: 100%;
+  width: auto;
+}
+.site-layout .resources-page .learner-path-note > img {
+  width: 155px;
+  height: 155px;
+  right: 18px;
+  bottom: 0;
+}
+.site-layout .resources-page .ebook-desk-heading h2,
+.site-layout .workshops-page .workshop-fit-grid h2,
+.site-layout .scrapbook-site .library-signup-panel h2 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.12;
+}
+.site-layout .resources-page .ebook-resource-card {
+  padding: 28px;
+  min-height: 0;
+}
+.site-layout .resources-page .ebook-resource-card h3 {
+  font-size: clamp(1.45rem, 2.3vw, 2rem);
+  line-height: 1.15;
+}
+
+/* Keep workshop photos centered and remove the blue letterboxing in dialogs. */
+.site-layout .scrapbook-site .workshop-polaroid-card,
+.site-layout .workshops-page .workshop-polaroid-module.is-compact .workshop-polaroid-card {
+  flex: 0 0 min(320px, 84vw);
+  width: min(320px, 84vw);
+  min-height: 0;
+  padding: 12px 12px 22px;
+}
+.site-layout .scrapbook-site .workshop-polaroid-title {
+  font-size: 1.2rem;
+  line-height: 1.22;
+  min-height: 0;
+}
+.site-layout .modal-root .workshop-story-photo {
+  background: #f7f3ea;
+  padding: 0;
+  align-self: stretch;
+  min-height: 340px;
+  max-height: none;
+}
+.site-layout .modal-root .workshop-story-photo img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  inset: 0;
+  transform: none;
+}
+.site-layout .modal-root .workshop-story-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+}
+.site-layout .modal-root .workshop-story-links {
+  flex: none;
+  display: flex;
+  gap: 14px;
+}
+.site-layout .modal-root .workshop-story-actions > div:last-child {
+  display: flex;
+  gap: 12px;
+}
+
+/* Center the hero contents lower while keeping the main CTA conspicuous. */
+.site-layout .join-page .join-hero-grid,
+.site-layout .course-page .course-hero-grid {
+  padding-block: 48px 56px !important;
+}
+.site-layout .course-page .handoff-card {
+  background: #121b55;
+  padding: clamp(26px, 4vw, 48px);
+  gap: 32px;
+  min-height: 0;
+}
+.site-layout .course-page .handoff-copy h2 {
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1.1;
+}
+.site-layout .course-page .handoff-copy .button {
+  background: #ffb900;
+  color: #10163f;
+  min-height: 58px;
+  padding: 16px 28px;
+  font-size: 1rem !important;
+  border: 2px solid #ffcf4f;
+}
+.site-layout .events-page .event-flyer-official {
+  padding: 0;
+  background: transparent;
+}
+.site-layout .events-page .event-detail-card {
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  padding: clamp(22px, 3vw, 36px);
+  gap: 32px;
+  align-items: center;
+}
+.site-layout .events-page .event-detail-copy h2 {
+  font-size: clamp(1.7rem, 2.7vw, 2.7rem);
+  line-height: 1.12;
+}
+
+/* Compact forms without shrinking the controls or hiding the mascot. */
+.site-layout .scrapbook-site .contact-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 16px;
+  padding: 24px;
+}
+.site-layout .scrapbook-site .contact-form > * {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+.site-layout .scrapbook-site .contact-form > label:nth-of-type(1),
+.site-layout .scrapbook-site .contact-form > label:nth-of-type(2) {
+  grid-column: auto;
+}
+.site-layout .scrapbook-site .contact-intro,
+.site-layout .scrapbook-site .donate-intro {
+  padding-bottom: 0;
+}
+.site-layout .scrapbook-site .contact-art,
+.site-layout .scrapbook-site .donate-intro > img {
+  position: relative;
+  inset: auto;
+  display: block;
+  width: 180px;
+  height: 180px;
+  margin: 16px 0 -12px auto;
+  transform: none;
+}
+.site-layout .scrapbook-site .contact-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: none;
+}
+.site-layout .scrapbook-site .donation-widget {
+  padding: 24px;
+}
+.site-layout .scrapbook-site .donation-heading h2,
+.site-layout .scrapbook-site .contact-form .form-heading h2 {
+  font-size: clamp(1.65rem, 2.3vw, 2rem);
+  line-height: 1.15;
+  margin: 10px 0 16px;
+}
+.site-layout .scrapbook-site .donate-intro h1,
+.site-layout .scrapbook-site .contact-intro h1 {
+  font-size: clamp(2.2rem, 3.6vw, 3.5rem);
+  line-height: 1.1;
+}
+.site-layout .scrapbook-site .contact-grid,
+.site-layout .scrapbook-site .donate-hero-grid {
+  align-items: center;
+  min-height: 0 !important;
+  padding-block: 12px 24px !important;
+}
+.site-layout .scrapbook-site .donation-field {
+  margin-top: 14px;
+}
+.site-layout .scrapbook-site .donation-impact {
+  margin-block: 14px;
+  padding: 12px;
+  min-height: 0;
+}
+.site-layout .scrapbook-site .donation-note,
+.site-layout .scrapbook-site .contact-form .form-note {
+  font-size: .875rem !important;
+  line-height: 1.5;
+}
+.site-layout .scrapbook-site .donation-widget .donation-heading h2 {
+  font-size: 1.75rem;
+}
+.site-layout .scrapbook-site .donation-field > span {
+  margin-bottom: 8px;
+}
+.site-layout .scrapbook-site .amount-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.site-layout .scrapbook-site .amount-grid label {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 1020px) {
+  .site-layout .scrapbook-site .rotating-scrapbook {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .site-layout .scrapbook-site .rotating-scrapbook-copy h2 {
+    max-width: 23ch;
+  }
+  .site-layout .scrapbook-site .scrapbook-wheel {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 520px;
+  }
+  .site-layout .modal-root .workshop-story-photo {
+    min-height: 220px;
+    height: 260px;
+  }
+}
+@media (max-width: 760px) {
+  .site-layout .scrapbook-site .book-library-row,
+  .site-layout .events-page .event-detail-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .site-layout .scrapbook-site .book-landscape-cover {
+    max-width: 340px;
+    margin-inline: auto;
+  }
+  .site-layout .scrapbook-site .scrapbook-wheel-track {
+    width: 150px;
+    height: 250px;
+  }
+  .site-layout .scrapbook-site .wheel-polaroid {
+    width: 150px;
+    height: 250px;
+    transform: rotateY(calc(var(--slot) * 72deg)) translateZ(125px);
+  }
+  .site-layout .scrapbook-site .wheel-polaroid-art {
+    height: 120px;
+  }
+  .site-layout .scrapbook-site .scrapbook-wheel-halo {
+    width: 280px;
+    height: 280px;
+  }
+  .site-layout .scrapbook-site .contact-form > label {
+    grid-column: 1 / -1 !important;
+  }
+}
+
 /* Event photography supplied through the shared FinGoose Drive folder. */
 .event-gallery {
   background:

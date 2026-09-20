@@ -2,7 +2,7 @@ import { readFile, readdir, access } from "node:fs/promises";
 import path from "node:path";
 const root = path.resolve("out");
 const origin = "https://fingoose.org";
-const routes = ["/","/about/","/team/victor-pan/","/join-us/","/impact/","/resources/","/resources/books/","/resources/curriculum/","/resources/workshops/","/resources/autism-kit/","/course/","/contact/","/donate/"];
+const routes = ["/","/about/","/team/victor-pan/","/join-us/","/events/","/impact/","/resources/","/resources/books/","/resources/curriculum/","/resources/workshops/","/resources/autism-kit/","/course/","/contact/","/donate/"];
 const failures = [], titles = new Set();
 const sitemap = await readFile(path.join(root,"sitemap.xml"),"utf8");
 const checked = new Set();

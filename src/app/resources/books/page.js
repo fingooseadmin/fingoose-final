@@ -54,7 +54,7 @@ export const metadata = createPageMetadata({
 
 export default function BooksPage() {
   return (
-    <main id="main-content" tabIndex={-1} className="scrapbook-site">
+    <main id="main-content" tabIndex={-1} className="scrapbook-site books-page">
       <PageSeo
         title="Children’s Financial Literacy Books"
         description="Discover FinGoose children’s financial literacy books, verified Amazon and Kobo reading options, classroom copies, and library read-aloud visits."
@@ -81,7 +81,7 @@ export default function BooksPage() {
             <span className="sticker-label sticker-orange">The FinGoose bookshelf</span>
             <div>
               <h2>Choose your next story.</h2>
-              <p>The second publication is live on Amazon. Its cover preview will be added separately when that asset is ready.</p>
+              <p>Explore both FinGoose picture books and their available reading editions.</p>
             </div>
           </Reveal>
           <BookCollectionExperience />

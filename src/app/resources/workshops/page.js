@@ -22,7 +22,7 @@ export const metadata = createPageMetadata({
 
 export default function WorkshopsPage() {
   return (
-    <main id="main-content" tabIndex={-1} className="scrapbook-site">
+    <main id="main-content" tabIndex={-1} className="scrapbook-site workshops-page">
       <PageSeo
         title="Financial Literacy Workshops for Schools"
         description="Bring interactive financial literacy workshops and crisis labs to your school, where students practice budgeting, trade-offs, and real-world decisions."

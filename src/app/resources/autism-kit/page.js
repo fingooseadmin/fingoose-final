@@ -30,9 +30,10 @@ export default function AutismKitPage() {
       />
       <PageHero
         eyebrow="Autism learning kit · in development"
-        title="A more predictable path into money confidence."
+        title="Coming soon."
         description="FinGoose is shaping a sensory-aware resource concept around visual sequencing, repeatable routines, and flexible practical activities."
         image="/assets/goose-curious.webp"
+        status="In development"
         primary="Join the interest list"
         primaryHref="/contact?interest=autism-kit#contact-form"
         secondary="All resources"
