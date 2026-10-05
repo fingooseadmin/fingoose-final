@@ -10,6 +10,11 @@
   padding-inline: 0;
   margin-inline: auto;
 }
+body.site-layout .impact-page .impact-book-library.container-wide {
+  width: min(calc(100% - 2 * var(--layout-gutter)), var(--layout-content));
+  max-width: var(--layout-content);
+  margin-inline: auto;
+}
 .site-layout .scrapbook-site :where(h1,h2,h3,h4) {
   overflow-wrap: anywhere;
   line-height: 1.08;
@@ -121,9 +126,14 @@
 @media (prefers-reduced-motion: reduce) {
   .site-layout *, .site-layout *::before, .site-layout *::after {
     animation-duration: .01ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
     scroll-behavior: auto !important;
+  }
+  .site-layout .scrapbook-hero-copy :is(h1 > span,h1 > strong,.hero-mission,.button-row,.hero-mini-proof) {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 .site-layout .scrapbook-site :where(.book-library-row,.book-pair-card,.team-scrap-card,.value-scrap-card,.join-benefit-card,.join-leadership-ladder article) {
@@ -245,6 +255,7 @@
   overflow: auto;
 }
 .site-layout .modal-root [role="dialog"] {
+  animation: dialog-appear 160ms ease-out both;
   max-height: calc(100dvh - 32px) !important;
   width: min(100%,920px) !important;
   max-width: 920px !important;
@@ -254,6 +265,21 @@
   overflow: auto !important;
   overscroll-behavior: contain;
   transform: none;
+}
+@keyframes dialog-appear { from { opacity: 0; } to { opacity: 1; } }
+.site-layout .modal-root :is(.book-preview-dialog, .resource-preview-dialog) > header h2 {
+  margin-right: 0;
+}
+@media (max-width: 560px) {
+  .site-layout .modal-root :is(.book-preview-dialog, .resource-preview-dialog, .curriculum-preview-dialog) {
+    padding: 22px 18px;
+    box-shadow: 5px 6px 0 var(--orange);
+  }
+  .site-layout .modal-root :is(.book-preview-dialog, .resource-preview-dialog) > header {
+    padding: 46px 0 0;
+  }
+  .site-layout .modal-root .book-preview-stage { gap: 20px; }
+  .site-layout .modal-root .book-preview-stage article { padding: 20px; }
 }
 .site-layout .modal-root :where(.team-profile-copy,.workshop-story-copy,.resource-preview-layout,.book-preview-stage) {
   min-height: 0;

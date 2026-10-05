@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "@/components/StaticLink";
 import Icon from "./Icon";
 import Reveal from "./Reveal";
+import styles from "./BookShowcase.module.css";
 
 const dinoAmazonUrl = "https://www.amazon.com/Fingoose-Dino-Dream-Kevin-Wu/dp/B0HCZ9H9J1/ref=sr_1_1?crid=T1VXEGUTY7M2&dib=eyJ2IjoiMSJ9.agjHIrWhDkkR5p-Pbm5fJA.fnDxMTj7AftcafWS2EgxX4koydDlMeUUqhLZFGNzZ7w&dib_tag=se&keywords=fingoose+and+the+dino+dream&qid=1786322449&sprefix=fingoose+and+the+dino+dream%2Caps%2C162&sr=8-1";
 
@@ -47,21 +48,21 @@ export default function BookShowcase({ context = "impact" }) {
   const resourcePage = context === "resources";
 
   return (
-    <div className={`book-pair-grid book-pair-${context}`}>
+    <div className={styles.stack}>
       {books.map((book, index) => (
         <Reveal delay={index * 90} key={book.title}>
-          <article className={`book-pair-card book-pair-${book.tone}`} id={`book-${book.number}`}>
-            <div className={`book-pair-cover ${book.placeholder ? "is-placeholder" : ""}`}>
+          <article className={styles.publication} id={`book-${book.number}`}>
+            <div className={`${styles.cover} ${styles[book.tone]}`}>
               <span className="book-cover-tape" aria-hidden="true" />
-              <Image alt={book.imageAlt} src={book.image} width={2048} height={2048} sizes={resourcePage ? "(max-width: 760px) 82vw, 360px" : "(max-width: 760px) 82vw, 300px"} />
+              <Image alt={book.imageAlt} src={book.image} width={828} height={840} sizes="(max-width: 760px) 80vw, 310px" />
               {book.placeholder ? <strong className="book-cover-placeholder">Cover art in production</strong> : null}
               <small>{book.coverLabel}</small>
             </div>
-            <div className="book-pair-copy">
+            <div className={styles.copy}>
               <span className={`sticker-label ${index === 1 ? "sticker-orange" : ""}`}>Book {book.number} · Books & publications</span>
               <h2>{book.title}</h2>
               <p>{book.description}</p>
-              <div className="book-pair-actions">
+              <div className={styles.actions}>
                 {book.actions.map((action) => (
                   <a className={`button ${action.style}`} href={action.href} target="_blank" rel="noreferrer" key={action.label}>
                     {action.label} <Icon name="external" />
@@ -71,7 +72,7 @@ export default function BookShowcase({ context = "impact" }) {
                   <Link className="button button-gold" href="/contact?interest=books#contact-form">Ask about classroom copies <Icon name="arrow" /></Link>
                 ) : null}
               </div>
-              <div className="book-pair-details">
+              <div className={styles.details}>
                 {book.details.map((detail) => (
                   <div key={detail.label}>
                     <span>{detail.label}</span>

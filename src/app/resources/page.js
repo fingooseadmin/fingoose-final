@@ -10,11 +10,11 @@ const resourceCards = [
   {
     id: "curriculum",
     eyebrow: "For educators",
-    title: "Curriculum & PDFs",
+    title: "Curriculum & classroom tools",
     copy: "Standards-minded lesson plans, worksheets, guidebooks, and workbooks organized for practical classroom use.",
     image: "/assets/finn-teacher.webp",
-    status: "Publishing pipeline",
-    action: "Get PDF updates",
+    status: "Guide previews available",
+    action: "Explore the curriculum",
     href: "/resources/curriculum",
     color: "blue"
   },
@@ -23,7 +23,7 @@ const resourceCards = [
     eyebrow: "For elementary learners",
     title: "Children’s books",
     copy: "Illustrated stories make opportunity, fairness, saving, and money choices easier to see and discuss.",
-    image: "/assets/money-toast-stack.webp",
+    image: "/assets/book-two-mornings-cover.webp",
     status: "Free eBook available",
     action: "View book options",
     href: "/resources/books",
@@ -45,7 +45,7 @@ const resourceCards = [
     eyebrow: "For schools & groups",
     title: "In-person workshops",
     copy: "Hands-on crisis labs turn real-world scenarios into teamwork, discussion, explanation, and confident decisions.",
-    image: "/assets/finn-crisis.webp",
+    image: "/assets/workshop-financial-resilience.webp",
     status: "Booking inquiries open",
     action: "Request a workshop",
     href: "/resources/workshops",
@@ -103,10 +103,9 @@ export default function ResourcesPage() {
           <Reveal className="scrapbook-section-heading">
             <span className="sticker-label">Resource library</span>
             <div>
-              <h2>Every card opens the right page.</h2>
+              <h2>Find your starting point.</h2>
               <p>
-                No mystery menus and no dead ends. Each resource clearly shows
-                who it serves, its current status, and where to go next.
+                Lesson plans, stories, and hands-on experiences for every stage of learning.
               </p>
             </div>
           </Reveal>
@@ -133,7 +132,7 @@ export default function ResourcesPage() {
                     <span className="index-card-tab">{resource.eyebrow}</span>
                     <span className="index-card-hole" aria-hidden="true" />
                     <div className="resource-number">CARD 0{index + 1} / 05</div>
-                    <div className="resource-scrap-art">
+                    <div className={`resource-scrap-art resource-image-${resource.id}`}>
                       <Image
                         alt=""
                         src={resource.image}
@@ -143,11 +142,9 @@ export default function ResourcesPage() {
                       />
                     </div>
                     <div className="resource-scrap-copy">
-                      <span className="micro-label">Select a resource</span>
                       <h2>{resource.title}</h2>
                       <p>{resource.copy}</p>
                       <div className="resource-status">
-                        <span className="live-dot" />
                         {resource.status}
                       </div>
                       <span className="text-link">

@@ -1,4 +1,41 @@
-/* Document review pass — September 2026 */
+/* Editorial layout refinements shared by the document-reviewed pages. */
+
+.site-layout :is(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid #3c4cba;
+  outline-offset: 5px;
+}
+.site-layout .scrapbook-site :is(h1, h2) {
+  text-wrap: balance;
+  letter-spacing: -.045em;
+}
+.site-layout .scrapbook-site h3 { letter-spacing: -.025em; }
+.site-layout .scrapbook-site .button {
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+.site-layout .scrapbook-site .button:hover { transform: translateY(-2px); }
+.site-layout .about-page .value-scrap-card {
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  border-top: 3px solid #3c4cba;
+  border-radius: 0;
+  transform: none;
+  padding: 24px 0;
+  height: 100%;
+}
+.site-layout .about-page .value-scrap-card h3 { font-size: 1.45rem; margin-block: 20px 12px; }
+.site-layout .about-page .team-scrap-card > p { min-height: 3em; color: #a94b00; }
+.site-layout .about-page .team-scrap-card { box-shadow: 6px 7px 0 #ff8708; }
+.site-layout .resources-page .resource-index-card .resource-image-books img { object-fit: contain; padding: 0; }
+.site-layout .resources-page .resource-index-card .resource-image-workshops img {
+  object-fit: cover; object-position: center; width: 100%; border-radius: 8px;
+}
+.site-layout .resources-page .resource-index-card .resource-status {
+  font-size: .8rem; color: #414a71; border-top: 1px solid rgba(18,27,85,.15); padding-top: 14px;
+}
+.site-layout .workshops-page .workshop-stat-grid article { min-height: 0; padding: 22px; }
+.site-layout .workshops-page .workshop-stat-grid strong { font-size: clamp(2.4rem,4vw,3.5rem); line-height: 1.12; }
+.site-layout .workshops-page .workshop-question-card { min-height: 0; padding: clamp(24px,3vw,36px); }
 
 /* Shared compact type, natural wrapping, and stable full-content rendering. */
 .site-layout .scrapbook-site :is(h1, h2, h3) {
@@ -116,12 +153,12 @@
   gap: 12px;
 }
 .site-layout .resources-page .resource-index-card .resource-scrap-art {
-  height: 150px;
+  height: 130px;
   min-height: 0;
   margin: 0;
 }
 .site-layout .resources-page .resource-index-card .resource-scrap-art img {
-  max-height: 150px;
+  max-height: 130px;
   object-fit: contain;
 }
 .site-layout .resources-page .resource-index-card .resource-scrap-copy {

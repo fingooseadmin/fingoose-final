@@ -7,7 +7,7 @@ import EventPhotoGallery from "@/components/EventPhotoGallery";
 import Icon from "@/components/Icon";
 import MotionReels from "@/components/MotionReels";
 import Reveal from "@/components/Reveal";
-import RotatingScrapbook from "@/components/RotatingScrapbook";
+import LearningLoop from "@/components/LearningLoop";
 import ScrapbookOrbit from "@/components/ScrapbookOrbit";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import { createPageMetadata } from "@/lib/seo";
@@ -221,16 +221,15 @@ export default function HomePage() {
       <section className="section kit-preview-section library-visit-preview" id="upcoming-events">
         <div className="container">
           <Reveal className="event-preview-card">
-            <div className="kit-sticker" aria-hidden="true">NEW</div>
             <div className="event-preview-copy">
-              <span className="eyebrow">Upcoming events</span>
+              <span className="eyebrow">From the calendar · October 3, 2026</span>
               <h2><FlowWords>Dinosaur read-aloud + elephant toothpaste</FlowWords></h2>
               <p>
                 On Saturday, October 3rd, at 10:30 AM, join FinGoose for a dinosaur read-aloud followed by a hands-on &quot;elephant toothpaste&quot; activity where financial story-telling meets science.
               </p>
               <div className="button-row">
                 <a className="button button-dark" href="https://forms.gle/FiEEo85u9H4Qn9zh6" target="_blank" rel="noreferrer">
-                  Sign up for the event <Icon name="arrow" />
+                  View event information <Icon name="external" />
                 </a>
                 <Link className="text-link" href="/events">View events <Icon name="arrow" /></Link>
               </div>
@@ -355,7 +354,7 @@ export default function HomePage() {
 
       <section className="section rotating-scrapbook-section">
         <div className="container">
-          <Reveal><RotatingScrapbook /></Reveal>
+          <Reveal><LearningLoop /></Reveal>
         </div>
       </section>
 

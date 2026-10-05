@@ -4,10 +4,11 @@ import Icon from "@/components/Icon";
 import PageSeo from "@/components/PageSeo";
 import Reveal from "@/components/Reveal";
 import { createPageMetadata } from "@/lib/seo";
+import styles from "./events.module.css";
 
 export const metadata = createPageMetadata({
-  title: "Upcoming Financial Literacy Events",
-  description: "See upcoming FinGoose financial literacy read-alouds, activities, and community events.",
+  title: "Financial Literacy Events",
+  description: "Explore FinGoose financial literacy read-alouds, hands-on activities, and community events.",
   path: "/events"
 });
 
@@ -15,34 +16,35 @@ export default function EventsPage() {
   return (
     <main id="main-content" tabIndex={-1} className="scrapbook-site events-page">
       <PageSeo
-        title="Upcoming Financial Literacy Events"
-        description="See upcoming FinGoose financial literacy read-alouds, activities, and community events."
+        title="Financial Literacy Events"
+        description="Explore FinGoose financial literacy read-alouds, hands-on activities, and community events."
         path="/events"
         type="CollectionPage"
       />
 
-      <section className="events-hero">
+      <section className={styles.hero}>
         <div className="paper-noise" aria-hidden="true" />
-        <div className="container events-hero-grid">
-          <Reveal className="events-hero-copy">
+        <div className={`container ${styles.grid}`}>
+          <Reveal className={styles.copy}>
             <span className="sticker-label sticker-orange">Events</span>
-            <h1>Upcoming events.</h1>
+            <h1>FinGoose<br /><em>events.</em></h1>
             <p>Read-alouds and hands-on activities from FinGoose.</p>
-            <Link className="button button-dark" href="#upcoming-event">
-              See the next event <Icon name="arrow" />
+            <Link className="button button-gold" href="#featured-event">
+              Explore the events
             </Link>
           </Reveal>
-          <Reveal className="events-hero-art" delay={70}>
-            <Image alt="" src="/assets/finn-waving.webp" width={2048} height={2048} sizes="(max-width: 820px) 76vw, 430px" priority />
+          <Reveal className={styles.art} delay={70}>
+            <div className={styles.mascot}><Image alt="" src="/assets/finn-waving.webp" width={2048} height={2048} sizes="(max-width: 820px) 76vw, 380px" priority /></div>
+            <div className={styles.ticket}><span>Read-aloud + activity</span><strong>Stories meet science.</strong><span>FinGoose · Community events</span></div>
           </Reveal>
         </div>
       </section>
 
-      <section className="section events-list" id="upcoming-event">
+      <section className="section events-list" id="featured-event">
         <div className="container">
           <Reveal className="events-section-heading">
-            <span className="sticker-label">Next on the calendar</span>
-            <h2>New Event!</h2>
+            <span className="sticker-label">From the calendar</span>
+            <h2>Read. Discover. Try.</h2>
           </Reveal>
 
           <Reveal className="event-detail-card" delay={70}>
@@ -56,7 +58,7 @@ export default function EventsPage() {
               />
             </div>
             <div className="event-detail-copy">
-              <span className="eyebrow">Read-aloud + activity</span>
+              <span className={styles.date}>Past event · October 3, 2026 · 10:30 AM</span>
               <h2>Dinosaur read-aloud + elephant toothpaste</h2>
               <p>On Saturday, October 3rd, at 10:30 AM, join FinGoose for a dinosaur read-aloud followed by a hands-on &quot;elephant toothpaste&quot; activity where financial story-telling meets science.</p>
               <div className="event-detail-notes">
@@ -64,7 +66,7 @@ export default function EventsPage() {
                 <span><Icon name="spark" /> Elephant toothpaste activity</span>
               </div>
               <a className="button button-gold" href="https://forms.gle/FiEEo85u9H4Qn9zh6" target="_blank" rel="noreferrer">
-                Sign up for the event <Icon name="arrow" />
+                View event information <Icon name="external" />
               </a>
             </div>
           </Reveal>
