@@ -31,9 +31,18 @@ export default function WorkshopPolaroids({ events, compact = false }) {
     );
   };
 
+  // One card plus the gap between cards.
+  const cardStep = () => {
+    const rail = railRef.current;
+    const card = rail?.querySelector(".workshop-polaroid-card");
+    if (!rail || !card) return Math.min(560, window.innerWidth * 0.82);
+    const gap = parseFloat(getComputedStyle(rail).columnGap) || 0;
+    return card.getBoundingClientRect().width + gap;
+  };
+
   const moveRail = (direction) => {
     railRef.current?.scrollBy({
-      left: direction * Math.min(560, window.innerWidth * 0.82),
+      left: direction * cardStep(),
       behavior: "smooth"
     });
   };
@@ -44,7 +53,7 @@ export default function WorkshopPolaroids({ events, compact = false }) {
       const rail = railRef.current;
       if (!rail) return;
       const atEnd = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 8;
-      rail.scrollTo({ left: atEnd ? 0 : rail.scrollLeft + Math.min(560, window.innerWidth * 0.82), behavior: "smooth" });
+      rail.scrollTo({ left: atEnd ? 0 : rail.scrollLeft + cardStep(), behavior: "smooth" });
     }, 5600);
     return () => window.clearInterval(timer);
   }, [paused, selectedIndex]);

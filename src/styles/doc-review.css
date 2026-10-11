@@ -1167,3 +1167,22 @@ body .contact-hero .contact-goose img {
 html.lenis {
   scroll-behavior: auto;
 }
+
+/* Workshops page: polaroids sit close together, and each card is only as
+   tall as its photo and text, so the heading follows the photo directly. */
+.site-layout .workshops-page .workshop-polaroid-rail {
+  gap: 28px;
+  grid-auto-columns: min(320px, 84vw);
+  justify-content: start;
+}
+
+.site-layout .workshops-page .workshop-polaroid-card,
+.site-layout .workshops-page .workshop-polaroid-module.is-compact .workshop-polaroid-card {
+  align-content: start;
+  grid-template-rows: auto auto auto;
+  min-height: 0;
+}
+
+.site-layout .workshops-page .workshop-polaroid-meta {
+  margin-top: 14px;
+}
