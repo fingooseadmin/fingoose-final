@@ -6715,17 +6715,8 @@ body {
   --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.motion-ready .scrapbook-orbit {
-  transform: translate3d(0, var(--hero-scroll), 0) rotate(1.5deg);
-}
-
-.motion-ready .doodle {
-  translate: 0 var(--doodle-scroll);
-}
-
-.motion-ready .header-thread {
-  background-position-x: var(--thread-shift);
-}
+/* .scrapbook-orbit, .doodle and .header-thread are moved on scroll by
+   MotionController, which writes their styles directly. */
 
 .reveal {
   filter: blur(9px);
@@ -8061,9 +8052,7 @@ body.intro-revealed .scrapbook-site > section:first-child {
   right: -120px;
   top: 12%;
   transform:
-    translate3d(var(--ambient-x), var(--section-flow, 0px), 0)
     rotate(-8deg);
-  transition: transform 160ms linear;
   width: 360px;
   z-index: 0;
 }
@@ -8089,8 +8078,6 @@ body.intro-revealed .scrapbook-site > section:first-child {
   opacity: 0.34;
   pointer-events: none;
   position: absolute;
-  transform: translate3d(var(--ambient-x-reverse), var(--section-flow-reverse, 0px), 0);
-  transition: transform 160ms linear;
   width: 220px;
   z-index: 0;
 }
@@ -9521,13 +9508,7 @@ body.intro-active .flow-word {
 }
 
 .motion-ready .scrapbook-site > section > .container {
-  scale: var(--content-scale, 1);
-  translate: 0 var(--content-flow, 0px);
-  transition:
-    filter 220ms linear,
-    scale 220ms linear,
-    translate 180ms linear;
-  will-change: filter, scale, translate;
+  transition: filter 220ms linear;
 }
 
 .scrapbook-site > section {

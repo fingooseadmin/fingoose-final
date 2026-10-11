@@ -13,38 +13,28 @@ export default function MotionController() {
       document.querySelectorAll(".scrapbook-site > section")
     );
     const wordGroups = Array.from(document.querySelectorAll(".flow-words"));
-    const activeSections = new Set();
     let frame = 0;
+
+    // Scroll-linked motion is written straight onto the few elements that
+    // move. Setting CSS variables on <html> or whole sections made the
+    // browser restyle the entire page every frame, which caused scroll lag.
+    const orbits = Array.from(document.querySelectorAll(".scrapbook-orbit"));
+    const doodles = Array.from(document.querySelectorAll(".doodle"));
+    const threads = Array.from(document.querySelectorAll(".header-thread"));
 
     const update = () => {
       const scrollY = window.scrollY;
-      const viewportHeight = window.innerHeight;
-      root.style.setProperty("--hero-scroll", `${Math.min(scrollY * 0.055, 48)}px`);
-      root.style.setProperty("--doodle-scroll", `${Math.min(scrollY * -0.03, 0)}px`);
-      root.style.setProperty("--thread-shift", `${scrollY % 96}px`);
-      const ambientX = Math.sin(scrollY * 0.0028) * 18;
-      root.style.setProperty("--ambient-x", `${ambientX}px`);
-      root.style.setProperty("--ambient-x-reverse", `${ambientX * -0.65}px`);
-
-      const measurements = Array.from(activeSections, (section) => {
-        const bounds = section.getBoundingClientRect();
-        const sectionCenter = bounds.top + bounds.height / 2;
-        const distance = sectionCenter - viewportHeight / 2;
-        const flow = Math.max(
-          -24,
-          Math.min(24, (distance / (viewportHeight + bounds.height)) * -48)
-        );
-        return { section, flow };
+      const heroShift = Math.min(scrollY * 0.055, 48);
+      const doodleShift = Math.min(scrollY * -0.03, 0);
+      const threadShift = scrollY % 96;
+      orbits.forEach((orbit) => {
+        orbit.style.transform = `translate3d(0, ${heroShift}px, 0) rotate(1.5deg)`;
       });
-
-      measurements.forEach(({ section, flow }) => {
-        section.style.setProperty("--section-flow", `${flow}px`);
-        section.style.setProperty("--section-flow-reverse", `${flow * -0.6}px`);
-        section.style.setProperty("--content-flow", `${flow * 0.18}px`);
-        section.style.setProperty(
-          "--content-scale",
-          `${1 - Math.min(Math.abs(flow) / 5200, 0.006)}`
-        );
+      doodles.forEach((doodle) => {
+        doodle.style.translate = `0 ${doodleShift}px`;
+      });
+      threads.forEach((thread) => {
+        thread.style.backgroundPositionX = `${threadShift}px`;
       });
       frame = 0;
     };
@@ -53,10 +43,7 @@ export default function MotionController() {
       (entries) => {
         entries.forEach((entry) => {
           entry.target.classList.toggle("is-flow-active", entry.isIntersecting);
-          if (entry.isIntersecting) activeSections.add(entry.target);
-          else activeSections.delete(entry.target);
         });
-        requestUpdate();
       },
       { rootMargin: "12% 0px 12% 0px", threshold: 0 }
     );
@@ -106,13 +93,9 @@ export default function MotionController() {
       wordObserver.disconnect();
       sectionObserver.disconnect();
       if (frame) window.cancelAnimationFrame(frame);
-      [
-        "--hero-scroll",
-        "--doodle-scroll",
-        "--thread-shift",
-        "--ambient-x",
-        "--ambient-x-reverse"
-      ].forEach((property) => root.style.removeProperty(property));
+      orbits.forEach((orbit) => orbit.style.removeProperty("transform"));
+      doodles.forEach((doodle) => doodle.style.removeProperty("translate"));
+      threads.forEach((thread) => thread.style.removeProperty("background-position-x"));
       root.classList.remove("motion-ready", "reduced-motion");
     };
   }, [pathname]);
