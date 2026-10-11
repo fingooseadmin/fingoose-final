@@ -1320,16 +1320,16 @@ body.site-layout .site-footer .scrapbook-footer-bottom.container {
   width: min(calc(100% - 2 * var(--layout-gutter)), var(--layout-content));
 }
 
-/* Shorter opening intro: the curtain opens faster so visitors reach the
-   content in well under a second. */
+/* Shorter opening intro: the full curtain animation still plays, but
+   visitors reach the content in a little over a second. */
 .site-intro .intro-curtain {
-  transition-duration: 560ms;
+  transition-duration: 800ms;
 }
 
 .site-intro.is-leaving .intro-flare {
-  transition-duration: 520ms;
+  transition-duration: 720ms;
 }
 
 .site-intro.is-leaving .intro-burst span {
-  animation-duration: 480ms;
+  animation-duration: 640ms;
 }

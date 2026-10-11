@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const INTRO_KEY = "fingoose-intro-played";
-const FULL_DURATION = 420;
+const FULL_DURATION = 700;
 const REDUCED_DURATION = 300;
 
 export default function SiteIntro() {
@@ -62,12 +62,12 @@ export default function SiteIntro() {
 
 
       setPhase("ready");
-      readyTimer = window.setTimeout(() => setPhase("leaving"), 40);
+      readyTimer = window.setTimeout(() => setPhase("leaving"), 90);
       exitTimer = window.setTimeout(() => {
         body.classList.remove("intro-active");
         body.classList.add("intro-revealed");
         setVisible(false);
-      }, reducedMotion.matches ? 300 : 380);
+      }, reducedMotion.matches ? 300 : 560);
     };
 
     frame = window.requestAnimationFrame(tick);

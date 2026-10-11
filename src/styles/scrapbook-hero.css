@@ -156,10 +156,12 @@
   text-align: center;
 }
 
+/* Tape straps each top corner of the polaroid at a matching angle. */
 .scrap-tape-left {
-  left: -26px;
-  top: 14px;
-  transform: rotate(-38deg);
+  left: -38px;
+  top: 2px;
+  transform: rotate(-42deg);
+  width: 104px;
 }
 
 .scrap-tape-right {
@@ -170,9 +172,10 @@
       transparent 6px 12px
     ),
     rgba(91, 108, 222, 0.7);
-  right: -28px;
-  top: 10px;
-  transform: rotate(36deg);
+  right: -38px;
+  top: 2px;
+  transform: rotate(42deg);
+  width: 104px;
 }
 
 .scrap-note {
@@ -369,7 +372,7 @@
 
   .scrap-polaroid .scrap-tape {
     animation: scrap-tape-stick 380ms ease-out backwards;
-    transform-origin: 0 50%;
+    transform-origin: 50% 50%;
   }
 
   .scrap-polaroid .scrap-tape-left {
