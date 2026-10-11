@@ -8,7 +8,7 @@ import Icon from "@/components/Icon";
 import MotionReels from "@/components/MotionReels";
 import Reveal from "@/components/Reveal";
 import LearningLoop from "@/components/LearningLoop";
-import ScrapbookOrbit from "@/components/ScrapbookOrbit";
+import ScrapbookHeroPage from "@/components/ScrapbookHeroPage";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -149,8 +149,6 @@ export default function HomePage() {
       <JsonLd data={homeStructuredData} />
       <section className="scrapbook-home-hero">
         <div className="paper-noise" aria-hidden="true" />
-        <div className="doodle doodle-one" aria-hidden="true">+$</div>
-        <div className="doodle doodle-two" aria-hidden="true">↗</div>
         <div className="container scrapbook-hero-grid">
           <div className="scrapbook-hero-copy">
             <span className="sticker-label">K–12 financial literacy, reimagined</span>
@@ -159,16 +157,19 @@ export default function HomePage() {
               Silly goose,
               <strong>serious money.</strong>
             </h1>
-            <p className="hero-mission">
-              FinGoose’s mission is to make financial literacy fun, accessible,
-              and real-world–relevant for K-12 students. Through interactive
-              course lessons, storytelling in our E-Workbook, and hands-on
-              crisis labs in our workshops, we turn money skills into engaging,
-              practical learning. By blending creative teaching with DECA’s
-              applied business focus, FinGoose prepares the next generation to
-              think critically, solve problems, and make confident financial
-              decisions in daily life.
-            </p>
+            <div className="hero-mission-note">
+              <span className="scrap-tape scrap-tape-mission" aria-hidden="true" />
+              <p className="hero-mission">
+                FinGoose’s mission is to make financial literacy fun, accessible,
+                and real-world–relevant for K-12 students. Through interactive
+                course lessons, storytelling in our E-Workbook, and hands-on
+                crisis labs in our workshops, we turn money skills into engaging,
+                practical learning. By blending creative teaching with DECA’s
+                applied business focus, FinGoose prepares the next generation to
+                think critically, solve problems, and make confident financial
+                decisions in daily life.
+              </p>
+            </div>
             <div className="button-row">
               <Link
                 className="button button-gold tape-button"
@@ -188,7 +189,7 @@ export default function HomePage() {
               <span>Built for real life</span>
             </div>
           </div>
-          <ScrapbookOrbit />
+          <ScrapbookHeroPage />
         </div>
         <div className="hero-grand-ribbon" aria-hidden="true">
           <div>

@@ -18,7 +18,7 @@ async function optimizeDirectory(directory) {
       if (entry.name.endsWith(".css")) {
         const css = await readFile(absolutePath, "utf8");
         const optimizedCss = css.replace(/@font-face\{[^}]+\}/g, (fontFace) => {
-          if (!/poppins-latin-\d+-normal\.[^)]+\.woff2/.test(fontFace)) {
+          if (!/(?:poppins|caveat)-latin-\d+-normal\.[^)]+\.woff2/.test(fontFace)) {
             return "";
           }
 
@@ -34,7 +34,7 @@ async function optimizeDirectory(directory) {
       }
 
       const isFont = /\.woff2?$/.test(entry.name);
-      const isRequiredFont = /^poppins-latin-\d+-normal\..+\.woff2$/.test(
+      const isRequiredFont = /^(?:poppins|caveat)-latin-\d+-normal\..+\.woff2$/.test(
         entry.name
       );
 

@@ -1,0 +1,262 @@
+/* Homepage hero, scrapbook edition: paper, tape and a polaroid instead of
+   floating cards. Everything here is static on purpose. */
+
+.site-layout .home-scrapbook-site .scrapbook-home-hero {
+  background:
+    radial-gradient(rgba(16, 22, 63, 0.07) 1px, transparent 1.4px) 0 0 / 22px 22px,
+    linear-gradient(180deg, #f8f4ea, #f3ede0);
+}
+
+/* Drop the giant faded "FIN GOOSE" watermark and the breathing paper. */
+.site-layout .home-scrapbook-site .scrapbook-home-hero::after {
+  content: none;
+}
+
+.site-layout .home-scrapbook-site .scrapbook-home-hero .paper-noise {
+  animation: none;
+}
+
+/* Shared washi tape. */
+.scrap-tape {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.28) 0 6px,
+      transparent 6px 12px
+    ),
+    rgba(255, 178, 0, 0.78);
+  clip-path: polygon(2% 0, 98% 4%, 100% 30%, 97% 52%, 100% 78%, 97% 100%, 3% 96%, 0 70%, 3% 48%, 0 22%);
+  display: block;
+  height: 28px;
+  pointer-events: none;
+  position: absolute;
+  width: 112px;
+  z-index: 3;
+}
+
+.scrap-handwriting {
+  font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+  font-weight: 700;
+}
+
+/* Mission text on lined notebook paper. */
+.site-layout .home-scrapbook-site .scrapbook-hero-copy .hero-mission-note {
+  margin-block: 26px 4px;
+  max-width: 730px;
+  position: relative;
+  transform: rotate(-0.6deg);
+}
+
+.site-layout .home-scrapbook-site .scrapbook-hero-copy .hero-mission-note::after {
+  background: rgba(255, 130, 9, 0.55);
+  bottom: 0;
+  content: "";
+  left: 18px;
+  position: absolute;
+  top: 0;
+  width: 2px;
+}
+
+.site-layout .home-scrapbook-site .scrapbook-hero-copy .hero-mission-note .hero-mission {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background:
+    linear-gradient(to bottom, transparent 25px, rgba(60, 76, 186, 0.16) 25px) 0 0 / 100% 26px
+    content-box,
+    #fffdf6;
+  background-origin: content-box, padding-box;
+  border: 0;
+  border-radius: 2px;
+  box-shadow:
+    0 1px 0 rgba(16, 22, 63, 0.08),
+    0 12px 26px rgba(16, 22, 63, 0.1);
+  font-size: 0.92rem;
+  line-height: 26px;
+  margin: 0;
+  padding: 22px 24px 22px 36px;
+}
+
+.site-layout .home-scrapbook-site .scrapbook-hero-copy .scrap-tape-mission {
+  left: -14px;
+  top: -12px;
+  transform: rotate(-9deg);
+}
+
+/* The scrapbook page on the right. */
+.scrap-hero-page {
+  aspect-ratio: 1 / 1.08;
+  justify-self: center;
+  margin: 0;
+  max-width: 540px;
+  position: relative;
+  width: 100%;
+}
+
+.scrap-hero-sheet {
+  background:
+    linear-gradient(rgba(60, 76, 186, 0.1) 1px, transparent 1px) 0 0 / 26px 26px,
+    linear-gradient(90deg, rgba(60, 76, 186, 0.1) 1px, transparent 1px) 0 0 / 26px 26px,
+    #fffdf6;
+  border-radius: 3px;
+  box-shadow:
+    0 1px 0 rgba(16, 22, 63, 0.1),
+    0 22px 46px rgba(16, 22, 63, 0.16);
+  inset: 3% 4% 7% 3%;
+  position: absolute;
+  transform: rotate(-2.5deg);
+}
+
+.scrap-tape-sheet {
+  left: 50%;
+  top: -14px;
+  transform: translateX(-50%) rotate(2deg);
+  width: 140px;
+}
+
+.scrap-clip {
+  color: #8f97b8;
+  height: 92px;
+  left: 18px;
+  position: absolute;
+  top: -30px;
+  transform: rotate(-8deg);
+  width: 38px;
+  z-index: 4;
+}
+
+.scrap-polaroid {
+  background: #fff;
+  box-shadow:
+    0 1px 0 rgba(16, 22, 63, 0.1),
+    0 16px 30px rgba(16, 22, 63, 0.2);
+  left: 11%;
+  padding: 4.5% 4.5% 0;
+  position: absolute;
+  top: 9%;
+  transform: rotate(3deg);
+  width: 64%;
+  z-index: 2;
+}
+
+.scrap-polaroid-photo {
+  aspect-ratio: 1;
+  background:
+    radial-gradient(circle at 50% 58%, #ffd25c 0 46%, transparent 47%),
+    #fff1c9;
+  overflow: hidden;
+}
+
+.scrap-polaroid-photo img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  padding: 5% 4% 0;
+  width: 100%;
+}
+
+.scrap-polaroid figcaption {
+  color: var(--blue-dark, #10163f);
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  line-height: 1;
+  padding: 12px 0 18px;
+  text-align: center;
+}
+
+.scrap-tape-left {
+  left: -26px;
+  top: 14px;
+  transform: rotate(-38deg);
+}
+
+.scrap-tape-right {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.3) 0 6px,
+      transparent 6px 12px
+    ),
+    rgba(91, 108, 222, 0.7);
+  right: -28px;
+  top: 10px;
+  transform: rotate(36deg);
+}
+
+.scrap-note {
+  background:
+    linear-gradient(to bottom, transparent 31px, rgba(60, 76, 186, 0.22) 31px) 0 14px / 100% 32px,
+    #fff;
+  bottom: 4%;
+  box-shadow: 0 10px 22px rgba(16, 22, 63, 0.16);
+  clip-path: polygon(0 4%, 6% 0, 13% 3%, 21% 0, 30% 4%, 38% 1%, 47% 4%, 55% 0, 64% 3%, 72% 0, 81% 4%, 89% 1%, 100% 3%, 100% 100%, 0 100%);
+  padding: 22px 22px 16px 26px;
+  position: absolute;
+  right: 1%;
+  transform: rotate(-5deg);
+  width: 38%;
+  z-index: 3;
+}
+
+.scrap-note-text {
+  color: var(--blue-dark, #10163f);
+  font-size: clamp(1.5rem, 2.1vw, 1.95rem);
+  line-height: 32px;
+  margin: 0;
+}
+
+.scrap-note u {
+  color: #e8700a;
+  text-decoration-color: rgba(232, 112, 10, 0.6);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.scrap-tape-note {
+  height: 24px;
+  left: 50%;
+  top: -4px;
+  transform: translateX(-50%) rotate(-4deg);
+  width: 84px;
+}
+
+@media (max-width: 980px) {
+  .scrap-hero-page {
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 560px) {
+  .scrap-hero-page {
+    aspect-ratio: 1 / 1.26;
+    max-width: 340px;
+  }
+
+  .scrap-polaroid {
+    left: 9%;
+    top: 6%;
+    width: 68%;
+  }
+
+  .scrap-note {
+    bottom: 2%;
+    right: 2%;
+  }
+
+  .scrap-note {
+    padding: 18px 14px 12px 18px;
+    width: 42%;
+  }
+
+  .scrap-note-text {
+    line-height: 28px;
+  }
+
+  .scrap-note {
+    background:
+      linear-gradient(to bottom, transparent 27px, rgba(60, 76, 186, 0.22) 27px) 0 10px / 100% 28px,
+      #fff;
+  }
+
+  .site-layout .home-scrapbook-site .scrapbook-hero-copy .hero-mission-note .hero-mission {
+    padding: 20px 18px 20px 32px;
+  }
+}
