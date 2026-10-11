@@ -10,8 +10,7 @@ const pages = [
   ["Our Impact", "/impact"],
   ["Resources", "/resources"],
   ["Online Course", "/course"],
-  ["Contact", "/contact"],
-  ["Donate", "/donate"]
+  ["Contact", "/contact"]
 ];
 
 export default function SiteFooter() {

@@ -65,8 +65,8 @@ export default function ShipmentCountdown({ targetDate = "" }) {
       ) : null}
       <p>
         {live
-          ? "Every contribution helps move more financial-literacy books toward classrooms."
-          : "We’re setting the date for our next free-book shipment. Check back soon, or support the next print run below."}
+          ? "Free financial-literacy books are on their way to classrooms."
+          : "We’re setting the date for our next free-book shipment. Check back soon."}
       </p>
     </div>
   );

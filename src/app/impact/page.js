@@ -162,11 +162,11 @@ export default function ImpactPage() {
           <Reveal className="book-donation-panel book-donation-intro-panel">
             <div className="book-donation-copy">
               <span className="sticker-label sticker-orange">Next print run</span>
-              <h2>Help put a FinGoose book into more hands.</h2>
+              <h2>Putting FinGoose books into more hands.</h2>
               <p>
-                We are preparing the next phase of paperback distribution. Your
-                support can help fund future print runs and place more accessible
-                financial-literacy stories into classrooms.
+                We are preparing the next phase of paperback distribution,
+                placing more accessible financial-literacy stories into
+                classrooms and libraries.
               </p>
             </div>
             <div className="book-donation-photo">
@@ -184,8 +184,8 @@ export default function ImpactPage() {
             <div className="book-donation-progress">
               <ShipmentCountdown targetDate="2026-11-02T00:00:00-05:00" />
               <div className="button-row">
-                <Link className="button button-gold" href="/donate">
-                  Support FinGoose books <Icon name="heart" />
+                <Link className="button button-gold" href="/contact">
+                  Request books for your classroom <Icon name="arrow" />
                 </Link>
               </div>
             </div>

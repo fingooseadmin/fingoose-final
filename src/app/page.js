@@ -368,15 +368,15 @@ export default function HomePage() {
             <span className="sticker-label sticker-orange">Next step</span>
             <h2><FlowWords>Make money skills feel possible.</FlowWords></h2>
             <p>
-              Learn online, bring FinGoose to a classroom, or help keep
-              accessible financial education growing.
+              Learn online, bring FinGoose to a classroom, or start a
+              chapter in your own community.
             </p>
             <div className="button-row">
               <Link className="button button-gold" href="/course">
                 Start the course <Icon name="arrow" />
               </Link>
-              <Link className="button scrapbook-outline-button light" href="/donate">
-                Support FinGoose <Icon name="heart" />
+              <Link className="button scrapbook-outline-button light" href="/contact">
+                Bring FinGoose to your school <Icon name="arrow" />
               </Link>
             </div>
             <Image
