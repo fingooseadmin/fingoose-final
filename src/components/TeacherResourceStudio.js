@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
 import Reveal from "./Reveal";
 
+const CURRICULUM_DOC_URL = "https://docs.google.com/document/d/1vcHQcdXgS4BkEyfIJNDwEalHfziE24Zw7n16ErMk3Ig/edit?usp=sharing";
+
 const curriculumModules = [
   { number: "01", title: "Money Management", copy: "Build a flexible plan for earning, saving, spending, and handling surprises.", slides: ["Money map", "Needs, wants & goals", "Working budget"] },
   { number: "02", title: "Credit & Borrowing", copy: "Explore the real cost of borrowing and the habits behind healthy credit decisions.", slides: ["Why people borrow", "Interest in plain language", "Debt decisions"] },
@@ -21,7 +23,7 @@ const autismModules = [
   { number: "03", title: "Practice safely", copy: "Repeatable scenarios create room to build confidence at a comfortable pace.", slides: ["Model", "Practice", "Reflect"] }
 ];
 
-function ResourceCollection({ title, eyebrow, description, modules, tone, developing = false, onPreview }) {
+function ResourceCollection({ title, eyebrow, description, modules, tone, developing = false, onPreview = () => {} }) {
   return (
     <section className={"curriculum-resource curriculum-resource-" + tone}>
       <aside className="curriculum-facts">
@@ -36,7 +38,7 @@ function ResourceCollection({ title, eyebrow, description, modules, tone, develo
             <button className="button button-dark" type="button" onClick={() => onPreview(0)}>Preview the guide <Icon name="book" /></button>
           </>
         ) : (
-          <button className="curriculum-doc-cover" type="button" data-cursor-plain onClick={() => onPreview(0)} aria-label="View the curriculum">
+          <a className="curriculum-doc-cover" href={CURRICULUM_DOC_URL} target="_blank" rel="noreferrer" data-cursor-plain aria-label="View the curriculum (opens in a new tab)">
             <Image
               src="/assets/curriculum-cover.webp"
               alt="Cover of the FinGoose Middle School Financial Literacy Curriculum"
@@ -44,8 +46,8 @@ function ResourceCollection({ title, eyebrow, description, modules, tone, develo
               height={1210}
               sizes="(max-width: 820px) 82vw, 400px"
             />
-            <span className="curriculum-doc-cover-label" aria-hidden="true">View the curriculum <Icon name="arrow" /></span>
-          </button>
+            <span className="curriculum-doc-cover-label" aria-hidden="true">View the curriculum <Icon name="external" /></span>
+          </a>
         )}
         <dl>
           <div><dt>Resource type</dt><dd>{developing ? "Learning kit concept" : "Curriculum & classroom tools"}</dd></div>
@@ -71,7 +73,11 @@ function ResourceCollection({ title, eyebrow, description, modules, tone, develo
                 <h3>Unit {Number(module.number)}: {module.title}</h3>
                 <p>{module.copy}</p>
                 <ul className="curriculum-topics">{module.slides.map(slide=><li key={slide}>{slide}</li>)}</ul>
-                <button className="curriculum-lesson-link" type="button" onClick={() => onPreview(index)} aria-label={"Preview unit " + module.number + ": " + module.title}>Preview this unit <Icon name="arrow" size={16} /></button>
+                {developing ? (
+                  <button className="curriculum-lesson-link" type="button" onClick={() => onPreview(index)} aria-label={"Preview unit " + module.number + ": " + module.title}>Preview this unit <Icon name="arrow" size={16} /></button>
+                ) : (
+                  <a className="curriculum-lesson-link" href={CURRICULUM_DOC_URL} target="_blank" rel="noreferrer" aria-label={"Preview unit " + module.number + ": " + module.title + " in the curriculum (opens in a new tab)"}>Preview this unit <Icon name="external" size={16} /></a>
+                )}
               </div>
             </article>
           ))}
@@ -85,7 +91,7 @@ export default function TeacherResourceStudio() {
   const [preview, setPreview] = useState(null);
   const [page, setPage] = useState(0);
   const dialogRef = useRef(null);
-  const activeModules = preview === "autism" ? autismModules : curriculumModules;
+  const activeModules = autismModules;
   const activeModule = activeModules[page];
 
   useEffect(() => {
@@ -114,7 +120,6 @@ export default function TeacherResourceStudio() {
           description="Help students make practical money decisions through five units covering budgeting, credit, saving, investing, careers, and a financial decision lab. Explore each unit below and preview its learning sequence."
           modules={curriculumModules}
           tone="blue"
-          onPreview={(index) => openPreview("curriculum", index)}
         />
         <ResourceCollection
           eyebrow="In development"
@@ -133,8 +138,8 @@ export default function TeacherResourceStudio() {
           <section className="resource-preview-dialog" role="dialog" aria-modal="true" aria-label="Curriculum preview" ref={dialogRef} tabIndex={-1}>
             <button className="resource-preview-close" type="button" onClick={() => setPreview(null)} aria-label="Close preview">×</button>
             <header>
-              <span>{preview === "autism" ? "Autism learning kit · concept preview" : "FinGoose · middle school curriculum"}</span>
-              <h2>{preview === "autism" ? "Predictable learning sequence" : "Teacher resource preview"}</h2>
+              <span>Autism learning kit · concept preview</span>
+              <h2>Predictable learning sequence</h2>
             </header>
             <div className="resource-preview-layout">
               <article className="resource-guide-page" key={`${preview}-${page}`}>

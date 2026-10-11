@@ -402,6 +402,7 @@ body.site-layout .impact-page .impact-book-library.container-wide {
 .site-layout .curriculum-topics li { font-size: .8rem !important; background: #eceef9; border-radius: 5px; padding: 5px 9px; color: #283667; }
 .curriculum-lesson-link { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; padding: 10px 0; background: none; border: 0; border-bottom: 2px solid #ff8209; font-size: .875rem; font-weight: 700; color: #3c4cba; cursor: pointer; }
 .curriculum-lesson-link:hover { color: #10163f; gap: 18px; }
+a.curriculum-lesson-link, a.curriculum-doc-cover { text-decoration: none; }
 .curriculum-help { background: #e8eaff; }
 .curriculum-help > .container { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
 .site-layout .curriculum-help h2 { font-size: clamp(1.8rem,3vw,2.6rem); max-width: 24ch; }
