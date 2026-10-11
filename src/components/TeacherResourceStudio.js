@@ -1,6 +1,7 @@
 "use client";
 import DialogLayer from "./DialogLayer";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
@@ -25,12 +26,27 @@ function ResourceCollection({ title, eyebrow, description, modules, tone, develo
     <section className={"curriculum-resource curriculum-resource-" + tone}>
       <aside className="curriculum-facts">
         <span className="sticker-label sticker-orange">{eyebrow}</span>
-        <div className="curriculum-cover">
-          <Icon name="book" size={32} />
-          <strong>{developing ? "Autism learning kit" : "FinGoose"}</strong>
-          <span>{developing ? "Visual learning sequence" : "Middle school financial literacy"}</span>
-        </div>
-        <button className="button button-dark" type="button" onClick={() => onPreview(0)}>Preview the guide <Icon name="book" /></button>
+        {developing ? (
+          <>
+            <div className="curriculum-cover">
+              <Icon name="book" size={32} />
+              <strong>Autism learning kit</strong>
+              <span>Visual learning sequence</span>
+            </div>
+            <button className="button button-dark" type="button" onClick={() => onPreview(0)}>Preview the guide <Icon name="book" /></button>
+          </>
+        ) : (
+          <button className="curriculum-doc-cover" type="button" data-cursor-plain onClick={() => onPreview(0)} aria-label="View the curriculum">
+            <Image
+              src="/assets/curriculum-cover.webp"
+              alt="Cover of the FinGoose Middle School Financial Literacy Curriculum"
+              width={935}
+              height={1210}
+              sizes="(max-width: 820px) 82vw, 400px"
+            />
+            <span className="curriculum-doc-cover-label" aria-hidden="true">View the curriculum <Icon name="arrow" /></span>
+          </button>
+        )}
         <dl>
           <div><dt>Resource type</dt><dd>{developing ? "Learning kit concept" : "Curriculum & classroom tools"}</dd></div>
           {!developing && <div><dt>Grade level</dt><dd>Middle school · Grades 6–8</dd></div>}

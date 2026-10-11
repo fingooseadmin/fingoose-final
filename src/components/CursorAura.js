@@ -72,7 +72,10 @@ export default function CursorAura() {
       requestGlowFrame();
       aura.classList.add("is-visible");
 
-      const nextTarget = event.target.closest?.(INTERACTIVE_SELECTOR) || null;
+      // Elements with data-cursor-plain show their own hover label, so the
+      // "VIEW" bubble stays hidden over them.
+      const plain = event.target.closest?.("[data-cursor-plain]");
+      const nextTarget = plain ? null : event.target.closest?.(INTERACTIVE_SELECTOR) || null;
       if (nextTarget !== currentTarget) {
         currentTarget?.classList.remove("cursor-is-over");
         currentTarget = nextTarget;
