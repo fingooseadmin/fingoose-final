@@ -152,7 +152,7 @@ export default function HomePage() {
         <div className="container scrapbook-hero-grid">
           <div className="scrapbook-hero-copy">
             <h1 className="hero-wordmark">
-              <span>FinGoose.</span>
+              <span>FinGoose</span>
             </h1>
             <div className="hero-mission-note">
               <span className="scrap-tape scrap-tape-mission" aria-hidden="true" />

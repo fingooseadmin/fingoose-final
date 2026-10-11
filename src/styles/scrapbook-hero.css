@@ -42,7 +42,7 @@
 /* Mission text on lined notebook paper. */
 .site-layout .home-scrapbook-site .scrapbook-hero-copy .hero-mission-note {
   margin-block: 26px 4px;
-  max-width: 730px;
+  max-width: 600px;
   position: relative;
   transform: rotate(-0.6deg);
 }
@@ -61,7 +61,7 @@
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
   background:
-    linear-gradient(to bottom, transparent 25px, rgba(60, 76, 186, 0.16) 25px) 0 0 / 100% 26px
+    linear-gradient(to bottom, transparent 22px, rgba(60, 76, 186, 0.16) 22px) 0 0 / 100% 23px
     content-box,
     #fffdf6;
   background-origin: content-box, padding-box;
@@ -70,10 +70,10 @@
   box-shadow:
     0 1px 0 rgba(16, 22, 63, 0.08),
     0 12px 26px rgba(16, 22, 63, 0.1);
-  font-size: 0.92rem;
-  line-height: 26px;
+  font-size: 0.86rem !important;
+  line-height: 23px !important;
   margin: 0;
-  padding: 22px 24px 22px 36px;
+  padding: 18px 22px 18px 34px;
 }
 
 .site-layout .home-scrapbook-site .scrapbook-hero-copy .scrap-tape-mission {
@@ -126,9 +126,9 @@
   left: 50%;
   padding: 4.5% 4.5% 0;
   position: absolute;
-  top: 6%;
+  top: 11%;
   transform: translateX(-50%) rotate(2.5deg);
-  width: 60%;
+  width: 58%;
   z-index: 2;
 }
 
@@ -299,7 +299,7 @@
   white-space: nowrap;
   letter-spacing: -0.06em;
   line-height: 0.9 !important;
-  margin: 0 0 8px;
+  margin: clamp(20px, 3.5vw, 48px) 0 8px;
   max-width: none;
 }
 
@@ -330,4 +330,188 @@
 .site-layout .home-scrapbook-site .scrapbook-home-hero .scrapbook-hero-grid.container {
   max-width: var(--layout-content);
   width: min(calc(100% - 2 * var(--layout-gutter)), var(--layout-content));
+}
+
+/* ---------------------------------------------------------------
+   Motion: the scrapbook assembles itself on load, then stays calm.
+   Entrances use the individual translate/rotate/scale properties so they
+   stack on top of each piece's resting tilt, and "backwards" fill so hover
+   effects still work once they finish.
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .scrap-hero-sheet {
+    animation: scrap-drop 900ms cubic-bezier(0.2, 0.9, 0.25, 1.15) 200ms backwards;
+  }
+
+  .scrap-binder-clip {
+    animation: scrap-clip-drop 600ms cubic-bezier(0.3, 1.4, 0.5, 1) 820ms backwards;
+  }
+
+  .scrap-clip {
+    animation: scrap-slide-in 600ms cubic-bezier(0.2, 0.9, 0.25, 1.1) 1500ms backwards;
+  }
+
+  .scrap-polaroid {
+    animation: scrap-slap 850ms cubic-bezier(0.2, 0.9, 0.3, 1.2) 600ms backwards;
+    transition:
+      translate 320ms cubic-bezier(0.2, 0.9, 0.3, 1.2),
+      rotate 320ms cubic-bezier(0.2, 0.9, 0.3, 1.2),
+      box-shadow 320ms ease;
+  }
+
+  .scrap-polaroid:hover {
+    box-shadow:
+      0 1px 0 rgba(16, 22, 63, 0.1),
+      0 26px 40px rgba(16, 22, 63, 0.24);
+    rotate: -2deg;
+    translate: 0 -8px;
+  }
+
+  .scrap-polaroid .scrap-tape {
+    animation: scrap-tape-stick 380ms ease-out backwards;
+    transform-origin: 0 50%;
+  }
+
+  .scrap-polaroid .scrap-tape-left {
+    animation-delay: 1250ms;
+  }
+
+  .scrap-polaroid .scrap-tape-right {
+    animation-delay: 1400ms;
+  }
+
+  .scrap-polaroid figcaption {
+    animation: scrap-write 900ms steps(14, end) 1550ms backwards;
+  }
+
+  .scrap-note {
+    animation:
+      scrap-note-swing 1300ms cubic-bezier(0.3, 1.5, 0.5, 1) 1700ms backwards,
+      scrap-note-sway 5s ease-in-out 3000ms infinite alternate;
+    transform-origin: 50% 0;
+    transition: scale 260ms ease;
+  }
+
+  .scrap-note:hover {
+    scale: 1.04;
+  }
+
+  .scrap-note-text {
+    animation: scrap-write 1000ms steps(18, end) 2300ms backwards;
+  }
+
+  .scrap-pin {
+    animation: scrap-pin-pop 420ms cubic-bezier(0.3, 1.8, 0.5, 1) backwards;
+  }
+
+  .scrap-pin-note {
+    animation-delay: 1650ms;
+  }
+
+  .scrap-pin-sheet {
+    animation-delay: 1150ms;
+  }
+
+  .site-layout .home-scrapbook-site .scrapbook-hero-copy .scrap-tape-mission {
+    animation: scrap-tape-stick 420ms ease-out 700ms backwards;
+    transform-origin: 0 50%;
+  }
+
+  .site-layout .home-scrapbook-site .scrapbook-hero-copy .hero-mission-note {
+    animation: scrap-drop 800ms cubic-bezier(0.2, 0.9, 0.25, 1.1) 380ms backwards;
+  }
+
+  /* Wait for the opening curtain before assembling the page. */
+  body.intro-active .scrapbook-home-hero,
+  body.intro-active .scrapbook-home-hero * {
+    animation-play-state: paused !important;
+  }
+}
+
+@keyframes scrap-drop {
+  from {
+    opacity: 0;
+    rotate: -6deg;
+    translate: 0 -36px;
+  }
+}
+
+@keyframes scrap-clip-drop {
+  from {
+    opacity: 0;
+    translate: 0 -40px;
+  }
+}
+
+@keyframes scrap-slide-in {
+  from {
+    opacity: 0;
+    translate: 24px -24px;
+  }
+}
+
+@keyframes scrap-slap {
+  0% {
+    opacity: 0;
+    rotate: -12deg;
+    scale: 1.12;
+    translate: 0 -30px;
+  }
+  60% {
+    opacity: 1;
+    rotate: 1.5deg;
+    scale: 0.98;
+    translate: 0 4px;
+  }
+}
+
+@keyframes scrap-tape-stick {
+  from {
+    opacity: 0;
+    scale: 0 1;
+  }
+}
+
+@keyframes scrap-write {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes scrap-note-swing {
+  0% {
+    opacity: 0;
+    rotate: 24deg;
+    translate: 0 -20px;
+  }
+  35% {
+    opacity: 1;
+    rotate: -9deg;
+    translate: 0 0;
+  }
+  60% {
+    rotate: 5deg;
+  }
+  80% {
+    rotate: -2deg;
+  }
+}
+
+@keyframes scrap-note-sway {
+  from {
+    rotate: -1.2deg;
+  }
+  to {
+    rotate: 1.4deg;
+  }
+}
+
+@keyframes scrap-pin-pop {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
 }
