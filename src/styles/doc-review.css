@@ -856,14 +856,20 @@ body .about-page .team-scrap-image:not(.has-photo) img {
 }
 
 /* The official flyer keeps its own proportions on the events page. */
-body .events-page .event-flyer-official {
+/* The frame hugs the flyer: its width is capped so the height never exceeds
+   680px, and the flyer-shaped aspect ratio leaves no empty strips. */
+body .events-page .event-detail-card .event-flyer-official {
   aspect-ratio: 1237 / 1600;
-  max-height: 680px;
+  justify-self: center;
+  max-height: none;
+  padding: 0;
+  width: min(100%, 526px);
 }
 
-body .events-page .event-flyer-official img {
+body .events-page .event-detail-card .event-flyer-official img {
+  display: block;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
 }
 
