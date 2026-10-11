@@ -55,10 +55,6 @@ body.site-layout .impact-page .impact-book-library.container-wide {
   max-width: 440px;
   justify-self: center;
 }
-.site-layout .home-scrapbook-site .scrapbook-home-hero .scrapbook-hero-grid.container {
-  width: min(calc(100% - 2 * clamp(28px,7vw,150px)),1200px);
-  max-width: 1200px;
-}
 .site-layout .home-scrapbook-site .scrapbook-home-hero {
   min-height: 100svh !important;
   padding-bottom: clamp(112px,12vh,150px) !important;

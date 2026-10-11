@@ -106,12 +106,6 @@
   transform: rotate(-2.5deg);
 }
 
-.scrap-tape-sheet {
-  left: 50%;
-  top: -14px;
-  transform: translateX(-50%) rotate(2deg);
-  width: 140px;
-}
 
 .scrap-clip {
   color: #8f97b8;
@@ -129,12 +123,12 @@
   box-shadow:
     0 1px 0 rgba(16, 22, 63, 0.1),
     0 16px 30px rgba(16, 22, 63, 0.2);
-  left: 11%;
+  left: 50%;
   padding: 4.5% 4.5% 0;
   position: absolute;
-  top: 9%;
-  transform: rotate(3deg);
-  width: 64%;
+  top: 6%;
+  transform: translateX(-50%) rotate(2.5deg);
+  width: 60%;
   z-index: 2;
 }
 
@@ -182,24 +176,34 @@
 }
 
 .scrap-note {
-  background:
-    linear-gradient(to bottom, transparent 31px, rgba(60, 76, 186, 0.22) 31px) 0 14px / 100% 32px,
-    #fff;
-  bottom: 4%;
-  box-shadow: 0 10px 22px rgba(16, 22, 63, 0.16);
-  clip-path: polygon(0 4%, 6% 0, 13% 3%, 21% 0, 30% 4%, 38% 1%, 47% 4%, 55% 0, 64% 3%, 72% 0, 81% 4%, 89% 1%, 100% 3%, 100% 100%, 0 100%);
-  padding: 22px 22px 16px 26px;
+  background: linear-gradient(170deg, #ffe684 0%, #ffdb5c 100%);
+  bottom: -4%;
+  box-shadow:
+    0 1px 0 rgba(16, 22, 63, 0.08),
+    6px 14px 18px -8px rgba(16, 22, 63, 0.35);
+  padding: 30px 20px 20px 22px;
   position: absolute;
-  right: 1%;
-  transform: rotate(-5deg);
-  width: 38%;
+  right: -3%;
+  transform: rotate(-4deg);
+  width: 44%;
   z-index: 3;
+}
+
+.scrap-note::after {
+  /* Slightly lifted bottom-right corner. */
+  background: linear-gradient(135deg, #f3cd4b 0 50%, transparent 50%);
+  bottom: 0;
+  content: "";
+  height: 22px;
+  position: absolute;
+  right: 0;
+  width: 22px;
 }
 
 .scrap-note-text {
   color: var(--blue-dark, #10163f);
-  font-size: clamp(1.5rem, 2.1vw, 1.95rem);
-  line-height: 32px;
+  font-size: clamp(1.7rem, 2.5vw, 2.35rem);
+  line-height: 1.05;
   margin: 0;
 }
 
@@ -210,13 +214,6 @@
   text-underline-offset: 3px;
 }
 
-.scrap-tape-note {
-  height: 24px;
-  left: 50%;
-  top: -4px;
-  transform: translateX(-50%) rotate(-4deg);
-  width: 84px;
-}
 
 @media (max-width: 980px) {
   .scrap-hero-page {
@@ -231,7 +228,6 @@
   }
 
   .scrap-polaroid {
-    left: 9%;
     top: 6%;
     width: 68%;
   }
@@ -250,13 +246,88 @@
     line-height: 28px;
   }
 
-  .scrap-note {
-    background:
-      linear-gradient(to bottom, transparent 27px, rgba(60, 76, 186, 0.22) 27px) 0 10px / 100% 28px,
-      #fff;
-  }
 
   .site-layout .home-scrapbook-site .scrapbook-hero-copy .hero-mission-note .hero-mission {
     padding: 20px 18px 20px 32px;
   }
+}
+
+/* Binder clip, paper clip and push pins. */
+.scrap-binder-clip {
+  height: 84px;
+  left: 50%;
+  position: absolute;
+  top: -50px;
+  transform: translateX(-50%) rotate(2deg);
+  width: 92px;
+  z-index: 5;
+}
+
+.scrap-clip {
+  left: auto;
+  right: 26px;
+  transform: rotate(10deg);
+}
+
+.scrap-pin {
+  height: 38px;
+  position: absolute;
+  width: 34px;
+  z-index: 5;
+}
+
+.scrap-pin-sheet {
+  bottom: 18px;
+  left: 18px;
+}
+
+.scrap-pin-note {
+  left: 50%;
+  top: -12px;
+  transform: translateX(-50%);
+}
+
+/* Big wordmark now that the tagline lives on the sticky note. */
+.site-layout .home-scrapbook-site .scrapbook-hero-copy {
+  container-type: inline-size;
+}
+
+/* Sized to the text column so "FinGoose." always stays on one line. */
+.site-layout .home-scrapbook-site .scrapbook-hero-copy h1.hero-wordmark {
+  font-size: clamp(3.4rem, 5.6vw, 6rem) !important;
+  font-size: min(19cqi, 9rem) !important;
+  white-space: nowrap;
+  letter-spacing: -0.06em;
+  line-height: 0.9 !important;
+  margin: 0 0 8px;
+  max-width: none;
+}
+
+.site-layout .home-scrapbook-site .scrapbook-hero-copy h1.hero-wordmark > span {
+  display: block;
+  font-size: 1em !important;
+}
+
+/* Breathing room between the mission note and the buttons. */
+.site-layout .home-scrapbook-site .scrapbook-hero-copy .hero-mission-note {
+  margin-bottom: 34px;
+}
+
+@media (max-width: 560px) {
+  .scrap-binder-clip {
+    height: 66px;
+    top: -40px;
+    width: 72px;
+  }
+
+  .scrap-note {
+    padding: 24px 14px 14px 16px;
+    width: 50%;
+  }
+}
+
+/* Same side padding as every other homepage section. */
+.site-layout .home-scrapbook-site .scrapbook-home-hero .scrapbook-hero-grid.container {
+  max-width: var(--layout-content);
+  width: min(calc(100% - 2 * var(--layout-gutter)), var(--layout-content));
 }

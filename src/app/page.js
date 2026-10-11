@@ -151,11 +151,8 @@ export default function HomePage() {
         <div className="paper-noise" aria-hidden="true" />
         <div className="container scrapbook-hero-grid">
           <div className="scrapbook-hero-copy">
-            <span className="sticker-label">K–12 financial literacy, reimagined</span>
-            <h1>
+            <h1 className="hero-wordmark">
               <span>FinGoose.</span>
-              Silly goose,
-              <strong>serious money.</strong>
             </h1>
             <div className="hero-mission-note">
               <span className="scrap-tape scrap-tape-mission" aria-hidden="true" />
