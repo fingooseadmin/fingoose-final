@@ -72,15 +72,6 @@ export default function ImpactPage() {
         tone="impact"
       />
 
-      <MilestonesSection
-        heading="What FinGoose has built."
-        intro="The partnerships, awards, publications, and programs behind the numbers."
-      />
-
-      <PartnerStrip />
-
-      <EventPhotoGallery variant="impact" />
-
       <section className="section impact-scrap-stats">
         <div className="container impact-stat-board">
           <Reveal className="impact-stats-story">
@@ -142,6 +133,16 @@ export default function ImpactPage() {
           </Reveal>
         </div>
       </section>
+
+      <MilestonesSection
+        heading="What FinGoose has built."
+        intro="The partnerships, awards, publications, and programs behind the numbers."
+      />
+
+      <PartnerStrip />
+
+      <EventPhotoGallery variant="impact" />
+
 
       <section className="section impact-gallery-section" id="workshop-field-notes">
         <div className="container">

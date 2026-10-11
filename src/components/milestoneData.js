@@ -5,6 +5,9 @@
 //   note  – one sentence of detail
 //   icon  – one of: school, spark, chart, shield, book, globe, heart, clock
 //   color – blue, gold, orange, violet, mint
+//   date  – optional, e.g. "Spring 2025" (shown above the title)
+//   image – optional photo, e.g. "/assets/milestones/deca.webp"; until one is
+//           added, the card shows its icon on colored paper instead
 
 export const milestones = [
   {
@@ -65,13 +68,16 @@ export const milestones = [
   }
 ];
 
-// Organizations shown in the looping partners strip.
+// Organizations in the looping partners strip. Each card links to its site.
+//   logo – optional, e.g. "/assets/partners/visions.png" (put the file in
+//          public/assets/partners/); until then the card shows initials
+//   url  – leave "" to show the card without a link
 export const partners = [
-  "Visions Federal Credit Union",
-  "Colorado Department of Education",
-  "DECA",
-  "Bergen County Academies",
-  "Charles DeWolf Middle School",
-  "Benjamin Franklin Middle School",
-  "Leonia Public Library"
+  { name: "Visions Federal Credit Union", url: "https://www.visionsfcu.org", logo: "" },
+  { name: "Colorado Department of Education", url: "https://www.cde.state.co.us", logo: "" },
+  { name: "DECA", url: "https://www.deca.org", logo: "" },
+  { name: "Bergen County Academies", url: "https://www.bergen.org", logo: "" },
+  { name: "Charles DeWolf Middle School", url: "https://cdw.oldtappanschools.org", logo: "" },
+  { name: "Benjamin Franklin Middle School", url: "", logo: "" },
+  { name: "Leonia Public Library", url: "https://leonialibrary.org", logo: "" }
 ];
