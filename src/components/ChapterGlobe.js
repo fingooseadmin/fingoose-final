@@ -5,7 +5,9 @@ import { feature, mesh } from "topojson-client";
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 import { chapters } from "./chapterData";
 
-const HOME_VIEW = [80, -30]; // rotation that frames North America
+// Opening view: zoomed in on the US East Coast and Toronto.
+const HOME_VIEW = [76.5, -41.8];
+const HOME_ZOOM = 3.6;
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 8;
 const COLORS = {
@@ -33,7 +35,7 @@ const ChapterGlobe = forwardRef(function ChapterGlobe(_props, ref) {
   const canvasRef = useRef(null);
   const apiRef = useRef({});
   const [ready, setReady] = useState(false);
-  const [zoomLevel, setZoomLevel] = useState(1);
+  const [zoomLevel, setZoomLevel] = useState(HOME_ZOOM);
 
   useImperativeHandle(ref, () => ({
     flyTo: (coords) => apiRef.current.flyTo?.(coords),
@@ -50,7 +52,7 @@ const ChapterGlobe = forwardRef(function ChapterGlobe(_props, ref) {
     let frame = 0;
     let geo = null;
     let rotation = [...HOME_VIEW];
-    let zoom = 1;
+    let zoom = HOME_ZOOM;
     let baseScale = 1;
     let visible = false;
     let hovering = false;
@@ -273,7 +275,7 @@ const ChapterGlobe = forwardRef(function ChapterGlobe(_props, ref) {
         flight = null;
         idleUntil = 0;
         rotation = [...HOME_VIEW];
-        setZoom(1);
+        setZoom(HOME_ZOOM);
         draw();
         requestFrame();
       }
@@ -404,7 +406,7 @@ const ChapterGlobe = forwardRef(function ChapterGlobe(_props, ref) {
         role="img"
         aria-label={`Globe of FinGoose chapters: ${chapters.map((chapter) => chapter.city).join("; ")}`}
       />
-      <div className="chapter-globe-controls">
+      <div className="chapter-globe-controls" data-cursor-plain>
         <button type="button" onClick={() => apiRef.current.zoomBy?.(1.5)} disabled={zoomLevel >= MAX_ZOOM - 0.01} aria-label="Zoom in">+</button>
         <button type="button" onClick={() => apiRef.current.zoomBy?.(1 / 1.5)} disabled={zoomLevel <= MIN_ZOOM + 0.01} aria-label="Zoom out">−</button>
         <button type="button" onClick={() => apiRef.current.reset?.()} aria-label="Reset view">⟲</button>
