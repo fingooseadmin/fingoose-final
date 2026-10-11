@@ -3,6 +3,7 @@ import Link from "next/link";
 import Icon from "@/components/Icon";
 import PageSeo from "@/components/PageSeo";
 import Reveal from "@/components/Reveal";
+import EventTimeline from "@/components/EventTimeline";
 import { createPageMetadata } from "@/lib/seo";
 import styles from "./events.module.css";
 
@@ -70,6 +71,16 @@ export default function EventsPage() {
               </a>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="section event-timeline-section" id="past-events">
+        <div className="container">
+          <Reveal className="events-section-heading">
+            <span className="sticker-label">Past events</span>
+            <h2>Our scrapbook so far.</h2>
+          </Reveal>
+          <EventTimeline />
         </div>
       </section>
     </main>
