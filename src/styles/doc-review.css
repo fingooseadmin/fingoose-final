@@ -13,17 +13,6 @@
   transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 .site-layout .scrapbook-site .button:hover { transform: translateY(-2px); }
-.site-layout .about-page .value-scrap-card {
-  background: transparent;
-  box-shadow: none;
-  border: 0;
-  border-top: 3px solid #3c4cba;
-  border-radius: 0;
-  transform: none;
-  padding: 24px 0;
-  height: 100%;
-}
-.site-layout .about-page .value-scrap-card h3 { font-size: 1.45rem; margin-block: 20px 12px; }
 .site-layout .about-page .team-scrap-card > p { min-height: 3em; color: #a94b00; }
 .site-layout .about-page .team-scrap-card { box-shadow: 6px 7px 0 #ff8708; }
 .site-layout .resources-page .resource-index-card .resource-image-books img { object-fit: contain; padding: 0; }
@@ -1185,4 +1174,140 @@ html.lenis {
 
 .site-layout .workshops-page .workshop-polaroid-meta {
   margin-top: 14px;
+}
+
+/* About page values: pastel post-its matching the homepage "What we
+   provide" cards, each in its own color, with a strip of tape on top. */
+.site-layout .about-page .value-scrap-card {
+  --postit-color: #fff1a8;
+  --card-tilt: -1deg;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.45), transparent 45%),
+    var(--postit-color);
+  border: 1.5px solid rgba(18, 27, 85, 0.72);
+  border-radius: clamp(14px, 1.3vw, 20px);
+  box-shadow: 8px 10px 0 rgba(18, 27, 85, 0.18);
+  color: var(--blue-dark, #10163f);
+  contain: none;
+  height: 100%;
+  overflow: visible;
+  padding: 26px 22px 30px;
+  position: relative;
+  text-align: left;
+  transform: rotate(var(--card-tilt));
+  transition:
+    box-shadow 420ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-layout .about-page .value-scrap-grid > .reveal:nth-child(even) .value-scrap-card {
+  --card-tilt: 1.1deg;
+}
+
+.site-layout .about-page .value-scrap-card.offer-blue { --postit-color: #dfe5ff; }
+.site-layout .about-page .value-scrap-card.offer-gold { --postit-color: #ffed9f; }
+.site-layout .about-page .value-scrap-card.offer-orange { --postit-color: #ffd8b9; }
+.site-layout .about-page .value-scrap-card.offer-violet { --postit-color: #e7e0ff; }
+
+/* Tape strip. */
+.site-layout .about-page .value-scrap-card::before {
+  background:
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 0 6px, transparent 6px 12px),
+    rgba(255, 178, 0, 0.72);
+  clip-path: polygon(2% 0, 98% 4%, 100% 30%, 97% 52%, 100% 78%, 97% 100%, 3% 96%, 0 70%, 3% 48%, 0 22%);
+  content: "";
+  height: 24px;
+  left: 50%;
+  position: absolute;
+  top: -12px;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 92px;
+  z-index: 1;
+}
+
+.site-layout .about-page .value-scrap-grid > .reveal:nth-child(even) .value-scrap-card::before {
+  background:
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 0 6px, transparent 6px 12px),
+    rgba(91, 108, 222, 0.62);
+  transform: translateX(-50%) rotate(4deg);
+}
+
+/* Folded corner, replacing the faint white diagonal. */
+.site-layout .about-page .value-scrap-card::after {
+  background: linear-gradient(135deg, transparent 50%, rgba(18, 27, 85, 0.12) 51%);
+  border-radius: 0 0 clamp(14px, 1.3vw, 20px) 0;
+  bottom: 0;
+  content: "";
+  height: 30px;
+  inset-inline-start: auto;
+  left: auto;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  top: auto;
+  transform: none;
+  width: 30px;
+}
+
+.site-layout .about-page .value-scrap-card > div {
+  justify-content: space-between;
+  min-height: 0;
+}
+
+.site-layout .about-page .value-scrap-card > div span {
+  color: rgba(18, 27, 85, 0.46);
+  font-size: 0.62rem;
+  font-weight: 900;
+  left: auto;
+  order: 2;
+  position: static;
+}
+
+.site-layout .about-page .value-scrap-card > div svg {
+  background: var(--blue-dark, #10163f);
+  border: 0;
+  border-radius: 10px;
+  box-sizing: content-box;
+  color: #fff;
+  height: 22px;
+  padding: 10px;
+  width: 22px;
+}
+
+.site-layout .about-page .value-scrap-card h3 {
+  font-size: 1.45rem;
+  margin-block: 26px 10px;
+}
+
+.site-layout .about-page .value-scrap-card p {
+  color: #3f4566;
+  margin: 0;
+  max-width: none;
+}
+
+.site-layout .about-page .value-scrap-card:hover {
+  box-shadow: 13px 16px 0 rgba(18, 27, 85, 0.16);
+  transform: rotate(0deg) translateY(-10px) scale(1.02);
+}
+
+.site-layout .about-page .value-scrap-card:hover > div svg {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-layout .about-page .value-scrap-card,
+  .site-layout .about-page .value-scrap-card:hover {
+    transition: none;
+  }
+}
+
+/* Same icon-to-heading spacing on every card, whatever the text length. */
+body.site-layout .about-page .scrapbook-values-section .value-scrap-card h3 {
+  margin-top: 22px;
+}
+
+/* Room for the tape strips between cards. */
+body.site-layout .about-page .scrapbook-values-section .value-scrap-grid {
+  gap: 34px 24px;
+  padding-top: 12px;
 }
