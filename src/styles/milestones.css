@@ -475,3 +475,59 @@ body.site-layout .home-scrapbook-site .provide-section .postit-path-card h3 {
     min-height: 170px !important;
   }
 }
+
+/* Homepage stats bar: tighter, evenly spaced, numbers and labels aligned. */
+body.site-layout .home-scrapbook-site .scrapbook-stats .stats-paper {
+  align-items: stretch;
+  grid-template-columns: minmax(190px, 0.9fr) repeat(4, minmax(0, 1fr));
+  min-height: 0;
+}
+
+body.site-layout .home-scrapbook-site .scrapbook-stats .scrapbook-stat-intro {
+  align-self: center;
+  padding: 22px 24px;
+}
+
+body.site-layout .home-scrapbook-site .scrapbook-stats .scrapbook-stat-intro p {
+  font-size: 0.95rem !important;
+  line-height: 1.4;
+  margin-top: 14px;
+}
+
+body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat {
+  justify-content: center;
+  min-height: 0;
+  padding: 26px clamp(16px, 1.8vw, 26px);
+}
+
+body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat strong {
+  font-size: clamp(2rem, 3.1vw, 3.1rem);
+  letter-spacing: -0.06em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Labels reserve two lines so every number sits at the same height. */
+body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat span {
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  margin-top: 10px;
+  min-height: 2.7em;
+}
+
+@media (max-width: 1100px) {
+  body.site-layout .home-scrapbook-site .scrapbook-stats .stats-paper {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  body.site-layout .home-scrapbook-site .scrapbook-stats .scrapbook-stat-intro {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  body.site-layout .home-scrapbook-site .scrapbook-stats .stats-paper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
