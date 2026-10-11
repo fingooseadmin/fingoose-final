@@ -3,15 +3,10 @@ import PageSeo from "@/components/PageSeo";
 import Image from "next/image";
 import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
+import ChapterGlobe from "@/components/ChapterGlobe";
+import { chapters } from "@/components/chapterData";
 
 const chapterForm = "https://forms.gle/HpVoVa2WnFLinAyj9";
-
-const stats = [
-  "35K+ followers",
-  "100K+ students impacted",
-  "Nation-wide curriculum",
-  "#chapters"
-];
 
 const leadership = [
   {
@@ -100,16 +95,6 @@ export default function JoinUsPage() {
         </div>
       </section>
 
-      <section className="join-stats-section">
-        <div className="container join-stats-grid">
-          {stats.map((stat, index) => (
-            <Reveal delay={index * 55} key={stat}>
-              <article>{stat}</article>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       <section className="section join-benefits-section">
         <div className="container">
           <Reveal className="join-section-heading">
@@ -180,6 +165,38 @@ export default function JoinUsPage() {
               </article>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      <section className="section chapter-map-section" id="chapters">
+        <div className="container chapter-map-layout">
+          <Reveal className="chapter-map-copy">
+            <span className="sticker-label sticker-orange">Our chapters</span>
+            <h2>FinGoose on the map.</h2>
+            <p>
+              Every pin is a group of students bringing financial literacy to
+              their own community. Highlighted states have an active chapter.
+            </p>
+            <ul className="chapter-map-list">
+              {chapters.map((chapter) => (
+                <li key={chapter.school + chapter.city}>
+                  <span className="chapter-map-dot" aria-hidden="true" />
+                  <div>
+                    <strong>{chapter.school}</strong>
+                    <small>{chapter.city}</small>
+                  </div>
+                  {chapter.label ? <em>{chapter.label}</em> : null}
+                </li>
+              ))}
+            </ul>
+            <a className="button button-gold" href={chapterForm} target="_blank" rel="noreferrer">
+              Put your school on the map <Icon name="external" />
+            </a>
+          </Reveal>
+          <Reveal className="chapter-map-globe-card" delay={80}>
+            <span className="chapter-map-tape" aria-hidden="true" />
+            <ChapterGlobe />
+          </Reveal>
         </div>
       </section>
 

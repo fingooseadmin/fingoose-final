@@ -21,6 +21,7 @@ export default function ShipmentCountdown({ targetDate = "" }) {
     return Number.isFinite(parsed) ? parsed : null;
   }, [targetDate]);
   const [time, setTime] = useState(emptyTime);
+  const [passed, setPassed] = useState(false);
 
   useEffect(() => {
     if (!target) {
@@ -28,11 +29,16 @@ export default function ShipmentCountdown({ targetDate = "" }) {
       return undefined;
     }
 
-    const update = () => setTime(calculateTime(target));
+    const update = () => {
+      setTime(calculateTime(target));
+      setPassed(Date.now() >= target);
+    };
     update();
     const timer = window.setInterval(update, 1000);
     return () => window.clearInterval(timer);
   }, [target]);
+
+  const live = Boolean(target) && !passed;
 
   const units = [
     ["Days", time.days],
@@ -42,12 +48,12 @@ export default function ShipmentCountdown({ targetDate = "" }) {
   ];
 
   return (
-    <div className={`shipment-countdown ${target ? "is-scheduled" : "is-awaiting-date"}`}>
+    <div className={`shipment-countdown ${live ? "is-scheduled" : "is-awaiting-date"}`}>
       <div className="shipment-countdown-heading">
         <span>Free-book shipment</span>
-        <strong>{target ? "Our next shipment leaves in" : "Our next shipment"}</strong>
+        <strong>{live ? "Our next shipment leaves in" : "Our next shipment"}</strong>
       </div>
-      {target ? (
+      {live ? (
         <div className="shipment-countdown-grid" aria-live="polite">
           {units.map(([label, value]) => (
             <div key={label}>
@@ -58,7 +64,7 @@ export default function ShipmentCountdown({ targetDate = "" }) {
         </div>
       ) : null}
       <p>
-        {target
+        {live
           ? "Every contribution helps move more financial-literacy books toward classrooms."
           : "We’re setting the date for our next free-book shipment. Check back soon, or support the next print run below."}
       </p>

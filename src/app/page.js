@@ -68,10 +68,10 @@ const homeStructuredData = {
   ]
 };
 const stats = [
-  { value: "90+", label: "students reached" },
-  { value: "50+", label: "learners in our largest visit" },
-  { value: "03", label: "interactive workshops" },
-  { value: "16", label: "online course steps" }
+  { value: "1K+", label: "students reached at events" },
+  { value: "$10K+", label: "raised for financial literacy" },
+  { value: "15M+", label: "social media views" },
+  { value: "35K+", label: "followers" }
 ];
 
 const offerings = [

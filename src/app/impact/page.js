@@ -14,33 +14,32 @@ import ShipmentCountdown from "@/components/ShipmentCountdown";
 
 const metrics = [
   {
-    value: "90+",
+    value: "1,000+",
     label: "Students reached",
-    note: "Across hands-on financial literacy workshops.",
+    note: "In person, through workshops, classroom visits, and events.",
     icon: "school",
     tone: "blue"
   },
   {
-    value: "50+",
-    label: "Largest visit",
-    note: "Learners working together across two classrooms.",
+    value: "15M+",
+    label: "Social media views",
+    note: "Financial literacy videos reaching learners online.",
     icon: "spark",
     tone: "gold"
   },
   {
-    value: "03",
-    label: "Workshop labs",
-    note: "Delivered during FinGoose’s launch season.",
-    icon: "book",
+    value: "35K+",
+    label: "Followers",
+    note: "A growing community learning with FinGoose.",
+    icon: "instagram",
     tone: "mint"
   },
   {
-    value: "200",
-    label: "Next reach goal",
-    note: "Our student target through Project S.O.A.R.",
+    value: "$10K+",
+    label: "Raised",
+    note: "To support FinGoose books, workshops, and programs.",
     icon: "chart",
-    tone: "orange",
-    progress: 45
+    tone: "orange"
   }
 ];
 
@@ -81,9 +80,9 @@ export default function ImpactPage() {
               <span className="sticker-label sticker-orange">Impact at a glance</span>
               <h2>Growing one confident decision at a time.</h2>
               <p>
-                From the first workshop to the next 200 students, every number
-                represents a learner who practiced making money choices in the
-                real world.
+                From our first classroom workshop to more than 1,000 students
+                reached in person, every number represents a learner who
+                practiced making money choices in the real world.
               </p>
             </div>
             <div className="impact-stats-art impact-icon-cluster" aria-hidden="true">
@@ -91,7 +90,7 @@ export default function ImpactPage() {
               <i className="impact-orbit impact-orbit-one"><Icon name="school" /></i>
               <i className="impact-orbit impact-orbit-two"><Icon name="chart" /></i>
               <i className="impact-orbit impact-orbit-three"><Icon name="spark" /></i>
-              <div className="impact-orbit-core">90+</div>
+              <div className="impact-orbit-core">1K+</div>
             </div>
           </Reveal>
 
@@ -183,7 +182,7 @@ export default function ImpactPage() {
 
           <Reveal className="book-donation-panel book-donation-progress-panel" delay={70}>
             <div className="book-donation-progress">
-              <ShipmentCountdown />
+              <ShipmentCountdown targetDate="2026-11-02T00:00:00-05:00" />
               <div className="button-row">
                 <Link className="button button-gold" href="/donate">
                   Support FinGoose books <Icon name="heart" />

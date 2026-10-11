@@ -8,7 +8,7 @@ import WorkshopPolaroids from "@/components/WorkshopPolaroids";
 import { workshopEvents } from "@/components/workshopData";
 
 const workshopStats = [
-  { value: "90+", label: "students reached", icon: "school" },
+  { value: "90+", label: "students in our workshops", icon: "school" },
   { value: "03", label: "workshop labs", icon: "book" },
   { value: "50+", label: "learners in the largest visit", icon: "spark" }
 ];

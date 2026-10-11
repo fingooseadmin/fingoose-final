@@ -1,0 +1,171 @@
+/* Chapter map: list of chapters on the left, a taped "photo" of a spinning
+   globe on the right. Stacks on small screens. */
+
+body .join-page .chapter-map-section {
+  background:
+    radial-gradient(rgba(16, 22, 63, 0.07) 1px, transparent 1.4px) 0 0 / 22px 22px,
+    #f8f4ea;
+  padding-block: clamp(64px, 8vw, 110px);
+}
+
+body .join-page .chapter-map-layout {
+  align-items: center;
+  display: grid;
+  gap: clamp(36px, 6vw, 88px);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+}
+
+body .join-page .chapter-map-copy h2 {
+  color: #10163f;
+  font-size: clamp(2.4rem, 4.6vw, 4.2rem);
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+  margin: 22px 0 16px;
+}
+
+body .join-page .chapter-map-copy > p {
+  color: #4b5170;
+  line-height: 1.65;
+  margin: 0 0 26px;
+  max-width: 46ch;
+}
+
+body .join-page .chapter-map-list {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin: 0 0 28px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 4px 6px 4px 0;
+}
+
+body .join-page .chapter-map-list li {
+  align-items: center;
+  background:
+    linear-gradient(to bottom, transparent 23px, rgba(60, 76, 186, 0.14) 23px) 0 6px / 100% 24px,
+    #fffdf7;
+  border: 1.5px solid rgba(18, 27, 85, 0.72);
+  border-radius: 12px;
+  box-shadow: 5px 6px 0 rgba(18, 27, 85, 0.16);
+  display: flex;
+  gap: 14px;
+  padding: 14px 16px;
+}
+
+body .join-page .chapter-map-dot {
+  background: #10163f;
+  border: 3px solid #ffb200;
+  border-radius: 50%;
+  flex: none;
+  height: 16px;
+  width: 16px;
+}
+
+body .join-page .chapter-map-list div {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+  min-width: 0;
+}
+
+body .join-page .chapter-map-list strong {
+  color: #10163f;
+  font-size: 1rem;
+}
+
+body .join-page .chapter-map-list small {
+  color: #5c627c;
+  font-size: 0.82rem;
+}
+
+body .join-page .chapter-map-list em {
+  background: #ff8209;
+  border-radius: 999px;
+  color: #fff;
+  flex: none;
+  font-size: 0.66rem;
+  font-style: normal;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  padding: 5px 10px;
+  text-transform: uppercase;
+}
+
+body .join-page .chapter-map-globe-card {
+  background: #fff;
+  box-shadow:
+    0 1px 0 rgba(16, 22, 63, 0.1),
+    0 22px 46px rgba(16, 22, 63, 0.18);
+  justify-self: center;
+  max-width: 560px;
+  padding: clamp(14px, 2.4vw, 26px);
+  position: relative;
+  transform: rotate(1.5deg);
+  width: 100%;
+}
+
+body .join-page .chapter-map-tape {
+  background:
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.28) 0 6px, transparent 6px 12px),
+    rgba(255, 178, 0, 0.78);
+  clip-path: polygon(2% 0, 98% 4%, 100% 30%, 97% 52%, 100% 78%, 97% 100%, 3% 96%, 0 70%, 3% 48%, 0 22%);
+  height: 28px;
+  left: 50%;
+  position: absolute;
+  top: -14px;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 120px;
+  z-index: 2;
+}
+
+.chapter-globe {
+  aspect-ratio: 1;
+  background:
+    linear-gradient(rgba(60, 76, 186, 0.08) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, rgba(60, 76, 186, 0.08) 1px, transparent 1px) 0 0 / 24px 24px,
+    #fbf8f0;
+  position: relative;
+  width: 100%;
+}
+
+.chapter-globe canvas {
+  cursor: grab;
+  display: block;
+  opacity: 0;
+  touch-action: pan-y;
+  transition: opacity 0.6s ease;
+}
+
+.chapter-globe canvas:active {
+  cursor: grabbing;
+}
+
+.chapter-globe.is-ready canvas {
+  opacity: 1;
+}
+
+.chapter-globe-hint {
+  background: #10163f;
+  border-radius: 999px;
+  bottom: 10px;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 6px 12px;
+  pointer-events: none;
+  position: absolute;
+  right: 10px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  body .join-page .chapter-map-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body .join-page .chapter-map-globe-card {
+    max-width: 440px;
+  }
+}
