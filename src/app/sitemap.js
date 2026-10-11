@@ -12,7 +12,6 @@ const routes = [
   { path: "/resources/workshops/", changeFrequency: "monthly", priority: 0.85 },
   { path: "/impact/", changeFrequency: "monthly", priority: 0.8 },
   { path: "/about/", changeFrequency: "monthly", priority: 0.75, modified: "2026-09-17T00:00:00.000Z" },
-  { path: "/team/victor-pan/", changeFrequency: "yearly", priority: 0.7, modified: "2026-09-17T00:00:00.000Z" },
   { path: "/join-us/", changeFrequency: "monthly", priority: 0.75 },
   { path: "/events/", changeFrequency: "weekly", priority: 0.8 },
   { path: "/donate/", changeFrequency: "monthly", priority: 0.7 },

@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 const triggerMap = [
   { phrase: "Grace Zhou", name: "grace" },
   { phrase: "Thanos", name: "thanos" },
-  { phrase: "VPan", name: "victor" },
   { phrase: "Nutrinity", name: "nutrinity" },
   { phrase: "Moonknight", name: "moonknight" },
   { phrase: "Iron Man", name: "ironman" },
@@ -102,17 +101,6 @@ export default function KeyboardEasterEggs() {
       aria-live="polite"
       key={runId}
     >
-      {active === "victor" ? (
-        <section className="victor-egg-card" role="status">
-          <button type="button" onClick={close} aria-label="Close Easter egg">
-            Close
-          </button>
-          <span>Builder mark unlocked</span>
-          <strong>This site was made by Victor Pan.</strong>
-          <i aria-hidden="true">VP</i>
-        </section>
-      ) : null}
-
       {active === "nutrinity" ? (
         <section className="nutrinity-egg-stage" role="status">
           <button type="button" onClick={close} aria-label="Close Easter egg">

@@ -1319,3 +1319,10 @@ body.site-layout .site-footer .scrapbook-footer-bottom.container {
   padding-inline: 0;
   width: min(calc(100% - 2 * var(--layout-gutter)), var(--layout-content));
 }
+
+/* Three team members fill one row on wide screens. */
+@media (min-width: 1101px) {
+  body.site-layout .about-page .team-scrap-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

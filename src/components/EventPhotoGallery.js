@@ -60,9 +60,9 @@ const impactPhotos = [
     alt: "FinGoose book donation group outside the school"
   },
   {
-    src: "/assets/events/bake-04.webp",
-    label: "Bake sale",
-    alt: "FinGoose mascot at the bake sale table"
+    src: "/assets/events/deca-03.webp",
+    label: "DECA",
+    alt: "FinGoose display board at a DECA event"
   }
 ];
 

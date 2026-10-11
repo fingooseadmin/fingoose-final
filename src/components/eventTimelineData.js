@@ -29,8 +29,7 @@ export const timelineEvents = [
     photos: [
       { src: "/assets/events/bake-02.webp", width: 1600, height: 1200, alt: "FinGoose students at a bake sale" },
       { src: "/assets/events/bake-01.webp", width: 1600, height: 1200, alt: "Students supporting a FinGoose bake sale" },
-      { src: "/assets/events/bake-03.webp", width: 1600, height: 1200, alt: "FinGoose bake sale table" },
-      { src: "/assets/events/bake-04.webp", width: 1200, height: 1600, alt: "Treats at the FinGoose bake sale" }
+      { src: "/assets/events/bake-03.webp", width: 1600, height: 1200, alt: "FinGoose bake sale table" }
     ]
   },
   {
