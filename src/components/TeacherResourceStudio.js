@@ -10,11 +10,11 @@ import Reveal from "./Reveal";
 const CURRICULUM_DOC_URL = "https://docs.google.com/document/d/1vcHQcdXgS4BkEyfIJNDwEalHfziE24Zw7n16ErMk3Ig/edit?usp=sharing";
 
 const curriculumModules = [
-  { number: "01", title: "Money Management", copy: "Build a flexible plan for earning, saving, spending, and handling surprises.", slides: ["Money map", "Needs, wants & goals", "Working budget"] },
-  { number: "02", title: "Credit & Borrowing", copy: "Explore the real cost of borrowing and the habits behind healthy credit decisions.", slides: ["Why people borrow", "Interest in plain language", "Debt decisions"] },
-  { number: "03", title: "Saving & Investing", copy: "Connect time, risk, diversification, and the value of starting early.", slides: ["Saving with purpose", "Compound growth", "Risk & reward"] },
-  { number: "04", title: "Career Decisions", copy: "Connect skills, income, paychecks, and postsecondary choices to a future plan.", slides: ["Income & opportunity", "Read a paycheck", "Choices after high school"] },
-  { number: "05", title: "Financial Decision Lab", copy: "Apply the course ideas to a changing scenario and explain the final trade-off.", slides: ["Face the surprise", "Rebalance the plan", "Defend the decision"] }
+  { number: "01", title: "Money Management", copy: "Income, budgeting, and unemployment: students plan through a sudden job loss with no safety net, then revise the plan to reduce risk.", slides: ["Crisis Lab: The Diner Closes", "Solutions & plan revision"] },
+  { number: "02", title: "Money Decisions", copy: "Consumer decisions and incentives: students see how advertising, influencers, and FOMO shape spending, and how to research and stay safe from scams.", slides: ["Crisis Lab: The Walk-and-Earn App", "Solutions & plan revision"] },
+  { number: "03", title: "Money Growth", copy: "Saving, investing, and managing risk: students compare accounts, interest, and diversification to grow money without betting it all on one thing.", slides: ["Crisis Lab: The Pond Float", "Solutions & plan revision"] },
+  { number: "04", title: "Money Around the World", copy: "Wealth, opportunity, and inequality: students investigate how access, starting conditions, and economic systems lead to unequal outcomes.", slides: ["Crisis Lab: Unequal Starting Conditions", "Solutions & policy analysis"] },
+  { number: "05", title: "Money and You", copy: "Agency, careers, and ethical decisions: students connect everything to their own goals and future careers, then apply it in a final capstone.", slides: ["Reflection & careers", "Capstone: design-and-solve task"] }
 ];
 
 const autismModules = [
@@ -53,11 +53,11 @@ function ResourceCollection({ title, eyebrow, description, modules, tone, develo
           <div><dt>Resource type</dt><dd>{developing ? "Learning kit concept" : "Curriculum & classroom tools"}</dd></div>
           {!developing && <div><dt>Grade level</dt><dd>Middle school · Grades 6–8</dd></div>}
           <div><dt>Subject</dt><dd>Personal finance</dd></div>
-          <div><dt>Modules</dt><dd>{modules.length} learning units</dd></div>
-          <div><dt>Availability</dt><dd>{developing ? "In development" : "Preview available · downloads forthcoming"}</dd></div>
+          <div><dt>Modules</dt><dd>{modules.length} {developing ? "learning units" : "modules · 9 lessons"}</dd></div>
+          <div><dt>Availability</dt><dd>{developing ? "In development" : "Full curriculum available · free to use"}</dd></div>
         </dl>
         <Link className="text-link" href="/contact?interest=curriculum#contact-form">Request classroom materials <Icon name="arrow" /></Link>
-        <p className="curriculum-availability">Downloadable files will be added when the final publications are available.</p>
+        {developing ? <p className="curriculum-availability">Downloadable files will be added when the final publications are available.</p> : null}
       </aside>
       <div className="curriculum-units">
         <header className="curriculum-overview">
@@ -70,13 +70,13 @@ function ResourceCollection({ title, eyebrow, description, modules, tone, develo
             <article key={module.number} className="curriculum-unit">
               <span className="curriculum-unit-number" aria-hidden="true">{module.number}</span>
               <div>
-                <h3>Unit {Number(module.number)}: {module.title}</h3>
+                <h3>{developing ? "Unit" : "Module"} {Number(module.number)}: {module.title}</h3>
                 <p>{module.copy}</p>
                 <ul className="curriculum-topics">{module.slides.map(slide=><li key={slide}>{slide}</li>)}</ul>
                 {developing ? (
                   <button className="curriculum-lesson-link" type="button" onClick={() => onPreview(index)} aria-label={"Preview unit " + module.number + ": " + module.title}>Preview this unit <Icon name="arrow" size={16} /></button>
                 ) : (
-                  <a className="curriculum-lesson-link" href={CURRICULUM_DOC_URL} target="_blank" rel="noreferrer" aria-label={"Preview unit " + module.number + ": " + module.title + " in the curriculum (opens in a new tab)"}>Preview this unit <Icon name="external" size={16} /></a>
+                  <a className="curriculum-lesson-link" href={CURRICULUM_DOC_URL} target="_blank" rel="noreferrer" aria-label={"Preview module " + module.number + ": " + module.title + " in the curriculum (opens in a new tab)"}>Preview this module <Icon name="external" size={16} /></a>
                 )}
               </div>
             </article>
@@ -117,7 +117,7 @@ export default function TeacherResourceStudio() {
         <ResourceCollection
           eyebrow="Teacher resources"
           title="Middle school financial literacy"
-          description="Help students make practical money decisions through five units covering budgeting, credit, saving, investing, careers, and a financial decision lab. Explore each unit below and preview its learning sequence."
+          description="Help students make practical money decisions through five modules covering budgeting, consumer choices, saving and investing, economic inequality, and careers. Each module opens with a Crisis Lab scenario, then teaches the tools to solve it."
           modules={curriculumModules}
           tone="blue"
         />

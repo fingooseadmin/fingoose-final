@@ -5,7 +5,7 @@ import TeacherResourceStudio from "@/components/TeacherResourceStudio";
 
 export const metadata = createPageMetadata({
   title: "Financial Literacy Curriculum & Classroom Tools",
-  description: "Explore FinGoose's five-unit middle school financial literacy curriculum: money management, credit, saving, investing, careers, and classroom decision labs.",
+  description: "Explore FinGoose's five-module middle school financial literacy curriculum: money management, consumer decisions, saving and investing, inequality, and careers, taught through hands-on Crisis Labs.",
   path: "/resources/curriculum"
 });
 
