@@ -3,8 +3,7 @@ import PageSeo from "@/components/PageSeo";
 import Image from "next/image";
 import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
-import ChapterGlobe from "@/components/ChapterGlobe";
-import { chapters } from "@/components/chapterData";
+import ChapterMap from "@/components/ChapterMap";
 
 const chapterForm = "https://forms.gle/HpVoVa2WnFLinAyj9";
 
@@ -170,33 +169,19 @@ export default function JoinUsPage() {
 
       <section className="section chapter-map-section" id="chapters">
         <div className="container chapter-map-layout">
-          <Reveal className="chapter-map-copy">
+          <ChapterMap>
             <span className="sticker-label sticker-orange">Our chapters</span>
             <h2>FinGoose on the map.</h2>
             <p>
               Every pin is a group of students bringing financial literacy to
-              their own community. Highlighted states have an active chapter.
+              their own community. Tap a chapter to fly there.
             </p>
-            <ul className="chapter-map-list">
-              {chapters.map((chapter) => (
-                <li key={chapter.school + chapter.city}>
-                  <span className="chapter-map-dot" aria-hidden="true" />
-                  <div>
-                    <strong>{chapter.school}</strong>
-                    <small>{chapter.city}</small>
-                  </div>
-                  {chapter.label ? <em>{chapter.label}</em> : null}
-                </li>
-              ))}
-            </ul>
+          </ChapterMap>
+          <div className="chapter-map-cta">
             <a className="button button-gold" href={chapterForm} target="_blank" rel="noreferrer">
               Put your school on the map <Icon name="external" />
             </a>
-          </Reveal>
-          <Reveal className="chapter-map-globe-card" delay={80}>
-            <span className="chapter-map-tape" aria-hidden="true" />
-            <ChapterGlobe />
-          </Reveal>
+          </div>
         </div>
       </section>
 
