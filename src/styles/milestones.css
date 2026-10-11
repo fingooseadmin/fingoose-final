@@ -26,6 +26,8 @@
 
 /* Horizontal milestone timeline */
 .milestone-timeline {
+  --item-w: clamp(190px, 17vw, 222px);
+  --item-gap: 20px;
   position: relative;
 }
 
@@ -44,9 +46,9 @@
   color: #fff;
   cursor: pointer;
   display: flex;
-  height: 46px;
+  height: 40px;
   justify-content: center;
-  width: 46px;
+  width: 40px;
 }
 
 .milestone-controls button:first-child svg {
@@ -61,27 +63,24 @@
 
 .milestone-rail {
   display: grid;
-  gap: 26px;
-  grid-auto-columns: clamp(240px, 24vw, 290px);
+  gap: var(--item-gap);
+  grid-auto-columns: var(--item-w);
   grid-auto-flow: column;
   list-style: none;
   margin: 0 calc(-1 * var(--layout-gutter, 20px));
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-  padding: 18px var(--layout-gutter, 20px) 26px;
+  /* Moves only with the arrows / autoplay, so wheel and touch scrolling
+     pass straight through to the page. */
+  overflow: hidden;
+  padding: 16px var(--layout-gutter, 20px) 18px;
   position: relative;
   scroll-padding-inline: var(--layout-gutter, 20px);
-  scroll-snap-type: x mandatory;
-  scrollbar-color: #ff8209 rgba(16, 22, 63, 0.1);
-  scrollbar-width: thin;
 }
 
 .milestone-item {
   --card-color: #fff1a8;
   display: grid;
-  grid-template-rows: auto 34px 1fr;
+  grid-template-rows: auto 28px 1fr;
   position: relative;
-  scroll-snap-align: start;
 }
 
 /* The line runs through every item at the dot's height. */
@@ -108,7 +107,7 @@
     0 1px 0 rgba(16, 22, 63, 0.1),
     0 12px 24px rgba(16, 22, 63, 0.16);
   margin: 0;
-  padding: 10px 10px 14px;
+  padding: 8px 8px 11px;
   position: relative;
   rotate: var(--tilt, 0deg);
   transition: rotate 0.3s ease, translate 0.3s ease;
@@ -145,13 +144,13 @@
     repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 0 6px, transparent 6px 12px),
     rgba(255, 178, 0, 0.75);
   clip-path: polygon(2% 0, 98% 4%, 100% 30%, 97% 52%, 100% 78%, 97% 100%, 3% 96%, 0 70%, 3% 48%, 0 22%);
-  height: 22px;
+  height: 18px;
   left: 50%;
   position: absolute;
   rotate: -3deg;
-  top: -11px;
+  top: -9px;
   translate: -50% 0;
-  width: 84px;
+  width: 66px;
   z-index: 1;
 }
 
@@ -167,10 +166,10 @@
   background: #ffb200;
   border: 3px solid #10163f;
   border-radius: 50%;
-  height: 20px;
+  height: 16px;
   justify-self: center;
   position: relative;
-  width: 20px;
+  width: 16px;
   z-index: 1;
 }
 
@@ -184,7 +183,7 @@
   position: absolute;
   top: 50%;
   translate: 0 -50%;
-  width: calc(clamp(240px, 24vw, 290px) + 26px);
+  width: calc(var(--item-w) + var(--item-gap));
   z-index: -1;
 }
 
@@ -201,16 +200,16 @@
     linear-gradient(145deg, rgba(255, 255, 255, 0.5), transparent 45%),
     var(--card-color);
   border: 1.5px solid rgba(18, 27, 85, 0.72);
-  border-radius: 12px;
-  box-shadow: 5px 6px 0 rgba(18, 27, 85, 0.18);
+  border-radius: 10px;
+  box-shadow: 4px 5px 0 rgba(18, 27, 85, 0.18);
   color: #10163f;
-  padding: 16px 16px 18px;
+  padding: 12px 13px 14px;
 }
 
 .milestone-tag {
   color: rgba(18, 27, 85, 0.62);
   display: block;
-  font-size: 0.64rem;
+  font-size: 0.58rem;
   font-weight: 900;
   letter-spacing: 0.1em;
   margin-bottom: 8px;
@@ -218,7 +217,7 @@
 }
 
 .site-layout .milestone-text h3 {
-  font-size: 1.15rem;
+  font-size: 0.98rem;
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin: 0 0 8px;
@@ -226,8 +225,8 @@
 
 .site-layout .milestone-text p {
   color: #3f4566;
-  font-size: 0.86rem !important;
-  line-height: 1.5;
+  font-size: 0.78rem !important;
+  line-height: 1.45;
   margin: 0;
 }
 
@@ -236,12 +235,8 @@
     margin-top: -6px;
   }
 
-  .milestone-rail {
-    grid-auto-columns: 78vw;
-  }
-
-  .milestone-dot::before {
-    width: calc(78vw + 26px);
+  .milestone-timeline {
+    --item-w: 62vw;
   }
 }
 

@@ -1,45 +1,76 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
 import Reveal from "./Reveal";
 import { milestones, partners } from "./milestoneData";
 
 // Horizontal timeline: a photo on top, a dot on the line, the story below.
+// It only moves with the arrows or on its own (every few seconds), so page
+// scrolling never gets caught on it. It loops back to the start at the end.
 export function MilestoneTimeline() {
   const railRef = useRef(null);
+  const wrapRef = useRef(null);
+  const [paused, setPaused] = useState(false);
+  const [inView, setInView] = useState(false);
 
-  const move = (direction) => {
+  const move = useCallback((direction) => {
     const rail = railRef.current;
     const item = rail?.querySelector(".milestone-item");
     if (!rail || !item) return;
     const gap = parseFloat(getComputedStyle(rail).columnGap) || 0;
-    rail.scrollBy({ left: direction * (item.getBoundingClientRect().width + gap), behavior: "smooth" });
-  };
+    const step = item.getBoundingClientRect().width + gap;
+    const max = rail.scrollWidth - rail.clientWidth;
+    let target = rail.scrollLeft + direction * step;
+    if (direction > 0 && rail.scrollLeft >= max - 4) target = 0;
+    else if (direction < 0 && rail.scrollLeft <= 4) target = max;
+    rail.scrollTo({ left: Math.max(0, Math.min(max, target)), behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    if (!wrap) return undefined;
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.3 });
+    observer.observe(wrap);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (paused || !inView || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+    const timer = window.setInterval(() => move(1), 3800);
+    return () => window.clearInterval(timer);
+  }, [paused, inView, move]);
 
   return (
-    <div className="milestone-timeline">
+    <div
+      className="milestone-timeline"
+      ref={wrapRef}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
+    >
       <div className="milestone-controls">
-        <button type="button" onClick={() => move(-1)} aria-label="Previous milestone">
+        <button type="button" onClick={() => move(-1)} aria-label="Previous milestone" data-cursor-plain>
           <Icon name="arrow" size={18} />
         </button>
-        <button type="button" onClick={() => move(1)} aria-label="Next milestone">
+        <button type="button" onClick={() => move(1)} aria-label="Next milestone" data-cursor-plain>
           <Icon name="arrow" size={18} />
         </button>
       </div>
-      <ol className="milestone-rail" ref={railRef} data-lenis-prevent>
+      <ol className="milestone-rail" ref={railRef}>
         {milestones.map((item, index) => (
           <li className={`milestone-item milestone-${item.color}`} key={item.title} style={{ "--tilt": `${index % 2 ? 1.5 : -1.5}deg` }}>
             <figure className="milestone-photo">
               <span className="milestone-tape" aria-hidden="true" />
               {item.image ? (
                 <span className="milestone-photo-frame">
-                  <Image src={item.image} alt={item.alt || item.title} fill sizes="300px" />
+                  <Image src={item.image} alt={item.alt || item.title} fill sizes="230px" />
                 </span>
               ) : (
                 <span className="milestone-photo-frame milestone-photo-blank" aria-hidden="true">
-                  <Icon name={item.icon} size={44} />
+                  <Icon name={item.icon} size={32} />
                 </span>
               )}
             </figure>
