@@ -18,6 +18,14 @@ const team = [
     photo: true
   },
   {
+    name: "Victor Pan",
+    role: "Chief Technology Officer",
+    detail: "Systems engineering · Syosset High School",
+    image: "/assets/finn-talking.webp",
+    photo: false,
+    profilePath: "/team/victor-pan"
+  },
+  {
     name: "Alex Moell",
     role: "Instructor",
     detail: "Workshops · Facilitation",

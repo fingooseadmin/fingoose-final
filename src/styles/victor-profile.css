@@ -1,0 +1,140 @@
+body .about-page .team-scrap-card h3 a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--orange);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+body .about-page .team-scrap-card h3 a:hover,
+body .about-page .team-scrap-card h3 a:focus-visible {
+  color: var(--blue);
+}
+
+body .scrapbook-footer-bottom > p > a {
+  color: #98a3d4;
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  margin-top: 7px;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+}
+
+body .scrapbook-footer-bottom > p > a:hover,
+body .scrapbook-footer-bottom > p > a:focus-visible {
+  color: #fff;
+  text-decoration-color: currentColor;
+}
+
+body .victor-profile-page {
+  background: #fffdf4;
+  min-height: 75svh;
+}
+
+body .victor-profile-section {
+  background-image: linear-gradient(rgba(25, 37, 110, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25, 37, 110, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+  padding-block: calc(var(--fg-fixed-header-height, 82px) + clamp(56px, 7vw, 108px)) clamp(72px, 8vw, 120px);
+}
+
+body .victor-profile-layout {
+  align-items: center;
+  display: grid;
+  gap: clamp(36px, 6vw, 88px);
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+}
+
+body .victor-profile-copy,
+body .victor-profile-facts {
+  min-width: 0;
+}
+
+body .victor-profile-back {
+  color: var(--blue-dark);
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-underline-offset: 4px;
+}
+
+body .victor-profile-copy .sticker-label {
+  display: table;
+}
+
+body .victor-profile-copy h1 {
+  color: var(--blue-dark);
+  font-size: clamp(3.2rem, 7vw, 6rem);
+  letter-spacing: -0.07em;
+  margin: 22px 0 18px;
+}
+
+body .victor-profile-copy p {
+  color: #424b65;
+  max-width: 58ch;
+}
+
+body .victor-profile-copy .victor-profile-lead {
+  color: var(--blue-dark);
+  font-size: clamp(1.2rem, 2.2vw, 1.75rem) !important;
+  font-weight: 700;
+  line-height: 1.35;
+  max-width: 32ch;
+}
+
+body .victor-profile-facts {
+  background: #fff;
+  border: 2px solid var(--blue-dark);
+  box-shadow: 10px 12px 0 var(--orange);
+  padding: clamp(24px, 3vw, 40px);
+  transform: rotate(1deg);
+}
+
+body .victor-profile-index {
+  color: var(--orange);
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+body .victor-profile-facts > div {
+  border-top: 1px solid #d8dcf1;
+  padding-block: 18px;
+}
+
+body .victor-profile-facts > div > span {
+  color: #626b83;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+body .victor-profile-facts strong {
+  color: var(--blue-dark);
+  display: block;
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+  line-height: 1.3;
+}
+
+@media (max-width: 760px) {
+  body .victor-profile-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body .victor-profile-section {
+    padding-block: calc(var(--fg-fixed-header-height, 82px) + 32px) 72px;
+  }
+
+  body .victor-profile-facts {
+    transform: none;
+  }
+}
