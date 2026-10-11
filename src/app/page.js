@@ -9,6 +9,7 @@ import MotionReels from "@/components/MotionReels";
 import Reveal from "@/components/Reveal";
 import LearningLoop from "@/components/LearningLoop";
 import ScrapbookHeroPage from "@/components/ScrapbookHeroPage";
+import MilestonesSection, { PartnerStrip } from "@/components/Milestones";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -105,14 +106,6 @@ const offerings = [
     href: "/resources/books",
     color: "gold",
     tilt: "left"
-  },
-  {
-    label: "Coming soon",
-    title: "Autism learning kit",
-    icon: "heart",
-    href: "/resources/autism-kit",
-    color: "mint",
-    tilt: "right"
   }
 ];
 
@@ -168,12 +161,9 @@ export default function HomePage() {
               </p>
             </div>
             <div className="button-row">
-              <Link
-                className="button button-gold tape-button"
-                href="/contact?interest=autism-kit#contact-form"
-              >
-                Sign up for the Autism Kit <Icon name="arrow" />
-              </Link>
+              <a className="button button-gold tape-button" href="#milestones">
+                See what we’ve built <Icon name="arrow" />
+              </a>
               <Link className="button scrapbook-outline-button" href="/resources">
                 Explore resources <Icon name="book" />
               </Link>
@@ -216,26 +206,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section kit-preview-section library-visit-preview" id="upcoming-events">
+      <MilestonesSection
+        heading="The big wins so far."
+        intro="Founded by Grace Zhou as a high school student, FinGoose has grown from one DECA project into a nonprofit with partners, published books, and student chapters in three countries."
+      />
+
+      <PartnerStrip />
+
+      <section className="scrapbook-testimonial">
         <div className="container">
-          <Reveal className="event-preview-card">
-            <div className="event-preview-copy">
-              <span className="eyebrow">From the calendar · October 3, 2026</span>
-              <h2><FlowWords>Dinosaur read-aloud + elephant toothpaste</FlowWords></h2>
-              <p>
-                On Saturday, October 3rd, at 10:30 AM, join FinGoose for a dinosaur read-aloud followed by a hands-on &quot;elephant toothpaste&quot; activity where financial story-telling meets science.
-              </p>
-              <div className="button-row">
-                <a className="button button-dark" href="https://forms.gle/FiEEo85u9H4Qn9zh6" target="_blank" rel="noreferrer">
-                  View event information <Icon name="external" />
-                </a>
-                <Link className="text-link" href="/events">View events <Icon name="arrow" /></Link>
-              </div>
-            </div>
-            <div className="event-preview-flyer">
-              <Image alt="FinGoose Dino Read-Aloud and Volcano Activity flyer" src="/assets/events/library-flyer.webp" width={1237} height={1600} sizes="(max-width: 820px) 78vw, 420px" />
-            </div>
-          </Reveal>
+          <TestimonialSlider />
         </div>
       </section>
 
@@ -341,12 +321,6 @@ export default function HomePage() {
               See the full impact scrapbook <Icon name="arrow" />
             </Link>
           </Reveal>
-        </div>
-      </section>
-
-      <section className="scrapbook-testimonial">
-        <div className="container">
-          <TestimonialSlider />
         </div>
       </section>
 

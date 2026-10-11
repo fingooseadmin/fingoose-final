@@ -50,17 +50,6 @@ const resourceCards = [
     action: "Request a workshop",
     href: "/resources/workshops",
     color: "orange"
-  },
-  {
-    id: "autism-kit",
-    eyebrow: "Coming soon",
-    title: "Autism learning kit",
-    copy: "A sensory-aware resource concept using visual sequences, predictable routines, and flexible practical activities.",
-    image: "/assets/goose-curious.webp",
-    status: "In development",
-    action: "Join the interest list",
-    href: "/resources/autism-kit",
-    color: "blue"
   }
 ];
 
@@ -74,7 +63,7 @@ const method = [
 export const metadata = createPageMetadata({
   title: "K–12 Financial Literacy Resources",
   description:
-    "Explore K–12 financial literacy curriculum, worksheets, children’s books, workshops, a free online course, and an upcoming Autism learning kit.",
+    "Explore K–12 financial literacy curriculum, worksheets, children’s books, workshops, and a free online course.",
   path: "/resources"
 });
 
@@ -83,14 +72,14 @@ export default function ResourcesPage() {
     <main id="main-content" tabIndex={-1} className="scrapbook-site resources-page">
       <PageSeo
         title="K–12 Financial Literacy Resources"
-        description="Explore K–12 financial literacy curriculum, worksheets, children’s books, workshops, a free online course, and an upcoming Autism learning kit."
+        description="Explore K–12 financial literacy curriculum, worksheets, children’s books, workshops, and a free online course."
         path="/resources"
         type="CollectionPage"
       />
       <PageHero
         eyebrow="Resources"
         title="A whole learning library, not one worksheet."
-        description="Choose the format that fits: educator curricula, children’s books, a self-paced online course, live workshops, or the upcoming Autism learning kit."
+        description="Choose the format that fits: educator curricula, children’s books, a self-paced online course, or live workshops."
         image="/assets/finn-teacher.webp"
         primary="Browse the library"
         primaryHref="#library"

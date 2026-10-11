@@ -11,6 +11,7 @@ import { workshopEvents } from "@/components/workshopData";
 import BookShowcase from "@/components/BookShowcase";
 import EventPhotoGallery from "@/components/EventPhotoGallery";
 import ShipmentCountdown from "@/components/ShipmentCountdown";
+import MilestonesSection, { PartnerStrip } from "@/components/Milestones";
 
 const metrics = [
   {
@@ -70,6 +71,13 @@ export default function ImpactPage() {
         secondaryHref="/resources"
         tone="impact"
       />
+
+      <MilestonesSection
+        heading="What FinGoose has built."
+        intro="The partnerships, awards, publications, and programs behind the numbers."
+      />
+
+      <PartnerStrip />
 
       <EventPhotoGallery variant="impact" />
 

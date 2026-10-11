@@ -15,8 +15,7 @@ const routes = [
   { path: "/team/victor-pan/", changeFrequency: "yearly", priority: 0.7, modified: "2026-09-17T00:00:00.000Z" },
   { path: "/join-us/", changeFrequency: "monthly", priority: 0.75 },
   { path: "/events/", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/contact/", changeFrequency: "yearly", priority: 0.6 },
-  { path: "/resources/autism-kit/", changeFrequency: "monthly", priority: 0.6 }
+  { path: "/contact/", changeFrequency: "yearly", priority: 0.6 }
 ];
 
 export default function sitemap() {

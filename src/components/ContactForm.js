@@ -5,7 +5,6 @@ import Icon from "./Icon";
 
 const inquiryTypes = [
   "School workshop",
-  "Autism kit launch",
   "Library read-aloud",
   "Curriculum PDFs",
   "Partnership",
@@ -22,7 +21,6 @@ export default function ContactForm() {
 
   useEffect(() => {
     const interest = new URLSearchParams(window.location.search).get("interest");
-    if (interest === "autism-kit") setType("Autism kit launch");
     if (interest === "curriculum") setType("Curriculum PDFs");
     if (interest === "library-visit") setType("Library read-aloud");
   }, []);

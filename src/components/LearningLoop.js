@@ -8,8 +8,7 @@ const resources = [
   { title: "Curriculum", label: "Classroom ready", image: "/assets/finn-teacher.webp", href: "/resources/curriculum", tone: "blue" },
   { title: "Children’s books", label: "Story mode", image: "/assets/book-dino-dream-cover.webp", href: "/resources/books", tone: "gold" },
   { title: "In-person workshops", label: "Schools & groups", image: "/assets/workshop-money-management.webp", href: "/resources/workshops", tone: "orange", photo: true },
-  { title: "Online course", label: "Pause + think", image: "/assets/finn-thinking.webp", href: "/course", tone: "violet" },
-  { title: "Autism learning kit", label: "In development", image: "/assets/crisis-lab-one.webp", href: "/resources/autism-kit", tone: "gold" }
+  { title: "Online course", label: "Pause + think", image: "/assets/finn-thinking.webp", href: "/course", tone: "violet" }
 ];
 
 export default function LearningLoop() {

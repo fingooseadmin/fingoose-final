@@ -1,11 +1,6 @@
-"use client";
-import DialogLayer from "./DialogLayer";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
-import Reveal from "./Reveal";
 
 const CURRICULUM_DOC_URL = "https://docs.google.com/document/d/1vcHQcdXgS4BkEyfIJNDwEalHfziE24Zw7n16ErMk3Ig/edit?usp=sharing";
 
@@ -17,27 +12,12 @@ const curriculumModules = [
   { number: "05", title: "Money and You", copy: "Agency, careers, and ethical decisions: students connect everything to their own goals and future careers, then apply it in a final capstone.", slides: ["Reflection & careers", "Capstone: design-and-solve task"] }
 ];
 
-const autismModules = [
-  { number: "01", title: "See the routine", copy: "A clear visual sequence makes each activity easier to anticipate.", slides: ["First", "Next", "Finished"] },
-  { number: "02", title: "Make one choice", copy: "Focused prompts keep attention on one practical money decision at a time.", slides: ["See it", "Choose", "Check"] },
-  { number: "03", title: "Practice safely", copy: "Repeatable scenarios create room to build confidence at a comfortable pace.", slides: ["Model", "Practice", "Reflect"] }
-];
-
-function ResourceCollection({ title, eyebrow, description, modules, tone, developing = false, onPreview = () => {} }) {
+export default function TeacherResourceStudio() {
   return (
-    <section className={"curriculum-resource curriculum-resource-" + tone}>
-      <aside className="curriculum-facts">
-        <span className="sticker-label sticker-orange">{eyebrow}</span>
-        {developing ? (
-          <>
-            <div className="curriculum-cover">
-              <Icon name="book" size={32} />
-              <strong>Autism learning kit</strong>
-              <span>Visual learning sequence</span>
-            </div>
-            <button className="button button-dark" type="button" onClick={() => onPreview(0)}>Preview the guide <Icon name="book" /></button>
-          </>
-        ) : (
+    <div className="teacher-resource-studio">
+      <section className="curriculum-resource curriculum-resource-blue">
+        <aside className="curriculum-facts">
+          <span className="sticker-label sticker-orange">Teacher resources</span>
           <a className="curriculum-doc-cover" href={CURRICULUM_DOC_URL} target="_blank" rel="noreferrer" data-cursor-plain aria-label="View the curriculum (opens in a new tab)">
             <Image
               src="/assets/curriculum-cover.webp"
@@ -48,131 +28,36 @@ function ResourceCollection({ title, eyebrow, description, modules, tone, develo
             />
             <span className="curriculum-doc-cover-label" aria-hidden="true">View the curriculum <Icon name="external" /></span>
           </a>
-        )}
-        <dl>
-          <div><dt>Resource type</dt><dd>{developing ? "Learning kit concept" : "Curriculum & classroom tools"}</dd></div>
-          {!developing && <div><dt>Grade level</dt><dd>Middle school · Grades 6–8</dd></div>}
-          <div><dt>Subject</dt><dd>Personal finance</dd></div>
-          <div><dt>Modules</dt><dd>{modules.length} {developing ? "learning units" : "modules · 9 lessons"}</dd></div>
-          <div><dt>Availability</dt><dd>{developing ? "In development" : "Full curriculum available · free to use"}</dd></div>
-        </dl>
-        <Link className="text-link" href="/contact?interest=curriculum#contact-form">Request classroom materials <Icon name="arrow" /></Link>
-        {developing ? <p className="curriculum-availability">Downloadable files will be added when the final publications are available.</p> : null}
-      </aside>
-      <div className="curriculum-units">
-        <header className="curriculum-overview">
-          <span className="eyebrow">Overview</span>
-          <h2>{title}</h2>
-          <p>{description}</p>
-        </header>
-        <div className="curriculum-unit-list">
-          {modules.map((module,index) => (
-            <article key={module.number} className="curriculum-unit">
-              <span className="curriculum-unit-number" aria-hidden="true">{module.number}</span>
-              <div>
-                <h3>{developing ? "Unit" : "Module"} {Number(module.number)}: {module.title}</h3>
-                <p>{module.copy}</p>
-                <ul className="curriculum-topics">{module.slides.map(slide=><li key={slide}>{slide}</li>)}</ul>
-                {developing ? (
-                  <button className="curriculum-lesson-link" type="button" onClick={() => onPreview(index)} aria-label={"Preview unit " + module.number + ": " + module.title}>Preview this unit <Icon name="arrow" size={16} /></button>
-                ) : (
-                  <a className="curriculum-lesson-link" href={CURRICULUM_DOC_URL} target="_blank" rel="noreferrer" aria-label={"Preview module " + module.number + ": " + module.title + " in the curriculum (opens in a new tab)"}>Preview this module <Icon name="external" size={16} /></a>
-                )}
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export default function TeacherResourceStudio() {
-  const [preview, setPreview] = useState(null);
-  const [page, setPage] = useState(0);
-  const dialogRef = useRef(null);
-  const activeModules = autismModules;
-  const activeModule = activeModules[page];
-
-  useEffect(() => {
-    if (!preview) return undefined;
-    document.body.classList.add("curriculum-preview-open");
-    dialogRef.current?.focus();
-    const handleKey = (event) => event.key === "Escape" && setPreview(null);
-    document.addEventListener("keydown", handleKey);
-    return () => {
-      document.body.classList.remove("curriculum-preview-open");
-      document.removeEventListener("keydown", handleKey);
-    };
-  }, [preview]);
-
-  const openPreview = (kind, index = 0) => {
-    setPage(index);
-    setPreview(kind);
-  };
-
-  return (
-    <>
-      <div className="teacher-resource-studio">
-        <ResourceCollection
-          eyebrow="Teacher resources"
-          title="Middle school financial literacy"
-          description="Help students make practical money decisions through five modules covering budgeting, consumer choices, saving and investing, economic inequality, and careers. Each module opens with a Crisis Lab scenario, then teaches the tools to solve it."
-          modules={curriculumModules}
-          tone="blue"
-        />
-        <ResourceCollection
-          eyebrow="In development"
-          title="A more predictable path into money confidence."
-          description="The Autism learning kit uses visual sequencing, focused choices, and repeatable practice. Its final documents are not yet public."
-          modules={autismModules}
-          tone="gold"
-          developing
-          onPreview={(index) => openPreview("autism", index)}
-        />
-      </div>
-
-      {preview ? (
-        <DialogLayer>
-        <div className="resource-preview-backdrop" onMouseDown={(event) => event.target === event.currentTarget && setPreview(null)}>
-          <section className="resource-preview-dialog" role="dialog" aria-modal="true" aria-label="Curriculum preview" ref={dialogRef} tabIndex={-1}>
-            <button className="resource-preview-close" type="button" onClick={() => setPreview(null)} aria-label="Close preview">×</button>
-            <header>
-              <span>Autism learning kit · concept preview</span>
-              <h2>Predictable learning sequence</h2>
-            </header>
-            <div className="resource-preview-layout">
-              <article className="resource-guide-page" key={`${preview}-${page}`}>
-                <div><span>Module {activeModule.number}</span><strong>{String(page + 1).padStart(2, "0")} / {String(activeModules.length).padStart(2, "0")}</strong></div>
-                <h3>{activeModule.title}</h3>
-                <p>{activeModule.copy}</p>
-                <ul>{activeModule.slides.map((slide) => <li key={slide}><Icon name="check" size={15} /> {slide}</li>)}</ul>
-                <small>Resource preview · final publication files will appear here when released.</small>
-              </article>
-              <aside className="resource-slide-previews">
-                <span>Lesson sequence</span>
+          <dl>
+            <div><dt>Resource type</dt><dd>Curriculum &amp; classroom tools</dd></div>
+            <div><dt>Grade level</dt><dd>Middle school · Grades 6–8</dd></div>
+            <div><dt>Subject</dt><dd>Personal finance</dd></div>
+            <div><dt>Modules</dt><dd>{curriculumModules.length} modules · 9 lessons</dd></div>
+            <div><dt>Availability</dt><dd>Full curriculum available · free to use</dd></div>
+          </dl>
+          <Link className="text-link" href="/contact?interest=curriculum#contact-form">Request classroom materials <Icon name="arrow" /></Link>
+        </aside>
+        <div className="curriculum-units">
+          <header className="curriculum-overview">
+            <span className="eyebrow">Overview</span>
+            <h2>Middle school financial literacy</h2>
+            <p>Help students make practical money decisions through five modules covering budgeting, consumer choices, saving and investing, economic inequality, and careers. Each module opens with a Crisis Lab scenario, then teaches the tools to solve it.</p>
+          </header>
+          <div className="curriculum-unit-list">
+            {curriculumModules.map((module) => (
+              <article key={module.number} className="curriculum-unit">
+                <span className="curriculum-unit-number" aria-hidden="true">{module.number}</span>
                 <div>
-                  {activeModule.slides.map((slide, index) => (
-                    <article style={{ "--slide-tilt": `${index % 2 ? 2 : -2}deg` }} key={slide}>
-                      <small>Lesson {index + 1}</small>
-                      <strong>{slide}</strong>
-                      <i aria-hidden="true" />
-                    </article>
-                  ))}
+                  <h3>Module {Number(module.number)}: {module.title}</h3>
+                  <p>{module.copy}</p>
+                  <ul className="curriculum-topics">{module.slides.map((slide) => <li key={slide}>{slide}</li>)}</ul>
+                  <a className="curriculum-lesson-link" href={CURRICULUM_DOC_URL} target="_blank" rel="noreferrer" aria-label={"Preview module " + module.number + ": " + module.title + " in the curriculum (opens in a new tab)"}>Preview this module <Icon name="external" size={16} /></a>
                 </div>
-                <button type="button" disabled title="Verified source file not yet available">Download coming soon</button>
-                <Link href="/contact?interest=curriculum#contact-form" onClick={() => setPreview(null)}>Request publication updates <Icon name="arrow" size={14} /></Link>
-              </aside>
-            </div>
-            <footer>
-              <button type="button" onClick={() => setPage((page - 1 + activeModules.length) % activeModules.length)} aria-label="Previous module">←</button>
-              <div>{activeModules.map((module, index) => <button className={index === page ? "is-active" : ""} type="button" onClick={() => setPage(index)} aria-label={`Preview ${module.title}`} key={module.number} />)}</div>
-              <button type="button" onClick={() => setPage((page + 1) % activeModules.length)} aria-label="Next module">→</button>
-            </footer>
-          </section>
+              </article>
+            ))}
+          </div>
         </div>
-        </DialogLayer>
-      ) : null}
-    </>
+      </section>
+    </div>
   );
 }

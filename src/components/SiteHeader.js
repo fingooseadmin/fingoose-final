@@ -22,8 +22,7 @@ const resourceLinks = [
   { href: "/resources/curriculum", label: "Curriculum & classroom tools", icon: "school" },
   { href: "/resources/books", label: "Children’s books", icon: "book" },
   { href: "/resources/workshops", label: "In-person workshops", icon: "chart" },
-  { href: "/course", label: "Online course", icon: "play" },
-  { href: "/resources/autism-kit", label: "Autism learning kit", icon: "heart" }
+  { href: "/course", label: "Online course", icon: "play" }
 ];
 
 export default function SiteHeader() {

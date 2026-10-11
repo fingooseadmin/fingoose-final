@@ -113,10 +113,10 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={60}>
               <p>
-                Hi! I’m Grace Zhou, a senior at the Bergen County Academies in
-                the Academy of Business &amp; Finance. I’m passionate about
-                financial literacy, animation, and creative education and hope
-                to apply these skills in FinGoose!
+                Hi! I’m Grace Zhou, a senior at Bergen County Academies in the
+                Academy of Business &amp; Finance, and the founder of FinGoose.
+                What started as my DECA project is now a 501(c)(3) nonprofit
+                teaching students how money really works.
               </p>
             </Reveal>
             <Reveal delay={110}>
@@ -128,7 +128,19 @@ export default function AboutPage() {
                 visual, practical experiences.
               </p>
             </Reveal>
-            <Reveal className="scrapbook-quote-note" delay={160}>
+            <Reveal className="founder-built" delay={140}>
+              <h3>What I’ve built</h3>
+              <ul>
+                <li>Founded FinGoose and grew it from a DECA project into a 501(c)(3) nonprofit</li>
+                <li>Won 1st place at DECA States in Financial Literacy and qualified for ICDC</li>
+                <li>Wrote the 5-module middle school curriculum, reviewed by BCA’s Business Department</li>
+                <li>Built partnerships with Visions Federal Credit Union and the Colorado Department of Education</li>
+                <li>Published two FinGoose children’s books</li>
+                <li>Design and edit all FinGoose videos and graphics, reaching 15M+ views and 35K+ followers</li>
+                <li>Launched a student chapter program in the US, Canada, and China</li>
+              </ul>
+            </Reveal>
+            <Reveal className="scrapbook-quote-note" delay={180}>
               <blockquote>
                 “What started as a passion for global issues transformed into a
                 hands-on mission to empower the next generation with the
