@@ -51,7 +51,7 @@ export default function DonatePage() {
               time.
             </p>
             <div className="donate-trust">
-              <span><Icon name="shield" /> Secure giving handoff</span>
+              <span><Icon name="shield" /> Every gift goes to programs</span>
               <span><Icon name="heart" /> Student-centered impact</span>
             </div>
             <Image

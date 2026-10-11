@@ -78,17 +78,12 @@ export default function DonationWidget() {
         </p>
       </div>
 
-      <a
-        className="button button-gold donation-submit"
-        href="https://www.fingoose.com/donate"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Continue to secure giving <Icon name="external" />
+      <a className="button button-gold donation-submit" href="/contact?interest=donate#contact-form">
+        Contact us to give <Icon name="arrow" />
       </a>
       <p className="donation-note">
-        Giving is completed through FinGoose’s existing secure donation page.
-        Your selection here is a preview and is not a charge.
+        Online giving is coming soon. Send us a note and we’ll follow up with
+        how to give. Your selection here is not a charge.
       </p>
     </div>
   );

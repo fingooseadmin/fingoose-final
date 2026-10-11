@@ -33,7 +33,7 @@ const leadership = [
 
 const faqs = [
   {
-    question: "What do Fingoose Chapters do?",
+    question: "What do FinGoose Chapters do?",
     answer: "Chapters recruit volunteers and partner with local elementary, middle, and high schools as well as libraries to run read-alouds and lessons from the FinGoose curriculum. The curriculum teaches kids about money in an engaging manner that truly sticks. Each chapter also runs its own Instagram to promote events and grow a following. Every volunteer even gets posted there with photos and a short description naming everyone who helped (this is how you get your volunteer hours counted, so don’t skip this!)"
   },
   {
@@ -46,15 +46,15 @@ const faqs = [
   },
   {
     question: "What if I don’t know how to reach out to nearby schools?",
-    answer: "We’ve got you. Every chapter starts with a Google Drive folder containing an in-depth document on how to run the chapter, plus supplementary materials on outreach and social media promotion. You can also contact Fingoose members directly as a helpline if needed."
+    answer: "We’ve got you. Every chapter starts with a Google Drive folder containing an in-depth document on how to run the chapter, plus supplementary materials on outreach and social media promotion. You can also contact FinGoose members directly as a helpline if needed."
   },
   {
     question: "How much time does it take to run a chapter?",
-    answer: "Fingoose Chapters are very flexible with time commitment. Essentially, it functions on a \"whatever you put in is what you get\" system. Never feel pressured or on a deadline to put on an event. However, we do ask that chapters aim to conduct one event per month for consistency."
+    answer: "FinGoose Chapters are very flexible with time commitment. Essentially, it functions on a \"whatever you put in is what you get\" system. Never feel pressured or on a deadline to put on an event. However, we do ask that chapters aim to conduct one event per month for consistency."
   },
   {
     question: "Does it cost anything to run a chapter?",
-    answer: "Nop! Starting and running a Fingoose Chapter is completely free."
+    answer: "Nope! Starting and running a FinGoose Chapter is completely free."
   }
 ];
 
@@ -79,7 +79,7 @@ export default function JoinUsPage() {
         <div className="container join-hero-grid">
           <Reveal className="join-hero-copy">
             <span className="sticker-label sticker-orange">Join Us</span>
-            <h1>Start a Fingoose Chapter</h1>
+            <h1>Start a FinGoose Chapter</h1>
             <p>Interested in taking the next waddle? Check out our Chapter Guide!</p>
             <a className="button button-gold tape-button" href={chapterForm} target="_blank" rel="noreferrer">
               Apply to Start a Chapter <Icon name="arrow" />

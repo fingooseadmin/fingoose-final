@@ -113,7 +113,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={60}>
               <p>
-                Hi! I’m Grace Zhou, a junior at the Bergen County Academies in
+                Hi! I’m Grace Zhou, a senior at the Bergen County Academies in
                 the Academy of Business &amp; Finance. I’m passionate about
                 financial literacy, animation, and creative education and hope
                 to apply these skills in FinGoose!

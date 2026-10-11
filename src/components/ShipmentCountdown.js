@@ -47,18 +47,20 @@ export default function ShipmentCountdown({ targetDate = "" }) {
         <span>Free-book shipment</span>
         <strong>{target ? "Our next shipment leaves in" : "Our next shipment"}</strong>
       </div>
-      <div className="shipment-countdown-grid" aria-live="polite">
-        {units.map(([label, value]) => (
-          <div key={label}>
-            <strong>{String(value).padStart(2, "0")}</strong>
-            <span>{label}</span>
-          </div>
-        ))}
-      </div>
+      {target ? (
+        <div className="shipment-countdown-grid" aria-live="polite">
+          {units.map(([label, value]) => (
+            <div key={label}>
+              <strong>{String(value).padStart(2, "0")}</strong>
+              <span>{label}</span>
+            </div>
+          ))}
+        </div>
+      ) : null}
       <p>
         {target
           ? "Every contribution helps move more financial-literacy books toward classrooms."
-          : "Shipment timing is being finalized. The live countdown will begin when the date is confirmed."}
+          : "We’re setting the date for our next free-book shipment. Check back soon, or support the next print run below."}
       </p>
     </div>
   );
