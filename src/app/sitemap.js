@@ -1,7 +1,7 @@
 export const dynamic = "force-static";
 
 const siteUrl = "https://fingoose.org";
-const lastModified = new Date("2026-09-12T00:00:00.000Z");
+const lastModified = new Date("2026-10-11T00:00:00.000Z");
 
 const routes = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
@@ -11,7 +11,7 @@ const routes = [
   { path: "/resources/books/", changeFrequency: "monthly", priority: 0.85 },
   { path: "/resources/workshops/", changeFrequency: "monthly", priority: 0.85 },
   { path: "/impact/", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/about/", changeFrequency: "monthly", priority: 0.75, modified: "2026-09-17T00:00:00.000Z" },
+  { path: "/about/", changeFrequency: "monthly", priority: 0.75 },
   { path: "/team/victor-pan/", changeFrequency: "yearly", priority: 0.7, modified: "2026-09-17T00:00:00.000Z" },
   { path: "/join-us/", changeFrequency: "monthly", priority: 0.75 },
   { path: "/events/", changeFrequency: "weekly", priority: 0.8 },

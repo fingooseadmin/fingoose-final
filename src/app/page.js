@@ -61,10 +61,7 @@ const homeStructuredData = {
         "investing",
         "financial decision-making"
       ],
-      sameAs: [
-        "https://www.fingoose.com/",
-        "https://www.instagram.com/fin.goose/"
-      ]
+      sameAs: ["https://www.instagram.com/fin.goose/"]
     }
   ]
 };
