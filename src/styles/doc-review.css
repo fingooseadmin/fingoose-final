@@ -1311,3 +1311,11 @@ body.site-layout .about-page .scrapbook-values-section .value-scrap-grid {
   gap: 34px 24px;
   padding-top: 12px;
 }
+
+/* Footer lines up with the page content above it. */
+body.site-layout .site-footer .scrapbook-footer-grid.container,
+body.site-layout .site-footer .scrapbook-footer-bottom.container {
+  max-width: var(--layout-content);
+  padding-inline: 0;
+  width: min(calc(100% - 2 * var(--layout-gutter)), var(--layout-content));
+}
