@@ -45,17 +45,20 @@ export default function ContactPage() {
                 </div>
               </a>
             </div>
-            <div className="contact-art" aria-hidden="true">
-              <Image
-                alt=""
-                src="/assets/finn-talking.webp"
-                width={2048}
-                height={2048}
-                sizes="(max-width: 760px) 62vw, 420px"
-              />
-            </div>
           </div>
           <ContactForm />
+        </div>
+        {/* Sits on the section's bottom edge so the edge crops the goose. */}
+        <div className="container contact-goose-rail" aria-hidden="true">
+          <div className="contact-goose">
+            <Image
+              alt=""
+              src="/assets/finn-talking.webp"
+              width={2048}
+              height={2048}
+              sizes="(max-width: 760px) 70vw, 460px"
+            />
+          </div>
         </div>
       </section>
 

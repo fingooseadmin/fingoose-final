@@ -16,6 +16,7 @@ import SiteFooter from "@/components/SiteFooter";
 import MotionController from "@/components/MotionController";
 import SiteIntro from "@/components/SiteIntro";
 import CursorAura from "@/components/CursorAura";
+import SmoothScroll from "@/components/SmoothScroll";
 import KeyboardEasterEggs from "@/components/KeyboardEasterEggs";
 
 export const metadata = {
@@ -94,6 +95,7 @@ export default function RootLayout({ children }) {
         <noscript><style>{`html .site-header { position: relative !important; } html .site-layout .scrapbook-site > section:first-of-type { padding-top: 30px !important; }`}</style></noscript>
         <SiteIntro />
         <CursorAura />
+        <SmoothScroll />
         <KeyboardEasterEggs />
         <MotionController />
         <SiteHeader />

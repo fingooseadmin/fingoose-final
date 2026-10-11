@@ -1111,3 +1111,59 @@ body .events-page .event-detail-card .event-flyer-official img {
     min-height: 46px;
   }
 }
+
+
+/* Contact goose: larger, anchored to the bottom of the section and cropped
+   by its edge instead of floating in the column. It stays under the left
+   column on wide screens and drops below the form when the layout stacks. */
+body .contact-hero .contact-intro {
+  padding-bottom: 300px;
+}
+
+body .contact-hero .contact-goose-rail {
+  bottom: 0;
+  height: 0;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  z-index: 0;
+}
+
+body .contact-hero .contact-goose {
+  bottom: 0;
+  height: 420px;
+  left: 56px;
+  position: absolute;
+  transform: translateY(31%);
+  width: 420px;
+}
+
+body .contact-hero .contact-goose img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+@media (max-width: 1100px) {
+  body .contact-hero .contact-intro {
+    padding-bottom: 0;
+  }
+
+  body .contact-hero {
+    padding-bottom: clamp(200px, 40vw, 290px) !important;
+  }
+
+  body .contact-hero .contact-goose {
+    height: clamp(260px, 50vw, 380px);
+    left: auto;
+    right: clamp(16px, 6vw, 80px);
+    width: clamp(260px, 50vw, 380px);
+  }
+}
+
+/* Lenis handles smoothing itself, so native smooth scroll would fight it. */
+html.lenis {
+  scroll-behavior: auto;
+}
