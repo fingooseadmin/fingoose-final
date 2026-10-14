@@ -242,117 +242,109 @@
 
 /* Partners strip */
 .partner-strip {
-  background:
-    radial-gradient(rgba(16, 22, 63, 0.06) 1px, transparent 1.4px) 0 0 / 22px 22px,
-    #fffdf6;
-  border-block: 3px solid #10163f;
-  color: #10163f;
-  overflow: hidden;
-  padding: clamp(26px, 3.4vw, 40px) 0 clamp(28px, 3.6vw, 44px);
+  background: #10163f;
+  border-block: 3px solid #ffb200;
+  color: #fff;
+  padding: clamp(40px, 5vw, 64px) 0 clamp(44px, 5.4vw, 70px);
 }
 
 body.site-layout .partner-strip .partner-strip-title {
-  color: #10163f;
-  font-size: clamp(1.5rem, 2.6vw, 2.15rem) !important;
+  color: #fff;
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem) !important;
   font-weight: 900;
   letter-spacing: -0.02em;
   line-height: 1.15;
-  margin: 0 auto clamp(18px, 2.4vw, 28px);
-  padding-inline: 16px;
+  margin: 0 0 clamp(24px, 3vw, 36px);
   text-align: center;
 }
 
 body.site-layout .partner-strip .partner-strip-title span {
-  background: linear-gradient(transparent 62%, #ffb200 62%, #ffb200 90%, transparent 90%);
+  color: #ffb200;
 }
 
-.partner-strip-track {
+.partner-gallery {
   display: flex;
-  width: max-content;
-  animation: partner-scroll 46s linear infinite;
-}
-
-.partner-strip:hover .partner-strip-track,
-.partner-strip-track:focus-within {
-  animation-play-state: paused;
-}
-
-.partner-strip-row {
-  align-items: center;
-  display: flex;
-  flex: none;
-  gap: clamp(44px, 5vw, 72px);
+  flex-wrap: wrap;
+  gap: clamp(16px, 2vw, 24px);
+  justify-content: center;
   list-style: none;
   margin: 0;
-  padding: 8px clamp(22px, 2.5vw, 36px);
+  padding: 0;
 }
 
-.partner-strip-row li {
+.partner-gallery li {
   display: flex;
+  flex: 0 0 calc((100% - 3 * clamp(16px, 2vw, 24px)) / 4);
+}
+
+@media (max-width: 900px) {
+  .partner-gallery li {
+    flex-basis: calc((100% - 2 * clamp(16px, 2vw, 24px)) / 3);
+  }
+}
+
+@media (max-width: 600px) {
+  .partner-gallery li {
+    flex-basis: calc((100% - clamp(16px, 2vw, 24px)) / 2);
+  }
+}
+
+.partner-gallery li:nth-child(odd) .partner-card {
+  rotate: -1deg;
+}
+
+.partner-gallery li:nth-child(even) .partner-card {
+  rotate: 1deg;
 }
 
 .partner-card {
   align-items: center;
+  background: #fffdf6;
+  border-radius: 12px;
+  box-shadow: 5px 5px 0 #ff8209;
   color: #10163f;
   display: flex;
-  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
+  flex-direction: column;
+  font-size: 0.92rem;
   font-weight: 800;
-  gap: 14px;
+  gap: 12px;
+  justify-content: space-between;
   letter-spacing: -0.01em;
-  line-height: 1.2;
+  line-height: 1.25;
+  padding: 22px 16px 16px;
+  text-align: center;
   text-decoration: none;
-  transition: translate 220ms ease, scale 220ms ease;
-}
-
-.partner-name {
-  max-width: 11.5em;
+  transition: translate 200ms ease, rotate 200ms ease, box-shadow 200ms ease;
+  width: 100%;
 }
 
 a.partner-card:hover,
 a.partner-card:focus-visible {
+  box-shadow: 7px 8px 0 #ffb200;
   outline: none;
-  scale: 1.06;
+  rotate: 0deg;
   translate: 0 -4px;
 }
 
-a.partner-card:hover .partner-name,
-a.partner-card:focus-visible .partner-name {
-  text-decoration: underline;
-  text-decoration-color: #ff8209;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 4px;
-}
-
 a.partner-card:focus-visible {
-  outline: 3px solid #ff8209;
-  outline-offset: 6px;
-  border-radius: 8px;
+  outline: 3px solid #ffb200;
+  outline-offset: 4px;
 }
 
 .partner-logo {
   align-items: center;
-  background: #dfe5ff;
-  border-radius: 12px;
-  color: #3c4cba;
   display: flex;
-  flex: none;
-  font-size: 1rem;
-  font-weight: 900;
-  height: clamp(64px, 6.4vw, 84px);
+  flex: 1;
+  height: 96px;
   justify-content: center;
-  width: clamp(64px, 6.4vw, 84px);
-}
-
-.partner-strip-row li .partner-logo.has-logo {
-  background: none;
-  height: clamp(64px, 6.4vw, 84px);
-  width: auto;
+  width: 100%;
 }
 
 .partner-logo img {
   display: block;
-  height: 100%;
-  max-width: 280px;
+  height: auto;
+  max-height: 96px;
+  max-width: 100%;
   object-fit: contain;
   width: auto;
 }
@@ -362,41 +354,21 @@ a.partner-card:focus-visible {
   border-radius: 14px;
 }
 
-.partner-card .visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
+.partner-name {
+  border-top: 2px dashed rgba(16, 22, 63, 0.18);
+  display: block;
+  padding-top: 10px;
+  width: 100%;
 }
 
-@keyframes partner-scroll {
-  to {
-    transform: translateX(-50%);
-  }
+.partner-name svg {
+  color: #3c4cba;
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: -1px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .partner-strip-track {
-    animation: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: auto;
-  }
 
-  .partner-strip-row[aria-hidden] {
-    display: none;
-  }
-
-  .partner-strip-row {
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 12px;
-  }
-}
 
 
 /* About page: founder's "What I've built" checklist on the notebook page. */

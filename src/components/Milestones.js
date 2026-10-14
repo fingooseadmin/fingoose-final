@@ -105,17 +105,20 @@ const initials = (name) =>
         .join("")
     : name.slice(0, 4);
 
-function PartnerCard({ partner, hidden }) {
+function PartnerCard({ partner }) {
   const content = (
     <>
-      <span className={`partner-logo ${partner.logo ? "has-logo" : ""}`} aria-hidden="true">
+      <span className="partner-logo" aria-hidden="true">
         {partner.logo ? (
-          <Image src={partner.logo} alt="" width={320} height={96} sizes="280px" />
+          <Image src={partner.logo} alt="" width={320} height={96} sizes="220px" />
         ) : (
           initials(partner.name)
         )}
       </span>
-      <span className={partner.logo && partner.wordmark ? "partner-name visually-hidden" : "partner-name"}>{partner.name}</span>
+      <span className="partner-name">
+        {partner.name}
+        {partner.url ? <Icon name="external" size={13} /> : null}
+      </span>
     </>
   );
   return partner.url ? (
@@ -124,7 +127,6 @@ function PartnerCard({ partner, hidden }) {
       href={partner.url}
       target="_blank"
       rel="noreferrer"
-      tabIndex={hidden ? -1 : undefined}
       aria-label={`${partner.name} (opens in a new tab)`}
       data-cursor-plain
     >
@@ -135,24 +137,19 @@ function PartnerCard({ partner, hidden }) {
   );
 }
 
-// Endless scrolling strip of partner cards; pauses on hover or focus.
+// Gallery of partner logos; each tile links to the partner's site.
 export function PartnerStrip({ title = "Partners, schools & programs" }) {
-  const row = (hidden) => (
-    <ul className="partner-strip-row" aria-hidden={hidden || undefined}>
-      {partners.map((partner) => (
-        <li key={partner.name}>
-          <PartnerCard partner={partner} hidden={hidden} />
-        </li>
-      ))}
-    </ul>
-  );
-
   return (
     <section className="partner-strip" aria-label={title}>
-      <h2 className="partner-strip-title"><span>{title}</span></h2>
-      <div className="partner-strip-track">
-        {row(false)}
-        {row(true)}
+      <div className="container">
+        <h2 className="partner-strip-title"><span>{title}</span></h2>
+        <ul className="partner-gallery">
+          {partners.map((partner) => (
+            <li key={partner.name}>
+              <PartnerCard partner={partner} />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
