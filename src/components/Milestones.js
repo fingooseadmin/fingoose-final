@@ -140,7 +140,7 @@ function PartnerCard({ partner }) {
 // Gallery of partner logos; each tile links to the partner's site.
 export function PartnerStrip({ title = "Partners, schools & programs" }) {
   return (
-    <section className="partner-strip" aria-label={title}>
+    <section className="partner-strip" id="partners" aria-label={title}>
       <div className="container">
         <h2 className="partner-strip-title"><span>{title}</span></h2>
         <ul className="partner-gallery">

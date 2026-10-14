@@ -9,6 +9,7 @@ import ScrapbookHeroPage from "@/components/ScrapbookHeroPage";
 import MilestonesSection, { PartnerStrip } from "@/components/Milestones";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import UpcomingEvent from "@/components/UpcomingEvent";
+import WhatWeDo from "@/components/WhatWeDo";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -68,40 +69,6 @@ const stats = [
   { value: "$10K+", label: "raised for financial literacy" },
   { value: "15M+", label: "social media views" },
   { value: "35K+", label: "followers" }
-];
-
-const offerings = [
-  {
-    label: "Educators",
-    title: "Curriculum",
-    icon: "school",
-    href: "/resources/curriculum",
-    color: "blue",
-    tilt: "left"
-  },
-  {
-    label: "Schools & groups",
-    title: "In-person workshops",
-    icon: "chart",
-    href: "/resources/workshops",
-    color: "orange"
-  },
-  {
-    label: "Middle & high school",
-    title: "Online course",
-    icon: "play",
-    href: "/course",
-    color: "violet",
-    tilt: "right"
-  },
-  {
-    label: "Elementary",
-    title: "Children’s books",
-    icon: "book",
-    href: "/resources/books",
-    color: "gold",
-    tilt: "left"
-  }
 ];
 
 export default function HomePage() {
@@ -191,37 +158,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section provide-section" id="what-we-provide">
-        <div className="container">
-          <Reveal className="scrapbook-section-heading provide-heading-compact">
-            <span className="sticker-label">For teachers & parents</span>
-            <div>
-              <h2><FlowWords>Pick the page that fits your learner.</FlowWords></h2>
-              <p>
-                Choose a post-it based on your needs—from educator tools and
-                children’s books to workshops and the complete online course.
-              </p>
-            </div>
-          </Reveal>
-          <div className="postit-path-grid">
-            {offerings.map((item, index) => (
-              <Reveal delay={index * 55} key={item.title}>
-                <Link
-                  className={`postit-path-card postit-${item.color} postit-${item.tilt || "center"}`}
-                  href={item.href}
-                >
-                  <span className="offer-index">0{index + 1}</span>
-                  <div className="postit-icon"><Icon name={item.icon} /></div>
-                  <span className="postit-label">{item.label}</span>
-                  <h3>{item.title}</h3>
-                  <strong aria-hidden="true"><Icon name="arrow" size={18} /></strong>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      <WhatWeDo />
 
       <section className="section scrapbook-lab-section">
         <div className="container scrapbook-lab-grid">
