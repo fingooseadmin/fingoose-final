@@ -110,13 +110,12 @@ function PartnerCard({ partner, hidden }) {
     <>
       <span className={`partner-logo ${partner.logo ? "has-logo" : ""}`} aria-hidden="true">
         {partner.logo ? (
-          <Image src={partner.logo} alt="" width={320} height={96} sizes="180px" />
+          <Image src={partner.logo} alt="" width={320} height={96} sizes="280px" />
         ) : (
           initials(partner.name)
         )}
       </span>
       <span className={partner.logo && partner.wordmark ? "partner-name visually-hidden" : "partner-name"}>{partner.name}</span>
-      {partner.url ? <Icon name="external" size={14} /> : null}
     </>
   );
   return partner.url ? (
@@ -150,7 +149,7 @@ export function PartnerStrip({ title = "Partners, schools & programs" }) {
 
   return (
     <section className="partner-strip" aria-label={title}>
-      <p className="partner-strip-title">{title}</p>
+      <h2 className="partner-strip-title"><span>{title}</span></h2>
       <div className="partner-strip-track">
         {row(false)}
         {row(true)}

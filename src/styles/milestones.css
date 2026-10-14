@@ -242,136 +242,124 @@
 
 /* Partners strip */
 .partner-strip {
-  background: #10163f;
-  border-block: 3px solid #ffb200;
-  color: #fff;
+  background:
+    radial-gradient(rgba(16, 22, 63, 0.06) 1px, transparent 1.4px) 0 0 / 22px 22px,
+    #fffdf6;
+  border-block: 3px solid #10163f;
+  color: #10163f;
   overflow: hidden;
-  padding: 18px 0 20px;
+  padding: clamp(26px, 3.4vw, 40px) 0 clamp(28px, 3.6vw, 44px);
 }
 
-.site-layout .partner-strip-title {
-  color: #ffb200;
-  font-size: 0.7rem !important;
+body.site-layout .partner-strip .partner-strip-title {
+  color: #10163f;
+  font-size: clamp(1.5rem, 2.6vw, 2.15rem) !important;
   font-weight: 900;
-  letter-spacing: 0.14em;
-  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 auto clamp(18px, 2.4vw, 28px);
+  padding-inline: 16px;
   text-align: center;
-  text-transform: uppercase;
+}
+
+body.site-layout .partner-strip .partner-strip-title span {
+  background: linear-gradient(transparent 62%, #ffb200 62%, #ffb200 90%, transparent 90%);
 }
 
 .partner-strip-track {
   display: flex;
   width: max-content;
-  animation: partner-scroll 38s linear infinite;
+  animation: partner-scroll 46s linear infinite;
 }
 
-.partner-strip:hover .partner-strip-track {
+.partner-strip:hover .partner-strip-track,
+.partner-strip-track:focus-within {
   animation-play-state: paused;
 }
 
 .partner-strip-row {
+  align-items: center;
   display: flex;
   flex: none;
-  gap: 18px;
+  gap: clamp(44px, 5vw, 72px);
   list-style: none;
   margin: 0;
-  padding: 0 9px;
+  padding: 8px clamp(22px, 2.5vw, 36px);
 }
 
 .partner-strip-row li {
   display: flex;
 }
 
-.partner-strip-row li:nth-child(even) .partner-card {
-  rotate: 1deg;
-}
-
-.partner-strip-row li:nth-child(odd) .partner-card {
-  rotate: -1deg;
-}
-
 .partner-card {
   align-items: center;
-  background: #fffdf6;
-  border: 1.5px solid #fffdf6;
-  border-radius: 10px;
-  box-shadow: 4px 4px 0 #ff8209;
   color: #10163f;
   display: flex;
-  font-size: clamp(0.88rem, 1.1vw, 1rem);
+  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
   font-weight: 800;
-  gap: 12px;
+  gap: 14px;
   letter-spacing: -0.01em;
-  padding: 8px 16px 8px 8px;
+  line-height: 1.2;
   text-decoration: none;
-  transition: translate 0.2s ease, box-shadow 0.2s ease, rotate 0.2s ease;
-  white-space: nowrap;
+  transition: translate 220ms ease, scale 220ms ease;
+}
+
+.partner-name {
+  max-width: 11.5em;
 }
 
 a.partner-card:hover,
 a.partner-card:focus-visible {
-  box-shadow: 6px 7px 0 #ffb200;
   outline: none;
-  rotate: 0deg;
-  translate: 0 -3px;
+  scale: 1.06;
+  translate: 0 -4px;
+}
+
+a.partner-card:hover .partner-name,
+a.partner-card:focus-visible .partner-name {
+  text-decoration: underline;
+  text-decoration-color: #ff8209;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
 }
 
 a.partner-card:focus-visible {
-  outline: 3px solid #ffb200;
-  outline-offset: 3px;
-}
-
-.partner-card svg {
-  color: #3c4cba;
-  flex: none;
-}
-
-.partner-strip-track:focus-within {
-  animation-play-state: paused;
+  outline: 3px solid #ff8209;
+  outline-offset: 6px;
+  border-radius: 8px;
 }
 
 .partner-logo {
   align-items: center;
   background: #dfe5ff;
-  border: 1.5px dashed rgba(16, 22, 63, 0.35);
-  border-radius: 8px;
+  border-radius: 12px;
   color: #3c4cba;
   display: flex;
   flex: none;
-  font-size: 0.82rem;
+  font-size: 1rem;
   font-weight: 900;
-  height: 48px;
+  height: clamp(64px, 6.4vw, 84px);
   justify-content: center;
-  letter-spacing: 0.02em;
-  overflow: hidden;
-  width: 48px;
-}
-
-.partner-strip-row li:nth-child(3n + 2) .partner-logo {
-  background: #ffd8b9;
-  color: #b4530a;
-}
-
-.partner-strip-row li:nth-child(3n) .partner-logo {
-  background: #ffed9f;
-  color: #8a6400;
+  width: clamp(64px, 6.4vw, 84px);
 }
 
 .partner-strip-row li .partner-logo.has-logo {
-  background: #fff;
-  border: 0;
-  height: 52px;
-  max-width: 190px;
+  background: none;
+  height: clamp(64px, 6.4vw, 84px);
   width: auto;
 }
 
 .partner-logo img {
   display: block;
   height: 100%;
-  max-width: 190px;
+  max-width: 280px;
   object-fit: contain;
-  padding: 4px;
   width: auto;
+}
+
+.partner-logo img[src*="solace"],
+.partner-logo img[src*="dewolf"] {
+  border-radius: 14px;
 }
 
 .partner-card .visually-hidden {
