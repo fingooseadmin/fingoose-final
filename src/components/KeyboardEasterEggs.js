@@ -6,8 +6,6 @@ import { useEffect, useRef, useState } from "react";
 const triggerMap = [
   { phrase: "Grace Zhou", name: "grace" },
   { phrase: "Thanos", name: "thanos" },
-  { phrase: "VPan", name: "victor" },
-  { phrase: "Nutrinity", name: "nutrinity" },
   { phrase: "Moonknight", name: "moonknight" },
   { phrase: "Iron Man", name: "ironman" },
   { phrase: "Doctor Strange", name: "strange" },
@@ -20,7 +18,6 @@ const portalSparks = Array.from({ length: 18 }, (_, index) => index);
 const vibraniumNodes = Array.from({ length: 12 }, (_, index) => index);
 
 const eggDurations = {
-  nutrinity: 6200,
   ironman: 6000,
   moonknight: 6800,
   strange: 6800,
@@ -102,37 +99,6 @@ export default function KeyboardEasterEggs() {
       aria-live="polite"
       key={runId}
     >
-      {active === "victor" ? (
-        <section className="victor-egg-card" role="status">
-          <button type="button" onClick={close} aria-label="Close Easter egg">
-            Close
-          </button>
-          <span>Builder mark unlocked</span>
-          <strong>This site was made by Victor Pan.</strong>
-          <i aria-hidden="true">VP</i>
-        </section>
-      ) : null}
-
-      {active === "nutrinity" ? (
-        <section className="nutrinity-egg-stage" role="status">
-          <button type="button" onClick={close} aria-label="Close Easter egg">
-            Close
-          </button>
-          <div className="nutrinity-egg-orbit" aria-hidden="true" />
-          <div className="nutrinity-egg-copy">
-            <span>Creative inspiration unlocked</span>
-            <strong>Shoutout to Nutrinity.app.</strong>
-            <p>
-              A crisp example of turning complex ideas into a clear, modern,
-              and beautifully interactive experience. Thanks for raising the bar.
-            </p>
-            <a href="https://nutrinity.app/" target="_blank" rel="noreferrer">
-              Visit Nutrinity.app ↗
-            </a>
-          </div>
-        </section>
-      ) : null}
-
       {active === "grace" ? (
         <section className="grace-egg-stage" role="status">
           <button type="button" onClick={close} aria-label="Close Easter egg">
