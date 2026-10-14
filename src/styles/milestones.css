@@ -1044,9 +1044,9 @@ body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat span {
    next to the cream milestones board. */
 body.site-layout .wwd-section {
   background:
-    linear-gradient(rgba(60, 76, 186, 0.1) 1px, transparent 1px) 0 0 / 28px 28px,
-    linear-gradient(90deg, rgba(60, 76, 186, 0.1) 1px, transparent 1px) 0 0 / 28px 28px,
-    #dfe5ff;
+    linear-gradient(rgba(31, 122, 82, 0.12) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(90deg, rgba(31, 122, 82, 0.12) 1px, transparent 1px) 0 0 / 28px 28px,
+    #d6f2e4;
   position: relative;
 }
 
