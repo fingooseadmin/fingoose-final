@@ -7,8 +7,7 @@ import Reveal from "./Reveal";
 // photos, a short title, and sticker links.
 const pillars = [
   {
-    kicker: "Educational resources",
-    title: "We teach.",
+    title: "Educational resources",
     photos: [
       { src: "/assets/curriculum-cover.webp", alt: "FinGoose curriculum cover", top: true },
       { src: "/assets/workshop-money-decisions.webp", alt: "Students in a FinGoose workshop" },
@@ -23,8 +22,7 @@ const pillars = [
     ]
   },
   {
-    kicker: "Community events",
-    title: "We show up.",
+    title: "Community events",
     photos: [
       { src: "/assets/events/library-flyer.webp", alt: "FinGoose library read-aloud flyer", top: true },
       { src: "/assets/events/bake-02.webp", alt: "FinGoose students at a bake sale" },
@@ -37,8 +35,7 @@ const pillars = [
     ]
   },
   {
-    kicker: "Reach & leadership",
-    title: "We spread it.",
+    title: "Reach & partnerships",
     photos: [
       { src: "/reels/field-note-05-cover.webp", alt: "FinGoose video explaining a Roth IRA" },
       { src: "/assets/events/deca-01.webp", alt: "FinGoose at DECA", top: true },
@@ -79,8 +76,7 @@ export default function WhatWeDo() {
     <section className="section wwd-section" id="what-we-do">
       <div className="container">
         <Reveal className="wwd-heading">
-          <span className="sticker-label sticker-orange">What we do</span>
-          <h2>Teach it. Live it. Share it.</h2>
+          <h2>What we do</h2>
         </Reveal>
         <div className="wwd-grid">
           {pillars.map((pillar, index) => (
@@ -102,7 +98,6 @@ export default function WhatWeDo() {
                     </figure>
                   ))}
                 </div>
-                <span className="wwd-kicker">{pillar.kicker}</span>
                 <h3>{pillar.title}</h3>
                 <div className="wwd-chips">
                   {pillar.links.map((link) => (

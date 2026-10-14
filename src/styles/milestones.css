@@ -694,7 +694,7 @@ body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat span {
 }
 
 .site-layout .wwd-heading h2 {
-  margin: 16px 0 0;
+  margin: 0;
 }
 
 .wwd-grid {
@@ -777,10 +777,10 @@ body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat span {
 
 .site-layout .wwd-page h3 {
   color: #10163f;
-  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin: 6px 0 16px;
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 4px 0 14px;
 }
 
 .wwd-chips {
