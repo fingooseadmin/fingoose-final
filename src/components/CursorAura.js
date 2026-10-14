@@ -99,6 +99,16 @@ export default function CursorAura() {
       }, 50);
     };
 
+    // After a button scrolls the page, the pointer sits over something new
+    // without moving; drop the old "VIEW" state until it moves again.
+    const handleScroll = () => {
+      if (!currentTarget) return;
+      currentTarget.classList.remove("cursor-is-over");
+      currentTarget = null;
+      aura.classList.remove("is-interactive");
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
     document.addEventListener("pointerleave", handlePointerLeave);
     window.addEventListener("pointerdown", handlePointerDown, { passive: true });
@@ -107,6 +117,7 @@ export default function CursorAura() {
     return () => {
       window.cancelAnimationFrame(frame);
       currentTarget?.classList.remove("cursor-is-over");
+      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("pointermove", handlePointerMove);
       document.removeEventListener("pointerleave", handlePointerLeave);
       window.removeEventListener("pointerdown", handlePointerDown);
