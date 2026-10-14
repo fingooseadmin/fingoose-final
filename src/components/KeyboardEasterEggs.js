@@ -2,10 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import styles from "./UpdateNotice.module.css";
 
 const triggerMap = [
-  { phrase: "Secret", name: "updated" },
   { phrase: "Grace Zhou", name: "grace" },
   { phrase: "Thanos", name: "thanos" },
   { phrase: "VPan", name: "victor" },
@@ -22,7 +20,6 @@ const portalSparks = Array.from({ length: 18 }, (_, index) => index);
 const vibraniumNodes = Array.from({ length: 12 }, (_, index) => index);
 
 const eggDurations = {
-  updated: 6000,
   nutrinity: 6200,
   ironman: 6000,
   moonknight: 6800,
@@ -76,9 +73,7 @@ export default function KeyboardEasterEggs() {
 
       bufferRef.current = (bufferRef.current + event.key).slice(-24);
       const match = triggerMap.find(({ phrase }) =>
-        phrase === "Secret"
-          ? bufferRef.current.toLowerCase().endsWith("secret")
-          : bufferRef.current.endsWith(phrase)
+        bufferRef.current.endsWith(phrase)
       );
 
       if (match) {
@@ -100,16 +95,6 @@ export default function KeyboardEasterEggs() {
     window.clearTimeout(timerRef.current);
     setActive(null);
   };
-
-  if (active === "updated") {
-    return (
-      <section className={styles.notice} role="status" aria-live="polite" key={runId}>
-        <span className={styles.check} aria-hidden="true">✓</span>
-        <strong>Updated</strong>
-        <button type="button" onClick={close} aria-label="Close update confirmation">×</button>
-      </section>
-    );
-  }
 
   return (
     <div
