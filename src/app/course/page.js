@@ -135,7 +135,7 @@ export default function CoursePage() {
             </p>
             <a
               className="button button-gold"
-              href="https://www.fingoose.com/challenge-page/4475b043-ab66-4c15-9929-e1e6148175ba"
+              href="https://learn.fingoose.com/challenge-page/4475b043-ab66-4c15-9929-e1e6148175ba"
               target="_blank"
               rel="noreferrer"
             >
