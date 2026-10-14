@@ -132,11 +132,13 @@ export default function AboutPage() {
               <h3>What I’ve built</h3>
               <ul>
                 <li>Founded FinGoose and grew it from a DECA project into a 501(c)(3) nonprofit</li>
-                <li>Won 1st place at DECA States in Financial Literacy and qualified for ICDC</li>
+                <li>Won 1st place at NJ DECA States in Project Management: Financial Literacy and qualified for ICDC</li>
                 <li>Wrote the 5-module middle school curriculum, reviewed by BCA’s Business Department</li>
-                <li>Built partnerships with Visions Federal Credit Union and the Colorado Department of Education</li>
-                <li>Published two FinGoose children’s books</li>
+                <li>Led workshops that raised student retention from 43% to 93%</li>
+                <li>Set up a 5-district curriculum pilot with the Colorado Department of Education for 2026–27</li>
+                <li>Published FinGoose and the Two Mornings: 230 copies sold, 17 five-star reviews, 150 books donated to Africa</li>
                 <li>Design and edit all FinGoose videos and graphics, reaching 15M+ views and 35K+ followers</li>
+                <li>Built partnerships with Go For Glass, Youth Policymakers for Tomorrow, and Solace Launch</li>
                 <li>Launched a student chapter program in the US, Canada, and China</li>
               </ul>
             </Reveal>

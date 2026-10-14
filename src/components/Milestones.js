@@ -82,6 +82,11 @@ export function MilestoneTimeline() {
               </span>
               <h3>{item.title}</h3>
               <p>{item.note}</p>
+              {item.href ? (
+                <a className="milestone-link" href={item.href} target="_blank" rel="noreferrer" data-cursor-plain>
+                  {item.linkLabel || "Learn more"} <Icon name="external" size={13} />
+                </a>
+              ) : null}
             </div>
           </li>
         ))}

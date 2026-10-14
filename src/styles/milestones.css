@@ -531,3 +531,23 @@ body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat span {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+.milestone-link {
+  align-items: center;
+  background: #10163f;
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 800;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+.milestone-link:hover,
+.milestone-link:focus-visible {
+  background: #ff8209;
+  outline: none;
+}
