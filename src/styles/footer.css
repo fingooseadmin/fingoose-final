@@ -1,0 +1,183 @@
+/* Footer: same navy glow + grid as the page headers, with a taped
+   index card for the brand and grouped links. */
+body.site-layout .site-footer.fg-footer {
+  background:
+    radial-gradient(ellipse 45% 60% at 8% 40%, rgba(76, 92, 210, 0.38), transparent 70%),
+    radial-gradient(ellipse 40% 60% at 92% 70%, rgba(60, 76, 186, 0.42), transparent 70%),
+    #0d143a;
+  border-top: 4px dashed #ff8209;
+  color: #fff;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(56px, 7vw, 92px) 0 28px;
+  position: relative;
+}
+
+body.site-layout .site-footer.fg-footer::before {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px) 0 0 / 30px 30px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px) 0 0 / 30px 30px;
+  bottom: 0;
+  content: "";
+  height: 75%;
+  left: 0;
+  -webkit-mask-image: linear-gradient(to top, #000, transparent);
+  mask-image: linear-gradient(to top, #000, transparent);
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+
+body.site-layout .fg-footer-top {
+  align-items: start;
+  display: grid;
+  gap: clamp(40px, 6vw, 80px);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+}
+
+body.site-layout .fg-footer-card {
+  background:
+    linear-gradient(to bottom, transparent 27px, rgba(60, 76, 186, 0.15) 27px) 0 10px / 100% 28px,
+    #fffdf7;
+  box-shadow: 8px 8px 0 #ff8209;
+  color: #10163f;
+  padding: 30px 28px 28px 40px;
+  position: relative;
+  rotate: -1.2deg;
+}
+
+body.site-layout .fg-footer-card::after {
+  background: rgba(255, 130, 9, 0.55);
+  bottom: 0;
+  content: "";
+  left: 22px;
+  position: absolute;
+  top: 0;
+  width: 2px;
+}
+
+body.site-layout .fg-footer-tape {
+  left: 50%;
+  top: -14px;
+  translate: -50% 0;
+}
+
+body.site-layout .fg-footer-brand {
+  align-items: center;
+  color: #10163f;
+  display: inline-flex;
+  font-size: 1.6rem;
+  font-weight: 900;
+  gap: 10px;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+body.site-layout .fg-footer-brand img {
+  height: 48px;
+  width: 48px;
+}
+
+body.site-layout .fg-footer-brand i {
+  color: #3c4cba;
+  font-style: normal;
+}
+
+body.site-layout .fg-footer-mission {
+  color: #3a4060;
+  font-size: 0.98rem !important;
+  line-height: 28px;
+  margin: 12px 0 4px;
+}
+
+body.site-layout .fg-footer-org {
+  color: #e8700a;
+  font-family: "Caveat", "Segoe Print", cursive;
+  font-size: 1.35rem !important;
+  font-weight: 700;
+  margin: 0 0 18px;
+}
+
+body.site-layout .fg-footer-links {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding-top: 8px;
+}
+
+body.site-layout .fg-footer-heading {
+  color: #ffb200;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+body.site-layout .fg-footer-links ul {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.site-layout .fg-footer-links a {
+  align-items: center;
+  color: rgba(255, 255, 255, 0.85);
+  display: inline-flex;
+  font-size: 0.95rem;
+  font-weight: 600;
+  gap: 7px;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+body.site-layout .fg-footer-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: #ff8209;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+body.site-layout .fg-footer-bottom {
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  justify-content: space-between;
+  margin-top: clamp(40px, 5vw, 64px);
+  padding-top: 20px;
+}
+
+body.site-layout .fg-footer-bottom p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem !important;
+  margin: 0;
+}
+
+body.site-layout .fg-footer-bottom .fg-footer-hand {
+  color: #ffb200;
+  font-family: "Caveat", "Segoe Print", cursive;
+  font-size: 1.3rem !important;
+  font-weight: 700;
+}
+
+@media (max-width: 980px) {
+  body.site-layout .fg-footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  body.site-layout .fg-footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+body.site-layout .fg-footer-links a svg {
+  color: #ffb200;
+  flex: none;
+}

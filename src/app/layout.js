@@ -15,6 +15,8 @@ import "@/styles/victor-profile.css";
 import "@/styles/scrapbook-hero.css";
 import "@/styles/milestones.css";
 import "@/styles/scrap-page-hero.css";
+import "@/styles/textures.css";
+import "@/styles/footer.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import MotionController from "@/components/MotionController";

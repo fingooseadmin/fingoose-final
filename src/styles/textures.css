@@ -1,0 +1,72 @@
+/* Texture pass: every section gets a soft gradient plus a light pattern
+   so nothing reads as a flat block of color. */
+
+/* Cream sections: dot paper with warm glows. */
+body.site-layout .scrapbook-mission-section,
+body.site-layout .impact-gallery-section,
+body.site-layout .book-impact-section,
+body.site-layout .resource-scrap-library,
+body.site-layout .resource-books-section,
+body.site-layout .workshop-detail-section,
+body.site-layout .course-handoff,
+body.site-layout .retention-section,
+body.site-layout .curriculum-catalog {
+  background:
+    radial-gradient(rgba(16, 22, 63, 0.07) 1px, transparent 1.4px) 0 0 / 22px 22px,
+    radial-gradient(ellipse 40% 45% at 8% 20%, rgba(255, 178, 0, 0.14), transparent 70%),
+    radial-gradient(ellipse 45% 50% at 95% 85%, rgba(255, 130, 9, 0.1), transparent 70%),
+    linear-gradient(180deg, #f8f4ea, #f2ebdc) !important;
+}
+
+/* Light-blue sections: graph paper with periwinkle glows. */
+body.site-layout .scrapbook-story-section,
+body.site-layout .book-donation-section,
+body.site-layout .curriculum-help,
+body.site-layout .workshop-fit-section,
+body.site-layout .course-preview-section {
+  background:
+    linear-gradient(rgba(60, 76, 186, 0.07) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(90deg, rgba(60, 76, 186, 0.07) 1px, transparent 1px) 0 0 / 28px 28px,
+    radial-gradient(ellipse 45% 50% at 10% 25%, rgba(124, 138, 230, 0.22), transparent 70%),
+    radial-gradient(ellipse 40% 50% at 92% 80%, rgba(255, 178, 0, 0.14), transparent 70%),
+    linear-gradient(170deg, #eef1ff, #dfe5ff) !important;
+}
+
+/* Navy sections: lighter-navy glows with a grid fading up from the bottom. */
+body.site-layout .scrapbook-team-section,
+body.site-layout .workshop-detail-stats,
+body.site-layout .partner-strip,
+body.site-layout .home-scrapbook-site .scrapbook-stats {
+  background:
+    radial-gradient(ellipse 45% 60% at 10% 70%, rgba(76, 92, 210, 0.35), transparent 70%),
+    radial-gradient(ellipse 40% 60% at 90% 60%, rgba(60, 76, 186, 0.4), transparent 70%),
+    #0d143a !important;
+  isolation: isolate;
+  position: relative;
+}
+
+body.site-layout .scrapbook-team-section::before,
+body.site-layout .workshop-detail-stats::before,
+body.site-layout .partner-strip::before {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px) 0 0 / 30px 30px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px) 0 0 / 30px 30px;
+  bottom: 0;
+  content: "";
+  height: 65%;
+  left: 0;
+  -webkit-mask-image: linear-gradient(to top, #000, transparent);
+  mask-image: linear-gradient(to top, #000, transparent);
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+
+/* Stats band flows into "What we do": keep its bottom edge plain navy. */
+body.site-layout .home-scrapbook-site .scrapbook-stats {
+  background:
+    radial-gradient(ellipse 40% 70% at 8% 30%, rgba(76, 92, 210, 0.3), transparent 70%),
+    radial-gradient(ellipse 35% 70% at 94% 25%, rgba(60, 76, 186, 0.35), transparent 70%),
+    #0d143a !important;
+}
