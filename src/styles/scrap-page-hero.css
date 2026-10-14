@@ -316,3 +316,9 @@ body.site-layout .scrapbook-site .contact-hero h1 {
   letter-spacing: -0.045em;
   line-height: 0.98;
 }
+
+body.site-layout .scrap-page-hero-note {
+  box-shadow: 6px 6px 0 #10163f;
+  margin-top: 22px;
+  max-width: 460px;
+}

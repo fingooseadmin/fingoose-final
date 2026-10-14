@@ -30,7 +30,10 @@ export default function PageHero({
           {eyebrow ? <span className="sticker-label sticker-orange">{eyebrow}</span> : null}
           <h1><FlowWords>{title}</FlowWords></h1>
           {description ? (
-            <p className="scrap-page-hero-lede">{description}</p>
+            <div className="scrap-page-hero-note">
+              <span className="scrap-tape scrap-page-hero-note-tape" aria-hidden="true" />
+              <p>{description}</p>
+            </div>
           ) : null}
           {children}
           {(primary || secondary) && (

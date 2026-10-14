@@ -46,12 +46,29 @@ export default function SmoothScroll() {
       if (!target) return;
       event.preventDefault();
       history.pushState(null, "", url.hash);
-      lenis.scrollTo(target, { offset: -headerOffset() });
+      // Scroll to an exact pixel position so CSS scroll-margin and the
+      // header offset are not counted twice.
+      const y = target.getBoundingClientRect().top + window.scrollY - headerOffset();
+      lenis.scrollTo(Math.max(0, y));
     };
     document.addEventListener("click", handleAnchorClick);
 
+    // Arriving from another page with a #section: images above it can still
+    // be loading and push it down, so line it up again once things settle.
+    const alignToHash = () => {
+      const id = decodeURIComponent(window.location.hash.slice(1));
+      const target = id && document.getElementById(id);
+      if (!target) return;
+      const y = target.getBoundingClientRect().top + window.scrollY - headerOffset();
+      lenis.scrollTo(Math.max(0, y), { immediate: true });
+    };
+    const hashTimers = window.location.hash
+      ? [150, 600, 1400].map((delay) => window.setTimeout(alignToHash, delay))
+      : [];
+
     return () => {
       document.removeEventListener("click", handleAnchorClick);
+      hashTimers.forEach((timer) => window.clearTimeout(timer));
       observer.disconnect();
       lenis.destroy();
     };
