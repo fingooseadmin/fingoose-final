@@ -8,9 +8,9 @@ import Reveal from "@/components/Reveal";
 const booksStructuredData = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "@id": "https://fingoose.org/resources/books/#books",
+  "@id": "https://fingoose.com/resources/books/#books",
   name: "FinGoose Children’s Financial Literacy Books",
-  url: "https://fingoose.org/resources/books/",
+  url: "https://fingoose.com/resources/books/",
   numberOfItems: 2,
   itemListElement: [
     {
@@ -18,11 +18,11 @@ const booksStructuredData = {
       position: 1,
       item: {
         "@type": "Book",
-        "@id": "https://fingoose.org/resources/books/#book-01",
+        "@id": "https://fingoose.com/resources/books/#book-01",
         name: "FinGoose and the Two Mornings",
-        url: "https://fingoose.org/resources/books/#book-01",
+        url: "https://fingoose.com/resources/books/#book-01",
         inLanguage: "en",
-        publisher: { "@id": "https://fingoose.org/#organization" },
+        publisher: { "@id": "https://fingoose.com/#organization" },
         sameAs: [
           "https://www.amazon.com/dp/B0GDFQ682L",
           "https://www.kobo.com/hk/en/ebook/fingoose-and-the-two-mornings"
@@ -34,12 +34,12 @@ const booksStructuredData = {
       position: 2,
       item: {
         "@type": "Book",
-        "@id": "https://fingoose.org/resources/books/#book-02",
+        "@id": "https://fingoose.com/resources/books/#book-02",
         name: "FinGoose and the Dino Dream",
-        url: "https://fingoose.org/resources/books/#book-02",
+        url: "https://fingoose.com/resources/books/#book-02",
         inLanguage: "en",
         author: { "@type": "Person", name: "Kevin Wu" },
-        publisher: { "@id": "https://fingoose.org/#organization" },
+        publisher: { "@id": "https://fingoose.com/#organization" },
         sameAs: "https://www.amazon.com/dp/B0HCZ9H9J1"
       }
     }

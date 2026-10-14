@@ -1,6 +1,6 @@
 export const dynamic = "force-static";
 
-const siteUrl = "https://fingoose.org";
+const siteUrl = "https://fingoose.com";
 const lastModified = new Date("2026-10-11T00:00:00.000Z");
 
 const routes = [

@@ -6,6 +6,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/"
     },
-    sitemap: "https://fingoose.org/sitemap.xml"
+    sitemap: "https://fingoose.com/sitemap.xml"
   };
 }

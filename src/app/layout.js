@@ -28,15 +28,15 @@ export const metadata = {
     template: "%s | FinGoose"
   },
   applicationName: "FinGoose",
-  authors: [{ name: "FinGoose", url: "https://fingoose.org/" }],
+  authors: [{ name: "FinGoose", url: "https://fingoose.com/" }],
   creator: "FinGoose",
   publisher: "FinGoose",
   category: "education",
   description:
     "Explore K–12 financial literacy curriculum, children’s books, school workshops, crisis labs, and a free online course from FinGoose.",
-  metadataBase: new URL("https://fingoose.org"),
+  metadataBase: new URL("https://fingoose.com"),
   alternates: {
-    canonical: "https://fingoose.org/"
+    canonical: "https://fingoose.com/"
   },
   robots: {
     index: true,
@@ -69,7 +69,7 @@ export const metadata = {
     title: "K–12 Financial Literacy Resources | FinGoose",
     description:
       "Practical K–12 financial literacy through curriculum, children’s books, interactive workshops, crisis labs, and a free online course.",
-    url: "https://fingoose.org/",
+    url: "https://fingoose.com/",
     siteName: "FinGoose",
     locale: "en_US",
     type: "website",

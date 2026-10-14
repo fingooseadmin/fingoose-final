@@ -1,4 +1,4 @@
-const SITE_URL = "https://fingoose.org";
+const SITE_URL = "https://fingoose.com";
 const SITE_NAME = "FinGoose";
 const SOCIAL_IMAGE = `${SITE_URL}/og.png`;
 

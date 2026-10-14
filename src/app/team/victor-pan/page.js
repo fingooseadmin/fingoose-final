@@ -2,7 +2,7 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { createPageMetadata } from "@/lib/seo";
 
-const profileUrl = "https://fingoose.org/team/victor-pan/";
+const profileUrl = "https://fingoose.com/team/victor-pan/";
 const description =
   "Victor Pan is a Syosset High School student and FinGoose’s Chief Technology Officer and systems engineer, working on its website and digital learning systems.";
 
@@ -27,7 +27,7 @@ const profileStructuredData = {
       name: "Victor Pan — FinGoose Systems Engineer",
       description,
       inLanguage: "en-US",
-      isPartOf: { "@id": "https://fingoose.org/#website" },
+      isPartOf: { "@id": "https://fingoose.com/#website" },
       mainEntity: { "@id": `${profileUrl}#person` },
       breadcrumb: { "@id": `${profileUrl}#breadcrumb` }
     },
@@ -38,7 +38,7 @@ const profileStructuredData = {
       url: profileUrl,
       jobTitle: "Chief Technology Officer and systems engineer",
       description,
-      worksFor: { "@id": "https://fingoose.org/#organization" },
+      worksFor: { "@id": "https://fingoose.com/#organization" },
       affiliation: {
         "@type": "EducationalOrganization",
         name: "Syosset High School"
@@ -52,13 +52,13 @@ const profileStructuredData = {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://fingoose.org/"
+          item: "https://fingoose.com/"
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "About",
-          item: "https://fingoose.org/about/"
+          item: "https://fingoose.com/about/"
         },
         {
           "@type": "ListItem",
