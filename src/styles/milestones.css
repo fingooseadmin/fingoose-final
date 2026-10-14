@@ -1134,3 +1134,30 @@ body.site-layout .home-scrapbook-site .wwd-section {
 body.site-layout .home-scrapbook-site .scrapbook-stats:has(+ .wwd-section) {
   box-shadow: none !important;
 }
+
+/* Testimonial band: warm beige-to-gold gradient with soft orange glows
+   instead of flat bright orange. */
+body.site-layout .scrapbook-testimonial {
+  background:
+    radial-gradient(ellipse 45% 55% at 12% 30%, rgba(255, 178, 0, 0.35), transparent 70%),
+    radial-gradient(ellipse 40% 50% at 90% 70%, rgba(255, 130, 9, 0.28), transparent 70%),
+    linear-gradient(160deg, #f8efd9 0%, #f7dfa8 55%, #f3c98a 100%) !important;
+  isolation: isolate;
+  position: relative;
+}
+
+body.site-layout .scrapbook-testimonial::before {
+  background:
+    linear-gradient(rgba(16, 22, 63, 0.06) 1px, transparent 1px) 0 0 / 30px 30px,
+    linear-gradient(90deg, rgba(16, 22, 63, 0.06) 1px, transparent 1px) 0 0 / 30px 30px;
+  bottom: 0;
+  content: "";
+  height: 70%;
+  left: 0;
+  -webkit-mask-image: linear-gradient(to top, #000, transparent);
+  mask-image: linear-gradient(to top, #000, transparent);
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
