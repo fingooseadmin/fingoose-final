@@ -2,67 +2,67 @@ import Image from "next/image";
 
 const homePhotos = [
   {
-    src: "/assets/events/middle-01.webp",
-    label: "Middle school visits",
-    alt: "FinGoose volunteers during a middle school visit"
-  },
-  {
-    src: "/assets/events/bake-02.webp",
-    label: "Bake sale",
-    alt: "FinGoose students at a bake sale"
+    src: "/assets/events/deca-03.webp",
+    label: "DECA States",
+    alt: "FinGoose represented at a DECA event"
   },
   {
     src: "/assets/events/donation-03.webp",
-    label: "Book donations",
+    label: "Books for Africa",
     alt: "Students reading donated FinGoose books"
   },
   {
-    src: "/assets/events/deca-03.webp",
-    label: "DECA",
-    alt: "FinGoose represented at a DECA event"
+    src: "/assets/events/bake-02.webp",
+    label: "Bake sales",
+    alt: "FinGoose students at a bake sale"
+  },
+  {
+    src: "/assets/events/middle-01.webp",
+    label: "Workshops",
+    alt: "FinGoose volunteers during a middle school visit"
   }
 ];
 
 const impactPhotos = [
   {
-    src: "/assets/events/middle-02.webp",
-    label: "Middle school visits",
-    alt: "Students participating in a FinGoose classroom activity"
-  },
-  {
-    src: "/assets/events/bake-03.webp",
-    label: "Bake sale",
-    alt: "FinGoose bake sale table"
-  },
-  {
-    src: "/assets/events/donation-01.webp",
-    label: "Book donations",
-    alt: "Two students reading FinGoose books"
-  },
-  {
     src: "/assets/events/deca-01.webp",
-    label: "DECA",
+    label: "DECA States",
     alt: "FinGoose student representative at DECA"
   },
   {
-    src: "/assets/events/middle-03.webp",
-    label: "Middle school visits",
-    alt: "FinGoose volunteers leading a classroom visit"
+    src: "/assets/events/deca-03.webp",
+    label: "DECA States",
+    alt: "FinGoose display board at a DECA event"
   },
   {
-    src: "/assets/events/bake-01.webp",
-    label: "Bake sale",
-    alt: "Students supporting a FinGoose bake sale"
+    src: "/assets/events/donation-01.webp",
+    label: "Books for Africa",
+    alt: "Two students reading FinGoose books"
   },
   {
     src: "/assets/events/donation-08.webp",
-    label: "Book donations",
+    label: "Books for Africa",
     alt: "FinGoose book donation group outside the school"
   },
   {
-    src: "/assets/events/deca-03.webp",
-    label: "DECA",
-    alt: "FinGoose display board at a DECA event"
+    src: "/assets/events/bake-03.webp",
+    label: "Bake sales",
+    alt: "FinGoose bake sale table"
+  },
+  {
+    src: "/assets/events/bake-01.webp",
+    label: "Bake sales",
+    alt: "Students supporting a FinGoose bake sale"
+  },
+  {
+    src: "/assets/events/middle-02.webp",
+    label: "Workshops",
+    alt: "Students participating in a FinGoose classroom activity"
+  },
+  {
+    src: "/assets/events/middle-03.webp",
+    label: "Workshops",
+    alt: "FinGoose volunteers leading a classroom visit"
   }
 ];
 

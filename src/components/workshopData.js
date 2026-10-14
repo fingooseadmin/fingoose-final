@@ -1,15 +1,15 @@
 export const workshopEvents = [
   {
-    date: "November 10, 2025",
-    shortDate: "11.10.25",
-    place: "Charles DeWolf Middle School",
-    lesson: "Workshop 01 · Financial resilience",
-    title: "When income changes, the plan has to change.",
-    copy: "Teams rebuilt a budget after an income shock, then defended the trade-offs behind their plan.",
-    tags: ["saving", "budgeting", "borrowing"],
-    image: "/assets/workshop-financial-resilience.webp",
-    color: "blue",
-    instagramPost: "https://www.instagram.com/p/DSlRkWiEl_m/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+    date: "December 17, 2025",
+    shortDate: "12.17.25",
+    place: "Benjamin Franklin Middle School",
+    lesson: "Workshop 03 · Largest session",
+    title: "Two classrooms. 50+ students. One big milestone.",
+    copy: "FinGoose reached its largest group yet with realistic scenarios, team decisions, and a discussion-led room.",
+    tags: ["50+ learners", "collaboration", "confidence"],
+    image: "/assets/workshop-money-management.webp",
+    color: "gold",
+    instagramPost: "https://www.instagram.com/p/DSqfPA4koVy/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
   },
   {
     date: "December 15, 2025",
@@ -24,15 +24,15 @@ export const workshopEvents = [
     instagramPost: "https://www.instagram.com/p/DSn53sOkkil/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
   },
   {
-    date: "December 17, 2025",
-    shortDate: "12.17.25",
-    place: "Benjamin Franklin Middle School",
-    lesson: "Workshop 03 · Largest session",
-    title: "Two classrooms. 50+ students. One big milestone.",
-    copy: "FinGoose reached its largest group yet with realistic scenarios, team decisions, and a discussion-led room.",
-    tags: ["50+ learners", "collaboration", "confidence"],
-    image: "/assets/workshop-money-management.webp",
-    color: "gold",
-    instagramPost: "https://www.instagram.com/p/DSqfPA4koVy/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+    date: "November 10, 2025",
+    shortDate: "11.10.25",
+    place: "Charles DeWolf Middle School",
+    lesson: "Workshop 01 · Financial resilience",
+    title: "When income changes, the plan has to change.",
+    copy: "Teams rebuilt a budget after an income shock, then defended the trade-offs behind their plan.",
+    tags: ["saving", "budgeting", "borrowing"],
+    image: "/assets/workshop-financial-resilience.webp",
+    color: "blue",
+    instagramPost: "https://www.instagram.com/p/DSlRkWiEl_m/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
   }
 ];
