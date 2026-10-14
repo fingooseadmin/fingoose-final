@@ -9,28 +9,28 @@ export function MilestoneGrid() {
   return (
     <ol className="milestone-grid">
       {milestones.map((item, index) => (
-        <li className={`milestone-tile milestone-${item.color}`} key={item.title}>
+        <li className={`milestone-tile milestone-${item.color}`} key={item.title} style={{ "--tilt": `${[-1.6, 1.2, -0.8, 1.6][index % 4]}deg` }}>
           <div className="milestone-tile-inner" tabIndex={0} data-cursor-plain>
-            <span className={`milestone-tile-photo${item.fit ? ` fit-${item.fit}` : ""}`} aria-hidden={item.image ? undefined : "true"}>
+            <span className="milestone-tile-tape" aria-hidden="true" />
+            <div className={`milestone-tile-photo${item.fit ? ` fit-${item.fit}` : ""}`}>
               {item.image ? (
                 <Image src={item.image} alt={item.alt || item.title} fill sizes="(max-width: 620px) 46vw, (max-width: 1000px) 31vw, 280px" priority={index < 4} />
               ) : (
                 <Icon name={item.icon} size={40} />
               )}
-            </span>
-            <div className="milestone-tile-banner">
+              <div className="milestone-tile-overlay">
+                <span className="milestone-tile-tag">{item.tag}</span>
+                <p>{item.note}</p>
+                {item.href ? (
+                  <a className="milestone-tile-link" href={item.href} target="_blank" rel="noreferrer">
+                    {item.linkLabel || "Learn more"} <Icon name="external" size={13} />
+                  </a>
+                ) : null}
+              </div>
+            </div>
+            <div className="milestone-tile-caption">
               <span>{item.date}</span>
               <h3>{item.title}</h3>
-            </div>
-            <div className="milestone-tile-overlay">
-              <span className="milestone-tile-tag">{item.date} · {item.tag}</span>
-              <strong className="milestone-tile-title" aria-hidden="true">{item.title}</strong>
-              <p>{item.note}</p>
-              {item.href ? (
-                <a className="milestone-tile-link" href={item.href} target="_blank" rel="noreferrer">
-                  {item.linkLabel || "Learn more"} <Icon name="external" size={13} />
-                </a>
-              ) : null}
             </div>
           </div>
         </li>

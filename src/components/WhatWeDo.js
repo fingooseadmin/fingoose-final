@@ -80,16 +80,20 @@ export default function WhatWeDo() {
   return (
     <section className="section wwd-section" id="what-we-do">
       <div className="container">
-        <Reveal className="wwd-heading">
-          <h2>What we do</h2>
-          <span className="wwd-rule" aria-hidden="true" />
+        <Reveal className="scrapbook-section-heading wwd-heading">
+          <span className="sticker-label sticker-orange">What we do</span>
+          <div>
+            <h2>Five ways we make money make sense.</h2>
+            <p>From classrooms to libraries to your feed, here’s where FinGoose shows up.</p>
+          </div>
         </Reveal>
         <div className="wwd-grid">
           {pillars.map((pillar, index) => (
             <Reveal delay={index * 60} key={pillar.title} className={`wwd-cell wwd-cell-${index + 1}`}>
               <article className={`wwd-card wwd-${pillar.color}`}>
+                <span className="wwd-tape" aria-hidden="true" />
                 <span className="wwd-badge" aria-hidden="true">
-                  <Icon name={pillar.icon} size={34} />
+                  <Icon name={pillar.icon} size={26} />
                 </span>
                 <h3>{pillar.title}</h3>
                 <ul>
