@@ -107,19 +107,20 @@ export const milestones = [
 ];
 
 // Organizations in the looping partners strip. Each card links to its site.
-//   logo – optional, e.g. "/assets/partners/visions.png" (put the file in
-//          public/assets/partners/); until then the card shows initials
-//   url  – leave "" to show the card without a link
+//   logo     – file in public/assets/partners/; leave "" to show initials
+//   wordmark – true when the logo already spells the name, so the name text
+//              is hidden (screen readers still hear it)
+//   url      – leave "" to show the card without a link
 export const partners = [
-  { name: "Visions Federal Credit Union", url: "https://www.visionsfcu.org", logo: "" },
-  { name: "Colorado Department of Education", url: "https://www.cde.state.co.us", logo: "" },
-  { name: "DECA", url: "https://www.deca.org", logo: "" },
-  { name: "Go For Glass", url: "", logo: "" },
-  { name: "Youth Policymakers for Tomorrow", url: "", logo: "" },
-  { name: "Solace Launch", url: "", logo: "" },
-  { name: "Books for Africa", url: "https://www.booksforafrica.org", logo: "" },
-  { name: "Bergen County Academies", url: "https://www.bergen.org", logo: "" },
-  { name: "Charles DeWolf Middle School", url: "https://cdw.oldtappanschools.org", logo: "" },
-  { name: "Benjamin Franklin Middle School", url: "", logo: "" },
-  { name: "Leonia Public Library", url: "https://leonialibrary.org", logo: "" }
+  { name: "Visions Federal Credit Union", url: "https://www.visionsfcu.org", logo: "/assets/partners/visions.png", wordmark: true },
+  { name: "Colorado Department of Education", url: "https://www.cde.state.co.us", logo: "/assets/partners/cde.png" },
+  { name: "DECA", url: "https://www.deca.org", logo: "/assets/partners/deca.png", wordmark: true },
+  { name: "Go For Glass", url: "https://goforglass.org/", logo: "/assets/partners/go-for-glass.png" },
+  { name: "Youth Policymakers for Tomorrow", url: "https://youthpolicymakers.org/", logo: "/assets/partners/ypt.png" },
+  { name: "Solace Launch", url: "https://www.solacelaunch.com/", logo: "/assets/partners/solace-launch.png" },
+  { name: "Books for Africa", url: "https://www.booksforafrica.org", logo: "/assets/partners/books-for-africa.png", wordmark: true },
+  { name: "Bergen County Academies", url: "https://www.bergen.org", logo: "/assets/partners/bca.png" },
+  { name: "Charles DeWolf Middle School", url: "https://cdw.oldtappanschools.org", logo: "/assets/partners/charles-dewolf.png" },
+  { name: "Benjamin Franklin Middle School", url: "https://www.teaneckschools.org/benjaminfranklinmiddleschool_home.aspx", logo: "/assets/partners/teaneck.png" },
+  { name: "Leonia Public Library", url: "https://leonialibrary.org", logo: "/assets/partners/leonia-library.png", wordmark: true }
 ];

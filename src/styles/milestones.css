@@ -357,16 +357,32 @@ a.partner-card:focus-visible {
   color: #8a6400;
 }
 
-.partner-logo.has-logo {
+.partner-strip-row li .partner-logo.has-logo {
   background: #fff;
   border: 0;
+  height: 52px;
+  max-width: 190px;
+  width: auto;
 }
 
 .partner-logo img {
+  display: block;
   height: 100%;
+  max-width: 190px;
   object-fit: contain;
   padding: 4px;
-  width: 100%;
+  width: auto;
+}
+
+.partner-card .visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 @keyframes partner-scroll {

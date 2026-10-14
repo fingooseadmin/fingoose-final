@@ -110,12 +110,12 @@ function PartnerCard({ partner, hidden }) {
     <>
       <span className={`partner-logo ${partner.logo ? "has-logo" : ""}`} aria-hidden="true">
         {partner.logo ? (
-          <Image src={partner.logo} alt="" width={160} height={160} sizes="72px" />
+          <Image src={partner.logo} alt="" width={320} height={96} sizes="180px" />
         ) : (
           initials(partner.name)
         )}
       </span>
-      <span className="partner-name">{partner.name}</span>
+      <span className={partner.logo && partner.wordmark ? "partner-name visually-hidden" : "partner-name"}>{partner.name}</span>
       {partner.url ? <Icon name="external" size={14} /> : null}
     </>
   );
@@ -132,7 +132,7 @@ function PartnerCard({ partner, hidden }) {
       {content}
     </a>
   ) : (
-    <span className="partner-card">{content}</span>
+    <span className="partner-card" aria-label={partner.name}>{content}</span>
   );
 }
 
