@@ -1085,3 +1085,52 @@ body.site-layout .wwd-section .wwd-chip:focus-visible {
 body.site-layout .wwd-section .wwd-snap {
   box-shadow: 0 16px 30px rgba(0, 0, 0, 0.45);
 }
+
+/* What we do continues the navy from the stats band above: no seam,
+   soft lighter-navy glows, and a grid that fades up from the bottom. */
+body.site-layout .wwd-section {
+  background:
+    radial-gradient(ellipse 45% 32% at 12% 42%, rgba(76, 92, 210, 0.38), transparent 70%),
+    radial-gradient(ellipse 40% 38% at 88% 58%, rgba(60, 76, 186, 0.42), transparent 70%),
+    radial-gradient(ellipse 50% 35% at 45% 92%, rgba(90, 104, 220, 0.28), transparent 70%),
+    var(--blue-dark);
+  isolation: isolate;
+  margin-top: -1px;
+}
+
+body.site-layout .wwd-section::before {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px) 0 0 / 30px 30px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px) 0 0 / 30px 30px;
+  bottom: 0;
+  content: "";
+  height: 70%;
+  left: 0;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.6) 35%, transparent 100%);
+  mask-image: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.6) 35%, transparent 100%);
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: auto;
+  z-index: -1;
+}
+
+body.site-layout .wwd-section::after {
+  background: repeating-linear-gradient(90deg, #ff8209 0 18px, transparent 18px 30px);
+  bottom: 0;
+  content: "";
+  height: 4px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: auto;
+}
+
+body.site-layout .home-scrapbook-site .scrapbook-stats + .wwd-section,
+body.site-layout .home-scrapbook-site .wwd-section {
+  box-shadow: none !important;
+}
+
+body.site-layout .home-scrapbook-site .scrapbook-stats:has(+ .wwd-section) {
+  box-shadow: none !important;
+}
