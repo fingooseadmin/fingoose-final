@@ -19,11 +19,9 @@ export default function ContactPage() {
         <div className="hero-grid-lines" aria-hidden="true" />
         <div className="container contact-grid">
           <div className="contact-intro">
-            <span className="eyebrow light">Contact FinGoose</span>
-            <h1>Let’s make money make sense.</h1>
+                        <h1>Contact</h1>
             <p>
-              Tell us about your classroom, community, or idea. We’ll start with
-              what your learners need and work forward from there.
+              Workshops, partnerships, read-alouds, or questions. We’d love to hear from you.
             </p>
             <div className="contact-methods">
               <a href="mailto:fin.goose.co@gmail.com">

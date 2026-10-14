@@ -220,3 +220,99 @@ body.site-layout .scrapbook-site .contact-hero .contact-methods a {
 body.site-layout .scrapbook-site .contact-hero .contact-form {
   rotate: 1deg;
 }
+
+/* Simpler headers: just the page name, one line, and the polaroid. */
+body.site-layout .scrap-page-hero {
+  padding-bottom: clamp(36px, 5vw, 64px);
+}
+
+body.site-layout .scrap-page-hero-copy h1 {
+  font-size: clamp(3rem, 7vw, 5.6rem) !important;
+  max-width: none;
+}
+
+body.site-layout .scrap-page-hero-lede {
+  color: #3a4060;
+  font-size: clamp(1rem, 1.3vw, 1.15rem) !important;
+  line-height: 1.55;
+  margin: 16px 0 0;
+  max-width: 460px;
+}
+
+body.site-layout .scrap-page-hero-polaroid {
+  max-width: 300px;
+}
+
+body.site-layout .scrap-page-hero-polaroid:not(:has(figcaption)) {
+  padding-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+  body.site-layout .scrap-page-hero-polaroid {
+    max-width: 220px;
+  }
+}
+
+/* Inverted headers: brand blue paper so they stand apart from the page,
+   with no divider line at the bottom. */
+body.site-layout .scrap-page-hero {
+  background:
+    radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1.5px) 0 0 / 22px 22px,
+    linear-gradient(160deg, #4352c8 0%, #3c4cba 55%, #2f3d9e 100%);
+  border-bottom: 0;
+  color: #fff;
+}
+
+body.site-layout .scrap-page-hero-copy h1 {
+  color: #fff;
+  text-shadow: 4px 4px 0 #10163f;
+}
+
+body.site-layout .scrap-page-hero-lede {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+body.site-layout .scrap-breadcrumb,
+body.site-layout .scrap-breadcrumb span {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+body.site-layout .scrap-breadcrumb a {
+  color: #ffb200;
+}
+
+body.site-layout .scrap-page-hero-polaroid {
+  box-shadow: 0 24px 44px rgba(9, 13, 46, 0.45);
+}
+
+/* Contact uses the same blue. */
+body.site-layout .scrapbook-site .contact-hero {
+  background:
+    radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1.5px) 0 0 / 22px 22px,
+    linear-gradient(160deg, #4352c8 0%, #3c4cba 55%, #2f3d9e 100%) !important;
+  border-bottom: 0;
+}
+
+body.site-layout .scrapbook-site .contact-hero h1 {
+  color: #fff !important;
+  text-shadow: 4px 4px 0 #10163f;
+}
+
+body.site-layout .scrapbook-site .contact-hero .contact-intro p,
+body.site-layout .scrapbook-site .contact-hero .contact-methods strong {
+  color: #fff !important;
+}
+
+body.site-layout .scrapbook-site .contact-hero .contact-methods small {
+  color: #ffb200 !important;
+}
+
+body.site-layout .scrapbook-site .contact-hero .contact-methods a {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.site-layout .scrapbook-site .contact-hero h1 {
+  font-size: clamp(3rem, 7vw, 5.6rem) !important;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}

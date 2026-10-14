@@ -71,9 +71,8 @@ export default function ResourcesPage() {
         type="CollectionPage"
       />
       <PageHero
-        eyebrow="Resources"
-        title="A whole learning library, not one worksheet."
-        description="Choose the format that fits: educator curricula, children’s books, a self-paced online course, or live workshops."
+        title="Resources"
+        description="Curriculum, books, workshops, and an online course."
         image="/assets/finn-teacher.webp"
         primary="Browse the library"
         primaryHref="#library"

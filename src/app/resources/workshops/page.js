@@ -31,9 +31,8 @@ export default function WorkshopsPage() {
         parents={[{name:"Resources",path:"/resources"}]}
       />
       <PageHero
-        eyebrow="In-person workshops"
-        title="A live money lab built around decisions."
-        description="Students work through realistic scenarios, make trade-offs together, explain their reasoning, and leave with a stronger financial instinct."
+        title="Workshops"
+        description="Hands-on Crisis Lab workshops for middle schoolers."
         image="/assets/finn-crisis.webp"
         primary="Request a workshop"
         primaryHref="/contact?interest=workshop#contact-form"

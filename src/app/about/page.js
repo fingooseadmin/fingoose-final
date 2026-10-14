@@ -24,9 +24,8 @@ export default function AboutPage() {
         type="AboutPage"
       />
       <PageHero
-        eyebrow="About FinGoose"
-        title="A serious mission with a silly goose."
-        description="Every idea starts somewhere. Here’s the story behind FinGoose—and the people turning financial knowledge into a fairer starting point."
+        title="About"
+        description="The story, mission, and team behind FinGoose."
         image="/assets/finn-presenting.webp"
         primary="Read our story"
         primaryHref="#story"

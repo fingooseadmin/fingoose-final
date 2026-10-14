@@ -69,9 +69,8 @@ export default function JoinUsPage() {
       />
 
       <PageHero
-        eyebrow="Join Us"
-        title="Start a FinGoose Chapter"
-        description="Interested in taking the next waddle? Apply below and we’ll send you our Chapter Guide."
+        title="Join Us"
+        description="Start a FinGoose chapter at your school. Apply and we’ll send you our Chapter Guide."
         image="/assets/finn-waving.webp"
         caption="Chapters in 3 countries"
         tone="gold"

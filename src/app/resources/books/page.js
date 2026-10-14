@@ -64,9 +64,8 @@ export default function BooksPage() {
       />
       <JsonLd data={booksStructuredData} />
       <PageHero
-        eyebrow="Children’s books"
-        title="Two stories. More ways into money confidence."
-        description="The FinGoose library now includes two children’s books, with verified purchase and reading links collected in one place."
+        title="Children’s Books"
+        description="Two FinGoose picture books about money and fairness."
         image="/assets/money-toast-stack.webp"
         primary="Browse both books"
         primaryHref="#book-library"

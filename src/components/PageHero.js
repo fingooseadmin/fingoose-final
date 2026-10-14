@@ -21,7 +21,7 @@ export default function PageHero({
   breadcrumb,
   children
 }) {
-  const note = caption || status || eyebrow;
+  const note = caption || status;
   return (
     <section className={`scrap-page-hero scrap-tone-${tone}`}>
       <div className="container scrap-page-hero-grid">
@@ -30,10 +30,7 @@ export default function PageHero({
           {eyebrow ? <span className="sticker-label sticker-orange">{eyebrow}</span> : null}
           <h1><FlowWords>{title}</FlowWords></h1>
           {description ? (
-            <div className="scrap-page-hero-note">
-              <span className="scrap-tape scrap-page-hero-note-tape" aria-hidden="true" />
-              <p>{description}</p>
-            </div>
+            <p className="scrap-page-hero-lede">{description}</p>
           ) : null}
           {children}
           {(primary || secondary) && (
@@ -44,7 +41,7 @@ export default function PageHero({
                 </Link>
               )}
               {secondary && (
-                <Link className="button scrapbook-outline-button" href={secondaryHref}>
+                <Link className="button scrapbook-outline-button light" href={secondaryHref}>
                   {secondary} <Icon name="arrow" size={18} />
                 </Link>
               )}

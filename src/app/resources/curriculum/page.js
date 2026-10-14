@@ -16,9 +16,8 @@ export default function CurriculumPage() {
       <PageSeo title="Financial Literacy Curriculum & Classroom Tools" description={metadata.description} path="/resources/curriculum" type="CollectionPage" parents={[{name:"Resources",path:"/resources"}]} />
       <PageHero
         breadcrumb={<><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/resources">Resources</Link><span aria-hidden="true">/</span><span>Curriculum</span></>}
-        eyebrow="For educators"
-        title="Curriculum & classroom tools."
-        description="A free, five-module middle school curriculum built around Crisis Labs. Explore one unit at a time."
+        title="Curriculum"
+        description="A free five-module curriculum for grades 6–8."
         image="/assets/curriculum-cover.webp"
         caption="Grades 6–8 · 5 modules"
         tone="blue"

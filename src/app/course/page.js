@@ -51,18 +51,12 @@ export default function CoursePage() {
       />
       <JsonLd data={courseStructuredData} />
       <PageHero
-        eyebrow="Free course · 16 learning steps"
-        title="Financial literacy, built like a skill."
-        description="Learn the idea, make the decision, and test the reasoning. Preview the complete roadmap below, then continue into FinGoose’s original course experience."
+        title="Online Course"
+        description="A free one-hour course that walks through every Crisis Lab."
         image="/assets/finn-thinking.webp"
         caption="131 students enrolled"
         tone="violet"
       >
-        <div className="scrap-hero-stats">
-          <span><strong>04</strong> modules</span>
-          <span><strong>16</strong> guided steps</span>
-          <span><strong>01</strong> final check</span>
-        </div>
       </PageHero>
 
       <section className="section course-preview-section">

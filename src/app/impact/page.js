@@ -62,9 +62,8 @@ export default function ImpactPage() {
         type="CollectionPage"
       />
       <PageHero
-        eyebrow="Our impact"
-        title="Field notes from the money lab."
-        description="Every workshop gives students a real choice to test, a trade-off to explain, and a stronger financial instinct to take with them."
+        title="Our Impact"
+        description="What FinGoose has done so far, and the results behind it."
         image="/assets/finn-striding.webp"
         primary="Bring us to your school"
         primaryHref="/contact"
