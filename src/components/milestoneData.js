@@ -1,5 +1,5 @@
-// Big wins shown on the homepage and Impact page, newest first
-// (add new wins at the TOP of the list).
+// Big wins shown on the homepage and Impact page, in chronological order:
+// oldest on the left, newest on the right (add new wins at the BOTTOM).
 // Keep every line provable: only list things that have actually happened.
 //   tag   – short category label
 //   title – the achievement, in a few words
@@ -13,28 +13,76 @@
 
 export const milestones = [
   {
-    date: "2026",
-    tag: "Chapters",
-    title: "US, Canada & China",
-    note: "A student chapter program bringing FinGoose to new communities.",
-    icon: "globe",
-    color: "orange"
+    date: "Oct 2025",
+    tag: "Nonprofit",
+    title: "Founded a 501(c)(3)",
+    note: "Grew FinGoose from a DECA project into a registered nonprofit based in Bergen County, NJ.",
+    icon: "heart",
+    color: "violet"
   },
   {
-    date: "Spring 2026",
-    tag: "Award",
-    title: "1st place, NJ DECA States",
-    note: "Won Project Management: Financial Literacy with FinGoose and qualified for DECA’s International Career Development Conference (ICDC).",
-    icon: "spark",
+    date: "Oct–Nov 2025",
+    tag: "Curriculum",
+    title: "5-module middle school curriculum",
+    note: "Written for grades 6–8 and reviewed by Bergen County Academies’ Business Department.",
+    icon: "school",
+    color: "mint"
+  },
+  {
+    date: "Nov–Dec 2025",
+    tag: "Workshops",
+    title: "3 workshops, 90+ students",
+    note: "Crisis Lab workshops at Charles DeWolf and Benjamin Franklin Middle Schools.",
+    icon: "school",
+    color: "blue"
+  },
+  {
+    date: "Dec 2025",
+    tag: "Results",
+    title: "Retention rose from 43% to 93%",
+    note: "Average pre-test vs. post-test scores across 90+ middle school workshop students.",
+    icon: "chart",
+    color: "mint"
+  },
+  {
+    date: "Winter 2025–26",
+    tag: "Online course",
+    title: "131 students enrolled",
+    note: "A one-hour course that walks through each Crisis Lab and its best solutions.",
+    icon: "clock",
     color: "gold"
   },
   {
-    date: "Mar 2026",
-    tag: "Global reach",
-    title: "150 books donated to Africa",
-    note: "Shipped FinGoose children’s books through Books for Africa.",
-    icon: "heart",
-    color: "blue"
+    date: "Winter 2025–26",
+    tag: "Publishing",
+    title: "230 copies sold, 17 five-star reviews",
+    note: "FinGoose and the Two Mornings is on 9+ platforms, with Spanish and Chinese PDF editions. A second book, FinGoose and the Dino Dream, followed.",
+    icon: "book",
+    color: "orange"
+  },
+  {
+    date: "Winter 2026",
+    tag: "Media",
+    title: "15M+ views · 35K+ followers",
+    note: "Our top video passed 6 million views. All videos and graphics are designed and edited in-house.",
+    icon: "chart",
+    color: "violet"
+  },
+  {
+    date: "Early 2026",
+    tag: "Partnerships",
+    title: "3,000+ students via Go For Glass",
+    note: "Partnered with Go For Glass and Youth Policymakers for Tomorrow, and landed a paid sponsorship with Solace Launch.",
+    icon: "shield",
+    color: "gold"
+  },
+  {
+    date: "Early 2026",
+    tag: "State pilot",
+    title: "Colorado Department of Education",
+    note: "The FinGoose curriculum is set to be piloted in 5 Colorado school districts, with pre- and post-tests over 6 weeks.",
+    icon: "globe",
+    color: "orange"
   },
   {
     date: "Feb 2026",
@@ -47,76 +95,28 @@ export const milestones = [
     linkLabel: "Play the card game"
   },
   {
-    date: "Early 2026",
-    tag: "State pilot",
-    title: "Colorado Department of Education",
-    note: "The FinGoose curriculum is set to be piloted in 5 Colorado school districts, with pre- and post-tests over 6 weeks.",
-    icon: "globe",
-    color: "orange"
-  },
-  {
-    date: "Early 2026",
-    tag: "Partnerships",
-    title: "3,000+ students via Go For Glass",
-    note: "Partnered with Go For Glass and Youth Policymakers for Tomorrow, and landed a paid sponsorship with Solace Launch.",
-    icon: "shield",
-    color: "gold"
-  },
-  {
-    date: "Winter 2026",
-    tag: "Media",
-    title: "15M+ views · 35K+ followers",
-    note: "Our top video passed 6 million views. All videos and graphics are designed and edited in-house.",
-    icon: "chart",
-    color: "violet"
-  },
-  {
-    date: "Winter 2025–26",
-    tag: "Publishing",
-    title: "230 copies sold, 17 five-star reviews",
-    note: "FinGoose and the Two Mornings is on 9+ platforms, with Spanish and Chinese PDF editions. A second book, FinGoose and the Dino Dream, followed.",
-    icon: "book",
-    color: "orange"
-  },
-  {
-    date: "Winter 2025–26",
-    tag: "Online course",
-    title: "131 students enrolled",
-    note: "A one-hour course that walks through each Crisis Lab and its best solutions.",
-    icon: "clock",
-    color: "gold"
-  },
-  {
-    date: "Dec 2025",
-    tag: "Results",
-    title: "Retention rose from 43% to 93%",
-    note: "Average pre-test vs. post-test scores across 90+ middle school workshop students.",
-    icon: "chart",
-    color: "mint"
-  },
-  {
-    date: "Nov–Dec 2025",
-    tag: "Workshops",
-    title: "3 workshops, 90+ students",
-    note: "Crisis Lab workshops at Charles DeWolf and Benjamin Franklin Middle Schools.",
-    icon: "school",
+    date: "Mar 2026",
+    tag: "Global reach",
+    title: "150 books donated to Africa",
+    note: "Shipped FinGoose children’s books through Books for Africa.",
+    icon: "heart",
     color: "blue"
   },
   {
-    date: "Oct–Nov 2025",
-    tag: "Curriculum",
-    title: "5-module middle school curriculum",
-    note: "Written for grades 6–8 and reviewed by Bergen County Academies’ Business Department.",
-    icon: "school",
-    color: "mint"
+    date: "Spring 2026",
+    tag: "Award",
+    title: "1st place, NJ DECA States",
+    note: "Won Project Management: Financial Literacy with FinGoose and qualified for DECA’s International Career Development Conference (ICDC).",
+    icon: "spark",
+    color: "gold"
   },
   {
-    date: "Oct 2025",
-    tag: "Nonprofit",
-    title: "Founded a 501(c)(3)",
-    note: "Grew FinGoose from a DECA project into a registered nonprofit based in Bergen County, NJ.",
-    icon: "heart",
-    color: "violet"
+    date: "2026",
+    tag: "Chapters",
+    title: "US, Canada & China",
+    note: "A student chapter program bringing FinGoose to new communities.",
+    icon: "globe",
+    color: "orange"
   }
 ];
 
