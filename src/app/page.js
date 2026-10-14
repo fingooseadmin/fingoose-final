@@ -23,23 +23,23 @@ const homeStructuredData = {
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://fingoose.org/#website",
-      url: "https://fingoose.org/",
+      "@id": "https://fingoose.com/#website",
+      url: "https://fingoose.com/",
       name: "FinGoose",
       alternateName: "Fin Goose",
       inLanguage: "en-US",
-      publisher: { "@id": "https://fingoose.org/#organization" },
-      about: { "@id": "https://fingoose.org/#organization" },
+      publisher: { "@id": "https://fingoose.com/#organization" },
+      about: { "@id": "https://fingoose.com/#organization" },
       description:
         "FinGoose offers K–12 financial literacy curriculum, children’s books, classroom workshops, crisis labs, and free online learning."
     },
     {
       "@type": "EducationalOrganization",
-      "@id": "https://fingoose.org/#organization",
+      "@id": "https://fingoose.com/#organization",
       name: "FinGoose",
-      url: "https://fingoose.org/",
-      logo: "https://fingoose.org/assets/finn-badge.png",
-      image: "https://fingoose.org/og.png",
+      url: "https://fingoose.com/",
+      logo: "https://fingoose.com/assets/finn-badge.png",
+      image: "https://fingoose.com/og.png",
       slogan: "Silly goose, serious money",
       description:
         "FinGoose makes financial literacy fun, accessible, and relevant for K–12 students through curriculum, stories, workshops, and online learning.",

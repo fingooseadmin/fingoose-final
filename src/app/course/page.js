@@ -10,11 +10,11 @@ import Reveal from "@/components/Reveal";
 const courseStructuredData = {
   "@context": "https://schema.org",
   "@type": "Course",
-  "@id": "https://fingoose.org/course/#course",
+  "@id": "https://fingoose.com/course/#course",
   name: "FinGoose Financial Literacy Course",
   description:
     "A free 16-step financial literacy course for middle and high school students covering budgeting, credit, investing, careers, and financial decisions.",
-  url: "https://fingoose.org/course/",
+  url: "https://fingoose.com/course/",
   inLanguage: "en-US",
   isAccessibleForFree: true,
   educationalLevel: "Middle school and high school",
@@ -27,9 +27,9 @@ const courseStructuredData = {
   ],
   provider: {
     "@type": "EducationalOrganization",
-    "@id": "https://fingoose.org/#organization",
+    "@id": "https://fingoose.com/#organization",
     name: "FinGoose",
-    url: "https://fingoose.org/"
+    url: "https://fingoose.com/"
   }
 };
 export const metadata = createPageMetadata({

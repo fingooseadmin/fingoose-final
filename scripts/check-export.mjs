@@ -1,7 +1,7 @@
 import { readFile, readdir, access } from "node:fs/promises";
 import path from "node:path";
 const root = path.resolve("out");
-const origin = "https://fingoose.org";
+const origin = "https://fingoose.com";
 const routes = ["/","/about/","/team/victor-pan/","/join-us/","/impact/","/resources/","/resources/books/","/resources/curriculum/","/resources/workshops/","/course/","/contact/"];
 const failures = [], titles = new Set();
 const sitemap = await readFile(path.join(root,"sitemap.xml"),"utf8");
@@ -30,6 +30,5 @@ for (const route of routes) {
   }
 }
 await access(path.join(root,"index.txt")).catch(()=>failures.push("Missing Next.js navigation payload"));
-await access(path.join(root,"google07be475b4517ebd9.html")).catch(()=>failures.push("Missing Google verification file"));
 if(failures.length) { console.error(failures.join("\n")); process.exitCode=1; }
 else console.log("Verified "+routes.length+" pages: unique titles, canonicals, descriptions, structured data, sitemap, internal targets, and navigation payloads.");

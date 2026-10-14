@@ -1,6 +1,6 @@
 import JsonLd from "@/components/JsonLd";
 
-const SITE_URL = "https://fingoose.org";
+const SITE_URL = "https://fingoose.com";
 
 function pageUrl(path) {
   const normalizedPath = path === "/" ? "/" : `${path.replace(/\/$/, "")}/`;
