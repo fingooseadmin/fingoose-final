@@ -3,7 +3,6 @@ import Link from "next/link";
 import BudgetLab from "@/components/BudgetLab";
 import FlowWords from "@/components/FlowWords";
 import Icon from "@/components/Icon";
-import MotionReels from "@/components/MotionReels";
 import Reveal from "@/components/Reveal";
 import ScrapbookHeroPage from "@/components/ScrapbookHeroPage";
 import MilestonesSection, { PartnerStrip } from "@/components/Milestones";
@@ -191,11 +190,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section motion-reels-section">
-        <div className="container">
-          <Reveal><MotionReels /></Reveal>
-        </div>
-      </section>
 
     </main>
   );
