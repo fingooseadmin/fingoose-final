@@ -1161,3 +1161,34 @@ body.site-layout .scrapbook-testimonial::before {
   right: 0;
   z-index: -1;
 }
+
+/* Bigger "What we do" polaroids. */
+body.site-layout .wwd-section > .container {
+  max-width: min(1360px, calc(100% - 72px)) !important;
+  width: min(1360px, calc(100% - 72px)) !important;
+}
+
+body.site-layout .wwd-grid {
+  gap: clamp(28px, 3vw, 44px);
+}
+
+body.site-layout .wwd-collage {
+  aspect-ratio: 1 / 0.95;
+  margin-bottom: 22px;
+}
+
+body.site-layout .wwd-snap { padding: 9px 9px 28px; }
+body.site-layout .wwd-snap-1 { left: 0; top: 9%; width: 52%; }
+body.site-layout .wwd-snap-2 { left: 21%; top: 0; width: 58%; }
+body.site-layout .wwd-snap-3 { right: 0; top: 12%; width: 50%; }
+
+@media (max-width: 900px) {
+  body.site-layout .wwd-grid {
+    max-width: 520px;
+  }
+
+  body.site-layout .wwd-section > .container {
+    max-width: calc(100% - 40px) !important;
+    width: calc(100% - 40px) !important;
+  }
+}
