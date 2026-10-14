@@ -80,3 +80,75 @@ body.site-layout .milestone-section {
     radial-gradient(ellipse 45% 35% at 20% 95%, rgba(124, 138, 230, 0.16), transparent 70%),
     linear-gradient(180deg, #f9f3e4 0%, #f4e9d2 100%) !important;
 }
+
+/* ---------- Our Impact: alternate navy and warm-beige bands ---------- */
+:root {
+  --fg-navy-band:
+    radial-gradient(ellipse 45% 60% at 8% 35%, rgba(76, 92, 210, 0.38), transparent 70%),
+    radial-gradient(ellipse 40% 60% at 92% 70%, rgba(60, 76, 186, 0.42), transparent 70%),
+    #0d143a;
+  --fg-beige-band:
+    radial-gradient(rgba(16, 22, 63, 0.07) 1px, transparent 1.4px) 0 0 / 22px 22px,
+    radial-gradient(ellipse 40% 40% at 6% 15%, rgba(255, 178, 0, 0.22), transparent 70%),
+    radial-gradient(ellipse 40% 45% at 95% 80%, rgba(255, 130, 9, 0.16), transparent 70%),
+    linear-gradient(180deg, #f9f3e4, #f3e6cc);
+  --fg-gold-band:
+    radial-gradient(ellipse 45% 55% at 12% 30%, rgba(255, 178, 0, 0.35), transparent 70%),
+    radial-gradient(ellipse 40% 50% at 90% 70%, rgba(255, 130, 9, 0.28), transparent 70%),
+    linear-gradient(160deg, #f8efd9 0%, #f7dfa8 55%, #f3c98a 100%);
+}
+
+body.site-layout .impact-page .impact-scrap-stats,
+body.site-layout .impact-page .event-timeline-section,
+body.site-layout .impact-page .book-donation-section,
+body.site-layout .impact-page .impact-next-step {
+  background: var(--fg-beige-band) !important;
+}
+
+body.site-layout .impact-page .book-impact-section {
+  background: var(--fg-gold-band) !important;
+}
+
+body.site-layout .impact-page .retention-section,
+body.site-layout .impact-page .impact-gallery-section,
+body.site-layout .impact-page .impact-social-section {
+  background: var(--fg-navy-band) !important;
+  color: #fff;
+  isolation: isolate;
+  position: relative;
+}
+
+body.site-layout .impact-page .retention-section::before,
+body.site-layout .impact-page .impact-gallery-section::before,
+body.site-layout .impact-page .impact-social-section::before {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px) 0 0 / 30px 30px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px) 0 0 / 30px 30px;
+  bottom: 0;
+  content: "";
+  height: 65%;
+  left: 0;
+  -webkit-mask-image: linear-gradient(to top, #000, transparent);
+  mask-image: linear-gradient(to top, #000, transparent);
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+
+body.site-layout .impact-page .retention-section h2,
+body.site-layout .impact-page .impact-gallery-section .scrapbook-section-heading h2,
+body.site-layout .impact-page .impact-social-section h2 {
+  color: #fff !important;
+}
+
+body.site-layout .impact-page .retention-section p,
+body.site-layout .impact-page .impact-gallery-section .scrapbook-section-heading p,
+body.site-layout .impact-page .impact-social-section .impact-reels-heading p,
+body.site-layout .impact-page .impact-social-section header p {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+body.site-layout .impact-page .retention-bars {
+  box-shadow: 8px 8px 0 #ff8209;
+}

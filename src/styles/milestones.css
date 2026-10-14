@@ -1052,7 +1052,7 @@ body.site-layout .wwd-section {
 
 body.site-layout .wwd-section::before,
 body.site-layout .wwd-section::after {
-  background: repeating-linear-gradient(90deg, #ff8209 0 18px, transparent 18px 30px);
+  background: none;
   content: "";
   height: 4px;
   left: 0;
@@ -1116,7 +1116,7 @@ body.site-layout .wwd-section::before {
 }
 
 body.site-layout .wwd-section::after {
-  background: repeating-linear-gradient(90deg, #ff8209 0 18px, transparent 18px 30px);
+  background: none;
   bottom: 0;
   content: "";
   height: 4px;

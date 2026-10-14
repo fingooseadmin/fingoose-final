@@ -5,7 +5,6 @@ body.site-layout .site-footer.fg-footer {
     radial-gradient(ellipse 45% 60% at 8% 40%, rgba(76, 92, 210, 0.38), transparent 70%),
     radial-gradient(ellipse 40% 60% at 92% 70%, rgba(60, 76, 186, 0.42), transparent 70%),
     #0d143a;
-  border-top: 4px dashed #ff8209;
   color: #fff;
   isolation: isolate;
   overflow: hidden;
