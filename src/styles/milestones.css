@@ -680,7 +680,7 @@ body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat span {
   }
 }
 
-/* Homepage "What we do": three pillars. */
+/* Homepage "What we do": cards with a colored icon badge on top. */
 .site-layout .wwd-section {
   background:
     radial-gradient(rgba(16, 22, 63, 0.07) 1px, transparent 1.4px) 0 0 / 22px 22px,
@@ -688,179 +688,342 @@ body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat span {
 }
 
 .wwd-heading {
-  margin-bottom: clamp(30px, 4vw, 48px);
-  max-width: 760px;
+  margin-bottom: clamp(56px, 6vw, 72px);
+  text-align: center;
 }
 
-.wwd-heading h2 {
-  margin: 14px 0 0;
+.site-layout .wwd-heading h2 {
+  margin: 0;
+}
+
+.wwd-rule {
+  background: #ff8209;
+  border-radius: 99px;
+  display: block;
+  height: 4px;
+  margin: 14px auto 0;
+  width: 64px;
 }
 
 .wwd-grid {
   display: grid;
-  gap: clamp(20px, 2.6vw, 32px);
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(56px, 5vw, 64px) clamp(16px, 2vw, 24px);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
-.wwd-grid > * {
+.wwd-cell {
   display: flex;
+  grid-column: span 2;
+}
+
+.wwd-cell-4,
+.wwd-cell-5 {
+  grid-column: span 3;
 }
 
 .wwd-card {
-  --wwd-bg: #dfe5ff;
-  --wwd-ink: #3c4cba;
-  background: var(--wwd-bg);
-  box-shadow:
-    0 1px 0 rgba(16, 22, 63, 0.1),
-    0 16px 30px rgba(16, 22, 63, 0.14);
+  --badge: #3c4cba;
+  background: #fffdf6;
+  border: 1.5px solid rgba(16, 22, 63, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(16, 22, 63, 0.08);
   display: flex;
   flex-direction: column;
-  padding: 12px;
+  padding: 58px clamp(18px, 2vw, 28px) 24px;
   position: relative;
-  rotate: -0.8deg;
-  transition: rotate 0.3s ease, translate 0.3s ease;
+  transition: translate 0.25s ease, box-shadow 0.25s ease;
   width: 100%;
 }
 
-.wwd-grid > *:nth-child(2) .wwd-card { rotate: 0.8deg; }
-
 .wwd-card:hover {
-  rotate: 0deg;
+  box-shadow: 0 16px 30px rgba(16, 22, 63, 0.14);
   translate: 0 -4px;
 }
 
-.wwd-orange { --wwd-bg: #ffd8b9; --wwd-ink: #b4530a; }
-.wwd-gold { --wwd-bg: #ffed9f; --wwd-ink: #8a6400; }
+.wwd-mint { --badge: #3fae86; }
+.wwd-orange { --badge: #ff8209; }
+.wwd-gold { --badge: #f2b600; }
+.wwd-violet { --badge: #7a52c7; }
 
-.wwd-tape {
-  background:
-    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 0 6px, transparent 6px 12px),
-    rgba(255, 178, 0, 0.8);
-  height: 24px;
+.wwd-badge {
+  align-items: center;
+  background: var(--badge);
+  border: 5px solid #f6f2e9;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  height: 92px;
+  justify-content: center;
   left: 50%;
   position: absolute;
-  top: -11px;
+  top: -46px;
   translate: -50% 0;
   width: 92px;
-  z-index: 2;
 }
 
-.wwd-photo {
-  aspect-ratio: 16 / 10;
-  background: #fff;
+.site-layout .wwd-card h3 {
+  color: #10163f;
+  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+  letter-spacing: 0.02em;
+  margin: 0 0 14px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.wwd-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.wwd-card li {
+  color: #4b5170;
+  font-size: 0.97rem;
+  line-height: 1.5;
+}
+
+.wwd-card li::marker {
+  color: var(--badge);
+}
+
+.wwd-card li a {
+  color: #10163f;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--badge) 55%, transparent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.wwd-card li a svg {
+  display: inline-block;
+  margin-left: 4px;
+  vertical-align: -1px;
+}
+
+.wwd-card li a:hover {
+  text-decoration-color: var(--badge);
+}
+
+.wwd-more {
+  align-items: center;
+  align-self: center;
+  color: #10163f;
+  display: inline-flex;
+  font-weight: 900;
+  gap: 6px;
+  margin-top: 18px;
+}
+
+@media (max-width: 900px) {
+  .wwd-grid {
+    grid-template-columns: 1fr;
+    margin-inline: auto;
+    max-width: 560px;
+  }
+
+  .wwd-cell,
+  .wwd-cell-4,
+  .wwd-cell-5 {
+    grid-column: auto;
+  }
+}
+
+/* Homepage milestones: photo grid, newest first. Date + title on a banner,
+   details appear on hover / focus. */
+.milestone-grid {
+  display: grid;
+  gap: clamp(14px, 1.8vw, 22px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.milestone-tile-inner {
+  aspect-ratio: 1;
+  background: var(--card-color, #dfe5ff);
+  border-radius: 6px;
+  box-shadow:
+    0 1px 0 rgba(16, 22, 63, 0.1),
+    0 12px 24px rgba(16, 22, 63, 0.14);
+  cursor: default;
+  display: block;
+  outline: none;
   overflow: hidden;
   position: relative;
+  transition: translate 0.25s ease, box-shadow 0.25s ease;
 }
 
-.wwd-photo img {
-  object-fit: cover;
-  object-position: 50% 30%;
+.milestone-tile-inner:hover,
+.milestone-tile-inner:focus-visible,
+.milestone-tile-inner:focus-within {
+  box-shadow:
+    0 1px 0 rgba(16, 22, 63, 0.1),
+    0 18px 32px rgba(16, 22, 63, 0.22);
+  translate: 0 -4px;
 }
 
-.wwd-photo.is-contain {
-  background: #fffdf6;
+.milestone-tile-inner:focus-visible {
+  outline: 3px solid #ff8209;
+  outline-offset: 3px;
 }
 
-.wwd-photo.is-contain img {
-  object-fit: contain;
-  padding: 10px;
-}
-
-.wwd-number {
-  background: #10163f;
-  border-radius: 8px;
-  color: #ffb200;
-  font-size: 0.9rem;
-  font-weight: 900;
-  left: 10px;
-  padding: 4px 9px;
-  position: absolute;
-  top: 10px;
-}
-
-.wwd-body {
+.milestone-tile-photo {
+  align-items: center;
+  color: #10163f;
   display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: 18px 8px 8px;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
 }
 
-.wwd-label {
-  color: var(--wwd-ink);
-  font-size: 0.74rem;
+.milestone-tile-photo img {
+  object-fit: cover;
+  transition: scale 0.5s ease;
+}
+
+.milestone-tile-inner:hover .milestone-tile-photo img {
+  scale: 1.05;
+}
+
+.milestone-tile-photo.fit-top img {
+  object-position: 50% 0;
+}
+
+.milestone-tile-photo.fit-contain img {
+  object-fit: contain;
+  padding: 10% 12% 34%;
+}
+
+.milestone-tile-photo.fit-logo {
+  background: #fff;
+}
+
+.milestone-tile-photo.fit-logo img {
+  object-fit: contain;
+  padding: 16% 14% 38%;
+}
+
+.milestone-tile-banner {
+  background: linear-gradient(90deg, rgba(60, 76, 186, 0.94), rgba(60, 76, 186, 0.86) 60%, rgba(60, 76, 186, 0.7));
+  bottom: 9%;
+  color: #fff;
+  left: 0;
+  padding: 9px 14px 10px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  transition: opacity 0.25s ease;
+}
+
+.milestone-tile-banner span {
+  display: block;
+  font-size: clamp(1.15rem, 1.7vw, 1.55rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.site-layout .milestone-tile-banner h3 {
+  color: #fff;
+  font-size: clamp(0.78rem, 0.95vw, 0.88rem) !important;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.25;
+  margin: 3px 0 0;
+  opacity: 0.92;
+}
+
+.milestone-tile-overlay {
+  background: rgba(16, 22, 63, 0.9);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  inset: 0;
+  justify-content: center;
+  opacity: 0;
+  padding: clamp(16px, 1.8vw, 24px);
+  position: absolute;
+  transition: opacity 0.25s ease;
+}
+
+.milestone-tile-inner:hover .milestone-tile-overlay,
+.milestone-tile-inner:focus .milestone-tile-overlay,
+.milestone-tile-inner:focus-within .milestone-tile-overlay {
+  opacity: 1;
+}
+
+.milestone-tile-inner:hover .milestone-tile-banner,
+.milestone-tile-inner:focus .milestone-tile-banner,
+.milestone-tile-inner:focus-within .milestone-tile-banner {
+  opacity: 0;
+}
+
+.milestone-tile-tag {
+  color: #ffb200;
+  font-size: 0.72rem;
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-.site-layout .wwd-body h3 {
-  color: #10163f;
-  font-size: clamp(1.35rem, 2vw, 1.6rem);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin: 6px 0 8px;
+.site-layout .milestone-tile-overlay p {
+  color: #fff;
+  font-size: clamp(0.84rem, 1vw, 0.95rem) !important;
+  line-height: 1.45;
+  margin: 0;
 }
 
-.site-layout .wwd-body p {
-  color: #4b5170;
-  font-size: 0.95rem !important;
-  line-height: 1.5;
-  margin: 0 0 14px;
-}
-
-.wwd-body ul {
-  display: grid;
-  gap: 8px;
-  list-style: none;
-  margin: 2px 0 0;
-  padding: 0;
-}
-
-.wwd-link {
+.milestone-tile-link {
   align-items: center;
-  background: rgba(255, 253, 246, 0.8);
-  border: 1.5px solid rgba(16, 22, 63, 0.14);
-  border-radius: 10px;
+  align-self: flex-start;
+  background: #ffb200;
+  border-radius: 999px;
   color: #10163f;
-  display: flex;
-  font-size: 0.93rem;
-  font-weight: 800;
-  gap: 10px;
-  padding: 10px 12px;
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 900;
+  gap: 6px;
+  padding: 7px 13px;
   text-decoration: none;
-  transition: background 0.2s ease, border-color 0.2s ease, translate 0.2s ease;
 }
 
-.wwd-link svg:first-child {
-  color: var(--wwd-ink);
-  flex: none;
-}
-
-.wwd-link span {
-  flex: 1;
-}
-
-.wwd-link svg:last-child {
-  color: #10163f;
-  flex: none;
-  opacity: 0.45;
-}
-
-.wwd-link:hover,
-.wwd-link:focus-visible {
-  background: #fff;
-  border-color: #10163f;
-  translate: 3px 0;
-}
-
-.wwd-link:hover svg:last-child {
-  opacity: 1;
-}
-
-@media (max-width: 860px) {
-  .wwd-grid {
-    grid-template-columns: 1fr;
-    margin-inline: auto;
-    max-width: 520px;
+@media (max-width: 1000px) {
+  .milestone-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+@media (max-width: 620px) {
+  .milestone-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .milestone-tile-banner {
+    bottom: 0;
+    padding: 7px 8px 8px;
+  }
+
+  .milestone-tile-banner span {
+    font-size: 1rem;
+  }
+
+  .site-layout .milestone-tile-banner h3 {
+    font-size: 0.7rem !important;
+  }
+
+  .site-layout .milestone-tile-overlay p {
+    font-size: 0.78rem !important;
+  }
+}
+
+.milestone-tile-title {
+  color: #fff;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  font-weight: 900;
+  line-height: 1.2;
 }

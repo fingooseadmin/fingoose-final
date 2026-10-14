@@ -141,6 +141,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <WhatWeDo />
+
       <MilestonesSection
         heading="The big wins so far."
         intro="Founded by Grace Zhou as a high school student, FinGoose has grown from one DECA project into a nonprofit with partners, published books, and student chapters in three countries."
@@ -157,8 +159,6 @@ export default function HomePage() {
           <TestimonialSlider />
         </div>
       </section>
-
-      <WhatWeDo />
 
       <section className="section scrapbook-lab-section">
         <div className="container scrapbook-lab-grid">

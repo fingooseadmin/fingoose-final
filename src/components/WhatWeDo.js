@@ -1,75 +1,77 @@
-import Image from "next/image";
 import Link from "next/link";
 import Icon from "./Icon";
 import Reveal from "./Reveal";
 
-// Homepage "What we do": the three kinds of work FinGoose does, each with
-// links to where you can see or use it.
+// Homepage "What we do": one card per kind of work, each with a colored
+// icon badge and a few bullet points (bullets with an href become links).
 const pillars = [
   {
-    key: "learn",
-    label: "Educational resources",
-    title: "We teach money skills.",
-    text: "Free, standards-aligned tools for students, teachers, and families.",
-    image: "/assets/workshop-financial-resilience.webp",
-    imageAlt: "Students presenting during a FinGoose workshop",
+    title: "Educational resources",
+    icon: "book",
     color: "blue",
-    items: [
-      { label: "Middle school curriculum", href: "/resources/curriculum", icon: "school" },
-      { label: "In-person workshops", href: "/resources/workshops", icon: "chart" },
-      { label: "Online course", href: "/course", icon: "play" },
-      { label: "Children’s books", href: "/resources/books", icon: "book" },
-      { label: "FinGoose card game", href: "https://fingoose-cardgame.base44.app/", icon: "spark", external: true }
+    points: [
+      { text: "A 5-module middle school curriculum, free for teachers", href: "/resources/curriculum" },
+      { text: "A one-hour online course (131 students)", href: "/course" },
+      { text: "Two children’s books, in English, Spanish, and Chinese", href: "/resources/books" },
+      { text: "The FinGoose card game", href: "https://fingoose-cardgame.base44.app/" }
     ]
   },
   {
-    key: "community",
-    label: "Community events",
-    title: "We show up in person.",
-    text: "Events that raise money, share books, and bring families in.",
-    image: "/assets/events/donation-08.webp",
-    imageAlt: "FinGoose team with boxes of books for Books for Africa",
+    title: "In-person workshops",
+    icon: "school",
+    color: "mint",
+    points: [
+      { text: "Crisis Lab workshops at local middle schools", href: "/resources/workshops" },
+      { text: "90+ students; average scores went from 43% to 93%" }
+    ]
+  },
+  {
+    title: "Community events",
+    icon: "heart",
     color: "orange",
-    items: [
-      { label: "Library read-alouds", href: "/impact/#timeline", icon: "book" },
-      { label: "Bake sales", href: "/impact/#timeline", icon: "heart" },
-      { label: "Book donations", href: "/impact/#timeline", icon: "globe" },
-      { label: "School visits", href: "/resources/workshops", icon: "school" }
+    points: [
+      { text: "Read-alouds and activities at public libraries" },
+      { text: "Bake sales that raised $2,200 for our programs" },
+      { text: "150 books donated through Books for Africa" }
+    ],
+    more: { text: "See every event", href: "/impact/#timeline" }
+  },
+  {
+    title: "Social media",
+    icon: "instagram",
+    color: "gold",
+    points: [
+      { text: "Money lessons told through Gen Z trends" },
+      { text: "15M+ views and 35K+ followers; top video passed 6M views", href: "https://www.instagram.com/fin.goose/" }
     ]
   },
   {
-    key: "reach",
-    label: "Reach & leadership",
-    title: "We grow the flock.",
-    text: "Getting financial literacy to students far beyond our town.",
-    image: "/assets/finn-presenting.webp",
-    imageAlt: "FinGoose mascot Finn presenting",
-    contain: true,
-    color: "gold",
-    items: [
-      { label: "Student chapters", href: "/join-us", icon: "globe" },
-      { label: "Videos with 15M+ views", href: "https://www.instagram.com/fin.goose/", icon: "instagram", external: true },
-      { label: "Partners & sponsors", href: "#partners", icon: "shield" },
-      { label: "Colorado state pilot", href: "/impact/#timeline", icon: "chart" }
+    title: "Chapters & partnerships",
+    icon: "globe",
+    color: "violet",
+    points: [
+      { text: "Student chapters in the US, Canada, and China", href: "/join-us" },
+      { text: "Partners including Go For Glass and Youth Policymakers for Tomorrow", href: "#partners" },
+      { text: "A Colorado Department of Education pilot in 5 districts (2026–27)" }
     ]
   }
 ];
 
-function ItemLink({ item }) {
-  const inner = (
-    <>
-      <Icon name={item.icon} size={17} />
-      <span>{item.label}</span>
-      <Icon name={item.external ? "external" : "arrow"} size={15} />
-    </>
-  );
-  return item.external || item.href.startsWith("#") ? (
-    <a className="wwd-link" href={item.href} {...(item.external ? { target: "_blank", rel: "noreferrer" } : {})}>
-      {inner}
-    </a>
-  ) : (
-    <Link className="wwd-link" href={item.href}>
-      {inner}
+function Point({ point }) {
+  if (!point.href) return <span>{point.text}</span>;
+  const external = point.href.startsWith("http");
+  if (external || point.href.startsWith("#")) {
+    return (
+      <a href={point.href} {...(external ? { target: "_blank", rel: "noreferrer" } : {})}>
+        {point.text}
+        <Icon name={external ? "external" : "arrow"} size={13} />
+      </a>
+    );
+  }
+  return (
+    <Link href={point.href}>
+      {point.text}
+      <Icon name="arrow" size={13} />
     </Link>
   );
 }
@@ -79,30 +81,29 @@ export default function WhatWeDo() {
     <section className="section wwd-section" id="what-we-do">
       <div className="container">
         <Reveal className="wwd-heading">
-          <span className="sticker-label">What we do</span>
-          <h2>Three ways FinGoose makes money make sense.</h2>
+          <h2>What we do</h2>
+          <span className="wwd-rule" aria-hidden="true" />
         </Reveal>
         <div className="wwd-grid">
           {pillars.map((pillar, index) => (
-            <Reveal delay={index * 70} key={pillar.key}>
+            <Reveal delay={index * 60} key={pillar.title} className={`wwd-cell wwd-cell-${index + 1}`}>
               <article className={`wwd-card wwd-${pillar.color}`}>
-                <span className="wwd-tape" aria-hidden="true" />
-                <div className={`wwd-photo ${pillar.contain ? "is-contain" : ""}`}>
-                  <Image src={pillar.image} alt={pillar.imageAlt} fill sizes="(max-width: 860px) 90vw, 360px" />
-                  <span className="wwd-number" aria-hidden="true">0{index + 1}</span>
-                </div>
-                <div className="wwd-body">
-                  <span className="wwd-label">{pillar.label}</span>
-                  <h3>{pillar.title}</h3>
-                  <p>{pillar.text}</p>
-                  <ul>
-                    {pillar.items.map((item) => (
-                      <li key={item.label}>
-                        <ItemLink item={item} />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <span className="wwd-badge" aria-hidden="true">
+                  <Icon name={pillar.icon} size={34} />
+                </span>
+                <h3>{pillar.title}</h3>
+                <ul>
+                  {pillar.points.map((point) => (
+                    <li key={point.text}>
+                      <Point point={point} />
+                    </li>
+                  ))}
+                </ul>
+                {pillar.more ? (
+                  <Link className="wwd-more" href={pillar.more.href}>
+                    {pillar.more.text} <Icon name="arrow" size={14} />
+                  </Link>
+                ) : null}
               </article>
             </Reveal>
           ))}

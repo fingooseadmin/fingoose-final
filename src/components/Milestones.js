@@ -1,97 +1,41 @@
-"use client";
-
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
 import Reveal from "./Reveal";
 import { milestones, partners } from "./milestoneData";
 
-// Horizontal timeline: a photo on top, a dot on the line, the story below.
-// It only moves with the arrows or on its own (every few seconds), so page
-// scrolling never gets caught on it. It loops back to the start at the end.
-export function MilestoneTimeline() {
-  const railRef = useRef(null);
-  const wrapRef = useRef(null);
-  const [paused, setPaused] = useState(false);
-  const [inView, setInView] = useState(false);
-
-  const move = useCallback((direction) => {
-    const rail = railRef.current;
-    const item = rail?.querySelector(".milestone-item");
-    if (!rail || !item) return;
-    const gap = parseFloat(getComputedStyle(rail).columnGap) || 0;
-    const step = item.getBoundingClientRect().width + gap;
-    const max = rail.scrollWidth - rail.clientWidth;
-    let target = rail.scrollLeft + direction * step;
-    if (direction > 0 && rail.scrollLeft >= max - 4) target = 0;
-    else if (direction < 0 && rail.scrollLeft <= 4) target = max;
-    rail.scrollTo({ left: Math.max(0, Math.min(max, target)), behavior: "smooth" });
-  }, []);
-
-  useEffect(() => {
-    const wrap = wrapRef.current;
-    if (!wrap) return undefined;
-    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.3 });
-    observer.observe(wrap);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (paused || !inView || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
-    const timer = window.setInterval(() => move(1), 3800);
-    return () => window.clearInterval(timer);
-  }, [paused, inView, move]);
-
+// Photo grid of milestones, newest first. Each tile shows its date and
+// title on a banner; hovering (or tapping/focusing) shows the details.
+export function MilestoneGrid() {
   return (
-    <div
-      className="milestone-timeline"
-      ref={wrapRef}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocusCapture={() => setPaused(true)}
-      onBlurCapture={() => setPaused(false)}
-    >
-      <div className="milestone-controls">
-        <button type="button" onClick={() => move(-1)} aria-label="Previous milestone" data-cursor-plain>
-          <Icon name="arrow" size={18} />
-        </button>
-        <button type="button" onClick={() => move(1)} aria-label="Next milestone" data-cursor-plain>
-          <Icon name="arrow" size={18} />
-        </button>
-      </div>
-      <ol className="milestone-rail" ref={railRef}>
-        {milestones.map((item, index) => (
-          <li className={`milestone-item milestone-${item.color}`} key={item.title} style={{ "--tilt": `${index % 2 ? 1.5 : -1.5}deg` }}>
-            <figure className="milestone-photo">
-              <span className="milestone-tape" aria-hidden="true" />
+    <ol className="milestone-grid">
+      {milestones.map((item, index) => (
+        <li className={`milestone-tile milestone-${item.color}`} key={item.title}>
+          <div className="milestone-tile-inner" tabIndex={0} data-cursor-plain>
+            <span className={`milestone-tile-photo${item.fit ? ` fit-${item.fit}` : ""}`} aria-hidden={item.image ? undefined : "true"}>
               {item.image ? (
-                <span className={`milestone-photo-frame${item.fit ? ` fit-${item.fit}` : ""}`}>
-                  <Image src={item.image} alt={item.alt || item.title} fill sizes="240px" />
-                </span>
+                <Image src={item.image} alt={item.alt || item.title} fill sizes="(max-width: 620px) 46vw, (max-width: 1000px) 31vw, 280px" priority={index < 4} />
               ) : (
-                <span className="milestone-photo-frame milestone-photo-blank" aria-hidden="true">
-                  <Icon name={item.icon} size={32} />
-                </span>
+                <Icon name={item.icon} size={40} />
               )}
-            </figure>
-            <span className="milestone-dot" aria-hidden="true" />
-            <div className="milestone-text">
-              <span className="milestone-tag">
-                {item.date ? `${item.date} · ` : ""}
-                {item.tag}
-              </span>
+            </span>
+            <div className="milestone-tile-banner">
+              <span>{item.date}</span>
               <h3>{item.title}</h3>
+            </div>
+            <div className="milestone-tile-overlay">
+              <span className="milestone-tile-tag">{item.date} · {item.tag}</span>
+              <strong className="milestone-tile-title" aria-hidden="true">{item.title}</strong>
               <p>{item.note}</p>
               {item.href ? (
-                <a className="milestone-link" href={item.href} target="_blank" rel="noreferrer" data-cursor-plain>
+                <a className="milestone-tile-link" href={item.href} target="_blank" rel="noreferrer">
                   {item.linkLabel || "Learn more"} <Icon name="external" size={13} />
                 </a>
               ) : null}
             </div>
-          </li>
-        ))}
-      </ol>
-    </div>
+          </div>
+        </li>
+      ))}
+    </ol>
   );
 }
 
@@ -164,7 +108,7 @@ export default function MilestonesSection({ id = "milestones", heading = "The bi
           <h2>{heading}</h2>
           {intro ? <p>{intro}</p> : null}
         </Reveal>
-        <MilestoneTimeline />
+        <MilestoneGrid />
         {moreHref ? (
           <div className="milestone-more">
             <a className="button button-dark" href={moreHref}>
