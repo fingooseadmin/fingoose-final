@@ -322,3 +322,38 @@ body.site-layout .scrap-page-hero-note {
   margin-top: 22px;
   max-width: 460px;
 }
+
+/* Page headers use the same navy-with-glows look as the homepage
+   "What we do" band, with a grid fading up from the bottom. */
+body.site-layout .scrap-page-hero,
+body.site-layout .scrapbook-site .contact-hero {
+  background:
+    radial-gradient(ellipse 45% 50% at 10% 55%, rgba(76, 92, 210, 0.4), transparent 70%),
+    radial-gradient(ellipse 40% 55% at 85% 40%, rgba(60, 76, 186, 0.45), transparent 70%),
+    radial-gradient(ellipse 55% 40% at 50% 100%, rgba(90, 104, 220, 0.3), transparent 70%),
+    #0d143a !important;
+  isolation: isolate;
+  position: relative;
+}
+
+body.site-layout .scrap-page-hero::before,
+body.site-layout .scrapbook-site .contact-hero::before {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px) 0 0 / 30px 30px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px) 0 0 / 30px 30px;
+  bottom: 0;
+  content: "";
+  height: 75%;
+  left: 0;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.6) 35%, transparent 100%);
+  mask-image: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.6) 35%, transparent 100%);
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+
+body.site-layout .scrap-page-hero-copy h1,
+body.site-layout .scrapbook-site .contact-hero h1 {
+  text-shadow: 4px 4px 0 #3c4cba;
+}
