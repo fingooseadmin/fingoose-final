@@ -10,7 +10,7 @@ const pillars = [
     title: "Educational resources",
     photos: [
       { src: "/assets/curriculum-cover.webp", alt: "FinGoose curriculum cover", top: true },
-      { src: "/assets/workshop-money-decisions.webp", alt: "Students in a FinGoose workshop" },
+      { src: "/assets/events/bfms-crowd.webp", alt: "Students in a FinGoose workshop" },
       { src: "/assets/book-two-mornings-cover.webp", alt: "FinGoose and the Two Mornings book cover" }
     ],
     links: [
@@ -24,7 +24,7 @@ const pillars = [
   {
     title: "Community events",
     photos: [
-      { src: "/assets/events/library-flyer.webp", alt: "FinGoose library read-aloud flyer", top: true },
+      { src: "/assets/events/library-01.webp", alt: "FinGoose read-aloud at Leonia Public Library" },
       { src: "/assets/events/bake-02.webp", alt: "FinGoose students at a bake sale" },
       { src: "/assets/events/donation-08.webp", alt: "FinGoose team with boxes of donated books" }
     ],

@@ -11,12 +11,6 @@
 
 const INSTAGRAM_PROFILE = "https://www.instagram.com/fin.goose/";
 
-const workshopPhotos = [
-  { src: "/assets/events/middle-02.webp", width: 1600, height: 1200, alt: "Middle school students working through a FinGoose Crisis Lab" },
-  { src: "/assets/events/middle-01.webp", width: 1200, height: 1600, alt: "FinGoose volunteers during a middle school workshop" },
-  { src: "/assets/events/middle-03.webp", width: 1200, height: 1600, alt: "FinGoose volunteers leading a classroom workshop" }
-];
-
 export const timelineEvents = [
   {
     id: "leonia-read-aloud",
@@ -27,6 +21,9 @@ export const timelineEvents = [
     icon: "book",
     instagram: INSTAGRAM_PROFILE,
     photos: [
+      { src: "/assets/events/library-01.webp", width: 1600, height: 1200, alt: "FinGoose team reading aloud to kids at Leonia Public Library" },
+      { src: "/assets/events/library-02.webp", width: 1600, height: 1200, alt: "Families listening to the FinGoose read-aloud" },
+      { src: "/assets/events/library-04.webp", width: 1200, height: 1600, alt: "Elephant toothpaste science activity at the library" },
       { src: "/assets/events/library-flyer.webp", width: 1237, height: 1600, alt: "Flyer for the FinGoose dino read-aloud and volcano activity at Leonia Public Library" }
     ]
   },
@@ -39,7 +36,9 @@ export const timelineEvents = [
     icon: "spark",
     instagram: INSTAGRAM_PROFILE,
     photos: [
+      { src: "/assets/events/deca-trophy.webp", width: 1200, height: 1600, alt: "Grace Zhou with the first-place trophy at NJ DECA States" },
       { src: "/assets/events/deca-03.webp", width: 1170, height: 1560, alt: "FinGoose represented at a DECA event" },
+      { src: "/assets/events/deca-trophy-2.webp", width: 1200, height: 1600, alt: "Grace Zhou holding the DECA first-place award" },
       { src: "/assets/events/deca-01.webp", width: 1200, height: 1600, alt: "FinGoose student representative at DECA" },
       { src: "/assets/events/deca-02.webp", width: 1200, height: 1600, alt: "FinGoose team at DECA" }
     ]
@@ -55,6 +54,8 @@ export const timelineEvents = [
     photos: [
       { src: "/assets/events/donation-08.webp", width: 1600, height: 1200, alt: "FinGoose team with boxes of books for Books for Africa" },
       { src: "/assets/events/donation-01.webp", width: 1200, height: 1600, alt: "Two students reading FinGoose books" },
+      { src: "/assets/events/donation-04.webp", width: 1200, height: 1600, alt: "Kids reading FinGoose books" },
+      { src: "/assets/events/donation-05.webp", width: 1200, height: 1600, alt: "Two kids reading FinGoose books together" },
       { src: "/assets/events/donation-02.webp", width: 1200, height: 1600, alt: "Students with donated FinGoose books" },
       { src: "/assets/events/donation-03.webp", width: 1200, height: 1600, alt: "Students reading donated FinGoose books" }
     ]
@@ -68,7 +69,9 @@ export const timelineEvents = [
     icon: "heart",
     instagram: INSTAGRAM_PROFILE,
     photos: [
+      { src: "/assets/events/bake-04.webp", width: 1600, height: 1200, alt: "FinGoose team at the bake sale table" },
       { src: "/assets/events/bake-02.webp", width: 1600, height: 1200, alt: "FinGoose students at a bake sale" },
+      { src: "/assets/events/bake-05.webp", width: 1600, height: 1200, alt: "FinGoose plush and treats at the bake sale" },
       { src: "/assets/events/bake-01.webp", width: 1600, height: 1200, alt: "Students supporting a FinGoose bake sale" },
       { src: "/assets/events/bake-03.webp", width: 1600, height: 1200, alt: "FinGoose bake sale table" }
     ]
@@ -157,7 +160,9 @@ export const timelineEvents = [
     icon: "chart",
     instagram: "https://www.instagram.com/p/DSqfPA4koVy/",
     photos: [
-      { src: "/assets/workshop-money-management.webp", width: 1500, height: 2000, alt: "FinGoose workshop at Benjamin Franklin Middle School" }
+      { src: "/assets/events/bfms-crowd.webp", width: 1600, height: 1200, alt: "50+ students at the FinGoose workshop at Benjamin Franklin Middle School" },
+      { src: "/assets/workshop-money-management.webp", width: 1500, height: 2000, alt: "FinGoose workshop at Benjamin Franklin Middle School" },
+      { src: "/assets/events/bfms-team.webp", width: 1200, height: 1600, alt: "FinGoose team with Benjamin Franklin Middle School teachers" }
     ]
   },
   {
@@ -182,7 +187,10 @@ export const timelineEvents = [
     instagram: "https://www.instagram.com/p/DSlRkWiEl_m/",
     photos: [
       { src: "/assets/workshop-financial-resilience.webp", width: 1500, height: 2000, alt: "FinGoose financial resilience workshop at Charles DeWolf Middle School" },
-      ...workshopPhotos
+      { src: "/assets/events/cdw-presenters.webp", width: 1600, height: 1200, alt: "Students presenting their Crisis Lab plan at Charles DeWolf" },
+      { src: "/assets/events/cdw-classroom.webp", width: 1600, height: 1200, alt: "Charles DeWolf students working in teams" },
+      { src: "/assets/events/cdw-teams.webp", width: 1600, height: 1200, alt: "Students discussing a money decision" },
+      { src: "/assets/events/cdw-team.webp", width: 1200, height: 1600, alt: "A student team presenting at Charles DeWolf" }
     ]
   },
   {

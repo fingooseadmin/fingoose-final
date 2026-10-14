@@ -27,8 +27,8 @@ export const milestones = [
   {
     date: "Spring 2026",
     tag: "Award",
-    image: "/assets/events/deca-03.webp",
-    alt: "Grace Zhou with the FinGoose display board at NJ DECA States",
+    image: "/assets/events/deca-trophy.webp",
+    alt: "Grace Zhou with the first-place trophy at NJ DECA States",
     fit: "top",
     title: "1st place, NJ DECA States",
     note: "Won Project Management: Financial Literacy with FinGoose and qualified for DECA’s International Career Development Conference (ICDC).",
@@ -115,8 +115,8 @@ export const milestones = [
   {
     date: "Nov–Dec 2025",
     tag: "Workshops",
-    image: "/assets/workshop-financial-resilience.webp",
-    alt: "FinGoose workshop at Charles DeWolf Middle School",
+    image: "/assets/events/bfms-crowd.webp",
+    alt: "50+ students at a FinGoose workshop",
     title: "3 workshops, scores up 43% → 93%",
     note: "Crisis Lab workshops for 90+ students at Charles DeWolf and Benjamin Franklin Middle Schools. Average scores rose from 43% on the pre-test to 93% on the post-test.",
     icon: "school",
