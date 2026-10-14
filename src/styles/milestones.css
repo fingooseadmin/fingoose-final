@@ -1163,13 +1163,9 @@ body.site-layout .scrapbook-testimonial::before {
 }
 
 /* Bigger "What we do" polaroids. */
-body.site-layout .wwd-section > .container {
-  max-width: min(1360px, calc(100% - 72px)) !important;
-  width: min(1360px, calc(100% - 72px)) !important;
-}
 
 body.site-layout .wwd-grid {
-  gap: clamp(28px, 3vw, 44px);
+  gap: clamp(20px, 2.2vw, 32px);
 }
 
 body.site-layout .wwd-collage {
@@ -1185,10 +1181,5 @@ body.site-layout .wwd-snap-3 { right: 0; top: 12%; width: 50%; }
 @media (max-width: 900px) {
   body.site-layout .wwd-grid {
     max-width: 520px;
-  }
-
-  body.site-layout .wwd-section > .container {
-    max-width: calc(100% - 40px) !important;
-    width: calc(100% - 40px) !important;
   }
 }
