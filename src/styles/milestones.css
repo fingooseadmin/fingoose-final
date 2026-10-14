@@ -527,3 +527,29 @@ body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat span {
   background: #ff8209;
   outline: none;
 }
+
+/* Milestone photos that are drawings or logos: show the whole image. */
+.milestone-photo-frame.fit-contain,
+.milestone-photo-frame.fit-logo {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.5), transparent 50%),
+    var(--card-color);
+}
+
+.milestone-photo-frame.fit-contain img {
+  object-fit: contain;
+  padding: 8px;
+}
+
+.milestone-photo-frame.fit-logo {
+  background: #fff;
+}
+
+.milestone-photo-frame.fit-logo img {
+  object-fit: contain;
+  padding: 14% 12%;
+}
+
+.milestone-photo-frame.fit-top img {
+  object-position: 50% 0;
+}

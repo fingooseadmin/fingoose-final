@@ -65,8 +65,8 @@ export function MilestoneTimeline() {
             <figure className="milestone-photo">
               <span className="milestone-tape" aria-hidden="true" />
               {item.image ? (
-                <span className="milestone-photo-frame">
-                  <Image src={item.image} alt={item.alt || item.title} fill sizes="230px" />
+                <span className={`milestone-photo-frame${item.fit ? ` fit-${item.fit}` : ""}`}>
+                  <Image src={item.image} alt={item.alt || item.title} fill sizes="240px" />
                 </span>
               ) : (
                 <span className="milestone-photo-frame milestone-photo-blank" aria-hidden="true">
