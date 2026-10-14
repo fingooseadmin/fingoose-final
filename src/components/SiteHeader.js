@@ -8,7 +8,6 @@ import Icon from "./Icon";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/events", label: "Events" },
   { href: "/impact", label: "Our Impact" },
   { href: "/contact", label: "Contact" }
 ];

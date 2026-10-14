@@ -1,13 +1,13 @@
 /* Events timeline: polaroids on the left, index cards on the right, joined
    by a dashed vertical line. Stacks into one column on small screens. */
 
-body .events-page .event-timeline-section {
+body .event-timeline-section {
   background:
     radial-gradient(rgba(16, 22, 63, 0.07) 1px, transparent 1.4px) 0 0 / 22px 22px,
     #f6f2e9;
 }
 
-body .events-page .event-timeline {
+body .has-timeline .event-timeline {
   display: grid;
   gap: clamp(48px, 6vw, 84px);
   list-style: none;
@@ -17,7 +17,7 @@ body .events-page .event-timeline {
 }
 
 /* The line itself. */
-body .events-page .event-timeline::before {
+body .has-timeline .event-timeline::before {
   background-image: linear-gradient(to bottom, #10163f 0 10px, transparent 10px 20px);
   background-size: 3px 20px;
   bottom: 0;
@@ -29,14 +29,14 @@ body .events-page .event-timeline::before {
   width: 3px;
 }
 
-body .events-page .event-timeline-item {
+body .has-timeline .event-timeline-item {
   align-items: center;
   display: grid;
   grid-template-columns: 42% 56px minmax(0, 1fr);
   position: relative;
 }
 
-body .events-page .event-timeline-dot {
+body .has-timeline .event-timeline-dot {
   background: #ffb200;
   border: 3px solid #10163f;
   border-radius: 50%;
@@ -48,7 +48,7 @@ body .events-page .event-timeline-dot {
 }
 
 /* Polaroid button. */
-body .events-page .event-timeline-polaroid {
+body .has-timeline .event-timeline-polaroid {
   background: #fff;
   border: 0;
   box-shadow:
@@ -65,8 +65,8 @@ body .events-page .event-timeline-polaroid {
   width: 100%;
 }
 
-body .events-page .event-timeline-polaroid:hover,
-body .events-page .event-timeline-polaroid:focus-visible {
+body .has-timeline .event-timeline-polaroid:hover,
+body .has-timeline .event-timeline-polaroid:focus-visible {
   box-shadow:
     0 1px 0 rgba(16, 22, 63, 0.1),
     0 22px 38px rgba(16, 22, 63, 0.26);
@@ -74,12 +74,12 @@ body .events-page .event-timeline-polaroid:focus-visible {
   transform: rotate(var(--tilt, -2deg)) translateY(-4px);
 }
 
-body .events-page .event-timeline-polaroid:focus-visible {
+body .has-timeline .event-timeline-polaroid:focus-visible {
   outline: 3px solid #3c4cba;
   outline-offset: 4px;
 }
 
-body .events-page .event-timeline-tape {
+body .has-timeline .event-timeline-tape {
   background:
     repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.28) 0 6px, transparent 6px 12px),
     rgba(255, 178, 0, 0.78);
@@ -93,7 +93,7 @@ body .events-page .event-timeline-tape {
   z-index: 2;
 }
 
-body .events-page .event-timeline-photo {
+body .has-timeline .event-timeline-photo {
   aspect-ratio: 4 / 3;
   background: #ece6d8;
   display: block;
@@ -101,14 +101,14 @@ body .events-page .event-timeline-photo {
   position: relative;
 }
 
-body .events-page .event-timeline-photo img {
+body .has-timeline .event-timeline-photo img {
   display: block;
   height: 100%;
   object-fit: cover;
   width: 100%;
 }
 
-body .events-page .event-timeline-hover {
+body .has-timeline .event-timeline-hover {
   align-items: center;
   background: rgba(16, 22, 63, 0.62);
   color: #fff;
@@ -123,14 +123,14 @@ body .events-page .event-timeline-hover {
   transition: opacity 0.25s ease;
 }
 
-body .events-page .event-timeline-polaroid:hover .event-timeline-hover,
-body .events-page .event-timeline-polaroid:focus-visible .event-timeline-hover {
+body .has-timeline .event-timeline-polaroid:hover .event-timeline-hover,
+body .has-timeline .event-timeline-polaroid:focus-visible .event-timeline-hover {
   opacity: 1;
 }
 
 /* Touch screens can't hover, so show a small label instead. */
 @media (hover: none) {
-  body .events-page .event-timeline-hover {
+  body .has-timeline .event-timeline-hover {
     background: rgba(16, 22, 63, 0.78);
     font-size: 0.9rem;
     inset: auto 0 0 0;
@@ -139,7 +139,7 @@ body .events-page .event-timeline-polaroid:focus-visible .event-timeline-hover {
   }
 }
 
-body .events-page .event-timeline-caption {
+body .has-timeline .event-timeline-caption {
   color: #10163f;
   display: block;
   font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
@@ -151,7 +151,7 @@ body .events-page .event-timeline-caption {
 }
 
 /* Index card. */
-body .events-page .event-timeline-card {
+body .has-timeline .event-timeline-card {
   background:
     linear-gradient(to bottom, transparent 27px, rgba(60, 76, 186, 0.18) 27px) 0 0 / 100% 28px,
     #fffdf7;
@@ -163,7 +163,7 @@ body .events-page .event-timeline-card {
   transform: rotate(calc(var(--tilt, -2deg) * -0.5));
 }
 
-body .events-page .event-timeline-card h3 {
+body .has-timeline .event-timeline-card h3 {
   color: #10163f;
   font-size: clamp(1.15rem, 1.6vw, 1.45rem);
   letter-spacing: -0.02em;
@@ -174,53 +174,53 @@ body .events-page .event-timeline-card h3 {
   border-bottom: 2px solid rgba(232, 73, 47, 0.55);
 }
 
-body .events-page .event-timeline-card h3 span {
+body .has-timeline .event-timeline-card h3 span {
   color: #e8700a;
 }
 
-body .events-page .event-timeline-card p {
+body .has-timeline .event-timeline-card p {
   color: #4b5170;
   line-height: 28px;
   margin: 0 0 22px;
 }
 
-body .events-page .event-timeline-insta {
+body .has-timeline .event-timeline-insta {
   align-items: center;
   display: inline-flex;
   gap: 8px;
 }
 
 @media (max-width: 820px) {
-  body .events-page .event-timeline::before {
+  body .has-timeline .event-timeline::before {
     left: 11px;
     transform: none;
   }
 
-  body .events-page .event-timeline-item {
+  body .has-timeline .event-timeline-item {
     grid-template-columns: 40px minmax(0, 1fr);
     gap: 22px 0;
   }
 
-  body .events-page .event-timeline-dot {
+  body .has-timeline .event-timeline-dot {
     grid-column: 1;
     grid-row: 1;
     justify-self: start;
   }
 
-  body .events-page .event-timeline-polaroid {
+  body .has-timeline .event-timeline-polaroid {
     grid-column: 2;
     grid-row: 1;
     justify-self: start;
     max-width: 340px;
   }
 
-  body .events-page .event-timeline-card {
+  body .has-timeline .event-timeline-card {
     grid-column: 2;
     grid-row: 2;
     padding: 14px 20px 22px;
   }
 
-  body .events-page .event-timeline-card h3 {
+  body .has-timeline .event-timeline-card h3 {
     margin-inline: -20px;
     padding-inline: 20px;
   }
@@ -385,18 +385,18 @@ body .events-page .event-timeline-insta {
 }
 
 /* Events without photos yet: a colored blank polaroid with an icon. */
-body .events-page .event-timeline-polaroid.is-blank {
+body .has-timeline .event-timeline-polaroid.is-blank {
   cursor: default;
 }
 
-body .events-page .event-timeline-polaroid.is-blank:hover {
+body .has-timeline .event-timeline-polaroid.is-blank:hover {
   box-shadow:
     0 1px 0 rgba(16, 22, 63, 0.1),
     0 16px 30px rgba(16, 22, 63, 0.18);
   transform: rotate(var(--tilt, -2deg));
 }
 
-body .events-page .is-blank .event-timeline-photo {
+body .has-timeline .is-blank .event-timeline-photo {
   align-items: center;
   background:
     radial-gradient(rgba(16, 22, 63, 0.1) 1px, transparent 1.4px) 0 0 / 16px 16px,
@@ -406,12 +406,12 @@ body .events-page .is-blank .event-timeline-photo {
   justify-content: center;
 }
 
-body .events-page .is-blank.tone-1 .event-timeline-photo { background-color: #ffd8b9; color: #b4530a; }
-body .events-page .is-blank.tone-2 .event-timeline-photo { background-color: #ffed9f; color: #8a6400; }
-body .events-page .is-blank.tone-3 .event-timeline-photo { background-color: #d6f2e4; color: #1f7a52; }
-body .events-page .is-blank.tone-4 .event-timeline-photo { background-color: #eadcff; color: #6a3fb5; }
+body .has-timeline .is-blank.tone-1 .event-timeline-photo { background-color: #ffd8b9; color: #b4530a; }
+body .has-timeline .is-blank.tone-2 .event-timeline-photo { background-color: #ffed9f; color: #8a6400; }
+body .has-timeline .is-blank.tone-3 .event-timeline-photo { background-color: #d6f2e4; color: #1f7a52; }
+body .has-timeline .is-blank.tone-4 .event-timeline-photo { background-color: #eadcff; color: #6a3fb5; }
 
-body .events-page .event-timeline-actions {
+body .has-timeline .event-timeline-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;

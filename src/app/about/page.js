@@ -7,37 +7,6 @@ import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
 import TeamProfiles from "@/components/TeamProfiles";
 
-const values = [
-  {
-    number: "01",
-    title: "Equity",
-    copy: "We start with fairness and access, addressing the root of the problem: wealth inequality.",
-    icon: "globe",
-    color: "blue"
-  },
-  {
-    number: "02",
-    title: "Rigor",
-    copy: "We build our courses, curricula, guidebooks, and workbooks on standards-aligned financial education.",
-    icon: "chart",
-    color: "gold"
-  },
-  {
-    number: "03",
-    title: "Creativity",
-    copy: "We teach through visuals, storytelling, animation, problem-solving, and engaging experiences.",
-    icon: "spark",
-    color: "orange"
-  },
-  {
-    number: "04",
-    title: "Opportunity",
-    copy: "We open pathways to business, finance, financial literacy, leadership, and programs like DECA.",
-    icon: "school",
-    color: "violet"
-  }
-];
-
 export const metadata = createPageMetadata({
   title: "About FinGoose’s Financial Literacy Mission",
   description:
@@ -149,35 +118,6 @@ export default function AboutPage() {
                 financial confidence they deserve.”
               </blockquote>
             </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <section className="section scrapbook-values-section">
-        <div className="container">
-          <Reveal className="scrapbook-section-heading">
-            <span className="sticker-label sticker-orange">Our values</span>
-            <div>
-              <h2>The rules behind every resource.</h2>
-              <p>
-                Playful on the surface, purposeful underneath. These four
-                principles keep the work grounded.
-              </p>
-            </div>
-          </Reveal>
-          <div className="value-scrap-grid">
-            {values.map((value, index) => (
-              <Reveal delay={index * 65} key={value.title}>
-                <article className={`value-scrap-card offer-${value.color}`}>
-                  <div>
-                    <span>{value.number}</span>
-                    <Icon name={value.icon} />
-                  </div>
-                  <h3>{value.title}</h3>
-                  <p>{value.copy}</p>
-                </article>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>

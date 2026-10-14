@@ -155,7 +155,7 @@ export function PartnerStrip({ title = "Partners, schools & programs" }) {
   );
 }
 
-export default function MilestonesSection({ id = "milestones", heading = "The big wins so far.", intro }) {
+export default function MilestonesSection({ id = "milestones", heading = "The big wins so far.", intro, moreHref, moreLabel = "See the full timeline" }) {
   return (
     <section className="section milestone-section" id={id}>
       <div className="container">
@@ -165,6 +165,13 @@ export default function MilestonesSection({ id = "milestones", heading = "The bi
           {intro ? <p>{intro}</p> : null}
         </Reveal>
         <MilestoneTimeline />
+        {moreHref ? (
+          <div className="milestone-more">
+            <a className="button button-dark" href={moreHref}>
+              {moreLabel} <Icon name="arrow" />
+            </a>
+          </div>
+        ) : null}
       </div>
     </section>
   );

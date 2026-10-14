@@ -1,16 +1,14 @@
 import JsonLd from "@/components/JsonLd";
-import Image from "next/image";
 import Link from "next/link";
 import BudgetLab from "@/components/BudgetLab";
 import FlowWords from "@/components/FlowWords";
-import EventPhotoGallery from "@/components/EventPhotoGallery";
 import Icon from "@/components/Icon";
 import MotionReels from "@/components/MotionReels";
 import Reveal from "@/components/Reveal";
-import LearningLoop from "@/components/LearningLoop";
 import ScrapbookHeroPage from "@/components/ScrapbookHeroPage";
 import MilestonesSection, { PartnerStrip } from "@/components/Milestones";
 import TestimonialSlider from "@/components/TestimonialSlider";
+import UpcomingEvent from "@/components/UpcomingEvent";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -106,33 +104,6 @@ const offerings = [
   }
 ];
 
-const impactCards = [
-  {
-    kicker: "CDW · 11.10.25",
-    title: "Financial resilience lab",
-    image: "/assets/workshop-financial-resilience.webp",
-    alt: "FinGoose educators leading a classroom presentation",
-    icon: "shield",
-    className: "collage-blue"
-  },
-  {
-    kicker: "CDW · 12.15.25",
-    title: "Smarter consumer decisions",
-    image: "/assets/workshop-money-decisions.webp",
-    alt: "Students practicing money decisions during a FinGoose workshop",
-    icon: "spark",
-    className: "collage-orange"
-  },
-  {
-    kicker: "BFMS · 12.17.25",
-    title: "Our largest visit yet",
-    image: "/assets/workshop-money-management.webp",
-    alt: "Students presenting a money management lesson",
-    icon: "school",
-    className: "collage-gold"
-  }
-];
-
 export default function HomePage() {
   return (
     <main id="main-content" tabIndex={-1} className="scrapbook-site home-scrapbook-site">
@@ -206,7 +177,11 @@ export default function HomePage() {
       <MilestonesSection
         heading="The big wins so far."
         intro="Founded by Grace Zhou as a high school student, FinGoose has grown from one DECA project into a nonprofit with partners, published books, and student chapters in three countries."
+        moreHref="/impact/#timeline"
+        moreLabel="See the full timeline"
       />
+
+      <UpcomingEvent />
 
       <PartnerStrip />
 
@@ -219,7 +194,7 @@ export default function HomePage() {
       <section className="section provide-section" id="what-we-provide">
         <div className="container">
           <Reveal className="scrapbook-section-heading provide-heading-compact">
-            <span className="sticker-label">What we provide</span>
+            <span className="sticker-label">For teachers & parents</span>
             <div>
               <h2><FlowWords>Pick the page that fits your learner.</FlowWords></h2>
               <p>
@@ -247,7 +222,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <EventPhotoGallery />
 
       <section className="section scrapbook-lab-section">
         <div className="container scrapbook-lab-grid">
@@ -280,86 +254,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section scrapbook-impact-preview">
-        <div className="container">
-          <Reveal className="scrapbook-section-heading impact-heading">
-            <span className="sticker-label">Our impact</span>
-            <div>
-              <h2><FlowWords>Proof from the classroom.</FlowWords></h2>
-              <Link className="text-link" href="/impact">
-                Learn more <Icon name="arrow" />
-              </Link>
-            </div>
-          </Reveal>
-          <div className="impact-collage">
-            {impactCards.map((card, index) => (
-              <Reveal delay={index * 80} key={card.kicker}>
-                <article className={`impact-polaroid ${card.className}`}>
-                  <div className="polaroid-tape" aria-hidden="true" />
-                  <div className="polaroid-image">
-                    <Image
-                      alt={card.alt}
-                      src={card.image}
-                      width={2048}
-                      height={2048}
-                      sizes="(max-width: 700px) calc(100vw - 64px), (max-width: 920px) 46vw, 470px"
-                    />
-                    <span className="impact-card-icon"><Icon name={card.icon} /></span>
-                  </div>
-                  <span>{card.kicker}</span>
-                  <h3>{card.title}</h3>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className="impact-preview-footer" delay={220}>
-            <p>Each field note holds one real classroom decision.</p>
-            <Link className="button button-dark" href="/impact">
-              See the full impact scrapbook <Icon name="arrow" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section rotating-scrapbook-section">
-        <div className="container">
-          <Reveal><LearningLoop /></Reveal>
-        </div>
-      </section>
-
       <section className="section motion-reels-section">
         <div className="container">
           <Reveal><MotionReels /></Reveal>
         </div>
       </section>
 
-      <section className="section scrapbook-close">
-        <div className="container">
-          <div className="scrapbook-close-card">
-            <span className="sticker-label sticker-orange">Next step</span>
-            <h2><FlowWords>Make money skills feel possible.</FlowWords></h2>
-            <p>
-              Learn online, bring FinGoose to a classroom, or start a
-              chapter in your own community.
-            </p>
-            <div className="button-row">
-              <Link className="button button-gold" href="/course">
-                Start the course <Icon name="arrow" />
-              </Link>
-              <Link className="button scrapbook-outline-button light" href="/contact">
-                Bring FinGoose to your school <Icon name="arrow" />
-              </Link>
-            </div>
-            <Image
-              alt=""
-              src="/assets/finn-full.webp"
-              width={2048}
-              height={2048}
-              sizes="(max-width: 760px) 52vw, 320px"
-            />
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

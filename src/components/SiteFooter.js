@@ -6,7 +6,7 @@ const pages = [
   ["Home", "/"],
   ["About", "/about"],
   ["Join Us", "/join-us"],
-  ["Events", "/events"],
+  ["Timeline", "/impact/#timeline"],
   ["Our Impact", "/impact"],
   ["Resources", "/resources"],
   ["Online Course", "/course"],

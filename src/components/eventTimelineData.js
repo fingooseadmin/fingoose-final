@@ -1,4 +1,4 @@
-// Events shown on the /events timeline, newest first (top of the page).
+// Events shown on the Our Impact timeline (/impact/#timeline), newest first (top of the page).
 // The oldest event is at the bottom, so add new events at the TOP of the list.
 // To add an event, copy one block and change the text.
 //   date        – shown before the name, e.g. "Nov 11, 2025" or "Spring 2026"
