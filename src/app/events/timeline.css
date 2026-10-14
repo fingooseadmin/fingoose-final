@@ -383,3 +383,36 @@ body .events-page .event-timeline-insta {
   border-color: #ffb200;
   opacity: 1;
 }
+
+/* Events without photos yet: a colored blank polaroid with an icon. */
+body .events-page .event-timeline-polaroid.is-blank {
+  cursor: default;
+}
+
+body .events-page .event-timeline-polaroid.is-blank:hover {
+  box-shadow:
+    0 1px 0 rgba(16, 22, 63, 0.1),
+    0 16px 30px rgba(16, 22, 63, 0.18);
+  transform: rotate(var(--tilt, -2deg));
+}
+
+body .events-page .is-blank .event-timeline-photo {
+  align-items: center;
+  background:
+    radial-gradient(rgba(16, 22, 63, 0.1) 1px, transparent 1.4px) 0 0 / 16px 16px,
+    #dfe5ff;
+  color: #3c4cba;
+  display: flex;
+  justify-content: center;
+}
+
+body .events-page .is-blank.tone-1 .event-timeline-photo { background-color: #ffd8b9; color: #b4530a; }
+body .events-page .is-blank.tone-2 .event-timeline-photo { background-color: #ffed9f; color: #8a6400; }
+body .events-page .is-blank.tone-3 .event-timeline-photo { background-color: #d6f2e4; color: #1f7a52; }
+body .events-page .is-blank.tone-4 .event-timeline-photo { background-color: #eadcff; color: #6a3fb5; }
+
+body .events-page .event-timeline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
