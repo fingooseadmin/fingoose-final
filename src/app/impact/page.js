@@ -167,7 +167,7 @@ export default function ImpactPage() {
           <Reveal className="scrapbook-section-heading">
             <span className="sticker-label sticker-orange">Timeline</span>
             <div>
-              <h2>Everything we’ve done, newest first.</h2>
+              <h2>Our timeline</h2>
               <p>From becoming a nonprofit in October 2025 to today. Tap a photo to see more.</p>
             </div>
           </Reveal>
