@@ -1034,3 +1034,12 @@ body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat span {
   margin-left: 4px;
   padding: 3px 10px;
 }
+
+/* Leave room for the fixed header when jumping to a section. */
+html {
+  scroll-padding-top: calc(var(--fg-fixed-header-height, 82px) + 16px);
+}
+
+[id] {
+  scroll-margin-top: calc(var(--fg-fixed-header-height, 82px) + 16px);
+}

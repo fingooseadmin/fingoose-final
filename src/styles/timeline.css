@@ -294,21 +294,38 @@ body .has-timeline .event-timeline-insta {
 
 .event-gallery-stage {
   align-items: center;
-  background: #ece6d8;
+  background: #10163f;
+  border-radius: 6px;
   display: flex;
+  height: min(62vh, 600px);
+  height: min(62dvh, 600px);
   justify-content: center;
-  min-height: 240px;
+  overflow: hidden;
   position: relative;
+}
+
+/* Blurred copy of the same photo fills the frame, so portrait and
+   landscape photos both sit in a full rectangle with nothing cut off. */
+.event-gallery-backdrop-photo {
+  background-position: center;
+  background-size: cover;
+  filter: blur(22px) brightness(0.8) saturate(1.1);
+  inset: -40px;
+  position: absolute;
 }
 
 .event-gallery-stage img {
   display: block;
-  height: auto;
-  max-height: min(62vh, 640px);
-  max-height: min(62dvh, 640px);
+  height: 100%;
   max-width: 100%;
   object-fit: contain;
-  width: auto;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.event-gallery-stage .event-gallery-nav {
+  z-index: 2;
 }
 
 .event-gallery-nav {
@@ -415,4 +432,10 @@ body .has-timeline .event-timeline-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+@media (max-width: 620px) {
+  .event-gallery-stage {
+    height: min(52dvh, 108vw);
+  }
 }

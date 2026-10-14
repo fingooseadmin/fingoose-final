@@ -14,7 +14,9 @@ export default function SmoothScroll() {
     const lenis = new Lenis({
       lerp: 0.1,
       wheelMultiplier: 1,
-      anchors: true,
+      // Our own click handler below scrolls to #links with room for the
+      // fixed header, so Lenis's built-in anchor jump is turned off.
+      anchors: false,
       autoRaf: true,
       // Inner scroll areas (popups, side-scrolling rails, long lists) keep
       // scrolling on their own instead of moving the page.
@@ -31,7 +33,25 @@ export default function SmoothScroll() {
     const observer = new MutationObserver(syncWithPopups);
     observer.observe(document.body, { attributes: true, attributeFilter: ["style"] });
 
+    const headerOffset = () => {
+      const value = getComputedStyle(document.documentElement).getPropertyValue("--fg-fixed-header-height");
+      return (parseFloat(value) || 82) + 16;
+    };
+    const handleAnchorClick = (event) => {
+      const link = event.target.closest?.('a[href*="#"]');
+      if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey) return;
+      const url = new URL(link.href, window.location.href);
+      if (url.pathname !== window.location.pathname || !url.hash || url.hash === "#") return;
+      const target = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+      if (!target) return;
+      event.preventDefault();
+      history.pushState(null, "", url.hash);
+      lenis.scrollTo(target, { offset: -headerOffset() });
+    };
+    document.addEventListener("click", handleAnchorClick);
+
     return () => {
+      document.removeEventListener("click", handleAnchorClick);
       observer.disconnect();
       lenis.destroy();
     };

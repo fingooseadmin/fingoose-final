@@ -44,6 +44,7 @@ function GalleryDialog({ event, onClose }) {
           </header>
 
           <div className="event-gallery-stage">
+            <span className="event-gallery-backdrop-photo" aria-hidden="true" style={{ backgroundImage: `url(${photo.src})` }} key={`bg-${photo.src}`} />
             <Image
               key={photo.src}
               src={photo.src}
