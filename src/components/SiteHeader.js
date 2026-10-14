@@ -171,7 +171,7 @@ export default function SiteHeader() {
             Start a Chapter
           </Link>
 
-          {links.slice(1, 3).map((link) => {
+          {links.slice(1, 2).map((link) => {
             const active = isCurrent(link.href);
             return (
               <Link key={link.href} className={active ? "is-active" : ""} href={link.href} aria-current={active ? "page" : undefined}>
@@ -206,7 +206,7 @@ export default function SiteHeader() {
             </div>
           </div>
 
-          {links.slice(3).map((link) => {
+          {links.slice(2).map((link) => {
             const active = isCurrent(link.href);
             return (
               <Link
