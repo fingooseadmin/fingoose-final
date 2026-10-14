@@ -28,6 +28,19 @@ export const timelineEvents = [
     ]
   },
   {
+    id: "curriculum-v2",
+    date: "Summer 2026",
+    name: "Curriculum 2.0",
+    description:
+      "Over the summer we rebuilt the curriculum from the ground up, expanding it to 50+ pages with revised Crisis Labs, clearer teacher guidance, and FinGoose-original scenarios ready for the Colorado pilot.",
+    icon: "school",
+    link: "https://docs.google.com/document/d/1vcHQcdXgS4BkEyfIJNDwEalHfziE24Zw7n16ErMk3Ig/edit?usp=sharing",
+    linkLabel: "View the curriculum",
+    photos: [
+      { src: "/assets/curriculum-cover.webp", width: 935, height: 1210, alt: "Cover of the revised FinGoose middle school curriculum" }
+    ]
+  },
+  {
     id: "deca",
     date: "Spring 2026",
     name: "1st place at NJ DECA States",
@@ -37,10 +50,7 @@ export const timelineEvents = [
     instagram: INSTAGRAM_PROFILE,
     photos: [
       { src: "/assets/events/deca-trophy.webp", width: 1200, height: 1600, alt: "Grace Zhou with the first-place trophy at NJ DECA States" },
-      { src: "/assets/events/deca-03.webp", width: 1170, height: 1560, alt: "FinGoose represented at a DECA event" },
-      { src: "/assets/events/deca-trophy-2.webp", width: 1200, height: 1600, alt: "Grace Zhou holding the DECA first-place award" },
-      { src: "/assets/events/deca-01.webp", width: 1200, height: 1600, alt: "FinGoose student representative at DECA" },
-      { src: "/assets/events/deca-02.webp", width: 1200, height: 1600, alt: "FinGoose team at DECA" }
+      { src: "/assets/events/deca-03.webp", width: 1170, height: 1560, alt: "FinGoose represented at a DECA event" }
     ]
   },
   {
@@ -85,7 +95,11 @@ export const timelineEvents = [
     icon: "spark",
     link: "https://fingoose-cardgame.base44.app/",
     linkLabel: "Play the card game",
-    photos: []
+    photos: [
+      { src: "/assets/events/cardgame-01.webp", width: 1600, height: 887, alt: "The FinGoose card game deck on the game table" },
+      { src: "/assets/events/cardgame-02.webp", width: 1600, height: 890, alt: "A FinGoose card game question about paying off debt" },
+      { src: "/assets/events/cardgame-03.webp", width: 1600, height: 883, alt: "A correct answer card in the FinGoose card game" }
+    ]
   },
   {
     id: "ypt",
@@ -94,7 +108,9 @@ export const timelineEvents = [
     description:
       "We teamed up with Youth Policymakers for Tomorrow, a youth civic organization with members in 12+ countries.",
     icon: "globe",
-    photos: []
+    photos: [
+      { src: "/assets/events/ypt-collab.webp", width: 1600, height: 1200, alt: "FinGoose and the Youth Policymakers for Tomorrow mascot celebrating together" }
+    ]
   },
   {
     id: "colorado",
@@ -103,7 +119,9 @@ export const timelineEvents = [
     description:
       "We met with the Colorado Department of Education and set up a pilot of the FinGoose curriculum in 5 school districts for the 2026–27 school year, with pre- and post-tests over six weeks.",
     icon: "globe",
-    photos: []
+    photos: [
+      { src: "/assets/events/cde-meeting.webp", width: 1600, height: 1055, alt: "Grace Zhou meeting with Stephanie Hartman of the Colorado Department of Education" }
+    ]
   },
   {
     id: "go-for-glass",

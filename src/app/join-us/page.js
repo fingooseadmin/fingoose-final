@@ -1,6 +1,6 @@
 import { createPageMetadata } from "@/lib/seo";
 import PageSeo from "@/components/PageSeo";
-import Image from "next/image";
+import PageHero from "@/components/PageHero";
 import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
 import ChapterMap from "@/components/ChapterMap";
@@ -68,31 +68,16 @@ export default function JoinUsPage() {
         type="WebPage"
       />
 
-      <section className="join-hero">
-        <div className="paper-noise" aria-hidden="true" />
-        <div className="container join-hero-grid">
-          <Reveal className="join-hero-copy">
-            <span className="sticker-label sticker-orange">Join Us</span>
-            <h1>Start a FinGoose Chapter</h1>
-            <p>Interested in taking the next waddle? Apply below and we’ll send you our Chapter Guide.</p>
-            <a className="button button-gold tape-button" href={chapterForm} target="_blank" rel="noreferrer">
-              Apply to Start a Chapter <Icon name="arrow" />
-            </a>
-          </Reveal>
-          <Reveal className="join-hero-art" delay={80}>
-            <div className="join-hero-tape" aria-hidden="true" />
-            <div className="join-hero-ring" aria-hidden="true" />
-            <Image
-              alt=""
-              src="/assets/finn-waving.webp"
-              width={2048}
-              height={2048}
-              sizes="(max-width: 820px) 78vw, 520px"
-              priority
-            />
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Join Us"
+        title="Start a FinGoose Chapter"
+        description="Interested in taking the next waddle? Apply below and we’ll send you our Chapter Guide."
+        image="/assets/finn-waving.webp"
+        caption="Chapters in 3 countries"
+        tone="gold"
+        primary="Apply to Start a Chapter"
+        primaryHref={chapterForm}
+      />
 
       <section className="section join-benefits-section">
         <div className="container">

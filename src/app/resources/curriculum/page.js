@@ -1,5 +1,6 @@
 import { createPageMetadata } from "@/lib/seo";
 import PageSeo from "@/components/PageSeo";
+import PageHero from "@/components/PageHero";
 import Link from "next/link";
 import TeacherResourceStudio from "@/components/TeacherResourceStudio";
 
@@ -13,16 +14,15 @@ export default function CurriculumPage() {
   return (
     <main className="scrapbook-site curriculum-page" id="main-content" tabIndex={-1}>
       <PageSeo title="Financial Literacy Curriculum & Classroom Tools" description={metadata.description} path="/resources/curriculum" type="CollectionPage" parents={[{name:"Resources",path:"/resources"}]} />
-      <section className="curriculum-heading">
-        <div className="container">
-          <nav className="curriculum-breadcrumb" aria-label="Breadcrumb">
-            <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/resources">Resources</Link><span aria-hidden="true">/</span><span>Curriculum</span>
-          </nav>
-          <span className="sticker-label sticker-orange">For educators</span>
-          <h1>Curriculum &amp;<br />classroom tools.</h1>
-          <p>Practical financial literacy, ready to explore one unit at a time.</p>
-        </div>
-      </section>
+      <PageHero
+        breadcrumb={<><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/resources">Resources</Link><span aria-hidden="true">/</span><span>Curriculum</span></>}
+        eyebrow="For educators"
+        title="Curriculum & classroom tools."
+        description="A free, five-module middle school curriculum built around Crisis Labs. Explore one unit at a time."
+        image="/assets/curriculum-cover.webp"
+        caption="Grades 6–8 · 5 modules"
+        tone="blue"
+      />
       <section className="section curriculum-catalog">
         <div className="container"><TeacherResourceStudio /></div>
       </section>

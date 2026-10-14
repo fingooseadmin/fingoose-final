@@ -2,6 +2,7 @@ import JsonLd from "@/components/JsonLd";
 import { createPageMetadata } from "@/lib/seo";
 import PageSeo from "@/components/PageSeo";
 import Image from "next/image";
+import PageHero from "@/components/PageHero";
 import CourseExperience from "@/components/CourseExperience";
 import FlowWords from "@/components/FlowWords";
 import Icon from "@/components/Icon";
@@ -49,60 +50,20 @@ export default function CoursePage() {
         type="WebPage"
       />
       <JsonLd data={courseStructuredData} />
-      <section className="course-hero">
-        <div className="hero-grid-lines" aria-hidden="true" />
-        <div className="container course-hero-grid">
-          <div>
-            <span className="eyebrow light">Free course · 16 learning steps</span>
-            <h1>
-              <FlowWords>Financial literacy,</FlowWords>
-              {" "}
-              <em><FlowWords>built like a skill.</FlowWords></em>
-            </h1>
-            <p>
-              Learn the idea, make the decision, and test the reasoning. Preview
-              the complete roadmap below, then continue into FinGoose’s original
-              course experience.
-            </p>
-            <div className="course-hero-meta">
-              <span><strong>04</strong> focused modules</span>
-              <span><strong>16</strong> guided steps</span>
-              <span><strong>01</strong> final confidence check</span>
-            </div>
-          </div>
-          <div className="course-hero-art">
-            <div className="course-screen">
-              <div className="screen-top">
-                <span><i /> Lesson system online</span>
-                <strong>04 / 16</strong>
-              </div>
-              <div className="screen-bars">
-                <span style={{ width: "78%" }} />
-                <span style={{ width: "55%" }} />
-                <span style={{ width: "88%" }} />
-              </div>
-              <div className="course-study-scene">
-                <span className="course-study-chip study-chip-money" aria-hidden="true">
-                  $
-                </span>
-                <span className="course-study-chip study-chip-book" aria-hidden="true">
-                  <Icon name="book" size={20} />
-                </span>
-                <span className="course-study-chip study-chip-chart" aria-hidden="true">
-                  <Icon name="chart" size={20} />
-                </span>
-                <Image
-                  alt="FinGoose mascot thinking through a financial lesson"
-                  src="/assets/finn-thinking.webp"
-                  width={2048}
-                  height={2048}
-                  sizes="(max-width: 760px) 70vw, 480px"
-                />
-              </div>
-            </div>
-          </div>
+      <PageHero
+        eyebrow="Free course · 16 learning steps"
+        title="Financial literacy, built like a skill."
+        description="Learn the idea, make the decision, and test the reasoning. Preview the complete roadmap below, then continue into FinGoose’s original course experience."
+        image="/assets/finn-thinking.webp"
+        caption="131 students enrolled"
+        tone="violet"
+      >
+        <div className="scrap-hero-stats">
+          <span><strong>04</strong> modules</span>
+          <span><strong>16</strong> guided steps</span>
+          <span><strong>01</strong> final check</span>
         </div>
-      </section>
+      </PageHero>
 
       <section className="section course-preview-section">
         <div className="container">
