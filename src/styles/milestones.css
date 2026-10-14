@@ -1044,9 +1044,9 @@ body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat span {
    next to the cream milestones board. */
 body.site-layout .wwd-section {
   background:
-    linear-gradient(rgba(31, 122, 82, 0.12) 1px, transparent 1px) 0 0 / 28px 28px,
-    linear-gradient(90deg, rgba(31, 122, 82, 0.12) 1px, transparent 1px) 0 0 / 28px 28px,
-    #d6f2e4;
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px) 0 0 / 28px 28px,
+    #10163f;
   position: relative;
 }
 
@@ -1065,4 +1065,23 @@ body.site-layout .wwd-section::after { bottom: 0; }
 
 body.site-layout .wwd-heading h2 {
   color: #3c4cba;
+}
+
+body.site-layout .wwd-section .wwd-heading h2,
+body.site-layout .wwd-section .wwd-page h3 {
+  color: #fff;
+}
+
+body.site-layout .wwd-section .wwd-chip {
+  border-color: #fffdf6;
+  box-shadow: 3px 3px 0 #ff8209;
+}
+
+body.site-layout .wwd-section .wwd-chip:hover,
+body.site-layout .wwd-section .wwd-chip:focus-visible {
+  box-shadow: 1px 1px 0 #ff8209;
+}
+
+body.site-layout .wwd-section .wwd-snap {
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.45);
 }
