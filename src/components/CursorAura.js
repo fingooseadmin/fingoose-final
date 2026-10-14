@@ -74,7 +74,7 @@ export default function CursorAura() {
 
       // Elements with data-cursor-plain show their own hover label, so the
       // "VIEW" bubble stays hidden over them.
-      const plain = event.target.closest?.("[data-cursor-plain]");
+      const plain = event.target.closest?.("[data-cursor-plain], [role=\"dialog\"], [aria-modal=\"true\"]");
       const nextTarget = plain ? null : event.target.closest?.(INTERACTIVE_SELECTOR) || null;
       if (nextTarget !== currentTarget) {
         currentTarget?.classList.remove("cursor-is-over");
@@ -86,7 +86,18 @@ export default function CursorAura() {
 
     const handlePointerLeave = () => aura.classList.remove("is-visible");
     const handlePointerDown = () => aura.classList.add("is-pressed");
-    const handlePointerUp = () => aura.classList.remove("is-pressed");
+    const handlePointerUp = () => {
+      aura.classList.remove("is-pressed");
+      // A click can open a popup under a still cursor; drop the bubble until
+      // the pointer moves again so it never sits on top of the popup.
+      window.setTimeout(() => {
+        if (document.querySelector('[role="dialog"], [aria-modal="true"]')) {
+          currentTarget?.classList.remove("cursor-is-over");
+          currentTarget = null;
+          aura.classList.remove("is-interactive");
+        }
+      }, 50);
+    };
 
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
     document.addEventListener("pointerleave", handlePointerLeave);

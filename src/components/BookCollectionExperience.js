@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
 import Reveal from "./Reveal";
 
-const dinoAmazonUrl = "https://www.amazon.com/Fingoose-Dino-Dream-Kevin-Wu/dp/B0HCZ9H9J1";
+const dinoAmazonUrl = "https://www.amazon.com/dp/B0HCZ9H9J1";
 
 const books = [
   {
@@ -19,7 +19,7 @@ const books = [
     tone: "gold",
     actions: [
       { label: "Amazon Kindle", href: "https://www.amazon.com/dp/B0GDFQ682L" },
-      { label: "Read free on Kobo", href: "https://www.kobo.com/hk/en/ebook/fingoose-and-the-two-mornings" }
+      { label: "Read free on Kobo", href: "https://www.kobo.com/us/en/ebook/fingoose-and-the-two-mornings" }
     ],
     pages: [
       { label: "Story preview", title: "Two mornings. Two very different starts.", copy: "This visual preview introduces the book’s central idea: the same day can feel very different when people begin with different resources." },
@@ -30,14 +30,15 @@ const books = [
   {
     number: "02",
     title: "FinGoose and the Dino Dream",
-    description: "The second FinGoose picture book is available through Amazon. Reading-preview pages will be added when the original publication is available.",
+    description: "The second FinGoose picture book, a dinosaur story we use in library read-alouds paired with a hands-on science activity. Available now on Amazon.",
     image: "/assets/book-dino-dream-cover.webp",
     alt: "Cover of FinGoose and the Dino Dream",
     tone: "blue",
     actions: [{ label: "View on Amazon", href: dinoAmazonUrl }],
     pages: [
-      { label: "Preview status", title: "The reading preview is being prepared.", copy: "The reading preview is in production. Verified pages will appear here as soon as the final source file is released." },
-      { label: "Available now", title: "Open the verified Amazon edition.", copy: "Use the Amazon link in the book card to view the current product listing and availability." }
+      { label: "About the book", title: "A dream worth saving for.", copy: "FinGoose’s second picture book brings money ideas to younger readers through a dinosaur story built for reading aloud." },
+      { label: "Read-aloud idea", title: "Pair the story with an activity.", copy: "At Leonia Public Library we followed the read-aloud with an “elephant toothpaste” experiment, turning story time into hands-on learning." },
+      { label: "Available now", title: "Get your copy on Amazon.", copy: "The paperback is available on Amazon. Libraries and classrooms can contact FinGoose about read-aloud visits." }
     ]
   }
 ];
@@ -132,7 +133,7 @@ export default function BookCollectionExperience() {
                 <div className="book-preview-mini-cover">
                   <Image alt="" src={activeBook.image} fill sizes="240px" />
                 </div>
-                <p>{openIndex === 1 ? "Verified pages will replace this preview once supplied." : "A short, non-downloadable site preview."}</p>
+                <p>A quick look inside the story.</p>
                 <a className="button button-dark" href={activeBook.actions[0].href} target="_blank" rel="noreferrer">
                   Open book listing <Icon name="external" />
                 </a>

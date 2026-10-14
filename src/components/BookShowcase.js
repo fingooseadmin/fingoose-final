@@ -4,7 +4,7 @@ import Icon from "./Icon";
 import Reveal from "./Reveal";
 import styles from "./BookShowcase.module.css";
 
-const dinoAmazonUrl = "https://www.amazon.com/Fingoose-Dino-Dream-Kevin-Wu/dp/B0HCZ9H9J1/ref=sr_1_1?crid=T1VXEGUTY7M2&dib=eyJ2IjoiMSJ9.agjHIrWhDkkR5p-Pbm5fJA.fnDxMTj7AftcafWS2EgxX4koydDlMeUUqhLZFGNzZ7w&dib_tag=se&keywords=fingoose+and+the+dino+dream&qid=1786322449&sprefix=fingoose+and+the+dino+dream%2Caps%2C162&sr=8-1";
+const dinoAmazonUrl = "https://www.amazon.com/dp/B0HCZ9H9J1";
 
 const books = [
   {
@@ -18,7 +18,7 @@ const books = [
     placeholder: false,
     actions: [
       { label: "Amazon Kindle", href: "https://www.amazon.com/dp/B0GDFQ682L", style: "button-dark" },
-      { label: "Free Kobo eBook", href: "https://www.kobo.com/hk/en/ebook/fingoose-and-the-two-mornings", style: "scrapbook-outline-button" }
+      { label: "Free Kobo eBook", href: "https://www.kobo.com/us/en/ebook/fingoose-and-the-two-mornings", style: "scrapbook-outline-button" }
     ],
     details: [
       { label: "Digital access", value: "Free Kobo eBook", copy: "Read the verified English digital edition." },
@@ -28,7 +28,7 @@ const books = [
   {
     number: "02",
     title: "FinGoose and the Dino Dream",
-    description: "The second FinGoose children's book is available through Amazon, with additional reading materials planned as the collection grows.",
+    description: "The second FinGoose picture book, a dinosaur story we use in library read-alouds. Available now on Amazon.",
     image: "/assets/book-dino-dream-cover.webp",
     imageAlt: "Cover of FinGoose and the Dino Dream",
     coverLabel: "Children's book · available now",
@@ -39,7 +39,7 @@ const books = [
     ],
     details: [
       { label: "Available now", value: "Amazon edition", copy: "Open the verified product listing." },
-      { label: "Book cover", value: "Available", copy: "View the complete cover artwork from the FinGoose collection." }
+      { label: "Read-alouds", value: "Library visits", copy: "Contact FinGoose to bring the story to your library." }
     ]
   }
 ];

@@ -74,7 +74,7 @@ export default function JoinUsPage() {
           <Reveal className="join-hero-copy">
             <span className="sticker-label sticker-orange">Join Us</span>
             <h1>Start a FinGoose Chapter</h1>
-            <p>Interested in taking the next waddle? Check out our Chapter Guide!</p>
+            <p>Interested in taking the next waddle? Apply below and we’ll send you our Chapter Guide.</p>
             <a className="button button-gold tape-button" href={chapterForm} target="_blank" rel="noreferrer">
               Apply to Start a Chapter <Icon name="arrow" />
             </a>

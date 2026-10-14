@@ -25,7 +25,7 @@ const booksStructuredData = {
         publisher: { "@id": "https://fingoose.com/#organization" },
         sameAs: [
           "https://www.amazon.com/dp/B0GDFQ682L",
-          "https://www.kobo.com/hk/en/ebook/fingoose-and-the-two-mornings"
+          "https://www.kobo.com/us/en/ebook/fingoose-and-the-two-mornings"
         ]
       }
     },

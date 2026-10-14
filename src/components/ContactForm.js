@@ -18,11 +18,15 @@ export default function ContactForm() {
   const [name, setName] = useState("");
   const [organization, setOrganization] = useState("");
   const [message, setMessage] = useState("");
+  const [sent, setSent] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const interest = new URLSearchParams(window.location.search).get("interest");
     if (interest === "curriculum") setType("Curriculum PDFs");
     if (interest === "library-visit") setType("Library read-aloud");
+    if (interest === "workshop") setType("School workshop");
+    if (interest === "partnership") setType("Partnership");
   }, []);
 
   const subject = encodeURIComponent(`FinGoose inquiry: ${type}`);
@@ -37,6 +41,7 @@ export default function ContactForm() {
       onSubmit={(event) => {
         event.preventDefault();
         window.location.href = `mailto:fin.goose.co@gmail.com?subject=${subject}&body=${body}`;
+        setSent(true);
       }}
     >
       <div className="form-heading">
@@ -90,10 +95,26 @@ export default function ContactForm() {
       <button className="button button-dark form-submit" type="submit">
         Draft email to FinGoose <Icon name="arrow" />
       </button>
-      <p className="form-note">
-        This opens your email app with the message ready to review. Nothing is
-        sent automatically.
-      </p>
+      {sent ? (
+        <p className="form-note" role="status">
+          Didn&rsquo;t see your email app open? Email us directly at{" "}
+          <a href="mailto:fin.goose.co@gmail.com">fin.goose.co@gmail.com</a>{" "}
+          <button
+            type="button"
+            className="form-copy"
+            onClick={() => {
+              navigator.clipboard?.writeText("fin.goose.co@gmail.com").then(() => setCopied(true)).catch(() => {});
+            }}
+          >
+            {copied ? "Copied!" : "Copy email"}
+          </button>
+        </p>
+      ) : (
+        <p className="form-note">
+          This opens your email app with the message ready to review. Nothing is
+          sent automatically.
+        </p>
+      )}
     </form>
   );
 }

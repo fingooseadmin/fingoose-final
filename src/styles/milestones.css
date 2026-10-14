@@ -1021,3 +1021,16 @@ body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat span {
     font-size: 0.74rem !important;
   }
 }
+
+.contact-form .form-copy {
+  background: #ffb200;
+  border: 0;
+  border-radius: 999px;
+  color: #10163f;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  margin-left: 4px;
+  padding: 3px 10px;
+}

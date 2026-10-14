@@ -358,9 +358,12 @@ export default function CourseExperience() {
                     <Icon name="play" size={38} />
                   </span>
                   <span>Lesson video</span>
-                  <strong>Lesson video coming soon</strong>
+                  <strong>Watch it in the full course</strong>
                   <p>
-                    Video content is being prepared for this lesson.
+                    This lesson&rsquo;s video lives in the full FinGoose course.{" "}
+                    <a href="https://learn.fingoose.com/challenge-page/4475b043-ab66-4c15-9929-e1e6148175ba" target="_blank" rel="noreferrer">
+                      Open the course
+                    </a>
                   </p>
                 </div>
               )}
