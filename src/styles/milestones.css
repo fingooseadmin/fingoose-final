@@ -1039,3 +1039,30 @@ body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat span {
 [id] {
   scroll-margin-top: calc(var(--fg-fixed-header-height, 82px) + 16px);
 }
+
+/* What we do sits on blue graph paper so it reads as its own section
+   next to the cream milestones board. */
+body.site-layout .wwd-section {
+  background:
+    linear-gradient(rgba(60, 76, 186, 0.1) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(90deg, rgba(60, 76, 186, 0.1) 1px, transparent 1px) 0 0 / 28px 28px,
+    #dfe5ff;
+  position: relative;
+}
+
+body.site-layout .wwd-section::before,
+body.site-layout .wwd-section::after {
+  background: repeating-linear-gradient(90deg, #ff8209 0 18px, transparent 18px 30px);
+  content: "";
+  height: 4px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+body.site-layout .wwd-section::before { top: 0; }
+body.site-layout .wwd-section::after { bottom: 0; }
+
+body.site-layout .wwd-heading h2 {
+  color: #3c4cba;
+}
