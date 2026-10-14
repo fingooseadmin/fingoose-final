@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import DialogLayer from "./DialogLayer";
 import Icon from "./Icon";
 import { timelineEvents } from "./eventTimelineData";
@@ -89,13 +89,59 @@ function GalleryDialog({ event, onClose }) {
   );
 }
 
+// Background colors the timeline section moves through as you scroll it.
+const SCROLL_COLORS = [
+  [249, 243, 228], // cream
+  [255, 238, 184], // butter
+  [255, 220, 190], // peach
+  [236, 226, 255], // lavender
+  [221, 229, 255] // periwinkle
+];
+
+function colorAt(progress) {
+  const scaled = progress * (SCROLL_COLORS.length - 1);
+  const index = Math.min(SCROLL_COLORS.length - 2, Math.floor(scaled));
+  const t = scaled - index;
+  const [a, b] = [SCROLL_COLORS[index], SCROLL_COLORS[index + 1]];
+  return `rgb(${a.map((value, i) => Math.round(value + (b[i] - value) * t)).join(", ")})`;
+}
+
 export default function EventTimeline() {
   const [openEvent, setOpenEvent] = useState(null);
   const close = useCallback(() => setOpenEvent(null), []);
+  const listRef = useRef(null);
+
+  // As the reader scrolls down the timeline, the section's background
+  // slowly shifts color and the center line fills in orange.
+  useEffect(() => {
+    const list = listRef.current;
+    const section = list?.closest("section");
+    if (!list || !section) return undefined;
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const rect = list.getBoundingClientRect();
+      const middle = window.innerHeight * 0.55;
+      const progress = Math.min(1, Math.max(0, (middle - rect.top) / rect.height));
+      section.style.setProperty("--tl-bg", colorAt(progress));
+      section.style.setProperty("--tl-progress", progress.toFixed(4));
+    };
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
 
   return (
     <>
-      <ol className="event-timeline">
+      <ol className="event-timeline" ref={listRef}>
         {timelineEvents.map((event, eventIndex) => {
           const cover = event.photos[0];
           return (
