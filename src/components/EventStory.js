@@ -50,7 +50,7 @@ function StoryHeader({ story, sticker = "star" }) {
     <header className="fgx-es-head">
       <div className="fgx-es-head-copy">
         <span className="fgx-es-kicker">{story.kicker}</span>
-        <h3>{story.title}</h3>
+        <h3><span className="fgx-es-hl">{story.title}</span></h3>
         <p className="fgx-es-meta">
           <span><Icon name="clock" size={16} /> {story.when}</span>
           <span><Icon name="school" size={16} /> {story.where}</span>
@@ -77,7 +77,7 @@ export function WorkshopStory() {
     <article className="fgx-es tone-gold" id={s.id}>
       <StoryHeader story={s} />
 
-      <h4 className="fgx-es-h">How a workshop runs</h4>
+      <h4 className="fgx-es-h">how a workshop goes</h4>
       <ol className="fgx-es-line">
         {s.steps.map((step, i) => (
           <li key={step.title}>
@@ -89,7 +89,7 @@ export function WorkshopStory() {
         ))}
       </ol>
 
-      <h4 className="fgx-es-h">The real slides we taught</h4>
+      <h4 className="fgx-es-h">the actual slides we used</h4>
       <div className="fgx-es-slides">
         {s.slides.map((slide, i) => (
           <figure key={slide.src} style={{ "--r": `${[-2, 1.5, -1][i]}deg` }}>
@@ -97,11 +97,11 @@ export function WorkshopStory() {
           </figure>
         ))}
         <Link className="fgx-es-slides-link" href="/resources/curriculum/#lesson-slides">
-          Watch every lesson’s slides <Icon name="arrow" size={16} />
+          see every lesson’s slides →
         </Link>
       </div>
 
-      <h4 className="fgx-es-h">Visit by visit</h4>
+      <h4 className="fgx-es-h">visit by visit</h4>
       <div className="fgx-es-sessions">
         {s.sessions.map((session) => (
           <section className="fgx-es-session" key={session.date}>
@@ -114,7 +114,7 @@ export function WorkshopStory() {
               <h5>{session.title}</h5>
               <p>{session.copy}</p>
               <a className="fgx-es-ig" href={session.instagram} target="_blank" rel="noreferrer">
-                <Icon name="instagram" size={15} /> Recap post
+                recap post on insta →
               </a>
             </div>
           </section>
@@ -123,9 +123,9 @@ export function WorkshopStory() {
 
       <div className="fgx-es-results">
         <div className="fgx-es-results-copy">
-          <h4 className="fgx-es-h">The result</h4>
-          <p className="fgx-es-big">Scores more than doubled.</p>
-          <p>Across all three workshops, the average score went from 43% on the pre-test to 93% on the post-test.</p>
+          <h4 className="fgx-es-h">the result!!</h4>
+          <p className="fgx-es-big">scores more than doubled</p>
+          <p>average score across all three: 43% before → 93% after</p>
         </div>
         <div className="fgx-es-bars" role="img" aria-label="Average score: 43% before, 93% after">
           <div className="fgx-es-bar is-before" style={{ "--h": "43%" }}><strong>43%</strong><span /><small>Pre-test</small></div>
@@ -138,7 +138,7 @@ export function WorkshopStory() {
         </blockquote>
       </div>
 
-      <h4 className="fgx-es-h">What we changed after</h4>
+      <h4 className="fgx-es-h">what we fixed after</h4>
       <div className="fgx-es-cards">
         {s.changes.map((c) => (
           <div className="fgx-es-card" key={c.title}>
@@ -149,7 +149,7 @@ export function WorkshopStory() {
         ))}
       </div>
 
-      <h4 className="fgx-es-h">Snapshots</h4>
+      <h4 className="fgx-es-h">snapshots</h4>
       <PhotoStrip photos={s.photos} />
     </article>
   );
@@ -159,7 +159,7 @@ function Spotlight({ story }) {
   const total = story.breakdown ? story.breakdown.rows.reduce((sum, r) => sum + r.amount, 0) : 0;
   return (
     <article className={`fgx-es tone-${story.tone}`}>
-      <StoryHeader story={story} sticker={story.tone === "orange" ? "heart" : "smile"} />
+      <StoryHeader story={story} sticker={story.tone === "orange" ? "coin" : "smile"} />
 
       {story.breakdown ? (
         <div className={`fgx-es-money ${story.breakdown.photo ? "has-photo" : ""}`}>
@@ -188,7 +188,7 @@ function Spotlight({ story }) {
           </ul>
           <p className="fgx-es-money-note">{story.breakdown.note}</p>
           </div>
-          {story.breakdown.photo ? <TapedPhoto photo={story.breakdown.photo} tilt={-3} sticker="coin" /> : null}
+          {story.breakdown.photo ? <TapedPhoto photo={story.breakdown.photo} tilt={-3} sticker="star" /> : null}
         </div>
       ) : null}
 
@@ -207,7 +207,7 @@ function Spotlight({ story }) {
 
       {story.words ? (
         <>
-          <h4 className="fgx-es-h">The money words in the story</h4>
+          <h4 className="fgx-es-h">money words from the book</h4>
           <ul className="fgx-es-words">
             {story.words.map((w, i) => (
               <li key={w.word} style={{ "--r": `${[-2, 1.5, -1, 2, -1.5, 1, -2.5][i % 7]}deg` }}>
@@ -231,7 +231,7 @@ function Spotlight({ story }) {
           ))
         : null}
 
-      <h4 className="fgx-es-h">Snapshots</h4>
+      <h4 className="fgx-es-h">snapshots</h4>
       <PhotoStrip photos={story.photos} />
 
       <div className="fgx-es-links">

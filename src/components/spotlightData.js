@@ -9,13 +9,13 @@ const IG = "https://www.instagram.com/fin.goose/";
 
 export const workshopStory = {
   id: "workshop-story",
-  kicker: "Crisis Lab workshop series",
-  title: "Three workshops, two schools, one big jump in scores.",
+  kicker: "field notes · fall 2025",
+  title: "Crisis Lab workshops",
   when: "Nov 10 – Dec 17, 2025",
   where: "Charles DeWolf Middle School, Old Tappan · Benjamin Franklin Middle School, Teaneck",
   hero: { src: "/assets/events/bfms-crowd.webp", width: 1600, height: 1200, alt: "50+ students at the FinGoose workshop at Benjamin Franklin Middle School", caption: "50+ students at Benjamin Franklin" },
   hook:
-    "Before we taught anything, we surveyed 92 local middle schoolers. Only 31 felt confident they remembered what they had learned about money in class. So we built workshops around doing, not memorizing: every lesson is a money crisis students have to fix themselves.",
+    "We asked 92 middle schoolers if they remembered what they learned about money in class. Only 31 said yes. Sooo we made money something you do, not memorize: every lesson is a crisis you have to fix.",
   stats: [
     { value: "90+", label: "students" },
     { value: "3", label: "workshops" },
@@ -23,12 +23,12 @@ export const workshopStory = {
     { value: "93%", label: "average post-test score" }
   ],
   steps: [
-    { title: "Pre-test", copy: "Everyone starts with a short quiz so we can measure what actually sticks." },
-    { title: "The crisis", copy: "FinGoose hits a real money problem, like losing his job when the diner closes, with no savings." },
-    { title: "Three imperfect choices", copy: "Get a job, save, or take a loan? Every option has a catch, and we pick apart the flaws together." },
-    { title: "Team fix", copy: "Teams build their own plan against the clock." },
-    { title: "Pitch it", copy: "Each team presents its solution, just like a DECA role-play." },
-    { title: "Reflect", copy: "A quick survey on what made sense and what didn’t. We read every response and adjusted the next visit." }
+    { title: "Pre-test", copy: "a quick quiz to see where everyone starts" },
+    { title: "Uh oh, a crisis", copy: "FinGoose loses his job and has no savings 😬" },
+    { title: "Pick a door", copy: "job, save, or loan? every option has a catch" },
+    { title: "Team fix", copy: "build a plan before the timer runs out" },
+    { title: "Pitch it", copy: "present it like a DECA role-play" },
+    { title: "Reflect", copy: "what clicked? what didn’t? we read every answer" }
   ],
   sessions: [
     {
@@ -37,7 +37,7 @@ export const workshopStory = {
       place: "Charles DeWolf Middle School",
       title: "When income changes, the plan has to change.",
       copy:
-        "Our very first pilot. Before the visit we revised the lesson with the school’s gifted and talented teacher and principal. In class, teams rebuilt a budget after an income shock, then defended the trade-offs behind their plan.",
+        "Our very first one!! We polished the lesson with the school’s gifted & talented teacher and principal first. Then teams rebuilt a budget after an income shock and defended their choices.",
       image: "/assets/workshop-financial-resilience.webp",
       width: 1500,
       height: 2000,
@@ -47,9 +47,9 @@ export const workshopStory = {
       tag: "Workshop 02 · Consumer decisions",
       date: "Dec 15, 2025",
       place: "Charles DeWolf Middle School",
-      title: "Back to the same class: scams and sneaky ads.",
+      title: "Scams, sneaky ads & Munchkins.",
       copy:
-        "We came back to the same students to see what they remembered. Participation had been quiet the first time, so we brought Munchkins as an incentive. Compared with the first visit, students recalled more and reasoned through the crisis better. About 40 students joined across both DeWolf visits.",
+        "Round two with the same class! It was kinda quiet last time, so we brought Munchkins 🍩 and they remembered way more than the first visit. About 40 students across both DeWolf days.",
       image: "/assets/workshop-money-decisions.webp",
       width: 1500,
       height: 2000,
@@ -61,7 +61,7 @@ export const workshopStory = {
       place: "Benjamin Franklin Middle School",
       title: "Two classrooms. 50+ students. Three leaders.",
       copy:
-        "With a group that big, we split into two rooms with three leaders, which kept every discussion small and focused. This visit pushed the series past 90 students.",
+        "So many kids we split into two rooms with three leaders. This one pushed us past 90 students total!",
       image: "/assets/workshop-money-management.webp",
       width: 1500,
       height: 2000,
@@ -69,9 +69,9 @@ export const workshopStory = {
     }
   ],
   changes: [
-    { title: "More prep time", copy: "Based on the post-workshop surveys, we gave teams more time to prepare their presentations." },
-    { title: "Clearer instructions", copy: "We clarified the activity directions so teams could jump straight into the crisis." },
-    { title: "The answers, explained", copy: "Students kept asking for the best solutions, so we built a one-hour online course that walks through every Crisis Lab. 131 students have enrolled.", href: "/course", linkLabel: "See the course" }
+    { title: "more prep time", copy: "the surveys said teams wanted longer to plan their pitch, so they got it" },
+    { title: "clearer directions", copy: "less “wait what do we do?”, more solving" },
+    { title: "the answers!", copy: "everyone wanted the best solutions, so we made a 1-hour online course. 131 students and counting", href: "/course", linkLabel: "peek at the course" }
   ],
   quote: {
     text: "Your work reflected real understanding, intentional design, and a genuine desire to ensure our learners walked away informed and empowered.",
@@ -96,14 +96,14 @@ export const spotlights = [
   {
     id: "spotlight-bake-sales",
     tab: "Bake sales",
-    kicker: "Fundraiser · March 2026",
-    title: "Keychains, cupcakes, and $2,200 for student ideas.",
+    kicker: "fundraiser · march 2026",
+    title: "The great bake sale",
     when: "Throughout March 2026",
     where: "Multiple keychain & cupcake sales",
     tone: "orange",
     hero: { src: "/assets/events/bake-04.webp", width: 1600, height: 1200, alt: "Two FinGoose students at the bake sale table", caption: "Open for business" },
     hook:
-      "We needed prize money for the Golden Egg Challenge, a high school pitch competition we launched with Youth Policymakers for Tomorrow where teams pitch projects at the intersection of money and policy. So we did what any money-minded goose would do: we opened a bake sale.",
+      "We needed prize money for the Golden Egg Challenge, the high school pitch competition we started with Youth Policymakers for Tomorrow. So we did what any money-minded goose would do: keychains + cupcakes.",
     stats: [
       { value: "120", label: "keychains sold" },
       { value: "200", label: "cupcakes sold" },
@@ -111,19 +111,19 @@ export const spotlights = [
       { value: "100+", label: "Golden Egg submissions" }
     ],
     breakdown: {
-      title: "Where the $2,200 came from",
+      title: "the math 🧮",
       rows: [
         { label: "Keychains", detail: "120 × $10", amount: 1200, color: "#3c4cba" },
         { label: "Cupcakes", detail: "200 × $5", amount: 1000, color: "#ff8209" }
       ],
       photo: { src: "/assets/events/bake-05.webp", width: 1600, height: 1200, alt: "A FinGoose plush next to treats and the sale sign", caption: "Finn on duty" },
-      note: "Every dollar goes toward microgrants for the winning Golden Egg teams, so their ideas can actually happen."
+      note: "every dollar → microgrants for the winning Golden Egg teams!"
     },
     sections: [
       {
-        title: "Why it mattered",
+        title: "why it mattered",
         copy:
-          "The Golden Egg Challenge is a six-week competition for high schoolers across the tri-state area. Top teams pitch their projects to judges, and the microgrants help winners turn a pitch into something real. It pulled in 100+ submissions in its first weeks."
+          "Golden Egg is a six-week pitch competition for tri-state high schoolers, mixing money + policy. 100+ teams submitted in the first few weeks, and the microgrants help winners actually build their idea."
       }
     ],
     links: [{ label: "See it on Instagram", href: IG, external: true }],
@@ -136,14 +136,14 @@ export const spotlights = [
   {
     id: "spotlight-library",
     tab: "Library read-aloud",
-    kicker: "Community event · Oct 3, 2026",
-    title: "Dino read-aloud & volcano: money stories meet science.",
+    kicker: "story time · oct 3, 2026",
+    title: "Dino read-aloud & volcano",
     when: "Saturday, Oct 3, 2026 · 10:30 AM",
     where: "Leonia Public Library, 227 Fort Lee Road, Leonia, NJ",
     tone: "blue",
     hero: { src: "/assets/events/library-flyer.webp", width: 1237, height: 1600, alt: "Flyer for the Dino Read Aloud and Volcano Activity", caption: "The flyer we designed" },
     hook:
-      "A Saturday morning for younger readers. We read FinGoose and the Dino Dream out loud, then turned the room into a lab for a foaming “elephant toothpaste” volcano.",
+      "Saturday morning story time! We read FinGoose and the Dino Dream out loud, then made a volcano foam everywhere 🌋",
     stats: [
       { value: "10:30", label: "Saturday story time" },
       { value: "7", label: "money words in the story" },
@@ -151,12 +151,12 @@ export const spotlights = [
       { value: "1", label: "foam eruption" }
     ],
     story: {
-      title: "The story we read",
+      title: "the story",
       copy:
-        "Little FinGoose falls in love with Mr. Dino, a toy in the shop window, but Papa Goose says it costs too much. So FinGoose learns to earn coins doing chores, saves them in a jar, skips a shiny kite he doesn’t need, and finally counts out 20 coins to bring Mr. Dino home. And next time? He’s saving for the kite.",
+        "Little FinGoose falls for Mr. Dino in the toy store window, but he’s too expensive. So FinGoose does chores, saves coin by coin, skips a shiny kite, and finally brings Mr. Dino home with 20 coins. Next goal? The kite.",
       photo: { src: "/assets/book-dino-dream-cover.webp", width: 828, height: 840, alt: "Cover of FinGoose and the Dino Dream", caption: "FinGoose and the Dino Dream" },
       href: "/resources/books/#peek-inside",
-      linkLabel: "Flip through the book"
+      linkLabel: "flip through the book →"
     },
     words: [
       { word: "Earn", meaning: "Get money by doing something, like a job or a chore." },
@@ -169,10 +169,10 @@ export const spotlights = [
     ],
     sections: [
       {
-        title: "Then: elephant toothpaste",
+        title: "then… elephant toothpaste!",
         photo: { src: "/assets/events/library-04.webp", width: 1200, height: 1600, alt: "Elephant toothpaste activity set up at the library", caption: "Volcano setup" },
         copy:
-          "After the story came the science: a hands-on “elephant toothpaste” experiment that foams up and over like a volcano. Financial storytelling, meet chemistry."
+          "After the story came the science: a foamy “elephant toothpaste” volcano. Money stories, meet chemistry."
       }
     ],
     links: [
