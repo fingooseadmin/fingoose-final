@@ -174,7 +174,7 @@ export default function EventTimeline() {
                 >
                   <span className="event-timeline-tape" aria-hidden="true" />
                   <span className="event-timeline-photo">
-                    <Image src={cover.src} alt={cover.alt} width={cover.width} height={cover.height} sizes="(max-width: 820px) 40vw, 200px" />
+                    <Image src={cover.src} alt={cover.alt} width={cover.width} height={cover.height} sizes="(max-width: 820px) 50vw, 320px" />
                     <span className="event-timeline-hover" aria-hidden="true">
                       {event.photos.length > 1 ? "View more" : "View photo"} <Icon name="arrow" size={18} />
                     </span>

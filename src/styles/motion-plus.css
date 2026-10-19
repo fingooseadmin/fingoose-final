@@ -1843,3 +1843,48 @@ body.site-layout .fgx-partners .partner-strip-title small.fgx-partner-count { co
 .fgx-partner-ticker { background: #ffb200; box-shadow: 0 5px 0 var(--fgx-navy); color: var(--fgx-navy); }
 .fgx-partner-ticker i { color: #e8700a; }
 .fgx-partners .partner-card { box-shadow: 5px 5px 0 #ff8209, 0 18px 26px -18px rgba(16, 22, 63, 0.45); }
+
+/* timeline: more breathing room + bigger polaroids */
+@media (min-width: 821px) {
+  body .has-timeline .event-timeline.fgx-zig {
+    column-gap: 120px;
+    margin-left: 50%;
+    padding-bottom: 260px;
+    row-gap: 96px;
+    translate: -50% 0;
+    width: min(1380px, calc(100vw - 48px));
+  }
+  body .has-timeline .fgx-zig .event-timeline-item.is-right { top: 220px; }
+  body .has-timeline .fgx-zig .is-left .event-timeline-dot { right: -71px; }
+  body .has-timeline .fgx-zig .is-right .event-timeline-dot { left: -71px; }
+  body .has-timeline .fgx-zig .event-timeline-item::before { width: 50px; }
+  body .has-timeline .fgx-zig .is-left::before { right: -52px; }
+  body .has-timeline .fgx-zig .is-right::before { left: -52px; }
+  body .has-timeline .fgx-zig .event-timeline-card { gap: 26px; grid-template-columns: 260px minmax(0, 1fr); padding: 26px 28px 28px 22px; }
+  body .has-timeline .fgx-zig .event-timeline-polaroid { padding: 11px 11px 0; }
+  body .has-timeline .fgx-zig .event-timeline-photo { aspect-ratio: 4 / 5; }
+  body .has-timeline .fgx-zig .event-timeline-tape { height: 24px; top: -12px; width: 90px; }
+  body .has-timeline .fgx-zig .event-timeline-caption { font-size: 1.25rem; padding: 10px 4px 14px; }
+  body .has-timeline .fgx-zig .event-timeline-card h3 { font-size: clamp(1.1rem, 1.5vw, 1.35rem); }
+  body .has-timeline .fgx-zig .event-timeline-card p { font-size: 0.96rem !important; }
+}
+@media (min-width: 821px) and (max-width: 1180px) {
+  body .has-timeline .fgx-zig .event-timeline-card { grid-template-columns: minmax(0, 1fr); }
+  body .has-timeline .fgx-zig .event-timeline-polaroid { justify-self: center; max-width: 320px; }
+  body .has-timeline .fgx-zig .event-timeline-photo { aspect-ratio: 4 / 3; }
+}
+@media (max-width: 820px) {
+  body .has-timeline .event-timeline.fgx-zig { row-gap: 56px; }
+  body .has-timeline .fgx-zig .event-timeline-card { grid-template-columns: minmax(0, 1fr); }
+  body .has-timeline .fgx-zig .event-timeline-polaroid { justify-self: start; max-width: 100%; }
+  body .has-timeline .fgx-zig .event-timeline-photo { aspect-ratio: 4 / 3; }
+}
+/* undo the old one-column timeline's grid placement inside the new cards */
+body .has-timeline .fgx-zig .event-timeline-polaroid,
+body .has-timeline .fgx-zig .event-timeline-card,
+body .has-timeline .fgx-zig .event-timeline-body,
+body .has-timeline .fgx-zig .event-timeline-dot { grid-column: auto; grid-row: auto; }
+@media (max-width: 820px) {
+  body .has-timeline .fgx-zig .event-timeline-card { padding: 20px 18px 22px; }
+  body .has-timeline .fgx-zig .event-timeline-card h3 { margin-inline: 0; padding-inline: 0; }
+}
