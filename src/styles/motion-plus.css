@@ -1,3 +1,13 @@
+/* Vividly: the FinGoose handwriting font. Characters it doesn't have
+   (like $ and %) fall back to Caveat automatically. */
+@font-face {
+  font-family: "Vividly";
+  src: url("/fonts/vividly.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100 900;
+}
+
 /* ==========================================================================
    Motion+ : page loader, scroll bar, flip-books, camera roll, timeline
    extras, lesson slideshows. Everything here is prefixed fgx- (or tl- for
@@ -8,7 +18,7 @@
   --fgx-navy: #10163f;
   --fgx-navy-2: #121b55;
   --fgx-paper: #fffdf7;
-  --fgx-hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+  --fgx-hand: "Vividly", "Caveat", "Segoe Print", "Bradley Hand", cursive;
   --fgx-ease: cubic-bezier(0.645, 0.045, 0.355, 1);
   --fgx-pop: cubic-bezier(0.3, 1.6, 0.5, 1);
 }
@@ -1714,3 +1724,122 @@ body.site-layout .fgx-es-row-copy p { background: #fff; box-shadow: 0 14px 22px 
 .fgx-es-stats li { padding: 14px 8px 12px; }
 @media (max-width: 1000px) and (min-width: 901px) { .fgx-es-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .fgx-es-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------- timeline v3: zigzag index cards (one left, one right) ---------- */
+body .has-timeline .event-timeline.fgx-zig {
+  column-gap: 110px;
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  padding-bottom: 170px;
+  row-gap: 38px;
+}
+body .has-timeline .event-timeline.fgx-zig::before,
+body .has-timeline .event-timeline.fgx-zig::after,
+body .has-timeline .event-timeline.fgx-zig .tl-runner { left: 50%; }
+.tl-cap-start .tl-cap-flag, .tl-cap-end .tl-cap-flag { left: 50%; }
+.tl-cap-end { padding-left: 0; text-align: center; }
+.tl-cap-end p { margin-inline: auto !important; }
+body .has-timeline .fgx-zig .event-timeline-item { display: block; grid-column: 1; position: relative; }
+body .has-timeline .fgx-zig .event-timeline-item.is-right { grid-column: 2; top: 150px; }
+body .has-timeline .fgx-zig .event-timeline-dot { position: absolute; top: 46px; }
+body .has-timeline .fgx-zig .is-left .event-timeline-dot { right: -66px; }
+body .has-timeline .fgx-zig .is-right .event-timeline-dot { left: -66px; }
+/* little connector from the card to the line */
+body .has-timeline .fgx-zig .event-timeline-item::before {
+  border-top: 3px dashed rgba(16, 22, 63, 0.35);
+  content: "";
+  position: absolute;
+  top: 56px;
+  width: 44px;
+}
+body .has-timeline .fgx-zig .is-left::before { right: -46px; }
+body .has-timeline .fgx-zig .is-right::before { left: -46px; }
+
+body .has-timeline .fgx-zig .event-timeline-card {
+  align-items: start;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 150px minmax(0, 1fr);
+  max-width: none;
+  padding: 22px 22px 22px 18px;
+  position: relative;
+  transform: rotate(calc(var(--tilt, -2deg) * -0.35));
+}
+body .has-timeline .fgx-zig .event-timeline-card::before {
+  background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 0 6px, transparent 6px 12px), rgba(143, 160, 255, 0.85);
+  content: "";
+  height: 22px;
+  position: absolute;
+  right: 26px;
+  rotate: 4deg;
+  top: -10px;
+  width: 78px;
+  z-index: 2;
+}
+body .has-timeline .fgx-zig .is-left .event-timeline-card::before { rotate: -4deg; background-color: rgba(255, 178, 0, 0.85); }
+body .has-timeline .fgx-zig .event-timeline-polaroid {
+  justify-self: stretch;
+  margin: -2px 0 0 -4px;
+  max-width: none;
+  padding: 8px 8px 0;
+  transform: rotate(var(--tilt, -2deg));
+  width: 100%;
+}
+body .has-timeline .fgx-zig .event-timeline-tape { height: 18px; top: -9px; width: 64px; }
+body .has-timeline .fgx-zig .event-timeline-photo { aspect-ratio: 1; }
+body .has-timeline .fgx-zig .event-timeline-photo svg { margin: auto; }
+body .has-timeline .fgx-zig .event-timeline-polaroid.is-blank .event-timeline-photo { display: grid; place-items: center; }
+body .has-timeline .fgx-zig .event-timeline-caption { font-size: 1.05rem; line-height: 1.05; padding: 7px 2px 10px; }
+body .has-timeline .fgx-zig .event-timeline-hover { font-size: 0.85rem; }
+body .has-timeline .fgx-zig .event-timeline-card h3 { font-size: clamp(1.02rem, 1.35vw, 1.2rem); margin: 0 0 10px; padding: 0 0 8px; }
+body .has-timeline .fgx-zig .event-timeline-card p { font-size: 0.92rem !important; line-height: 28px; margin: 0 0 14px; }
+body .has-timeline .fgx-zig .event-timeline-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+body .has-timeline .fgx-zig .event-timeline-actions .button { font-size: 0.8rem; padding: 9px 14px; }
+html.motion-ready body .has-timeline .fgx-zig .event-timeline-item:not(.is-reached) .event-timeline-card { opacity: 0.4; transform: translateY(26px) rotate(calc(var(--tilt, -2deg) * -1)); }
+html.motion-ready body .has-timeline .fgx-zig .event-timeline-item:not(.is-reached) .event-timeline-polaroid { filter: saturate(0.3); opacity: 1; transform: rotate(var(--tilt, -2deg)); }
+html.motion-ready body .has-timeline .fgx-zig .event-timeline-card { transition: opacity 0.6s ease, transform 0.7s var(--fgx-pop), box-shadow 0.25s; }
+
+@media (max-width: 1100px) {
+  body .has-timeline .fgx-zig .event-timeline-card { grid-template-columns: minmax(0, 1fr); }
+  body .has-timeline .fgx-zig .event-timeline-polaroid { justify-self: center; max-width: 220px; }
+}
+@media (max-width: 820px) {
+  body .has-timeline .event-timeline.fgx-zig { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0 0 0 46px; row-gap: 34px; }
+  body .has-timeline .event-timeline.fgx-zig::before,
+  body .has-timeline .event-timeline.fgx-zig::after,
+  body .has-timeline .event-timeline.fgx-zig .tl-runner { left: 11px; }
+  body .has-timeline .fgx-zig .event-timeline-item,
+  body .has-timeline .fgx-zig .event-timeline-item.is-right { grid-column: 1; top: 0; }
+  body .has-timeline .fgx-zig .is-left .event-timeline-dot,
+  body .has-timeline .fgx-zig .is-right .event-timeline-dot { left: -46px; right: auto; }
+  body .has-timeline .fgx-zig .event-timeline-item::before,
+  body .has-timeline .fgx-zig .is-left::before { left: -24px; right: auto; width: 22px; }
+  body .has-timeline .fgx-zig .event-timeline-card { grid-template-columns: 110px minmax(0, 1fr); }
+  body .has-timeline .fgx-zig .event-timeline-polaroid { max-width: none; }
+  .tl-cap-start .tl-cap-flag, .tl-cap-end .tl-cap-flag { left: 11px; }
+  .tl-cap-end { padding-left: 46px; text-align: left; }
+}
+@media (max-width: 460px) {
+  body .has-timeline .fgx-zig .event-timeline-card { grid-template-columns: minmax(0, 1fr); }
+  body .has-timeline .fgx-zig .event-timeline-polaroid { justify-self: start; max-width: 170px; }
+}
+
+/* Partners on light paper, so it never sits navy-against-navy
+   (it follows the navy camera roll on Home and the reels on Impact). */
+body.site-layout .partner-strip.fgx-partners {
+  background:
+    radial-gradient(rgba(16, 22, 63, 0.08) 1px, transparent 1.4px) 0 0 / 22px 22px,
+    radial-gradient(ellipse 45% 60% at 0% 100%, rgba(255, 178, 0, 0.22), transparent 70%),
+    radial-gradient(ellipse 40% 60% at 100% 0%, rgba(143, 160, 255, 0.22), transparent 70%),
+    #fbf6ea !important;
+  border-block: 0;
+  color: var(--fgx-navy);
+}
+body.site-layout .partner-strip.fgx-partners::before { display: none; }
+body.site-layout .fgx-partners .partner-strip-title { color: var(--fgx-navy); }
+body.site-layout .fgx-partners .partner-strip-title span { color: var(--fgx-navy); }
+body.site-layout .fgx-partners .partner-strip-title small.fgx-partner-count { color: #e8700a; }
+.fgx-partner-ticker { background: #ffb200; box-shadow: 0 5px 0 var(--fgx-navy); color: var(--fgx-navy); }
+.fgx-partner-ticker i { color: #e8700a; }
+.fgx-partners .partner-card { box-shadow: 5px 5px 0 #ff8209, 0 18px 26px -18px rgba(16, 22, 63, 0.45); }

@@ -58,17 +58,17 @@ export const metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon.ico?v=2",
+        url: "/favicon.ico?v=3",
         type: "image/x-icon",
         sizes: "256x256"
       },
       {
-        url: "/assets/finn-badge.png",
+        url: "/assets/finn-icon.png?v=3",
         type: "image/png",
         sizes: "512x512"
       }
     ],
-    shortcut: "/favicon.ico?v=2",
+    shortcut: "/favicon.ico?v=3",
     apple: "/assets/finn-badge.png"
   },
   openGraph: {

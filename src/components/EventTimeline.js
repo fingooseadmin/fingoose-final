@@ -153,14 +153,17 @@ export default function EventTimeline() {
       <div className="tl-cap tl-cap-start" aria-hidden="true">
         <span className="tl-cap-flag">The start</span>
       </div>
-      <ol className="event-timeline" ref={listRef}>
+      <ol className="event-timeline fgx-zig" ref={listRef}>
         <li className="tl-runner" aria-hidden="true">
           <Image src="/assets/finn-walking.webp" alt="" width={2048} height={2048} sizes="64px" />
         </li>
         {timelineEvents.map((event, eventIndex) => {
           const cover = event.photos[0];
           return (
-            <li className="event-timeline-item" key={event.id} style={{ "--tilt": eventIndex % 2 ? "2deg" : "-2deg" }}>
+            <li className={`event-timeline-item ${eventIndex % 2 ? "is-right" : "is-left"}`} key={event.id} style={{ "--tilt": eventIndex % 2 ? "2deg" : "-2deg" }}>
+              <span className="event-timeline-dot" aria-hidden="true" />
+
+              <article className="event-timeline-card">
               {cover ? (
                 <button
                   className="event-timeline-polaroid"
@@ -171,7 +174,7 @@ export default function EventTimeline() {
                 >
                   <span className="event-timeline-tape" aria-hidden="true" />
                   <span className="event-timeline-photo">
-                    <Image src={cover.src} alt={cover.alt} width={cover.width} height={cover.height} sizes="(max-width: 820px) 70vw, 380px" />
+                    <Image src={cover.src} alt={cover.alt} width={cover.width} height={cover.height} sizes="(max-width: 820px) 40vw, 200px" />
                     <span className="event-timeline-hover" aria-hidden="true">
                       {event.photos.length > 1 ? "View more" : "View photo"} <Icon name="arrow" size={18} />
                     </span>
@@ -187,10 +190,7 @@ export default function EventTimeline() {
                   <span className="event-timeline-caption">{event.name}</span>
                 </div>
               )}
-
-              <span className="event-timeline-dot" aria-hidden="true" />
-
-              <article className="event-timeline-card">
+                <div className="event-timeline-body">
                 <h3>
                   <span>{event.date}:</span> {event.name}
                 </h3>
@@ -214,6 +214,7 @@ export default function EventTimeline() {
                     ) : null}
                   </div>
                 ) : null}
+                </div>
               </article>
             </li>
           );

@@ -769,7 +769,7 @@ body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat span {
 
 .wwd-kicker {
   color: #e8700a;
-  font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+  font-family: "Vividly", "Caveat", "Segoe Print", "Bradley Hand", cursive;
   font-size: clamp(1.45rem, 2vw, 1.75rem);
   font-weight: 700;
   line-height: 1;
@@ -929,7 +929,7 @@ body.site-layout .home-scrapbook-site .scrapbook-stats .scrap-stat span {
 .milestone-tile-caption span {
   color: #e8700a;
   display: block;
-  font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+  font-family: "Vividly", "Caveat", "Segoe Print", "Bradley Hand", cursive;
   font-size: clamp(1.35rem, 1.8vw, 1.6rem);
   font-weight: 700;
   line-height: 1;
