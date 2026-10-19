@@ -1888,3 +1888,28 @@ body .has-timeline .fgx-zig .event-timeline-dot { grid-column: auto; grid-row: a
   body .has-timeline .fgx-zig .event-timeline-card { padding: 20px 18px 22px; }
   body .has-timeline .fgx-zig .event-timeline-card h3 { margin-inline: 0; padding-inline: 0; }
 }
+
+/* Full screen fills the whole window and sits above the site header. */
+.fgx-flipbook.is-full {
+  align-content: center;
+  box-sizing: border-box;
+  height: 100vh;
+  height: 100dvh;
+  justify-content: center;
+  left: 0;
+  margin: 0;
+  overflow: hidden;
+  padding: clamp(16px, 3vw, 40px);
+  top: 0;
+  width: 100vw;
+  z-index: 30000;
+}
+.fgx-flipbook.is-full .fgx-book-stage { gap: 22px; }
+.fgx-flipbook-placeholder { margin-top: clamp(24px, 4vw, 44px); }
+.fgx-flipbook.is-full {
+  background:
+    radial-gradient(ellipse 45% 55% at 10% 40%, rgba(76, 92, 210, 0.35), transparent 70%),
+    radial-gradient(ellipse 40% 55% at 90% 60%, rgba(60, 76, 186, 0.4), transparent 70%),
+    radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1.4px) 0 0 / 22px 22px,
+    #0d143a;
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { Children, useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 // A page-turning book. Pass an even number of children: the first is the
 // front cover, the last is the back cover, and everything in between is
@@ -21,6 +22,7 @@ export default function FlipBook({ children, ratio = 1.3, maxPage = 470, label =
   const [mobile, setMobile] = useState(false);
   const [railIndex, setRailIndex] = useState(0);
   const [full, setFull] = useState(false);
+  const [inlineHeight, setInlineHeight] = useState(0);
 
   // Size the pages so the whole open book fits on screen.
   const size = useCallback(() => {
@@ -114,7 +116,13 @@ export default function FlipBook({ children, ratio = 1.3, maxPage = 470, label =
   const atStart = mobile ? railIndex <= 0 : cur === 0;
   const atEnd = mobile ? railIndex >= pages.length - 1 : cur === n;
 
-  return (
+  const toggleFull = () => {
+    if (!full) setInlineHeight(rootRef.current?.offsetHeight || 0);
+    setFull((f) => !f);
+    window.setTimeout(size, 30);
+  };
+
+  const book = (
     <div
       ref={rootRef}
       className={`fgx-flipbook ${full ? "is-full" : ""} ${className}`}
@@ -170,7 +178,7 @@ export default function FlipBook({ children, ratio = 1.3, maxPage = 470, label =
         <div className="fgx-book-ui">
           <span className="fgx-book-count" aria-live="polite">{label2}</span>
           {hint && atStart ? <span className="fgx-book-hint">{hint}</span> : null}
-          <button className="fgx-book-full" type="button" onClick={() => { setFull((f) => !f); window.setTimeout(size, 30); }} aria-pressed={full}>
+          <button className="fgx-book-full" type="button" onClick={toggleFull} aria-pressed={full}>
             {full ? "Exit full screen" : "Full screen"}
           </button>
         </div>
@@ -181,4 +189,16 @@ export default function FlipBook({ children, ratio = 1.3, maxPage = 470, label =
       </button>
     </div>
   );
+
+  // Full screen is drawn straight into <body> so no animated parent can
+  // shrink or offset it; a placeholder keeps the page from jumping.
+  if (full && typeof document !== "undefined") {
+    return (
+      <>
+        <div className="fgx-flipbook-placeholder" style={{ height: inlineHeight }} aria-hidden="true" />
+        {createPortal(book, document.body)}
+      </>
+    );
+  }
+  return book;
 }
