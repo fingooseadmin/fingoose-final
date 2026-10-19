@@ -4,19 +4,37 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-// Loading animation between pages: four colored panels sweep up, Finn
-// waddles across, the next page loads underneath, then the panels lift off.
+// Loading animation between pages, FinGoose style: a gold coin bursts out
+// from wherever you clicked and fills the screen, Finn's badge does a coin
+// flip while a little receipt prints the page you're headed to, then the
+// coin drops away through a piggy-bank slot at the bottom.
 // Skipped for same-page #links, new tabs, downloads, outside sites, and
 // for anyone with "reduce motion" turned on.
 const COVER_MS = 520;
 const MIN_SHOW_MS = 650;
-const LINES = ["Waddling over…", "Counting coins…", "Flipping pages…", "Honk honk…", "Almost there…"];
+const LINES = ["Counting coins…", "Waddling over…", "Balancing the budget…", "Honk honk…", "Saving you a seat…"];
+const PAGE_NAMES = {
+  "/": "Home",
+  "/about": "About FinGoose",
+  "/impact": "Our Impact",
+  "/resources": "Resources",
+  "/resources/curriculum": "Curriculum",
+  "/resources/books": "Children’s Books",
+  "/resources/workshops": "Workshops",
+  "/resources/autism-kit": "Autism Learning Kit",
+  "/course": "Online Course",
+  "/join-us": "Start a Chapter",
+  "/contact": "Contact",
+  "/donate": "Donate"
+};
 
 export default function PageTransition() {
   const router = useRouter();
   const pathname = usePathname();
   const [phase, setPhase] = useState("idle"); // idle | cover | wait | reveal
   const [line, setLine] = useState(LINES[0]);
+  const [dest, setDest] = useState("");
+  const [origin, setOrigin] = useState({ x: "50%", y: "50%" });
   const pending = useRef(null);
   const startedAt = useRef(0);
   const lastPath = useRef(pathname);
@@ -42,6 +60,9 @@ export default function PageTransition() {
       pending.current = url.pathname + url.search + url.hash;
       startedAt.current = window.performance.now();
       setLine(LINES[Math.floor(Math.random() * LINES.length)]);
+      const key = url.pathname.replace(/\/+$/, "") || "/";
+      setDest(PAGE_NAMES[key] || link.textContent.trim().slice(0, 28) || "Next page");
+      setOrigin({ x: `${event.clientX || window.innerWidth / 2}px`, y: `${event.clientY || window.innerHeight / 2}px` });
       setPhase("cover");
       window.setTimeout(() => {
         setPhase("wait");
@@ -85,21 +106,32 @@ export default function PageTransition() {
   if (phase === "idle") return null;
 
   return (
-    <div className={`fgx-wipe is-${phase}`} aria-hidden={phase === "reveal"} role="status" aria-label="Loading the next page">
-      <i />
-      <i />
-      <i />
-      <i />
-      <div className="fgx-wipe-center">
-        <div className="fgx-wipe-runway">
-          <Image className="fgx-wipe-finn" src="/assets/finn-striding.webp" alt="" width={2048} height={2048} sizes="120px" priority />
-          <span className="fgx-wipe-coins" aria-hidden="true">
-            <b>$</b><b>$</b><b>$</b>
-          </span>
+    <div
+      className={`fgx-coin is-${phase}`}
+      style={{ "--cx": origin.x, "--cy": origin.y }}
+      aria-hidden={phase === "reveal"}
+      role="status"
+      aria-label={`Loading ${dest}`}
+    >
+      <div className="fgx-coin-fill">
+        <span className="fgx-coin-ridge" />
+        <div className="fgx-coin-center">
+          <div className="fgx-coin-flip">
+            <span className="fgx-coin-face is-front">
+              <Image src="/assets/finn-badge.png" alt="" width={512} height={512} sizes="140px" priority />
+            </span>
+            <span className="fgx-coin-face is-back">$</span>
+          </div>
+          <div className="fgx-receipt">
+            <p className="fgx-receipt-head">FinGoose Bank · receipt</p>
+            <p className="fgx-receipt-row"><span>Next stop</span><strong>{dest}</strong></p>
+            <p className="fgx-receipt-row"><span>Cost</span><strong>$0.00</strong></p>
+            <p className="fgx-receipt-row"><span>Knowledge</span><strong>+100</strong></p>
+            <p className="fgx-receipt-note">{line}</p>
+          </div>
         </div>
-        <p>{line}</p>
-        <span className="fgx-wipe-bar"><span /></span>
       </div>
+      <span className="fgx-coin-slot" aria-hidden="true" />
     </div>
   );
 }
