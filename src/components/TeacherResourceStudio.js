@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Icon from "./Icon";
+import { PlaySlidesButton } from "./LessonSlideshows";
 
 const CURRICULUM_DOC_URL = "https://docs.google.com/document/d/1vcHQcdXgS4BkEyfIJNDwEalHfziE24Zw7n16ErMk3Ig/edit?usp=sharing";
 
@@ -51,7 +52,10 @@ export default function TeacherResourceStudio() {
                   <h3>Module {Number(module.number)}: {module.title}</h3>
                   <p>{module.copy}</p>
                   <ul className="curriculum-topics">{module.slides.map((slide) => <li key={slide}>{slide}</li>)}</ul>
-                  <a className="curriculum-lesson-link" href={CURRICULUM_DOC_URL} target="_blank" rel="noreferrer" aria-label={"Preview module " + module.number + ": " + module.title + " in the curriculum (opens in a new tab)"}>Preview this module <Icon name="external" size={16} /></a>
+                  <div className="fgx-unit-actions">
+                  {module.number !== "04" ? <PlaySlidesButton deckId={"module-" + Number(module.number)} /> : null}
+                  <a className="curriculum-lesson-link" href={CURRICULUM_DOC_URL} target="_blank" rel="noreferrer" aria-label={"Preview module " + module.number + ": " + module.title + " in the curriculum (opens in a new tab)"}>Read this module <Icon name="external" size={16} /></a>
+                  </div>
                 </div>
               </article>
             ))}

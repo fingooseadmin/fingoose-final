@@ -2,6 +2,7 @@ import Image from "next/image";
 import Icon from "./Icon";
 import Reveal from "./Reveal";
 import { milestones, partners } from "./milestoneData";
+import ScrapbookMilestones from "./ScrapbookMilestones";
 
 // Photo grid of milestones, newest first. Each tile shows its date and
 // title on a banner; hovering (or tapping/focusing) shows the details.
@@ -104,11 +105,11 @@ export default function MilestonesSection({ id = "milestones", heading = "The bi
     <section className="section milestone-section" id={id}>
       <div className="container">
         <Reveal className="milestone-heading">
-          <span className="sticker-label sticker-orange">Milestones</span>
+          <span className="sticker-label sticker-orange">Milestones · flip through</span>
           <h2>{heading}</h2>
           {intro ? <p>{intro}</p> : null}
         </Reveal>
-        <MilestoneGrid />
+        <ScrapbookMilestones />
         {moreHref ? (
           <div className="milestone-more">
             <a className="button button-dark" href={moreHref}>

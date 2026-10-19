@@ -9,6 +9,7 @@ import MilestonesSection, { PartnerStrip } from "@/components/Milestones";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import UpcomingEvent from "@/components/UpcomingEvent";
 import WhatWeDo from "@/components/WhatWeDo";
+import CameraRoll from "@/components/CameraRoll";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -148,6 +149,17 @@ export default function HomePage() {
         moreHref="/impact/#timeline"
         moreLabel="See the full timeline"
       />
+
+      <section className="section fgx-roll-section" id="camera-roll">
+        <div className="container">
+          <Reveal className="fgx-roll-heading">
+            <span className="sticker-label">Camera roll</span>
+            <h2><FlowWords>Moments from FinGoose.</FlowWords></h2>
+            <p>Workshops, read-alouds, bake sales, and everything in between. Tap a photo to see it bigger.</p>
+          </Reveal>
+        </div>
+        <CameraRoll />
+      </section>
 
       <UpcomingEvent />
 

@@ -125,6 +125,15 @@ export default function EventTimeline() {
       const progress = Math.min(1, Math.max(0, (middle - rect.top) / rect.height));
       section.style.setProperty("--tl-bg", colorAt(progress));
       section.style.setProperty("--tl-progress", progress.toFixed(4));
+      // Light up each stop once the orange line reaches it.
+      const lineY = rect.top + progress * rect.height;
+      list.querySelectorAll(".event-timeline-item").forEach((item) => {
+        const dot = item.querySelector(".event-timeline-dot");
+        if (!dot) return;
+        const d = dot.getBoundingClientRect();
+        item.classList.toggle("is-reached", d.top + d.height / 2 <= lineY + 2);
+      });
+      section.classList.toggle("tl-finished", progress >= 0.999);
     };
     const onScroll = () => {
       if (!frame) frame = window.requestAnimationFrame(update);
@@ -141,7 +150,13 @@ export default function EventTimeline() {
 
   return (
     <>
+      <div className="tl-cap tl-cap-start" aria-hidden="true">
+        <span className="tl-cap-flag">The start</span>
+      </div>
       <ol className="event-timeline" ref={listRef}>
+        <li className="tl-runner" aria-hidden="true">
+          <Image src="/assets/finn-walking.webp" alt="" width={2048} height={2048} sizes="64px" />
+        </li>
         {timelineEvents.map((event, eventIndex) => {
           const cover = event.photos[0];
           return (
@@ -199,6 +214,13 @@ export default function EventTimeline() {
           );
         })}
       </ol>
+      <div className="tl-cap tl-cap-end">
+        <span className="tl-cap-flag is-now">Today</span>
+        <p>…and we’re just getting started. Follow along for the next chapter.</p>
+        <a className="button button-gold" href="https://www.instagram.com/fin.goose/" target="_blank" rel="noreferrer">
+          <Icon name="instagram" size={18} /> Follow @fin.goose
+        </a>
+      </div>
 
       {openEvent ? <GalleryDialog event={openEvent} onClose={close} /> : null}
     </>

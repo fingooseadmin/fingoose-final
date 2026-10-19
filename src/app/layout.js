@@ -17,6 +17,7 @@ import "@/styles/milestones.css";
 import "@/styles/scrap-page-hero.css";
 import "@/styles/textures.css";
 import "@/styles/footer.css";
+import "@/styles/motion-plus.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import MotionController from "@/components/MotionController";
@@ -24,6 +25,8 @@ import SiteIntro from "@/components/SiteIntro";
 import CursorAura from "@/components/CursorAura";
 import SmoothScroll from "@/components/SmoothScroll";
 import KeyboardEasterEggs from "@/components/KeyboardEasterEggs";
+import PageTransition from "@/components/PageTransition";
+import MotionExtras from "@/components/MotionExtras";
 
 export const metadata = {
   title: {
@@ -104,6 +107,8 @@ export default function RootLayout({ children }) {
         <SmoothScroll />
         <KeyboardEasterEggs />
         <MotionController />
+        <MotionExtras />
+        <PageTransition />
         <SiteHeader />
         {children}
         <SiteFooter />

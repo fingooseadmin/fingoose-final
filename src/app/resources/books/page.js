@@ -4,6 +4,7 @@ import PageSeo from "@/components/PageSeo";
 import PageHero from "@/components/PageHero";
 import BookCollectionExperience from "@/components/BookCollectionExperience";
 import Reveal from "@/components/Reveal";
+import BookPreview from "@/components/BookPreview";
 
 const booksStructuredData = {
   "@context": "https://schema.org",
@@ -67,8 +68,8 @@ export default function BooksPage() {
         title="Children’s Books"
         description="Two FinGoose picture books about money and fairness."
         image="/assets/money-toast-stack.webp"
-        primary="Browse both books"
-        primaryHref="#book-library"
+        primary="Peek inside"
+        primaryHref="#peek-inside"
         secondary="All resources"
         secondaryHref="/resources"
         tone="orange"
@@ -84,6 +85,19 @@ export default function BooksPage() {
             </div>
           </Reveal>
           <BookCollectionExperience />
+        </div>
+      </section>
+
+      <section className="section fgx-bookpeek-section" id="peek-inside">
+        <div className="container-wide">
+          <Reveal className="scrapbook-section-heading">
+            <span className="sticker-label sticker-orange">Peek inside</span>
+            <div>
+              <h2>Flip through the first pages.</h2>
+              <p>Pick a book, then click a page (or swipe) to turn it.</p>
+            </div>
+          </Reveal>
+          <BookPreview />
         </div>
       </section>
     </main>
