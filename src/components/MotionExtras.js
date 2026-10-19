@@ -34,6 +34,8 @@ const ALIVE = [
   [".sticker-label", "stamp"],
   [".fgx-es-stats li", "pop"],
   [".fgx-es-steps li", "rise"],
+  [".fgx-es-line li", "rise"],
+  [".fgx-es-taped", "drop"],
   [".fgx-es-session", "slide"],
   [".fgx-es-card", "rise"],
   [".fgx-es-words li", "drop"],

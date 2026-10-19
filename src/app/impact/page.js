@@ -133,19 +133,6 @@ export default function ImpactPage() {
         </div>
       </section>
 
-      <section className="section event-timeline-section has-timeline" id="timeline">
-        <div className="container">
-          <Reveal className="scrapbook-section-heading">
-            <span className="sticker-label sticker-orange">Timeline</span>
-            <div>
-              <h2>Our timeline</h2>
-              <p>From becoming a nonprofit in October 2025 to today. Tap a photo to see more.</p>
-            </div>
-          </Reveal>
-          <EventTimeline />
-        </div>
-      </section>
-
       <section className="section fgx-spot-section" id="spotlights">
         <div className="container">
           <Reveal className="scrapbook-section-heading">
@@ -156,6 +143,19 @@ export default function ImpactPage() {
             </div>
           </Reveal>
           <EventSpotlights />
+        </div>
+      </section>
+
+      <section className="section event-timeline-section has-timeline" id="timeline">
+        <div className="container">
+          <Reveal className="scrapbook-section-heading">
+            <span className="sticker-label sticker-orange">Timeline</span>
+            <div>
+              <h2>Our timeline</h2>
+              <p>From becoming a nonprofit in October 2025 to today. Tap a photo to see more.</p>
+            </div>
+          </Reveal>
+          <EventTimeline />
         </div>
       </section>
 

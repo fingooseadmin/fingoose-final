@@ -15,12 +15,12 @@ function PhotoStrip({ photos }) {
   const close = useCallback(() => setOpen(-1), []);
   return (
     <>
-      <ul className="fgx-es-photos">
+      <ul className={`fgx-es-photos count-${photos.length}`}>
         {photos.map((photo, i) => (
           <li key={photo.src} style={{ "--r": `${[-3, 2, -1.5, 2.6, -2.2, 1.4][i % 6]}deg` }}>
             <button type="button" className="fgx-es-photo" onClick={() => setOpen(i)} data-cursor-plain>
               <span className="fgx-es-photo-img">
-                <Image src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} sizes="(max-width: 700px) 70vw, 300px" />
+                <Image src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} sizes="(max-width: 700px) 45vw, 280px" />
               </span>
               <span className="fgx-es-photo-cap">{photo.caption}</span>
             </button>
@@ -32,7 +32,20 @@ function PhotoStrip({ photos }) {
   );
 }
 
-function StoryHeader({ story }) {
+export function TapedPhoto({ photo, tilt = 2, sticker, className = "", sizes = "(max-width: 900px) 80vw, 420px" }) {
+  return (
+    <figure className={`fgx-es-taped ${className}`} style={{ "--r": `${tilt}deg` }}>
+      <span className="fgx-es-taped-tape" aria-hidden="true" />
+      <span className="fgx-es-taped-img">
+        <Image src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} sizes={sizes} />
+      </span>
+      {photo.caption ? <figcaption>{photo.caption}</figcaption> : null}
+      {sticker ? <Sticker kind={sticker} style={{ right: "-18px", top: "-20px", width: "54px", "--r": "14deg" }} /> : null}
+    </figure>
+  );
+}
+
+function StoryHeader({ story, sticker = "star" }) {
   return (
     <header className="fgx-es-head">
       <div className="fgx-es-head-copy">
@@ -43,15 +56,16 @@ function StoryHeader({ story }) {
           <span><Icon name="school" size={16} /> {story.where}</span>
         </p>
         <p className="fgx-es-hook">{story.hook}</p>
+        <ul className="fgx-es-stats">
+          {story.stats.map((stat) => (
+            <li key={stat.label}>
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul className="fgx-es-stats">
-        {story.stats.map((stat) => (
-          <li key={stat.label}>
-            <strong>{stat.value}</strong>
-            <span>{stat.label}</span>
-          </li>
-        ))}
-      </ul>
+      {story.hero ? <TapedPhoto photo={story.hero} tilt={2.5} sticker={sticker} className="fgx-es-hero" /> : null}
     </header>
   );
 }
@@ -64,10 +78,11 @@ export function WorkshopStory() {
       <StoryHeader story={s} />
 
       <h4 className="fgx-es-h">How a workshop runs</h4>
-      <ol className="fgx-es-steps">
+      <ol className="fgx-es-line">
         {s.steps.map((step, i) => (
           <li key={step.title}>
-            <span className="fgx-es-step-num">{String(i + 1).padStart(2, "0")}</span>
+            <span className="fgx-es-line-dot" aria-hidden="true" />
+            <span className="fgx-es-line-num">Step {i + 1}</span>
             <strong>{step.title}</strong>
             <p>{step.copy}</p>
           </li>
@@ -144,10 +159,11 @@ function Spotlight({ story }) {
   const total = story.breakdown ? story.breakdown.rows.reduce((sum, r) => sum + r.amount, 0) : 0;
   return (
     <article className={`fgx-es tone-${story.tone}`}>
-      <StoryHeader story={story} />
+      <StoryHeader story={story} sticker={story.tone === "orange" ? "heart" : "smile"} />
 
       {story.breakdown ? (
-        <div className="fgx-es-money">
+        <div className={`fgx-es-money ${story.breakdown.photo ? "has-photo" : ""}`}>
+          <div className="fgx-es-money-main">
           <h4 className="fgx-es-h">{story.breakdown.title}</h4>
           <div className="fgx-es-money-bar" aria-hidden="true">
             {story.breakdown.rows.map((r) => (
@@ -171,16 +187,21 @@ function Spotlight({ story }) {
             </li>
           </ul>
           <p className="fgx-es-money-note">{story.breakdown.note}</p>
+          </div>
+          {story.breakdown.photo ? <TapedPhoto photo={story.breakdown.photo} tilt={-3} sticker="coin" /> : null}
         </div>
       ) : null}
 
       {story.story ? (
-        <div className="fgx-es-book">
-          <h4 className="fgx-es-h">{story.story.title}</h4>
-          <p>{story.story.copy}</p>
-          <Link className="fgx-es-book-link" href={story.story.href}>
-            {story.story.linkLabel} <Icon name="book" size={16} />
-          </Link>
+        <div className={`fgx-es-book ${story.story.photo ? "has-photo" : ""}`}>
+          {story.story.photo ? <TapedPhoto photo={story.story.photo} tilt={-3} sizes="260px" /> : null}
+          <div>
+            <h4 className="fgx-es-h">{story.story.title}</h4>
+            <p>{story.story.copy}</p>
+            <Link className="fgx-es-book-link" href={story.story.href}>
+              {story.story.linkLabel} <Icon name="book" size={16} />
+            </Link>
+          </div>
         </div>
       ) : null}
 
@@ -198,16 +219,17 @@ function Spotlight({ story }) {
         </>
       ) : null}
 
-      {story.sections?.length ? (
-        <div className="fgx-es-cards">
-          {story.sections.map((sec) => (
-            <div className="fgx-es-card is-wide" key={sec.title}>
-              <strong>{sec.title}</strong>
-              <p>{sec.copy}</p>
+      {story.sections?.length
+        ? story.sections.map((sec, i) => (
+            <div className={`fgx-es-row ${sec.photo ? "has-photo" : ""} ${i % 2 ? "is-flip" : ""}`} key={sec.title}>
+              <div className="fgx-es-row-copy">
+                <h4 className="fgx-es-h">{sec.title}</h4>
+                <p>{sec.copy}</p>
+              </div>
+              {sec.photo ? <TapedPhoto photo={sec.photo} tilt={i % 2 ? -2.5 : 2.5} sizes="300px" /> : null}
             </div>
-          ))}
-        </div>
-      ) : null}
+          ))
+        : null}
 
       <h4 className="fgx-es-h">Snapshots</h4>
       <PhotoStrip photos={story.photos} />

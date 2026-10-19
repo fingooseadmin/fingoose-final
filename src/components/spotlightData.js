@@ -13,6 +13,7 @@ export const workshopStory = {
   title: "Three workshops, two schools, one big jump in scores.",
   when: "Nov 10 – Dec 17, 2025",
   where: "Charles DeWolf Middle School, Old Tappan · Benjamin Franklin Middle School, Teaneck",
+  hero: { src: "/assets/events/bfms-crowd.webp", width: 1600, height: 1200, alt: "50+ students at the FinGoose workshop at Benjamin Franklin Middle School", caption: "50+ students at Benjamin Franklin" },
   hook:
     "Before we taught anything, we surveyed 92 local middle schoolers. Only 31 felt confident they remembered what they had learned about money in class. So we built workshops around doing, not memorizing: every lesson is a money crisis students have to fix themselves.",
   stats: [
@@ -78,7 +79,6 @@ export const workshopStory = {
     role: "Principal, Benjamin Franklin Middle School"
   },
   photos: [
-    { src: "/assets/events/bfms-crowd.webp", width: 1600, height: 1200, alt: "50+ students at the Benjamin Franklin workshop", caption: "A full room at Benjamin Franklin" },
     { src: "/assets/events/cdw-presenters.webp", width: 1600, height: 1200, alt: "A team presenting its Crisis Lab plan at Charles DeWolf", caption: "Presentation time" },
     { src: "/assets/events/cdw-teams.webp", width: 1600, height: 1200, alt: "Students discussing a money decision", caption: "Teams working the crisis" },
     { src: "/assets/events/cdw-classroom.webp", width: 1600, height: 1200, alt: "Charles DeWolf students working in teams", caption: "Charles DeWolf, workshop 01" },
@@ -101,6 +101,7 @@ export const spotlights = [
     when: "Throughout March 2026",
     where: "Multiple keychain & cupcake sales",
     tone: "orange",
+    hero: { src: "/assets/events/bake-04.webp", width: 1600, height: 1200, alt: "Two FinGoose students at the bake sale table", caption: "Open for business" },
     hook:
       "We needed prize money for the Golden Egg Challenge, a high school pitch competition we launched with Youth Policymakers for Tomorrow where teams pitch projects at the intersection of money and policy. So we did what any money-minded goose would do: we opened a bake sale.",
     stats: [
@@ -115,6 +116,7 @@ export const spotlights = [
         { label: "Keychains", detail: "120 × $10", amount: 1200, color: "#3c4cba" },
         { label: "Cupcakes", detail: "200 × $5", amount: 1000, color: "#ff8209" }
       ],
+      photo: { src: "/assets/events/bake-05.webp", width: 1600, height: 1200, alt: "A FinGoose plush next to treats and the sale sign", caption: "Finn on duty" },
       note: "Every dollar goes toward microgrants for the winning Golden Egg teams, so their ideas can actually happen."
     },
     sections: [
@@ -126,8 +128,6 @@ export const spotlights = [
     ],
     links: [{ label: "See it on Instagram", href: IG, external: true }],
     photos: [
-      { src: "/assets/events/bake-04.webp", width: 1600, height: 1200, alt: "Two FinGoose students at the bake sale table", caption: "Open for business" },
-      { src: "/assets/events/bake-05.webp", width: 1600, height: 1200, alt: "A FinGoose plush next to treats and the sale sign", caption: "Finn on duty" },
       { src: "/assets/events/bake-03.webp", width: 1600, height: 1200, alt: "Students buying treats at the FinGoose table", caption: "The rush" },
       { src: "/assets/events/bake-02.webp", width: 1600, height: 1200, alt: "Two students showing what they bought", caption: "Happy customers" },
       { src: "/assets/events/bake-01.webp", width: 1600, height: 1200, alt: "Students supporting the FinGoose bake sale", caption: "Thanks for stopping by!" }
@@ -141,6 +141,7 @@ export const spotlights = [
     when: "Saturday, Oct 3, 2026 · 10:30 AM",
     where: "Leonia Public Library, 227 Fort Lee Road, Leonia, NJ",
     tone: "blue",
+    hero: { src: "/assets/events/library-flyer.webp", width: 1237, height: 1600, alt: "Flyer for the Dino Read Aloud and Volcano Activity", caption: "The flyer we designed" },
     hook:
       "A Saturday morning for younger readers. We read FinGoose and the Dino Dream out loud, then turned the room into a lab for a foaming “elephant toothpaste” volcano.",
     stats: [
@@ -153,6 +154,7 @@ export const spotlights = [
       title: "The story we read",
       copy:
         "Little FinGoose falls in love with Mr. Dino, a toy in the shop window, but Papa Goose says it costs too much. So FinGoose learns to earn coins doing chores, saves them in a jar, skips a shiny kite he doesn’t need, and finally counts out 20 coins to bring Mr. Dino home. And next time? He’s saving for the kite.",
+      photo: { src: "/assets/book-dino-dream-cover.webp", width: 828, height: 840, alt: "Cover of FinGoose and the Dino Dream", caption: "FinGoose and the Dino Dream" },
       href: "/resources/books/#peek-inside",
       linkLabel: "Flip through the book"
     },
@@ -168,6 +170,7 @@ export const spotlights = [
     sections: [
       {
         title: "Then: elephant toothpaste",
+        photo: { src: "/assets/events/library-04.webp", width: 1200, height: 1600, alt: "Elephant toothpaste activity set up at the library", caption: "Volcano setup" },
         copy:
           "After the story came the science: a hands-on “elephant toothpaste” experiment that foams up and over like a volcano. Financial storytelling, meet chemistry."
       }
@@ -178,9 +181,7 @@ export const spotlights = [
     ],
     photos: [
       { src: "/assets/events/library-01.webp", width: 1600, height: 1200, alt: "FinGoose team reading aloud to kids at Leonia Public Library", caption: "Story time" },
-      { src: "/assets/events/library-02.webp", width: 1600, height: 1200, alt: "Families listening to the FinGoose read-aloud", caption: "Families listening in" },
-      { src: "/assets/events/library-04.webp", width: 1200, height: 1600, alt: "Elephant toothpaste activity at the library", caption: "Volcano setup" },
-      { src: "/assets/events/library-flyer.webp", width: 1237, height: 1600, alt: "Flyer for the Dino Read Aloud and Volcano Activity", caption: "The flyer" }
+      { src: "/assets/events/library-02.webp", width: 1600, height: 1200, alt: "Families listening to the FinGoose read-aloud", caption: "Families listening in" }
     ]
   }
 ];
