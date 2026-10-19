@@ -7,7 +7,33 @@ import { usePathname } from "next/navigation";
 //  • a thin progress bar along the top that fills as you scroll
 //  • stat numbers ("1K+", "$10K+", "15M+") count up when they scroll in
 //  • [data-parallax] elements drift at their own speed while scrolling
-const COUNT_SELECTOR = ".scrap-stat strong, .impact-metric-card strong, .impact-orbit-core, [data-count]";
+//  • "alive" elements pop, rise, slide or drop in with a stagger as they
+//    scroll into view (only ones that start below the fold, so nothing on
+//    screen ever disappears)
+const ALIVE = [
+  [".partner-gallery > li", "drop"],
+  [".wwd-page", "rise"],
+  [".wwd-chip", "pop"],
+  [".scrap-stat", "rise"],
+  [".marker-list li", "slide"],
+  [".retention-bar > span", "grow"],
+  [".join-benefit-card", "rise"],
+  [".join-steps-grid > *", "rise"],
+  [".join-faq-list > *", "slide"],
+  [".resource-scrap-grid > *", "rise"],
+  [".workshop-question-card", "rise"],
+  [".workshop-stat-grid > *", "pop"],
+  [".workshop-fit-grid > *", "rise"],
+  [".curriculum-unit", "slide"],
+  [".fgx-lessons-tab", "slide"],
+  [".fgx-bookpeek-tab", "pop"],
+  [".founder-polaroid", "drop"],
+  [".mission-note", "rise"],
+  [".scrapbook-quote-note", "rise"],
+  [".fg-footer-links > *", "rise"],
+  [".sticker-label", "stamp"]
+];
+const COUNT_SELECTOR = ".scrap-stat strong, .impact-metric-card strong, [data-count]";
 
 export default function MotionExtras() {
   const pathname = usePathname();
@@ -65,7 +91,6 @@ export default function MotionExtras() {
           if (t < 1) window.requestAnimationFrame(tick);
           else {
             el.textContent = text;
-            el.classList.add("fgx-counted");
           }
         };
         window.requestAnimationFrame(tick);
@@ -87,7 +112,53 @@ export default function MotionExtras() {
       });
     }
 
+    // Scroll-in "alive" animations
+    let aliveIO = null;
+    const aliveTimers = [];
+    const alive = [];
+    if (!reduce && "IntersectionObserver" in window) {
+      const seen = new Set();
+      ALIVE.forEach(([selector, variant]) => {
+        const groups = new Map();
+        document.querySelectorAll(selector).forEach((el) => {
+          if (seen.has(el) || el.closest(".fgx-sr, [role='dialog']")) return;
+          if (el.getBoundingClientRect().top < window.innerHeight * 0.95) return;
+          seen.add(el);
+          const parent = el.parentElement;
+          const i = groups.get(parent) || 0;
+          groups.set(parent, i + 1);
+          el.style.setProperty("--sr-d", `${Math.min(i, 9) * 75}ms`);
+          el.style.setProperty("--sr-r", `${i % 2 ? -9 : 8}deg`);
+          el.classList.add("fgx-sr", `fgx-v-${variant}`);
+          alive.push(el);
+        });
+      });
+      aliveIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            aliveIO.unobserve(el);
+            el.classList.add("fgx-sr-in");
+            const delay = parseFloat(el.style.getPropertyValue("--sr-d")) || 0;
+            aliveTimers.push(window.setTimeout(() => {
+              el.classList.remove("fgx-sr", "fgx-sr-in", ...[...el.classList].filter((c) => c.startsWith("fgx-v-")));
+              el.style.removeProperty("--sr-d");
+              el.style.removeProperty("--sr-r");
+            }, delay + 1100));
+          });
+        },
+        { rootMargin: "0px 0px -10% 0px" }
+      );
+      alive.forEach((el) => aliveIO.observe(el));
+    }
+
     return () => {
+      aliveIO?.disconnect();
+      aliveTimers.forEach((t) => window.clearTimeout(t));
+      alive.forEach((el) => {
+        el.classList.remove("fgx-sr", "fgx-sr-in", ...[...el.classList].filter((c) => c.startsWith("fgx-v-")));
+      });
       window.cancelAnimationFrame(frame);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);

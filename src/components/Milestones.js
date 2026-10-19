@@ -85,12 +85,27 @@ function PartnerCard({ partner }) {
 // Gallery of partner logos; each tile links to the partner's site.
 export function PartnerStrip({ title = "Partners, schools & programs" }) {
   return (
-    <section className="partner-strip" id="partners" aria-label={title}>
+    <section className="partner-strip fgx-partners" id="partners" aria-label={title}>
+      <div className="fgx-partner-ticker" aria-hidden="true">
+        <div>
+          {[0, 1].map((copy) => (
+            <span key={copy}>
+              {partners.map((partner) => (
+                <b key={partner.name}>{partner.name} <i>★</i></b>
+              ))}
+            </span>
+          ))}
+        </div>
+      </div>
       <div className="container">
-        <h2 className="partner-strip-title"><span>{title}</span></h2>
+        <h2 className="partner-strip-title">
+          <span>{title}</span>
+          <small className="fgx-partner-count">{partners.length} organizations · thank you!</small>
+        </h2>
         <ul className="partner-gallery">
-          {partners.map((partner) => (
-            <li key={partner.name}>
+          {partners.map((partner, index) => (
+            <li key={partner.name} style={{ "--i": index, "--sway": `${(index % 3) * 0.7}s` }}>
+              <span className={`fgx-partner-tape tape-${index % 4}`} aria-hidden="true" />
               <PartnerCard partner={partner} />
             </li>
           ))}

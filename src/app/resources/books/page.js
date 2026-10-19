@@ -68,36 +68,36 @@ export default function BooksPage() {
         title="Children’s Books"
         description="Two FinGoose picture books about money and fairness."
         image="/assets/money-toast-stack.webp"
-        primary="Peek inside"
+        primary="Flip through the books"
         primaryHref="#peek-inside"
         secondary="All resources"
         secondaryHref="/resources"
         tone="orange"
       />
 
-      <section className="section resource-books-section" id="book-library">
-        <div className="container-wide resource-book-library">
-          <Reveal className="scrapbook-section-heading book-library-heading">
-            <span className="sticker-label sticker-orange">The FinGoose bookshelf</span>
-            <div>
-              <h2>Choose your next story.</h2>
-              <p>Explore both FinGoose picture books and their available reading editions.</p>
-            </div>
-          </Reveal>
-          <BookCollectionExperience />
-        </div>
-      </section>
-
       <section className="section fgx-bookpeek-section" id="peek-inside">
         <div className="container-wide">
           <Reveal className="scrapbook-section-heading">
-            <span className="sticker-label sticker-orange">Peek inside</span>
+            <span className="sticker-label sticker-orange">The FinGoose bookshelf</span>
             <div>
-              <h2>Flip through the first pages.</h2>
-              <p>Pick a book, then click a page (or swipe) to turn it.</p>
+              <h2>Choose your next story.</h2>
+              <p>Pick a book, then click a page (or swipe) to flip through the first pages.</p>
             </div>
           </Reveal>
           <BookPreview />
+        </div>
+      </section>
+
+      <section className="section resource-books-section" id="book-library">
+        <div className="container-wide resource-book-library">
+          <Reveal className="scrapbook-section-heading book-library-heading">
+            <span className="sticker-label sticker-orange">For classrooms & families</span>
+            <div>
+              <h2>Bring the story to life.</h2>
+              <p>Where to read each book, plus conversation prompts and read-aloud ideas to go with it.</p>
+            </div>
+          </Reveal>
+          <BookCollectionExperience />
         </div>
       </section>
     </main>

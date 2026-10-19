@@ -6,9 +6,7 @@ import PageHero from "@/components/PageHero";
 import Icon from "@/components/Icon";
 import ImpactReels from "@/components/ImpactReels";
 import Reveal from "@/components/Reveal";
-import WorkshopPolaroids from "@/components/WorkshopPolaroids";
-import { workshopEvents } from "@/components/workshopData";
-import BookShowcase from "@/components/BookShowcase";
+import BookPreview from "@/components/BookPreview";
 import ShipmentCountdown from "@/components/ShipmentCountdown";
 import { PartnerStrip } from "@/components/Milestones";
 import EventTimeline from "@/components/EventTimeline";
@@ -175,25 +173,16 @@ export default function ImpactPage() {
         </div>
       </section>
 
-      <section className="section impact-gallery-section" id="workshop-field-notes">
-        <div className="container">
+      <section className="section fgx-bookpeek-section" id="books">
+        <div className="container-wide">
           <Reveal className="scrapbook-section-heading">
-            <span className="sticker-label sticker-orange">Workshop scrapbook</span>
+            <span className="sticker-label sticker-orange">Our books</span>
             <div>
-              <h2>Open the field notes.</h2>
-              <p>
-                These larger workshop polaroids hold the story behind each
-                visit. Select one to read what students practiced and learned.
-              </p>
+              <h2>Two FinGoose picture books.</h2>
+              <p>230 copies of Two Mornings sold, plus 150 donated through Books for Africa. Pick a book and flip through the first pages.</p>
             </div>
           </Reveal>
-          <WorkshopPolaroids events={workshopEvents} />
-        </div>
-      </section>
-
-      <section className="section book-impact-section">
-        <div className="container-wide impact-book-library">
-          <BookShowcase context="impact" />
+          <BookPreview />
         </div>
       </section>
 

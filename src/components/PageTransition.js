@@ -4,15 +4,13 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-// Loading animation between pages, FinGoose style: a gold coin bursts out
-// from wherever you clicked and fills the screen, Finn's badge does a coin
-// flip while a little receipt prints the page you're headed to, then the
-// coin drops away through a piggy-bank slot at the bottom.
+// Clean transition between pages: a navy sheet slides up over the page with
+// the FinGoose badge and the name of the page you're going to, the next page
+// loads underneath, then the sheet carries on up and off the screen.
 // Skipped for same-page #links, new tabs, downloads, outside sites, and
 // for anyone with "reduce motion" turned on.
-const COVER_MS = 520;
-const MIN_SHOW_MS = 650;
-const LINES = ["Counting coins…", "Waddling over…", "Balancing the budget…", "Honk honk…", "Saving you a seat…"];
+const COVER_MS = 430;
+const MIN_SHOW_MS = 280;
 const PAGE_NAMES = {
   "/": "Home",
   "/about": "About FinGoose",
@@ -32,9 +30,7 @@ export default function PageTransition() {
   const router = useRouter();
   const pathname = usePathname();
   const [phase, setPhase] = useState("idle"); // idle | cover | wait | reveal
-  const [line, setLine] = useState(LINES[0]);
   const [dest, setDest] = useState("");
-  const [origin, setOrigin] = useState({ x: "50%", y: "50%" });
   const pending = useRef(null);
   const startedAt = useRef(0);
   const lastPath = useRef(pathname);
@@ -59,10 +55,8 @@ export default function PageTransition() {
       event.preventDefault();
       pending.current = url.pathname + url.search + url.hash;
       startedAt.current = window.performance.now();
-      setLine(LINES[Math.floor(Math.random() * LINES.length)]);
       const key = url.pathname.replace(/\/+$/, "") || "/";
       setDest(PAGE_NAMES[key] || link.textContent.trim().slice(0, 28) || "Next page");
-      setOrigin({ x: `${event.clientX || window.innerWidth / 2}px`, y: `${event.clientY || window.innerHeight / 2}px` });
       setPhase("cover");
       window.setTimeout(() => {
         setPhase("wait");
@@ -85,7 +79,7 @@ export default function PageTransition() {
       if (!window.location.hash) window.scrollTo({ top: 0, behavior: "instant" });
       setPhase("reveal");
     }, Math.max(80, MIN_SHOW_MS + COVER_MS - elapsed));
-    const t2 = window.setTimeout(() => setPhase("idle"), Math.max(80, MIN_SHOW_MS + COVER_MS - elapsed) + 700);
+    const t2 = window.setTimeout(() => setPhase("idle"), Math.max(80, MIN_SHOW_MS + COVER_MS - elapsed) + 620);
     return () => {
       window.clearTimeout(t1);
       window.clearTimeout(t2);
@@ -106,32 +100,14 @@ export default function PageTransition() {
   if (phase === "idle") return null;
 
   return (
-    <div
-      className={`fgx-coin is-${phase}`}
-      style={{ "--cx": origin.x, "--cy": origin.y }}
-      aria-hidden={phase === "reveal"}
-      role="status"
-      aria-label={`Loading ${dest}`}
-    >
-      <div className="fgx-coin-fill">
-        <span className="fgx-coin-ridge" />
-        <div className="fgx-coin-center">
-          <div className="fgx-coin-flip">
-            <span className="fgx-coin-face is-front">
-              <Image src="/assets/finn-badge.png" alt="" width={512} height={512} sizes="140px" priority />
-            </span>
-            <span className="fgx-coin-face is-back">$</span>
-          </div>
-          <div className="fgx-receipt">
-            <p className="fgx-receipt-head">FinGoose Bank · receipt</p>
-            <p className="fgx-receipt-row"><span>Next stop</span><strong>{dest}</strong></p>
-            <p className="fgx-receipt-row"><span>Cost</span><strong>$0.00</strong></p>
-            <p className="fgx-receipt-row"><span>Knowledge</span><strong>+100</strong></p>
-            <p className="fgx-receipt-note">{line}</p>
-          </div>
+    <div className={`fgx-sheet is-${phase}`} role="status" aria-label={`Loading ${dest}`} aria-hidden={phase === "reveal"}>
+      <div className="fgx-sheet-panel">
+        <div className="fgx-sheet-center">
+          <Image src="/assets/finn-badge.png" alt="" width={512} height={512} sizes="72px" priority />
+          <span className="fgx-sheet-name">{dest}</span>
+          <span className="fgx-sheet-line"><span /></span>
         </div>
       </div>
-      <span className="fgx-coin-slot" aria-hidden="true" />
     </div>
   );
 }
