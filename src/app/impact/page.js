@@ -7,6 +7,7 @@ import Icon from "@/components/Icon";
 import ImpactReels from "@/components/ImpactReels";
 import Reveal from "@/components/Reveal";
 import BookPreview from "@/components/BookPreview";
+import EventSpotlights from "@/components/EventStory";
 import ShipmentCountdown from "@/components/ShipmentCountdown";
 import { PartnerStrip } from "@/components/Milestones";
 import EventTimeline from "@/components/EventTimeline";
@@ -132,34 +133,6 @@ export default function ImpactPage() {
         </div>
       </section>
 
-      <section className="section retention-section" aria-labelledby="retention-title">
-        <div className="container retention-card">
-          <Reveal className="retention-copy">
-            <span className="sticker-label sticker-orange">The result</span>
-            <h2 id="retention-title">Scores more than doubled.</h2>
-            <p>
-              Across our three Crisis Lab workshops (90+ middle school students
-              at Charles DeWolf and Benjamin Franklin), the average score went
-              from 43% on the pre-test to 93% on the post-test.
-            </p>
-          </Reveal>
-          <Reveal className="retention-chart" delay={80}>
-            <div className="retention-bars" role="img" aria-label="Average score: 43% before the workshops, 93% after">
-              <div className="retention-bar is-before" style={{ "--h": "43%" }}>
-                <strong>43%</strong>
-                <span />
-                <small>Pre-test</small>
-              </div>
-              <div className="retention-bar is-after" style={{ "--h": "93%" }}>
-                <strong>93%</strong>
-                <span />
-                <small>Post-test</small>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       <section className="section event-timeline-section has-timeline" id="timeline">
         <div className="container">
           <Reveal className="scrapbook-section-heading">
@@ -170,6 +143,19 @@ export default function ImpactPage() {
             </div>
           </Reveal>
           <EventTimeline />
+        </div>
+      </section>
+
+      <section className="section fgx-spot-section" id="spotlights">
+        <div className="container">
+          <Reveal className="scrapbook-section-heading">
+            <span className="sticker-label sticker-orange">Up close</span>
+            <div>
+              <h2>The big events, start to finish.</h2>
+              <p>Who was there, what happened, what it raised, and what we learned.</p>
+            </div>
+          </Reveal>
+          <EventSpotlights />
         </div>
       </section>
 

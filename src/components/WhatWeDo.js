@@ -29,8 +29,8 @@ const pillars = [
       { src: "/assets/events/donation-08.webp", alt: "FinGoose team with boxes of donated books" }
     ],
     links: [
-      { label: "Read-alouds", href: "/impact/#timeline" },
-      { label: "Bake sales", href: "/impact/#timeline" },
+      { label: "Read-alouds", href: "/impact/#spotlight-library" },
+      { label: "Bake sales", href: "/impact/#spotlight-bake-sales" },
       { label: "Book donations", href: "/impact/#timeline" }
     ]
   },

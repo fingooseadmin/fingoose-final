@@ -9,6 +9,7 @@
 //                 The first photo is the cover. Leave [] for "photos coming soon".
 //   instagram   – optional link for the "See it on Instagram" button
 //   link / linkLabel – optional extra button (e.g. the card game)
+//   spotlight   – optional link to the event's full write-up (see spotlightData.js)
 
 const INSTAGRAM_PROFILE = "https://www.instagram.com/fin.goose/";
 
@@ -32,45 +33,23 @@ export const timelineEvents = [
     photos: []
   },
   {
-    id: "cdw-workshop-1",
-    date: "Nov 10, 2025",
-    name: "First workshop at Charles DeWolf",
+    id: "workshop-series",
+    date: "Nov 10 – Dec 17, 2025",
+    name: "Crisis Lab workshop series",
     description:
-      "Our first in-person Crisis Lab workshop in Old Tappan. Students took a pre-test, then worked in teams to solve a financial crisis and present their fix.",
+      "Three workshops at Charles DeWolf and Benjamin Franklin Middle Schools for 90+ students. Average scores jumped from 43% on the pre-test to 93% on the post-test.",
     icon: "school",
-    instagram: "https://www.instagram.com/p/DSlRkWiEl_m/",
+    spotlight: "/resources/workshops/#workshop-story",
     photos: [
+      { src: "/assets/events/bfms-crowd.webp", width: 1600, height: 1200, alt: "50+ students at the FinGoose workshop at Benjamin Franklin Middle School" },
       { src: "/assets/workshop-financial-resilience.webp", width: 1500, height: 2000, alt: "FinGoose financial resilience workshop at Charles DeWolf Middle School" },
       { src: "/assets/events/cdw-presenters.webp", width: 1600, height: 1200, alt: "Students presenting their Crisis Lab plan at Charles DeWolf" },
       { src: "/assets/events/cdw-classroom.webp", width: 1600, height: 1200, alt: "Charles DeWolf students working in teams" },
       { src: "/assets/events/cdw-teams.webp", width: 1600, height: 1200, alt: "Students discussing a money decision" },
-      { src: "/assets/events/cdw-team.webp", width: 1200, height: 1600, alt: "A student team presenting at Charles DeWolf" }
-    ]
-  },
-  {
-    id: "cdw-workshop-2",
-    date: "Dec 15, 2025",
-    name: "Second workshop at Charles DeWolf",
-    description:
-      "We came back to the same students. This time Munchkins boosted participation, and we saw stronger recall and reasoning than in the first session. About 40 students joined across both visits.",
-    icon: "school",
-    instagram: "https://www.instagram.com/p/DSn53sOkkil/",
-    photos: [
-      { src: "/assets/workshop-money-decisions.webp", width: 1500, height: 2000, alt: "FinGoose money decisions workshop at Charles DeWolf Middle School" }
-    ]
-  },
-  {
-    id: "bfms-workshop",
-    date: "Dec 17, 2025",
-    name: "Workshop at Benjamin Franklin Middle School",
-    description:
-      "Our biggest workshop yet: 50+ students in Teaneck, split across two rooms with three leaders. That brought the series to 90+ students, and average scores rose from 43% on the pre-test to 93% on the post-test.",
-    icon: "chart",
-    instagram: "https://www.instagram.com/p/DSqfPA4koVy/",
-    photos: [
-      { src: "/assets/events/bfms-crowd.webp", width: 1600, height: 1200, alt: "50+ students at the FinGoose workshop at Benjamin Franklin Middle School" },
+      { src: "/assets/workshop-money-decisions.webp", width: 1500, height: 2000, alt: "FinGoose money decisions workshop at Charles DeWolf Middle School" },
       { src: "/assets/workshop-money-management.webp", width: 1500, height: 2000, alt: "FinGoose workshop at Benjamin Franklin Middle School" },
-      { src: "/assets/events/bfms-team.webp", width: 1200, height: 1600, alt: "FinGoose team with Benjamin Franklin Middle School teachers" }
+      { src: "/assets/events/bfms-team.webp", width: 1200, height: 1600, alt: "FinGoose team with Benjamin Franklin Middle School teachers" },
+      { src: "/assets/events/cdw-team.webp", width: 1200, height: 1600, alt: "A student team presenting at Charles DeWolf" }
     ]
   },
   {
@@ -161,9 +140,9 @@ export const timelineEvents = [
     date: "Mar 2026",
     name: "Keychain & cupcake bake sales",
     description:
-      "Over a month of bake sales we sold 120 keychains and 200 cupcakes, raising $2,200 for future FinGoose programs.",
+      "Over a month of bake sales we sold 120 keychains and 200 cupcakes, raising $2,200 for Golden Egg Challenge microgrants.",
     icon: "heart",
-    instagram: INSTAGRAM_PROFILE,
+    spotlight: "/impact/#spotlight-bake-sales",
     photos: [
       { src: "/assets/events/bake-04.webp", width: 1600, height: 1200, alt: "FinGoose team at the bake sale table" },
       { src: "/assets/events/bake-02.webp", width: 1600, height: 1200, alt: "FinGoose students at a bake sale" },
@@ -222,7 +201,7 @@ export const timelineEvents = [
     description:
       "We read FinGoose and the Dino Dream aloud, then followed it with a hands-on “elephant toothpaste” science activity.",
     icon: "book",
-    instagram: INSTAGRAM_PROFILE,
+    spotlight: "/impact/#spotlight-library",
     photos: [
       { src: "/assets/events/library-01.webp", width: 1600, height: 1200, alt: "FinGoose team reading aloud to kids at Leonia Public Library" },
       { src: "/assets/events/library-02.webp", width: 1600, height: 1200, alt: "Families listening to the FinGoose read-aloud" },

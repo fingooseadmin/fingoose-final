@@ -195,8 +195,13 @@ export default function EventTimeline() {
                   <span>{event.date}:</span> {event.name}
                 </h3>
                 <p>{event.description}</p>
-                {event.link || event.instagram ? (
+                {event.link || event.instagram || event.spotlight ? (
                   <div className="event-timeline-actions">
+                    {event.spotlight ? (
+                      <a className="button button-dark event-timeline-insta" href={event.spotlight} data-spotlight={event.spotlight.split("#")[1]}>
+                        Read the full story <Icon name="arrow" size={16} />
+                      </a>
+                    ) : null}
                     {event.link ? (
                       <a className="button button-gold event-timeline-insta" href={event.link} target="_blank" rel="noreferrer">
                         {event.linkLabel || "Learn more"} <Icon name="external" size={16} />

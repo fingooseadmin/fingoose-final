@@ -24,7 +24,7 @@ function allPhotos() {
   return list;
 }
 
-function Lightbox({ photos, index, onClose, onStep }) {
+export function Lightbox({ photos, index, onClose, onStep }) {
   const photo = photos[index];
   useEffect(() => {
     const onKey = (e) => {
@@ -47,8 +47,8 @@ function Lightbox({ photos, index, onClose, onStep }) {
           <figure className="fgx-lb-figure" key={photo.src}>
             <Image src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} sizes="(max-width: 820px) 92vw, 1000px" />
             <figcaption>
-              <strong>{photo.event}</strong>
-              <span>{photo.date} · {index + 1} / {photos.length}</span>
+              <strong>{photo.event || photo.caption}</strong>
+              <span>{photo.date ? `${photo.date} · ` : ""}{index + 1} / {photos.length}</span>
             </figcaption>
           </figure>
           <button className="fgx-lb-nav is-next" type="button" onClick={() => onStep(1)} aria-label="Next photo">

@@ -31,7 +31,16 @@ const ALIVE = [
   [".mission-note", "rise"],
   [".scrapbook-quote-note", "rise"],
   [".fg-footer-links > *", "rise"],
-  [".sticker-label", "stamp"]
+  [".sticker-label", "stamp"],
+  [".fgx-es-stats li", "pop"],
+  [".fgx-es-steps li", "rise"],
+  [".fgx-es-session", "slide"],
+  [".fgx-es-card", "rise"],
+  [".fgx-es-words li", "drop"],
+  [".fgx-es-slides figure", "rise"],
+  [".fgx-es-photos li", "drop"],
+  [".fgx-es-bar > span", "grow"],
+  [".fgx-es-money-bar > span", "growx"]
 ];
 const COUNT_SELECTOR = ".scrap-stat strong, .impact-metric-card strong, [data-count]";
 

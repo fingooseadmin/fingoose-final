@@ -4,14 +4,8 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
-import WorkshopPolaroids from "@/components/WorkshopPolaroids";
-import { workshopEvents } from "@/components/workshopData";
+import { WorkshopStory } from "@/components/EventStory";
 
-const workshopStats = [
-  { value: "90+", label: "students in our workshops", icon: "school" },
-  { value: "03", label: "workshop labs", icon: "book" },
-  { value: "50+", label: "learners in the largest visit", icon: "spark" }
-];
 
 export const metadata = createPageMetadata({
   title: "Financial Literacy Workshops for Schools",
@@ -36,44 +30,30 @@ export default function WorkshopsPage() {
         image="/assets/finn-crisis.webp"
         primary="Request a workshop"
         primaryHref="/contact?interest=workshop#contact-form"
-        secondary="See the field notes"
-        secondaryHref="#workshop-gallery"
+        secondary="Read the story"
+        secondaryHref="#workshop-story"
         tone="orange"
       />
 
-      <section className="section workshop-detail-section" id="workshop-gallery">
+      <section className="section fgx-es-section">
         <div className="container">
           <Reveal className="scrapbook-section-heading">
-            <span className="sticker-label sticker-orange">Workshop gallery</span>
+            <span className="sticker-label sticker-orange">The workshop story</span>
             <div>
-              <h2>Three visits. Three stories to open.</h2>
-              <p>Browse the slideshow, then select a polaroid for the complete field note.</p>
+              <h2>What happens when FinGoose visits.</h2>
+              <p>Our 2025 Crisis Lab series, from the first pilot to our biggest room yet.</p>
             </div>
           </Reveal>
-          <WorkshopPolaroids events={workshopEvents} compact />
-        </div>
-      </section>
-
-      <section className="section workshop-detail-stats">
-        <div className="container workshop-stat-grid">
-          {workshopStats.map((stat, index) => (
-            <Reveal delay={index * 70} key={stat.label}>
-              <article>
-                <Icon name={stat.icon} />
-                <strong>{stat.value}</strong>
-                <span>{stat.label}</span>
-              </article>
-            </Reveal>
-          ))}
+          <WorkshopStory />
         </div>
       </section>
 
       <section className="section workshop-fit-section">
         <div className="container workshop-fit-grid">
           <Reveal>
-            <span className="sticker-label">What a workshop does</span>
-            <h2>Turns vocabulary into judgment.</h2>
-            <p>Each visit combines a realistic prompt, a changing condition, team decisions, and a guided reflection. The goal is not simply recalling a definition—it is explaining why a choice works.</p>
+            <span className="sticker-label">Your school next?</span>
+            <h2>Bring a Crisis Lab to your classroom.</h2>
+            <p>We plan every visit around your students: their grade, the money decision they should practice, and a time that works for you.</p>
           </Reveal>
           <Reveal className="workshop-question-card" delay={90}>
             <span>Quick workshop fit check</span>
