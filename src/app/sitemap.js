@@ -9,6 +9,7 @@ const routes = [
   { path: "/course/", changeFrequency: "monthly", priority: 0.9 },
   { path: "/resources/curriculum/", changeFrequency: "monthly", priority: 0.85 },
   { path: "/resources/books/", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/resources/autism-kit/", changeFrequency: "monthly", priority: 0.7 },
   { path: "/resources/workshops/", changeFrequency: "monthly", priority: 0.85 },
   { path: "/impact/", changeFrequency: "monthly", priority: 0.8 },
   { path: "/about/", changeFrequency: "monthly", priority: 0.75 },

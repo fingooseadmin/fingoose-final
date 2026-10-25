@@ -7,6 +7,7 @@ const inquiryTypes = [
   "School workshop",
   "Library read-aloud",
   "Curriculum PDFs",
+  "Autism learning kit",
   "Partnership",
   "Learning resources",
   "Media or speaking",
@@ -27,6 +28,7 @@ export default function ContactForm() {
     if (interest === "library-visit") setType("Library read-aloud");
     if (interest === "workshop") setType("School workshop");
     if (interest === "partnership") setType("Partnership");
+    if (interest === "autism-kit") setType("Autism learning kit");
   }, []);
 
   const subject = encodeURIComponent(`FinGoose inquiry: ${type}`);

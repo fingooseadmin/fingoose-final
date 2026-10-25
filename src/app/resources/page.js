@@ -50,6 +50,17 @@ const resourceCards = [
     action: "Request a workshop",
     href: "/resources/workshops",
     color: "orange"
+  },
+  {
+    id: "autism-kit",
+    eyebrow: "For IEP classrooms",
+    title: "Autism learning kit",
+    copy: "A box of play money plus teacher-paced, step-by-step lessons where FinGoose plays the cashier.",
+    image: "/assets/finn-talking.webp",
+    status: "In development",
+    action: "See the kit",
+    href: "/resources/autism-kit",
+    color: "mint"
   }
 ];
 
