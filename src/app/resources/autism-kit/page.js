@@ -4,8 +4,8 @@ import PageSeo from "@/components/PageSeo";
 import PageHero from "@/components/PageHero";
 import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
-import KitLessonPlayer from "@/components/KitLessonPlayer";
-import { kitContents } from "@/components/autismKitLessons";
+import KitScene from "@/components/KitScene";
+import { kitContents, lessons } from "@/components/autismKitLessons";
 import "./autism-kit.css";
 
 const description =
@@ -60,8 +60,8 @@ export default function AutismKitPage() {
         image="/assets/finn-talking.webp"
         caption="In development · prototype"
         tone="mint"
-        primary="Try a lesson"
-        primaryHref="#lessons"
+        primary="Open the lessons"
+        primaryHref="/resources/autism-kit/lessons/"
         secondary="Ask about a kit"
         secondaryHref="/contact?interest=autism-kit#contact-form"
       />
@@ -119,14 +119,40 @@ export default function AutismKitPage() {
           <Reveal className="scrapbook-section-heading">
             <span className="sticker-label sticker-orange">Lessons</span>
             <div>
-              <h2>Pick a lesson and press Next.</h2>
+              <h2>Six lessons, from first coins to making change.</h2>
               <p>
-                Put this on the classroom screen. FinGoose plays the cashier, and every “Your turn” is a
-                moment for students to use their kit.
+                Each one opens full screen for the classroom board. FinGoose plays the cashier, and every
+                “Your turn” is a moment for students to use their kit.
               </p>
             </div>
           </Reveal>
-          <KitLessonPlayer />
+          <div className="kit-library">
+            {lessons.map((lesson, index) => {
+              const preview = lesson.steps.find((s) => s.items?.length) || lesson.steps[0];
+              return (
+                <Reveal delay={index * 60} key={lesson.id}>
+                  <Link className={`kit-library-card tone-${lesson.color}`} href={`/resources/autism-kit/lessons/?lesson=${lesson.id}`}>
+                    <span className="kit-library-preview">
+                      <KitScene lesson={lesson} step={{ ...preview, shot: "wide", tray: [] }} revealed={false} />
+                      <span className="kit-library-play" aria-hidden="true"><Icon name="play" size={26} /></span>
+                    </span>
+                    <span className="kit-library-copy">
+                      <span className="kit-lesson-num">Lesson {lesson.number} · {lesson.steps.length} steps</span>
+                      <strong>{lesson.title}</strong>
+                      <span className="kit-lesson-place">{lesson.place}</span>
+                      <span className="kit-lesson-goal">{lesson.goal}</span>
+                    </span>
+                  </Link>
+                </Reveal>
+              );
+            })}
+          </div>
+          <div className="kit-library-cta">
+            <Link className="button button-gold tape-button" href="/resources/autism-kit/lessons/">
+              Open the lesson player <Icon name="arrow" />
+            </Link>
+            <p>Tip: plug in a presentation clicker. Next and Back work just like slides.</p>
+          </div>
         </div>
       </section>
 

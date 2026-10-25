@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
 import KitScene from "./KitScene";
@@ -8,7 +9,7 @@ import { lessons } from "./autismKitLessons";
 
 // Teacher-paced lesson player. The class watches; the teacher drives it with
 // big buttons, the arrow keys, or a presentation clicker.
-export default function KitLessonPlayer() {
+export default function KitLessonPlayer({ app = false }) {
   const [lessonIndex, setLessonIndex] = useState(0);
   const [step, setStep] = useState(0);
   const [showTip, setShowTip] = useState(false);
@@ -42,8 +43,26 @@ export default function KitLessonPlayer() {
     setStep(0);
     setRevealed(false);
     setShowTip(false);
-    playerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (app) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("lesson", lessons[index].id);
+      window.history.replaceState(null, "", url);
+      playerRef.current?.focus({ preventScroll: true });
+    } else {
+      playerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
+
+  // App mode: open the lesson named in ?lesson=, lock page scroll, focus for the clicker
+  useEffect(() => {
+    if (!app) return undefined;
+    const id = new URLSearchParams(window.location.search).get("lesson");
+    const found = lessons.findIndex((l) => l.id === id);
+    if (found > 0) setLessonIndex(found);
+    document.documentElement.classList.add("kit-app-open");
+    playerRef.current?.focus({ preventScroll: true });
+    return () => document.documentElement.classList.remove("kit-app-open");
+  }, [app]);
 
   const readAloud = () => {
     if (!window.speechSynthesis) return;
@@ -93,7 +112,31 @@ export default function KitLessonPlayer() {
 
 
   return (
-    <div className="kit-lessons">
+    <div className={app ? "kit-app" : "kit-lessons"}>
+      {app ? (
+        <nav className="kit-app-bar" aria-label="Lessons">
+          <Link className="kit-app-exit" href="/resources/autism-kit/" data-cursor-plain>
+            <Icon name="arrow" size={18} /> Kit info
+          </Link>
+          <div className="kit-app-tabs" role="tablist">
+            {lessons.map((item, index) => (
+              <button
+                key={item.id}
+                type="button"
+                role="tab"
+                aria-selected={index === lessonIndex}
+                className={`kit-app-tab tone-${item.color} ${index === lessonIndex ? "is-active" : ""}`}
+                onClick={() => pickLesson(index)}
+                data-cursor-plain
+              >
+                <b>{item.number}</b>
+                <span>{item.title}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
+      ) : null}
+      {app ? null : (
       <div className="kit-lesson-picker" role="list" aria-label="Choose a lesson">
         {lessons.map((item, index) => (
           <button
@@ -112,6 +155,7 @@ export default function KitLessonPlayer() {
           </button>
         ))}
       </div>
+      )}
 
       <section
         ref={playerRef}

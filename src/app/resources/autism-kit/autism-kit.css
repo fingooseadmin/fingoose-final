@@ -1070,3 +1070,175 @@ body.site-layout .autism-kit-page .kit-designed-section {
 .ks-wallet-inside .ks-coin { --cd: 6.2 !important; }
 .ks-wallet-inside .ks-bill { font-size: 1.15cqw; }
 @media (max-width: 760px) { .ks-wallet-view { justify-content: center; padding-right: 0; } .ks-wallet { width: 80%; } }
+
+.sr-only { clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px; }
+
+/* =========================================================
+   Info page: lesson library
+   ========================================================= */
+.kit-library {
+  display: grid;
+  gap: clamp(16px, 2vw, 24px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(24px, 3vw, 36px);
+}
+
+.kit-library-card {
+  --tone: #dfe5ff;
+  background: var(--tone);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 #ffd24d;
+  color: var(--kit-navy);
+  display: grid;
+  height: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kit-library-card:hover { box-shadow: 9px 9px 0 #ff8209; transform: translate(-2px, -3px); }
+.kit-library-card:focus-visible { outline: 3px solid #ffd24d; outline-offset: 4px; }
+
+.kit-library-preview { display: block; pointer-events: none; position: relative; }
+.kit-library-preview .ks-shot-label { display: none; }
+.kit-library-preview .ks-scene { border-bottom: 3px solid rgba(16, 22, 63, 0.15); }
+
+.kit-library-play {
+  align-items: center;
+  background: #ff8209;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(16, 22, 63, 0.3);
+  color: #fff;
+  display: flex;
+  height: 54px;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: transform 0.2s ease;
+  width: 54px;
+  z-index: 12;
+}
+
+.kit-library-play svg { fill: currentColor; }
+.kit-library-card:hover .kit-library-play { transform: translate(-50%, -50%) scale(1.08); }
+.kit-library-copy { display: grid; gap: 3px; padding: 14px 18px 18px; }
+.kit-library-copy strong { font-size: 1.2rem; font-weight: 900; }
+
+.kit-library-cta { align-items: center; display: flex; flex-wrap: wrap; gap: 14px 22px; justify-content: center; margin-top: clamp(28px, 3.4vw, 44px); }
+body.site-layout .kit-library-cta p { color: rgba(255, 255, 255, 0.85) !important; margin: 0; }
+
+@media (max-width: 980px) { .kit-library { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .kit-library { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   Lessons page: full-screen app
+   ========================================================= */
+html.kit-app-open, html.kit-app-open body { overflow: hidden !important; }
+html.kit-app-open .cursor-aura, html.kit-app-open .site-footer { display: none !important; }
+
+.kit-app {
+  background:
+    radial-gradient(ellipse 40% 45% at 6% 8%, rgba(255, 210, 77, 0.25), transparent 70%),
+    radial-gradient(ellipse 40% 45% at 96% 92%, rgba(255, 130, 9, 0.22), transparent 70%),
+    linear-gradient(165deg, #1f6f53, #134f3a);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100dvh;
+  inset: 0;
+  padding: 12px clamp(12px, 2vw, 24px) 12px;
+  position: fixed;
+  z-index: 30000;
+}
+
+.kit-app-bar { align-items: center; display: flex; gap: 14px; min-width: 0; }
+
+.kit-app-exit {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 99px;
+  color: #fff;
+  display: inline-flex;
+  flex: none;
+  font-size: 0.9rem;
+  font-weight: 800;
+  gap: 6px;
+  padding: 8px 14px;
+  text-decoration: none;
+}
+
+.kit-app-exit svg { transform: scaleX(-1); }
+.kit-app-exit:hover { background: rgba(255, 255, 255, 0.24); }
+
+.kit-app-tabs { display: flex; flex: 1; gap: 8px; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.kit-app-tabs::-webkit-scrollbar { display: none; }
+
+.kit-app-tab {
+  --tone: #dfe5ff;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex: 1 0 auto;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  gap: 8px;
+  padding: 7px 12px;
+  white-space: nowrap;
+}
+
+.kit-app-tab b { align-items: center; background: rgba(255, 255, 255, 0.2); border-radius: 50%; display: inline-flex; flex: none; font-size: 0.8rem; height: 24px; justify-content: center; width: 24px; }
+.kit-app-tab:hover { background: rgba(255, 255, 255, 0.2); }
+.kit-app-tab.is-active { background: var(--tone); color: var(--kit-navy); border-color: #ffd24d; }
+.kit-app-tab.is-active b { background: #ff8209; color: #fff; }
+
+/* the player fills what's left of the screen */
+.kit-app .kit-player {
+  box-shadow: 8px 8px 0 #ffd24d;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  padding: clamp(12px, 1.6vw, 20px) clamp(14px, 2vw, 26px);
+}
+
+.kit-app .kit-player:focus-visible { box-shadow: 8px 8px 0 #ffd24d; }
+.kit-app .kit-player-top { align-items: center; }
+body.site-layout .kit-app .kit-player-top h3 { font-size: clamp(1.3rem, 2vw, 1.9rem); }
+.kit-app .kit-steps { margin: 10px 0; }
+
+.kit-app .kit-stage {
+  align-self: center;
+  flex: 1 1 auto;
+  max-width: 100%;
+  min-height: 0;
+  /* keep 16:9 inside the leftover height */
+  width: min(100%, calc((100dvh - 290px) * 16 / 9));
+}
+
+.kit-app .kit-controls { margin-top: 10px; }
+.kit-app .kit-step-count { margin: 6px 0 0; }
+
+/* true browser full screen on top of that */
+.kit-app .kit-player:fullscreen { padding: 20px 28px; }
+.kit-app .kit-player:fullscreen .kit-stage { width: min(100%, calc((100vh - 240px) * 16 / 9)); }
+
+@media (max-width: 760px) {
+  .kit-app { overflow-y: auto; height: 100dvh; }
+  .kit-app-exit span, .kit-app-tab span { display: none; }
+  .kit-app-tab { flex: 1 0 44px; justify-content: center; }
+  .kit-app .kit-player { flex: none; }
+  .kit-app .kit-stage { width: 100%; }
+}
+body.site-layout .ks-screen-lines p { font-size: 1.05cqw !important; line-height: 1.35 !important; }
+body.site-layout .ks-screen-lines p.is-total { font-size: 1.35cqw !important; }
+body.site-layout .ks-screen p.ks-screen-math { font-size: 0.78cqw !important; line-height: 1.25 !important; }
+.autism-kit-page .kit-app .kit-player { box-shadow: 8px 8px 0 #ffd24d; }
