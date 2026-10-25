@@ -3,50 +3,8 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
-import { formatPrice, lessons } from "./autismKitLessons";
-
-const COINS = {
-  penny: { label: "1¢", name: "penny", size: 58, tone: "copper" },
-  nickel: { label: "5¢", name: "nickel", size: 66, tone: "silver" },
-  dime: { label: "10¢", name: "dime", size: 54, tone: "silver" },
-  quarter: { label: "25¢", name: "quarter", size: 76, tone: "silver" }
-};
-
-function Money({ kind }) {
-  if (kind === "$1" || kind === "$5") {
-    return (
-      <span className={`kit-bill ${kind === "$5" ? "is-five" : ""}`} aria-label={`${kind} bill`}>
-        <span className="kit-bill-corner">{kind.slice(1)}</span>
-        <strong>{kind}</strong>
-        <span className="kit-bill-corner is-end">{kind.slice(1)}</span>
-      </span>
-    );
-  }
-  const coin = COINS[kind];
-  if (!coin) return null;
-  return (
-    <span className="kit-coin-wrap">
-      <span className={`kit-coin is-${coin.tone}`} style={{ "--size": `${coin.size}px` }} aria-label={coin.name}>
-        {coin.label}
-      </span>
-      <small>{coin.name}</small>
-    </span>
-  );
-}
-
-function Tray({ money, label }) {
-  if (!money?.length) return null;
-  return (
-    <div className="kit-tray">
-      {label ? <span className="kit-tray-label">{label}</span> : null}
-      <div className="kit-tray-money">
-        {money.map((kind, index) => (
-          <Money kind={kind} key={`${kind}-${index}`} />
-        ))}
-      </div>
-    </div>
-  );
-}
+import KitScene from "./KitScene";
+import { lessons } from "./autismKitLessons";
 
 // Teacher-paced lesson player. The class watches; the teacher drives it with
 // big buttons, the arrow keys, or a presentation clicker.
@@ -133,8 +91,6 @@ export default function KitLessonPlayer() {
     if (event.key === "Escape" && full && !document.fullscreenElement) setFull(false);
   };
 
-  const trayMoney = revealed && current.reveal?.tray ? current.reveal.tray : current.tray;
-  const mathLine = revealed && current.reveal?.math ? current.reveal.math : current.math;
 
   return (
     <div className="kit-lessons">
@@ -189,43 +145,26 @@ export default function KitLessonPlayer() {
         </ol>
 
         <div className="kit-stage" key={`${lesson.id}-${step}`}>
-          <div className="kit-cashier">
-            <div className="kit-bubble">
-              <p>{current.say}</p>
+          <KitScene lesson={lesson} step={current} revealed={revealed} />
+
+          <div className="kit-bubble">
+            <span className="kit-bubble-avatar">
+              <Image src="/assets/finn-talking.webp" alt="" width={1200} height={1200} sizes="64px" />
+            </span>
+            <p>{current.say}</p>
+          </div>
+
+          {revealed && current.reveal?.text ? <p className="kit-answer">{current.reveal.text}</p> : null}
+
+          {current.doIt ? (
+            <div className="kit-your-turn">
+              <span className="kit-hand" aria-hidden="true">✋</span>
+              <div>
+                <strong>Your turn</strong>
+                <p>{current.doIt}</p>
+              </div>
             </div>
-            <Image src="/assets/finn-talking.webp" alt="FinGoose the cashier" width={1200} height={1200} sizes="220px" />
-            <span className="kit-name-tag">FinGoose · Cashier</span>
-          </div>
-
-          <div className="kit-counter">
-            {current.items?.length ? (
-              <div className="kit-items">
-                {current.items.map((item) => (
-                  <div className={`kit-item ${item.bought ? "is-bought" : ""}`} key={item.name}>
-                    <span className="kit-item-emoji" aria-hidden="true">{item.emoji}</span>
-                    <span className="kit-item-name">{item.name}</span>
-                    <span className="kit-price-tag">{formatPrice(item.price)}</span>
-                    {item.bought ? <span className="kit-bought">✓ Paid</span> : null}
-                  </div>
-                ))}
-              </div>
-            ) : null}
-
-            <Tray money={trayMoney} label={revealed && current.reveal?.tray ? "Answer" : current.items ? "On the counter" : null} />
-
-            {mathLine ? <p className="kit-math">{mathLine}</p> : null}
-            {revealed && current.reveal?.text ? <p className="kit-answer">{current.reveal.text}</p> : null}
-
-            {current.doIt ? (
-              <div className="kit-your-turn">
-                <span className="kit-hand" aria-hidden="true">✋</span>
-                <div>
-                  <strong>Your turn</strong>
-                  <p>{current.doIt}</p>
-                </div>
-              </div>
-            ) : null}
-          </div>
+          ) : null}
         </div>
 
         {showTip && current.tip ? (
