@@ -21,7 +21,8 @@ const resourceLinks = [
   { href: "/resources/curriculum", label: "Curriculum & classroom tools", icon: "school" },
   { href: "/resources/books", label: "Children’s books", icon: "book" },
   { href: "/resources/workshops", label: "In-person workshops", icon: "chart" },
-  { href: "/course", label: "Online course", icon: "play" }
+  { href: "/course", label: "Online course", icon: "play" },
+  { href: "/resources/autism-kit", label: "Autism learning kit", icon: "heart", highlight: true }
 ];
 
 export default function SiteHeader() {
@@ -197,7 +198,7 @@ export default function SiteHeader() {
             <div className="resource-dropdown">
               <span className="resource-dropdown-label">Choose a resource</span>
               {resourceLinks.map((resource) => (
-                <Link href={resource.href} key={resource.href}>
+                <Link href={resource.href} key={resource.href} className={resource.highlight ? "resource-highlight" : undefined}>
                   <span><Icon name={resource.icon} size={16} /></span>
                   {resource.label}
                   <Icon name="arrow" size={14} />

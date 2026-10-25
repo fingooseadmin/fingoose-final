@@ -1183,3 +1183,23 @@ body.site-layout .wwd-snap-3 { right: 0; top: 12%; width: 50%; }
     max-width: 520px;
   }
 }
+
+/* Resources menu: highlighted Autism learning kit tab (green). */
+body.site-layout .page-selector .resource-dropdown a.resource-highlight {
+  background: #d6f2e4;
+  box-shadow: inset 0 0 0 2px #3fae86;
+  color: #145c3c;
+  font-weight: 800;
+}
+
+body.site-layout .page-selector .resource-dropdown a.resource-highlight > span {
+  background: #3fae86;
+  color: #fff;
+}
+
+body.site-layout .page-selector .resource-dropdown a.resource-highlight:hover,
+body.site-layout .page-selector .resource-dropdown a.resource-highlight:focus-visible {
+  background: #2f9a74;
+  box-shadow: none;
+  color: #fff;
+}
