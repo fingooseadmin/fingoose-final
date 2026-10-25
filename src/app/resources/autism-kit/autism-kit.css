@@ -1242,3 +1242,62 @@ body.site-layout .ks-screen-lines p { font-size: 1.05cqw !important; line-height
 body.site-layout .ks-screen-lines p.is-total { font-size: 1.35cqw !important; }
 body.site-layout .ks-screen p.ks-screen-math { font-size: 0.78cqw !important; line-height: 1.25 !important; }
 .autism-kit-page .kit-app .kit-player { box-shadow: 8px 8px 0 #ffd24d; }
+
+/* ---- real footage steps ---- */
+.kit-video-scene { background: #0d1f18; }
+.kit-video-scene video { display: block; height: 100%; inset: 0; object-fit: cover; position: absolute; width: 100%; }
+.kit-video-scene video::cue { background: rgba(16, 22, 63, 0.82); color: #fff; font-family: Poppins, sans-serif; font-size: 1.1em; }
+
+.kit-video-start {
+  align-items: center;
+  background: #ff8209;
+  border: 4px solid #fff;
+  border-radius: 99px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 1.2rem;
+  font-weight: 900;
+  gap: 8px;
+  left: 50%;
+  padding: 12px 26px 12px 18px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+}
+
+.kit-video-start svg { fill: currentColor; }
+
+.kit-filmed {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 99px;
+  bottom: 3%;
+  color: #145c3c;
+  font-family: "Caveat", cursive;
+  font-size: clamp(0.95rem, 1.5cqw, 1.3rem);
+  font-weight: 700;
+  padding: 3px 14px;
+  position: absolute;
+  right: 2%;
+  z-index: 11;
+}
+
+/* app mode: the stage takes the leftover height and stays 16:9 */
+@media (min-width: 761px) {
+  .kit-app .kit-stage {
+    aspect-ratio: 16 / 9;
+    flex: 1 1 0;
+    height: auto;
+    max-width: 100%;
+    min-height: 0;
+    width: auto;
+  }
+  .kit-app .kit-stage .ks-scene { height: 100%; width: 100%; }
+  .kit-app .kit-player:fullscreen .kit-stage { width: auto; }
+}
+@media (min-width: 761px) and (max-aspect-ratio: 4/3) {
+  .kit-app .kit-stage { flex: none; width: 100%; }
+}

@@ -3,6 +3,8 @@
 // Lesson fields: scene ("grocery" | "cafeteria" | "sandwich" | "bank"),
 // and optional backdrop: "/assets/kit/..." to use custom cartoon art
 // instead of the drawn background.
+// Optional filmedAt: "Store Name, Town" credits the business when a lesson
+// uses real footage.
 //
 // Each lesson is a short, teacher-paced walkthrough. The teacher moves
 // through it one step at a time (Next / Back, arrow keys, or a clicker) and
@@ -22,6 +24,12 @@
 //   tip      – a note just for the teacher (hidden until "Teacher tip")
 //   reveal   – revealed only when the teacher presses "Show answer":
 //              { tray, math, text }
+//   video    – optional real footage for this step, e.g.
+//              "/assets/kit/videos/buy-an-apple-01.mp4". The clip plays once
+//              when the step opens, freezes on its last frame, and only then
+//              shows "Your turn". Steps without a video use the cartoon.
+//   poster   – optional still image shown before the clip loads
+//   captions – optional .vtt captions file for the clip
 
 export const kitContents = [
   { name: "Play wallet", emoji: "👛", note: "Velcro wallet that holds bills and a coin pouch." },

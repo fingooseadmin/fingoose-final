@@ -17,6 +17,10 @@ export default function KitLessonPlayer({ app = false }) {
   const [speaking, setSpeaking] = useState(false);
   const [full, setFull] = useState(false);
   const playerRef = useRef(null);
+  const videoRef = useRef(null);
+  const [videoDone, setVideoDone] = useState(true);
+  const [videoPaused, setVideoPaused] = useState(true);
+  const [needsTap, setNeedsTap] = useState(false);
 
   const lesson = lessons[lessonIndex];
   const current = lesson.steps[step];
@@ -97,6 +101,31 @@ export default function KitLessonPlayer({ app = false }) {
 
   useEffect(() => () => stopSpeaking(), []);
 
+  // Real footage: play the step's clip once, then hold on the last frame.
+  const playClip = useCallback(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    setNeedsTap(false);
+    setVideoDone(false);
+    v.currentTime = 0;
+    const attempt = v.play();
+    if (attempt?.catch) attempt.catch(() => setNeedsTap(true));
+  }, []);
+
+  useEffect(() => {
+    setVideoDone(!current.video);
+    setNeedsTap(false);
+    if (current.video) playClip();
+  }, [current, playClip]);
+
+  const toggleClip = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.ended) return playClip();
+    if (v.paused) v.play().catch(() => setNeedsTap(true));
+    else v.pause();
+  };
+
   const onKeyDown = (event) => {
     if (["ArrowRight", "PageDown", " "].includes(event.key)) {
       event.preventDefault();
@@ -107,6 +136,7 @@ export default function KitLessonPlayer({ app = false }) {
       go(-1);
     }
     if (event.key.toLowerCase() === "a" && current.reveal) setRevealed((r) => !r);
+    if (event.key.toLowerCase() === "r" && current.video) playClip();
     if (event.key === "Escape" && full && !document.fullscreenElement) setFull(false);
   };
 
@@ -189,7 +219,34 @@ export default function KitLessonPlayer({ app = false }) {
         </ol>
 
         <div className="kit-stage" key={`${lesson.id}-${step}`}>
-          <KitScene lesson={lesson} step={current} revealed={revealed} />
+          {current.video ? (
+            <div className="ks-scene kit-video-scene">
+              <video
+                ref={videoRef}
+                src={current.video}
+                poster={current.poster}
+                playsInline
+                preload="auto"
+                onPlay={() => setVideoPaused(false)}
+                onPause={() => setVideoPaused(true)}
+                onEnded={() => {
+                  setVideoDone(true);
+                  setVideoPaused(true);
+                }}
+              >
+                {current.captions ? <track kind="captions" src={current.captions} srcLang="en" label="English" default /> : null}
+              </video>
+              {needsTap ? (
+                <button type="button" className="kit-video-start" onClick={playClip} data-cursor-plain>
+                  <Icon name="play" size={34} />
+                  <span>Play clip</span>
+                </button>
+              ) : null}
+              {lesson.filmedAt ? <span className="kit-filmed">Filmed at {lesson.filmedAt}</span> : null}
+            </div>
+          ) : (
+            <KitScene lesson={lesson} step={current} revealed={revealed} />
+          )}
 
           <div className="kit-bubble">
             <span className="kit-bubble-avatar">
@@ -200,7 +257,7 @@ export default function KitLessonPlayer({ app = false }) {
 
           {revealed && current.reveal?.text ? <p className="kit-answer">{current.reveal.text}</p> : null}
 
-          {current.doIt ? (
+          {current.doIt && videoDone ? (
             <div className="kit-your-turn">
               <span className="kit-hand" aria-hidden="true">✋</span>
               <div>
@@ -224,6 +281,16 @@ export default function KitLessonPlayer({ app = false }) {
           </button>
 
           <div className="kit-tools">
+            {current.video ? (
+              <>
+                <button type="button" className="kit-tool" onClick={playClip} data-cursor-plain>
+                  Replay clip
+                </button>
+                <button type="button" className="kit-tool" onClick={toggleClip} data-cursor-plain>
+                  {videoPaused ? "Play" : "Pause"}
+                </button>
+              </>
+            ) : null}
             <button type="button" className={`kit-tool ${speaking ? "is-on" : ""}`} onClick={readAloud} data-cursor-plain>
               {speaking ? "Stop reading" : "Read aloud"}
             </button>
@@ -259,7 +326,7 @@ export default function KitLessonPlayer({ app = false }) {
           )}
         </footer>
         <p className="kit-step-count">
-          Step {step + 1} of {lesson.steps.length} · use ← → or a clicker to move, A to show the answer
+          Step {step + 1} of {lesson.steps.length} · use ← → or a clicker to move, A to show the answer{current.video ? ", R to replay the clip" : ""}
         </p>
       </section>
     </div>
